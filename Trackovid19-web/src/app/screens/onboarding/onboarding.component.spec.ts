@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OnboardingComponent } from './onboarding.component';
+import { CarouselComponent } from './carousel.component';
 
 describe('OnboardingComponent', () => {
   let component: OnboardingComponent;
@@ -8,7 +9,7 @@ describe('OnboardingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingComponent ]
+      declarations: [ OnboardingComponent, CarouselComponent ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,33 @@
 <p>Onboarding is working</p>
 <!-- <onboarding-frame></onboarding-frame> -->
 <div class="onboarding-container">
-    <app-onboarding-frame></app-onboarding-frame> 
+     <!-- <carousel>
+        <ng-container *ngFor="let frame of frames;">
+          <ng-container *carouselItem>
+            <div class="item">{{frame.info.title}}</div>
+          </ng-container>
+        </ng-container>
+      </carousel>  -->
+
+      <carousel>
+        <ng-container *ngFor="let frame of frames;">
+          <ng-container *carouselItem>
+            <div class="frame-container">
+                {{frame.info.title}}
+                    <div class="content-container">
+                        <h1>Image</h1>
+                    </div>
+                
+                    <div class="content-container">
+                        <h1>Slider</h1>
+                    </div>
+                
+                    <div class="content-container">
+                        <h3>{{frame.info.title}}</h3>
+                        <span>{{frame.info.information}}</span>
+                    </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </carousel> 
 </div>

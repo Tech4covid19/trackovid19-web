@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +16,8 @@ import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
 //Onboarding Imports
 import { OnboardingComponent } from './screens/onboarding/onboarding.component';
-
+import { CarouselComponent, CarouselItemElement } from "./screens/onboarding/carousel.component";
+import { CarouselItemDirective } from './screens/onboarding/carousel-item.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +25,13 @@ import { OnboardingComponent } from './screens/onboarding/onboarding.component';
     LoginComponent,
     ChangeStateComponent,
     OnboardingComponent,
+    CarouselComponent,
+    CarouselItemDirective,
+    CarouselItemElement,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
     SharedModule,
