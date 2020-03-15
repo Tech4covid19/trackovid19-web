@@ -1,0 +1,18 @@
+:host .status_btn {
+    background-color: #fa6400;
+    border-radius: 10px;
+    -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
+    -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
+    box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
+    margin-top: auto;
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    max-height: 55px;
+    p {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    }
+}

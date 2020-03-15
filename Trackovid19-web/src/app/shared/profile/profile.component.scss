@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+}
+
+.avatar {
+    display: flex;
+
+    img {
+    width: 100%;
+    height: auto;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50px;
+    }
+}
+.profile_name {
+    width: 100%;
+    margin-top: auto;
+    img {
+        width: 100%;
+        height: auto;
+        max-width: 8px;
+        max-height: 8px;
+        border-radius: 50px;
+        margin-right: 5px;
+    }
+}
+.username {
+    margin-left: 30px;
+    p {
+        line-height: .5;
+        font-weight: 700;
+    }
+}
+.status {
+    margin-left: 30px;
+    span {
+        color: #798794;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.08px;
+    }
+}
