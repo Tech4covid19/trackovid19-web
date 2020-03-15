@@ -3,6 +3,12 @@
     flex-direction: column;
     flex: 1;
     min-height: 100%;
+
+    .wrapper {
+        background: url("~src/assets/img/rightIllustration@2x.png") no-repeat;
+        background-size: contain;
+        height: 100%
+    }
     .header {
         margin-top: 15px;
 
@@ -11,7 +17,7 @@
             height: auto;
         }
     }
-    
+
 
     .login_btn {
         display: flex;
@@ -52,5 +58,8 @@
         .login_text{
 
         }
+    }
+    .h-100 {
+        height: 100%;
     }
 }

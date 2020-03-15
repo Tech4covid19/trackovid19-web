@@ -1,12 +1,20 @@
-<div class="header">
-    <img src="assets/dgs.png">
-  </div>
-<div class="login_btn" routerLink="/profile">
-    <div class="fb">
-        <img src="assets/facebook.svg">
-    </div>
-    <div class="login_text" >
-        <p>Log in with Facebook</p>
+<div class="h-100" fxLayout="row" fxLayoutAlign="center">
+    <div class="h-100" fxFlex="33">
+        <div class="wrapper" fxLayout="column">
+            <div class="header">
+                <img src="assets/img/dgs.png">
+            </div>
+            <div class="logo">
+            </div>
+            <div class="login_btn button-elevation cursor-pointer" (click)="onFacebookLogin()">
+                <div class="fb">
+                    <img src="assets/img/facebook.svg">
+                </div>
+                <div class="login_text">
+                    <p>Log in with Facebook</p>
+                </div>
+            </div>
+            <p class="text-grey text-center">Termos e condições</p>
+        </div>
     </div>
 </div>
-

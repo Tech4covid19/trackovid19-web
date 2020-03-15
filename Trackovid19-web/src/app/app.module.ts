@@ -12,13 +12,15 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
+import { MainComponent } from './screens/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ChangeStateComponent
+    ChangeStateComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
