@@ -1,4 +1,9 @@
 <app-profile></app-profile>
-<app-profile-status></app-profile-status>
-<app-status-btn routerLink="/change-state"></app-status-btn>
-<app-location-status></app-location-status>
+<div class="profile_status_container">
+	<app-profile-status fxFlex="49"></app-profile-status>
+	<app-profile-status fxFlexOffset="2" fxFlex="49"></app-profile-status>
+</div>
+<div class="main-page-container">
+	<app-status-btn routerLink="/change-state"></app-status-btn>
+	<app-location-status></app-location-status>
+</div>
