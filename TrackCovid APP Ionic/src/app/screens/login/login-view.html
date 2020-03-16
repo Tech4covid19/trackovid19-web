@@ -1,0 +1,34 @@
+<div class="dgs-logo"></div>
+<ion-grid class="no-padding-margin">
+    
+    <ion-row class="ion-align-items-center h60">
+        <ion-col 
+            class="hidden-xs" 
+            size-xs="0" size-sm="5" size-md="8" size-xl="8" size-lg="6">
+        </ion-col>
+        <ion-col 
+            size-xs="12" size-sm="7" size-md="4" size-xl="4" size-lg="6"
+            class="fill-parent no-padding-margin">
+            <div class="login-background center-center">
+                <div class="tracovid-logo m-top-left-15"></div>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center login-button-wrapper">
+        <ion-col class="center-center f-column">
+            <div 
+                (click)="onFacebookLogin()" 
+                class="login_btn button-elevation cursor-pointer mx-auto">
+                <img class="my-auto" src="assets/img/facebook.svg">
+                <h5 class="login-text my-auto">
+                    Log in with Facebook
+                </h5>
+            </div>
+            <p 
+                (click)="showTerms()"
+                class="terms-text">
+                Terms and conditions
+            </p>
+        </ion-col>
+    </ion-row>
+</ion-grid>

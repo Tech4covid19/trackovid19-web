@@ -1,0 +1,98 @@
+:host {
+  background-color: white;
+
+  .no-padding-margin {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .h60 {
+    height: 60%;
+    max-height: 430px;
+  }
+
+  .login-button-wrapper {
+    padding: 52px;
+    height: 40%;
+  }
+
+  @media screen and (max-width: 767px) {
+    .hidden-xs {
+      display: none;
+    }
+  }
+
+  .fill-parent {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-background {
+    background: url("../../../assets/img/illustrations/login/background@2x.png")
+      no-repeat top right;
+    background-size: contain;
+    height: 100%;
+  }
+
+  .center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .f-column {
+    flex-direction: column;
+  }
+
+  .dgs-logo {
+    background: url("../../../assets/img/dgs_logo/bitmap@2x.png") no-repeat top
+      left;
+    width: 116px;
+    height: 30pt;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    margin-left: 10pt;
+    margin-top: 10pt;
+  }
+
+  .tracovid-logo {
+    background: url("../../../assets/img/logo/group37@2x.png") no-repeat top
+      center;
+    background-size: contain;
+    width: 256px;
+    height: 91px;
+  }
+
+  .m-top-left-15 {
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
+  .terms-text {
+    font-size: 12px;
+    color: rgb(121, 135, 148);
+  }
+
+  .login_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+
+    .login-text {
+      font-size: 13px;
+      color: #ffffff;
+      margin-left: 20px;
+    }
+
+    img {
+      max-width: 20px;
+      max-height: 20px;
+    }
+  }
+}
