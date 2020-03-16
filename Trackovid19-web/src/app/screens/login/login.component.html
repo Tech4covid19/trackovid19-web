@@ -1,19 +1,20 @@
 <div class="h-100" fxLayout="row" fxLayoutAlign="center">
-    <div class="h-100 w-100 p-relative" fxFlex.xs="45" fxFlex.gt-sm="33">
+    <div class="h-100" fxFlex="33">
         <div class="wrapper" fxLayout="column">
             <div class="header">
-                <!--img src="assets/img/dgs_logo/bitmap@2x.png" alt="dgs"-->
+                <img src="assets/img/dgs.png">
             </div>
-            <div class="logo my-auto mx-auto">
-                <img src="assets/img/logo/group37.png"  alt="logo">
+            <div class="logo">
             </div>
-            <div (click)="onFacebookLogin()" class="login_btn button-elevation cursor-pointer mx-auto">
-                <img class="my-auto" src="assets/img/facebook.svg">
-                <h5 class="login-text my-auto">
-                    Log in with Facebook
-                </h5>
+            <div class="login_btn button-elevation cursor-pointer" (click)="onFacebookLogin()">
+                <div class="fb">
+                    <img src="assets/img/facebook.svg">
+                </div>
+                <div class="login_text">
+                    <p>Log in with Facebook</p>
+                </div>
             </div>
-            <p class="text-grey text-center mx-auto mt-0">Termos e condições</p>
+            <p class="text-grey text-center">Termos e condições</p>
         </div>
     </div>
 </div>
