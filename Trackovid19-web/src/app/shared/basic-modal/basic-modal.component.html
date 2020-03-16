@@ -1,0 +1,12 @@
+<div [class.open]="opened" [class.closing]="closing" class="modal-wrapper">
+    <div [class.extra-margin]="closable" class="modal w-100" fxLayout="column">
+        <div *ngIf="closable" class="modal-header" fxLayout="row" (click)="close()">
+            <div class="close-button ml-auto">
+                <img alt="close" src="assets/img/icons/cross.svg">
+            </div>
+        </div>
+        <div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
