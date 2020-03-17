@@ -23,8 +23,8 @@ export class GeolocalizationService {
        alert('Geolocation is not supported by your browser');
     } else {
         console.log( 'Locating…');
-      //navigator.geolocation.getCurrentPosition(this.success, this.error);
-      navigator.geolocation.watchPosition(this.success, this.error, this.options);
+      navigator.geolocation.getCurrentPosition(this.success, this.error);
+      //navigator.geolocation.watchPosition(this.success, this.error, this.options);
     }
   
   }
