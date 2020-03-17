@@ -11,6 +11,7 @@ import { ChangeStateComponent } from './screens/change-state/change-state.compon
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
+import { PostCodeComponent } from './screens/post-code/post-code.component';
 
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,13 +25,10 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     LoginComponent,
     ChangeStateComponent,
     MainComponent,
-  
-
-
+    PostCodeComponent
   ],
   imports: [
-    BrowserModule,
-    
+    BrowserModule,  
     AppRoutingModule,
     FlexLayoutModule,
     OnBoardingModule,

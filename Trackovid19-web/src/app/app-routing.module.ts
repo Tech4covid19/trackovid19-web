@@ -3,25 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
-
-import { OnboardingComponent } from './screens/onboarding/onboarding.component';
+import {MainComponent} from './screens/main/main.component';
+import { PostCodeComponent } from './screens/post-code/post-code.component';
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'intro-steps', component: OnboardingComponent},
-  // {
-  //   path: '',
-  //   // auth guard
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: HomeComponent
-  //     }
-  //   ]
-  // },
+  {path: 'login', component: LoginComponent},
+  {
+    path: '',
+    // auth guard
+    component: MainComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      }
+    ]
+  },
+  {path: 'change-state', component: ChangeStateComponent},
+  {path: 'post-code', component: PostCodeComponent}
 
-  {path: 'change-state', component: ChangeStateComponent}
+
 ];
 
 @NgModule({
