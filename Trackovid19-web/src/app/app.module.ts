@@ -1,18 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
+import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-import { environment } from '../environments/environment';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { SharedModule } from './shared/shared.module';
+import { ChangeStateComponent } from './screens/change-state/change-state.component';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
-import { ChangeStateComponent } from './screens/change-state/change-state.component';
 import { MainComponent } from './screens/main/main.component';
+
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
@@ -46,5 +45,6 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }}
   ],
   bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+export class AppModule {}
