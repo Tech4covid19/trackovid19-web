@@ -63,11 +63,11 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: tech4covid19
-        IMAGE_TAG: $PROJECT-${{ steps.buildnumber.outputs.build_number }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        IMAGE_TAG="$PROJECT-$BUILD_NUMBER"
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $PROJECT
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
