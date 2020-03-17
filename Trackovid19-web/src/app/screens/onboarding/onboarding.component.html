@@ -1,0 +1,34 @@
+
+<div class="onboarding-container">
+  <img [src]="frames[0].logo">
+
+      <carousel>
+        <ng-container *ngFor="let frame of frames;">
+          
+          <ng-container *carouselItem>
+                
+            <div class="frame-container">
+                 
+                    <div class="content-container">
+                       
+                    </div>
+                
+                    <div class="content-container">
+                      <img [src]="frame.slider">
+                    <div style="width: 300px; height: 10px; flex-direction: row;display: flex; justify-content: center; align-items: center;">
+                      <div class="dot" [ngClass]="{'active': 1 == frame.id}"></div>
+                      <div class="dot" [ngClass]="{'active': 2 == frame.id}"></div>
+                      <div class="dot" [ngClass]="{'active': 3 == frame.id}"></div>
+                    </div>
+                    
+                    </div>
+               
+                    <div class="content-container">
+                        <h3>{{frame.info.title}}</h3>
+                        <span [innerHtml]="frame.info.information"></span>
+                    </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </carousel> 
+</div>
