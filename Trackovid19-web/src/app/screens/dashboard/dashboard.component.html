@@ -1,0 +1,22 @@
+<app-sidebar></app-sidebar>
+<div class="main">
+    <app-header-menu></app-header-menu>
+    <h3>Estado na Minha Área</h3>
+    <div class="info">
+     
+        <app-card [data]="cardConfig.card1" fxFlex="33"></app-card>
+        <app-card [data]="cardConfig.card2" fxFlex="33"></app-card>
+        <app-card [data]="cardConfig.card3" fxFlex="33"></app-card>
+        <app-card [data]="cardConfig.card4" fxFlex="33"></app-card>
+        <app-card [data]="cardConfig.card5" fxFlex="33"></app-card>
+    </div>
+    <h3>Isolamento</h3>
+    <div class="info">
+     
+        <app-card fxFlex="33"></app-card>
+        <app-card fxFlex="33"></app-card>
+        <app-card fxFlex="33"></app-card>
+
+    </div>
+    <router-outlet name="dash"></router-outlet>
+</div>

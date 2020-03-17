@@ -1,0 +1,34 @@
+:host{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100%;
+    line-height: 0.6;
+}
+
+.main {
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    padding-left: 106px;
+    padding-right: 176px;
+    width: -webkit-fill-available;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 32px 24px;
+        & ::ng-deep app-card .card {
+           
+            background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)), linear-gradient(90deg, #FDFBFB 0%, #EBEDEE 100%);
+        }
+        & app-card { 
+            display: flex;
+            padding: 10px;
+            height: 226px;
+            
+        }
+    }
+  }
+  

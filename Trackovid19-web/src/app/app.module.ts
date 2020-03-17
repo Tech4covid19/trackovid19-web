@@ -13,6 +13,9 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
 import { MainComponent } from './screens/main/main.component';
+import { DashboardComponent } from './screens/dashboard/dashboard.component';
+import { SidebarComponent } from './screens/dashboard/sidebar/sidebar.component';
+import { HeaderMenuComponent } from './screens/dashboard/header-menu/header-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { MainComponent } from './screens/main/main.component';
     HomeComponent,
     LoginComponent,
     ChangeStateComponent,
-    MainComponent
+
+    DashboardComponent,
+    SidebarComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule,

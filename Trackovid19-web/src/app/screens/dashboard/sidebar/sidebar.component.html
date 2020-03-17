@@ -1,0 +1,33 @@
+
+<div class="sidebar">
+    <div class="logo">
+        <img src="assets/img/illustrations/dashboard/logo.svg" />
+    </div>
+
+    <div class="profile">
+        <div class="avatar">
+
+        </div>
+        <img src="assets/img/illustrations/dashboard/default.png">
+        <div class="details">
+            <span class="username">Joana Costa</span>
+            <p>Ver definiçoes</p>
+        </div>
+    </div>
+    <div class="status">
+        <div class="status_inline">
+            <div class="status_active" [ngClass]="{'active': true}"></div>
+            <div>
+                <p>Sem Sintomas</p>
+            </div> 
+        </div>
+        <div class="status_inline">
+            <div class="status_active" [ngClass]="{'active': true}"></div>
+            <div>
+                <p>Quarentena Voluntaria</p>
+            </div> 
+        </div>
+    </div>
+    <app-status-btn routerLink="/change-state"></app-status-btn>
+    <p>Log Out</p>
+</div>
