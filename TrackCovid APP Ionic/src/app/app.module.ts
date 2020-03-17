@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { SharedModule } from './shared/shared.module';
 import { LoginViewComponent } from './screens/login/login-view.component';
 
@@ -25,5 +26,6 @@ import { LoginViewComponent } from './screens/login/login-view.component';
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]
+
 })
 export class AppModule {}
