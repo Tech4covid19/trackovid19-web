@@ -9,9 +9,10 @@ html, body {
 
 body {
   display: flex;
-  margin: 0;
   font-family: 'Archivo', sans-serif;
   flex-direction: column;
   min-height: 100%;
-
+	.wrapper {
+		max-width: 750px;
+	}
 }

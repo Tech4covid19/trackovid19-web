@@ -3,28 +3,30 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
-
 import { DashboardComponent } from './screens/dashboard/dashboard.component';
-
+import { OnboardingComponent } from './screens/onboarding/onboarding.component';
 
 
 const routes: Routes = [
-  
-  {
-    path: '',
-    // auth guard
+  {path: '', component: LoginComponent},
+  {path: 'intro-steps', component: OnboardingComponent},
+ 
+  // {
+  //   path: '',
+  //   // auth guard
+  //   children: [
+  //     {
+  //       path: '',
+  //       component: HomeComponent
+  //     }
+  //   ]
+  // },
 
-    component: DashboardComponent,
-    
-
-
-  },
-  {path: 'login', component: LoginComponent},
   {path: 'change-state', component: ChangeStateComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: false})],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

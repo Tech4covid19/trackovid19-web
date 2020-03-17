@@ -14,6 +14,11 @@ import { MainComponent } from './screens/main/main.component';
 import { DashboardComponent } from './screens/dashboard/dashboard.component';
 import { SidebarComponent } from './screens/dashboard/sidebar/sidebar.component';
 import { HeaderMenuComponent } from './screens/dashboard/header-menu/header-menu.component';
+import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { HttpClientModule } from '@angular/common/http';
+import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +26,6 @@ import { HeaderMenuComponent } from './screens/dashboard/header-menu/header-menu
     HomeComponent,
     LoginComponent,
     ChangeStateComponent,
-
     DashboardComponent,
     SidebarComponent,
     HeaderMenuComponent
@@ -31,10 +35,12 @@ import { HeaderMenuComponent } from './screens/dashboard/header-menu/header-menu
     AppRoutingModule,
     FlexLayoutModule,
     SharedModule,
+    HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot()
   ],
   providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://trackcovid.pt' }}],
   bootstrap: [AppComponent]
+
 })
 export class AppModule {}
