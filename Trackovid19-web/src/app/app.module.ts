@@ -13,6 +13,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
 import { MainComponent } from './screens/main/main.component';
+import { PostCodeComponent } from './screens/post-code/post-code.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MainComponent } from './screens/main/main.component';
     HomeComponent,
     LoginComponent,
     ChangeStateComponent,
-    MainComponent
+    MainComponent,
+    PostCodeComponent
   ],
   imports: [
     BrowserModule,
