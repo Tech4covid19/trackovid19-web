@@ -10,31 +10,23 @@
   }
 
   .header {
-    min-height: 50%;
+    height: 60%;
 
-    .logo-background {
-      position: absolute;
-      top: 0;
-      left: 50;
-      display: block;
-      right: 0;
-      width: 80%;
-      margin-left: 15.75%;
-    }
-
-    .logo-tracovid {
-      position: absolute;
-      width: 20rem;
-      top: 32.5%;
-      left: 50%;
-      transform: translate(-50%);
-      display: block;
-      margin: 0 auto;
+    .logo {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      
+      .logo-background {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   .action {
-    height: 100%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,9 +44,6 @@
       background-color: #4267b2;
       padding: 1rem;
       border-radius: 0.25rem;
-      -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
-      -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
-      box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.35);
       margin-bottom: 1rem;
 
       p {
