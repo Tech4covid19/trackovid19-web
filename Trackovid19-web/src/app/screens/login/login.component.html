@@ -1,20 +1,29 @@
 <div class="h-100" fxLayout="row" fxLayoutAlign="center">
-    <div class="h-100" fxFlex="33">
-        <div class="wrapper" fxLayout="column">
+    <div class="h-100" fxFlex="100">
+        <div class="h-100 wrapper" fxLayout="column">
             <div class="header">
-                <img src="assets/img/dgs.png">
-            </div>
-            <div class="logo">
-            </div>
-            <div class="login_btn button-elevation cursor-pointer" (click)="onFacebookLogin()">
-                <div class="fb">
-                    <img src="assets/img/facebook.svg">
-                </div>
-                <div class="login_text">
-                    <p>Log in with Facebook</p>
+                <!-- until we have the right logo, it won't be shown -->
+                <!-- <img src="assets/img/dgs.png"> -->
+                <div class="logo">
+                    <img class="logo-background" src="assets/img/illustrations/login/background.svg">
+                    <img class="logo-tracovid" src="assets/img/logo/logo.svg">
                 </div>
             </div>
-            <p class="text-grey text-center">Termos e condições</p>
+
+            <div class="action" fxLayout="row" (click)="onFacebookLogin()">
+                <div fxFlex="20">
+                    <div class="login-btn button-elevation cursor-pointer">
+                        <div class="fb" fxLayout="row" fxLayoutAlign="center">
+                            <img src="assets/img/facebook.svg">
+                        </div>
+                        <div class="login-text">
+                            <p>Entrar com o Facebook</p>
+                        </div>
+                    </div>
+
+                    <p class="text-grey text-center terms-and-conditions">Termos e condições</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
