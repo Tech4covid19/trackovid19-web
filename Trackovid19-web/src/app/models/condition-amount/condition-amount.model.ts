@@ -1,4 +1,4 @@
 export interface ConditionAmount {
-    id: number;
-    value: number;
+  id: number;
+  value: number;
 }

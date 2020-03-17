@@ -7,10 +7,7 @@ export interface SymptomState extends EntityState<Symptom> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'symptom' })
 export class SymptomStore extends EntityStore<SymptomState> {
-
   constructor() {
     super();
   }
-
 }
-

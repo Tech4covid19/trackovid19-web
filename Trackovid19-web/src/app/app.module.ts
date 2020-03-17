@@ -18,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,7 @@ import { ChangeStateStep1Component } from './screens/change-state-step1/change-s
     ChangeStateStep1Component
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     OnBoardingModule,
@@ -38,13 +37,11 @@ import { ChangeStateStep1Component } from './screens/change-state-step1/change-s
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
-    
   ],
   providers: [
     // GeolocalizationService,
-    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }}
+    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
   ],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

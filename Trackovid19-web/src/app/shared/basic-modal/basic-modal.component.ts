@@ -1,20 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-basic-modal',
   templateUrl: './basic-modal.component.html',
-  styleUrls: ['./basic-modal.component.scss']
+  styleUrls: ['./basic-modal.component.scss'],
 })
 export class BasicModalComponent implements OnInit {
   @Input() closable = true;
   public opened = true;
   public closing = false;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public open() {
     setTimeout(() => {
@@ -30,5 +28,4 @@ export class BasicModalComponent implements OnInit {
       this.closing = false;
     }, 500);
   }
-
 }

@@ -1,19 +1,31 @@
 <section id="myModal" class="modal" [class.open]="opened" [class.closing]="closing">
-    <section class="modal-content" fxLayout="column">
-        <section class="row" fxLayout="row">
-            <img alt="marker" src="assets/img/icons/marker.svg">
-            <span>Insira o seu código postal</span>
-        </section>
-        <section class="row post-code" fxLayout="row">
-            <input class="frist-type-number" type="number" ngModel maxlength="4" name="frist-four-digits"
-                onKeyPress="if(this.value.length==4) return false;">
-            <img src="assets/img/icons/post-code-divider.svg" alt="post-code-divider">
-            <input class="second-type-number" type="number" ngModel maxlength="3" name="second-three-digits"
-                onKeyPress="if(this.value.length==3) return false;">
-        </section>
-        <section class="row btns" fxLayout="row">
-           <button class="btn-back" (click)="close()">Voltar</button>
-           <button class="btn-go-foward">Avançar</button>
-        </section>
+  <section class="modal-content" fxLayout="column">
+    <section class="row" fxLayout="row">
+      <img alt="marker" src="assets/img/icons/marker.svg" />
+      <span>Insira o seu código postal</span>
     </section>
+    <section class="row post-code" fxLayout="row">
+      <input
+        class="frist-type-number"
+        type="number"
+        ngModel
+        maxlength="4"
+        name="frist-four-digits"
+        onKeyPress="if(this.value.length==4) return false;"
+      />
+      <img src="assets/img/icons/post-code-divider.svg" alt="post-code-divider" />
+      <input
+        class="second-type-number"
+        type="number"
+        ngModel
+        maxlength="3"
+        name="second-three-digits"
+        onKeyPress="if(this.value.length==3) return false;"
+      />
+    </section>
+    <section class="row btns" fxLayout="row">
+      <button class="btn-back" (click)="close()">Voltar</button>
+      <button class="btn-go-foward">Avançar</button>
+    </section>
+  </section>
 </section>

@@ -9,9 +9,8 @@ describe('OnboardingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingComponent, CarouselComponent ]
-    })
-    .compileComponents();
+      declarations: [OnboardingComponent, CarouselComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

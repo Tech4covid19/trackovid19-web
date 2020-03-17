@@ -9,8 +9,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateChangeCardComponent } from './state-change-card/state-change-card.component';
 import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
 
-
-
 @NgModule({
 
   declarations: [CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent],
@@ -23,4 +21,4 @@ import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.
   exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent]
 
 })
-export class SharedModule { }
+export class SharedModule {}

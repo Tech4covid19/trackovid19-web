@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `sudo apt install ng-common` to run an AngularJS app locally
 Run `npm install` to install all dependencies
+(optional) Install [VS Code extension for prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+(optional) Set `editor.formatOnSave` user setting to `true`
 
 ## Development server
 

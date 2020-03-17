@@ -7,10 +7,7 @@ export interface CaseState extends EntityState<Case> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'case' })
 export class CaseStore extends EntityStore<CaseState> {
-
   constructor() {
     super();
   }
-
 }
-

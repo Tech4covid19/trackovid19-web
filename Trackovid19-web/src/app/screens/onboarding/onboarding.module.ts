@@ -6,13 +6,13 @@ import { CarouselItemDirective } from './carousel-item.directive';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports:[ 
-      CommonModule,
-      BrowserAnimationsModule
-    ],
-  declarations: [ OnboardingComponent, CarouselComponent, CarouselItemElement, CarouselItemDirective],
-  exports: []
-  
+  imports: [CommonModule, BrowserAnimationsModule],
+  declarations: [
+    OnboardingComponent,
+    CarouselComponent,
+    CarouselItemElement,
+    CarouselItemDirective,
+  ],
+  exports: [],
 })
-export class OnBoardingModule { }
- 
+export class OnBoardingModule {}
