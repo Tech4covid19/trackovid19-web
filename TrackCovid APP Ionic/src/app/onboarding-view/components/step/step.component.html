@@ -1,0 +1,8 @@
+<div class="image-container">
+    <ion-img src="{{ thumbnail }}" class="step-image"></ion-img>
+</div>
+<div class="info-container">
+    <h1 class="title">{{ title }}</h1>
+    <span class="text" [innerHTML]="text"></span>
+    <ion-button class="next-button" (click)="onNextStep()">Seguinte</ion-button>
+</div>
