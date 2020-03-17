@@ -12,7 +12,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
-
+import { SharedModule } from './shared/shared.module';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
