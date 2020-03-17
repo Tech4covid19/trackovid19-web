@@ -1,65 +1,75 @@
 :host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100%;
+
+  .wrapper {
+    max-width: 100%;
+    position: relative;
+  }
+
+  .header {
+    height: 60%;
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      
+      .logo-background {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .action {
+    height: 40%;
     display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 100%;
+    justify-content: center;
+    align-items: center;
 
+    > div {
+      flex-basis: 26.5rem;
+    }
+    
+    .login-btn {
+      max-height: 55px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #4267b2;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-bottom: 1rem;
 
-    .wrapper {
-        background: url('../../../assets/img/illustrations/login/background@2x.png')
-            no-repeat top center;
-        background-size: contain;
-        height: 100%;
-    }
-    .header {
-        margin-top: 15px;
+      p {
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-right: 2.625rem;
+      }
 
-        img {
-            width: 170px;
-            height: auto;
-        }
+      img {
+        max-width: 30px;
+        max-height: 30px;
+      }
+
+      .fb {
+        margin-right: 20px;
+        margin-left: 45px;
+      }
     }
 
-    .login_btn {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-self: end;
-        flex-grow: 2;
-        margin-top: auto;
-        background-color: #4267b2;
-        border-radius: 10px;
-        -webkit-box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-        -moz-box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-        box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-        margin-top: auto;
-        display: flex;
-        margin-bottom: 15px;
-        justify-content: center;
-        align-items: center;
-        max-height: 55px;
-        width: 99%;
-        bottom: 40px;
-        left: 10px;
-        p {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 400;
-            margin-right: 45px;
-        }
-        img {
-            max-width: 30px;
-            max-height: 30px;
-        }
-        .fb {
-            margin-right: 20px;
-            margin-left: 45px;
-        }
-        .login_text {
-        }
+    .terms-and-conditions {
+      font-size: 1rem;
     }
-    .h-100 {
-        height: 100%;
-    }
+  }
+
+  .h-100 {
+    height: 100%;
+  }
 }
