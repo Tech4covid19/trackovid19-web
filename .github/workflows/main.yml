@@ -36,7 +36,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     env:
-      project: Trackovid19-web
+      PROJECT: Trackovid19-web
 
     steps:
     - name: Checkout
@@ -63,11 +63,13 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: tech4covid19
-        IMAGE_TAG: ${{ project }}-${{ steps.buildnumber.outputs.build_number }}
+        IMAGE_TAG: $PROJECT-${{ steps.buildnumber.outputs.build_number }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ${{ project }}
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $PROJECT
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
