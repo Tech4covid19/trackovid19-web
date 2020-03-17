@@ -7,13 +7,17 @@ import { ChangeStateComponent } from './screens/change-state/change-state.compon
 import { DashboardComponent } from './screens/dashboard/dashboard.component';
 
 
+
 const routes: Routes = [
   
   {
     path: '',
     // auth guard
+
     component: DashboardComponent,
     
+
+
   },
   {path: 'login', component: LoginComponent},
   {path: 'change-state', component: ChangeStateComponent}
