@@ -1,0 +1,18 @@
+.profile_status {
+	background-color: #F9F9F9;
+	padding: 18px 0;
+	font-size: 12px;
+	line-height: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.profile_status_indicator {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #5BEE73;
+	margin-right: 6px;
+}
