@@ -12,11 +12,15 @@ import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.
 
 
 @NgModule({
+
   declarations: [CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent],
+
   imports: [
     CommonModule,
     FlexLayoutModule,
   ],
+
   exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent]
+
 })
 export class SharedModule { }
