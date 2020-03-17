@@ -44,11 +44,34 @@
     font-weight: 400;
     line-height: 0;
     }
-    .status{
+    .status {
        line-height: 2.4;
         margin-top: auto;
         color: #cecece;
         font-size: 16px;
         font-weight: 400;
+    }
+    .radio-btn {
+        margin: 1em;
+    }
+    .quiz-radio{
+        /* Hide */
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    /* Change cursor on image */
+    .quiz-radio + img {
+        cursor: pointer;
+    }
+    .quiz-radio:hover + img {
+        content: url("../../../assets/img/illustrations/change-state/radio-checked.png");
+    }
+    .quiz-radio:checked + img {
+        content: url("../../../assets/img/illustrations/change-state/radio-checked.png");
+    }
+    .state-title {
+        font-size: 1em;
     }
 }

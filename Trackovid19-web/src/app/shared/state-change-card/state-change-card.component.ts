@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-state-change-card',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./state-change-card.component.scss']
 })
 export class StateChangeCardComponent implements OnInit {
-
+  @Input() state: string;
+  @Input() label: string;
+  
   constructor() { }
 
   ngOnInit(): void {

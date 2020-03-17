@@ -7,15 +7,16 @@ import { ProfileStatusComponent } from './profile-status/profile-status.componen
 import { LocationStatusComponent } from './location-status/location-status.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateChangeCardComponent } from './state-change-card/state-change-card.component';
+import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
 
 
 
 @NgModule({
-  declarations: [CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent],
+  declarations: [CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
   ],
-  exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent]
+  exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent, StateConfirmBtnComponent]
 })
 export class SharedModule { }
