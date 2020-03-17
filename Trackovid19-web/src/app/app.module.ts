@@ -15,6 +15,7 @@ import { MainComponent } from './screens/main/main.component';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({

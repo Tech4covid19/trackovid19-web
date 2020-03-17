@@ -14,6 +14,6 @@ export class LoginComponent implements OnInit {
   }
 
   onFacebookLogin() {
-    this.router.navigate(['/intro-steps'], { relativeTo: this.activatedRoute});
+    this.router.navigate(['/change-state'], { relativeTo: this.activatedRoute});
   }
 }
