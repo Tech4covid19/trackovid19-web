@@ -35,6 +35,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      project: Trackovid19-web
 
     steps:
     - name: Checkout
@@ -50,33 +52,22 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+    
+    - name: Generate build number
+      uses: einaregilsson/build-number@v2 
+      with:
+        token: ${{secrets.github_token}}  
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: tech4covid19
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: ${{ project }}-${{ steps.buildnumber.outputs.build_number }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG Trackovid19-web
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ${{ project }}
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
-    # - name: Fill in the new image ID in the Amazon ECS task definition
-    #   id: task-def
-    #   uses: aws-actions/amazon-ecs-render-task-definition@v1
-    #   with:
-    #     task-definition: task-definition.json
-    #     container-name: sample-app
-    #     image: ${{ steps.build-image.outputs.image }}
-
-    # - name: Deploy Amazon ECS task definition
-    #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-    #   with:
-    #     task-definition: ${{ steps.task-def.outputs.task-definition }}
-    #     service: sample-app-service
-    #     cluster: default
-    #     wait-for-service-stability: true
