@@ -11,11 +11,15 @@ import { StateChangeCardComponent } from './state-change-card/state-change-card.
 
 
 @NgModule({
+
   declarations: [CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent],
+
   imports: [
     CommonModule,
     FlexLayoutModule,
   ],
+
   exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent]
+
 })
 export class SharedModule { }

@@ -11,30 +11,40 @@ import { ChangeStateComponent } from './screens/change-state/change-state.compon
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
-import { SharedModule } from './shared/shared.module';
+
+import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { HttpClientModule } from '@angular/common/http';
+import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        LoginComponent,
-        ChangeStateComponent,
-        MainComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FlexLayoutModule,
-        SharedModule,
-        environment.production ? [] : AkitaNgDevtools.forRoot(),
-        AkitaNgRouterStoreModule.forRoot()
-    ],
-    providers: [
-        {
-            provide: NG_ENTITY_SERVICE_CONFIG,
-            useValue: { baseUrl: 'https://trackcovid.pt' }
-        }
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    ChangeStateComponent,
+    MainComponent,
+  
+
+
+  ],
+  imports: [
+    BrowserModule,
+    
+    AppRoutingModule,
+    FlexLayoutModule,
+    OnBoardingModule,
+    SharedModule,
+    HttpClientModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule.forRoot(),
+    
+  ],
+  providers: [
+    // GeolocalizationService,
+    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }}
+  ],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule {}
