@@ -1,33 +1,9 @@
-.profile_header {
-  margin-bottom: 20px;
-  display: flex;
-  width: 100%;
 
+.main-page-container {
+	padding: 0 12px;
 }
 
-.profile_definitions {
-  margin-bottom: 30px;
-  display: flex;
-  width: 20%;
-
-  span {
-    color: #fa6400;
-    font-size: 12px;
-    font-weight: 400;
-  }
+.profile_status_container {
+	display: flex;
 }
 
-.profile {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.header {
-  margin-top: 20px;
-
-  img {
-    width: 170px;
-    height: auto;
-  }
-}

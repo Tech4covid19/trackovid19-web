@@ -1,21 +1,11 @@
-
-    <div class="card">
-        <div class="card-body" fxLayout="row" fxLayoutAlign="space-between end" fxFlex="100">
-   
-            <div fxFlex="100">
-                <div class="counter" fxFlex="5">
-                    <span>23</span>
-                    <p>Infectados</p>
-                </div>
-                <div fxFlex="95">
-                    <img src="assets/heart.svg">
-                </div>
-            </div>
-        </div>
-       
-            <!-- <hr> -->
-            <div fxLayout="row" fxLayoutAlign="space-between end" fxFlex="100">
-                <span class="status">233 indirectos</span>
-            </div>
-      
+<div class="card" [ngClass]="color">
+  <div class="card-body">
+    <div>
+      <div class="counter">{{ counter }}</div>
+      <div class="label">{{ label }}</div>
     </div>
+    <div>
+      <img [src]="icon" />
+    </div>
+  </div>
+</div>

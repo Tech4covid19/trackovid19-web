@@ -1,0 +1,40 @@
+ion-slides {
+  height: 100%;
+  color: white;
+
+  .step-container {
+    display: flex;
+    flex-direction: column;
+
+    .step-thumbnail {
+      width: 250px;
+      height: 230px;
+    }
+  }
+
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+  }
+
+  span {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #798794;
+  }
+}
+
+.header {
+  ion-title {
+    width: 175px;
+    padding: 0;
+  }
+}
+
+.intro-footer-text {
+  width: 100%;
+  background-color: white;
+}

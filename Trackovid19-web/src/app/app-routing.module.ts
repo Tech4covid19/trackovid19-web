@@ -22,10 +22,12 @@ const routes: Routes = [
   },
   {path: 'change-state', component: ChangeStateComponent},
   {path: 'post-code', component: PostCodeComponent}
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: false})],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
