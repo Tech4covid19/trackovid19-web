@@ -1,11 +1,7 @@
 .card {
-	padding: 24px 16px;
-	margin: 8px 0;
-  background: linear-gradient(
-      0deg,
-      rgba(48, 195, 215, 0.09),
-      rgba(48, 195, 215, 0.09)
-    ),
+  padding: 24px 16px;
+  margin: 8px 0;
+  background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
   border-radius: 16px;
 
@@ -31,37 +27,21 @@
 }
 
 .orange {
-  background: linear-gradient(
-      0deg,
-      rgba(250, 100, 0, 0.07),
-      rgba(250, 100, 0, 0.07)
-    ),
+  background: linear-gradient(0deg, rgba(250, 100, 0, 0.07), rgba(250, 100, 0, 0.07)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .red {
-  background: linear-gradient(
-      0deg,
-      rgba(250, 0, 0, 0.05),
-      rgba(250, 0, 0, 0.05)
-    ),
+  background: linear-gradient(0deg, rgba(250, 0, 0, 0.05), rgba(250, 0, 0, 0.05)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .green {
-  background: linear-gradient(
-      0deg,
-      rgba(86, 214, 27, 0.07),
-      rgba(86, 214, 27, 0.07)
-    ),
+  background: linear-gradient(0deg, rgba(86, 214, 27, 0.07), rgba(86, 214, 27, 0.07)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .purple {
-  background: linear-gradient(
-      0deg,
-      rgba(107, 104, 252, 0.09),
-      rgba(107, 104, 252, 0.09)
-    ),
+  background: linear-gradient(0deg, rgba(107, 104, 252, 0.09), rgba(107, 104, 252, 0.09)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
 }

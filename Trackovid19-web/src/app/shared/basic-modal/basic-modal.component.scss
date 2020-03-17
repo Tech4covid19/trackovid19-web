@@ -11,7 +11,7 @@ $modal-radius: 1em;
     left: 0;
     max-width: 100%;
     opacity: 0;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
 
     &.open {
       display: flex;

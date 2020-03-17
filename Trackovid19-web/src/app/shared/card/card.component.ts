@@ -1,16 +1,16 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
 export enum CardColor {
-  Orange = "orange",
-  Red = "red",
-  Green = "green",
-  purple = "purple"
+  Orange = 'orange',
+  Red = 'red',
+  Green = 'green',
+  purple = 'purple',
 }
 
 @Component({
-  selector: "app-card",
-  templateUrl: "./card.component.html",
-  styleUrls: ["./card.component.scss"]
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
   @Input() counter: number;

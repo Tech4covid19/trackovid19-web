@@ -6,15 +6,15 @@ import { SymptomStore } from './symptom.store';
 
 @Injectable({ providedIn: 'root' })
 export class SymptomService {
-    public url = 'symptom';
+  public url = 'symptom';
 
-    constructor(private symptomStore: SymptomStore, private http: HttpClient) {}
+  constructor(private symptomStore: SymptomStore, private http: HttpClient) {}
 
-    get() {
-        return this.http.get<Symptom[]>(`${this.url}`).pipe(
-            tap(entities => {
-                this.symptomStore.set(entities);
-            })
-        );
-    }
+  get() {
+    return this.http.get<Symptom[]>(`${this.url}`).pipe(
+      tap(entities => {
+        this.symptomStore.set(entities);
+      }),
+    );
+  }
 }

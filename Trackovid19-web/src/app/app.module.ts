@@ -17,7 +17,6 @@ import { GeolocalizationService } from './shared/services/geolocalization.servic
 import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,10 +24,10 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     LoginComponent,
     ChangeStateComponent,
     MainComponent,
-    PostCodeComponent
+    PostCodeComponent,
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     OnBoardingModule,
@@ -36,13 +35,11 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
-    
   ],
   providers: [
     // GeolocalizationService,
-    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }}
+    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
   ],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

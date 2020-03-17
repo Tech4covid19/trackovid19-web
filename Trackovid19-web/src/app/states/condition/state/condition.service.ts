@@ -7,18 +7,15 @@ import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ConditionService {
-    public url = 'condition';
+  public url = 'condition';
 
-    constructor(
-        private conditionStore: ConditionStore,
-        private http: HttpClient
-    ) {}
+  constructor(private conditionStore: ConditionStore, private http: HttpClient) {}
 
-    get() {
-        return this.http.get<Condition[]>(`${this.url}`).pipe(
-            tap(entities => {
-                this.conditionStore.set(entities);
-            })
-        );
-    }
+  get() {
+    return this.http.get<Condition[]>(`${this.url}`).pipe(
+      tap(entities => {
+        this.conditionStore.set(entities);
+      }),
+    );
+  }
 }

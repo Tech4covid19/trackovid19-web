@@ -3,17 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-post-code',
   templateUrl: './post-code.component.html',
-  styleUrls: ['./post-code.component.scss']
+  styleUrls: ['./post-code.component.scss'],
 })
 export class PostCodeComponent implements OnInit {
-
   public opened = true;
   public closing = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public open() {
     setTimeout(() => {
@@ -29,5 +27,4 @@ export class PostCodeComponent implements OnInit {
       this.closing = false;
     }, 500);
   }
-
 }

@@ -8,9 +8,8 @@ describe('StatusBtnComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatusBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [StatusBtnComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

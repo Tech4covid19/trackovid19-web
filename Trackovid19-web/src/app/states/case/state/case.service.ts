@@ -7,47 +7,47 @@ import { CaseStore } from './case.store';
 
 @Injectable({ providedIn: 'root' })
 export class CaseService {
-    constructor(private caseStore: CaseStore, private http: HttpClient) {}
+  constructor(private caseStore: CaseStore, private http: HttpClient) {}
 
-    public url = 'case';
+  public url = 'case';
 
-    getOne(id: ID) {
-        return this.http.get<Case>(`${this.url}/${id}`).pipe(
-            tap(entity => {
-                this.caseStore.upsert(id, entity);
-            })
-        );
-    }
+  getOne(id: ID) {
+    return this.http.get<Case>(`${this.url}/${id}`).pipe(
+      tap(entity => {
+        this.caseStore.upsert(id, entity);
+      }),
+    );
+  }
 
-    get() {
-        return this.http.get<Case[]>(`${this.url}`).pipe(
-            tap(entities => {
-                this.caseStore.set(entities);
-            })
-        );
-    }
+  get() {
+    return this.http.get<Case[]>(`${this.url}`).pipe(
+      tap(entities => {
+        this.caseStore.set(entities);
+      }),
+    );
+  }
 
-    add(body: Case) {
-        return this.http.post<Case>(`${this.url}`, body).pipe(
-            tap(() => {
-                this.caseStore.add(body);
-            })
-        );
-    }
+  add(body: Case) {
+    return this.http.post<Case>(`${this.url}`, body).pipe(
+      tap(() => {
+        this.caseStore.add(body);
+      }),
+    );
+  }
 
-    update(id: ID, body: Partial<Case>) {
-        return this.http.post<Case>(`${this.url}/${id}`, body).pipe(
-            tap(() => {
-                this.caseStore.update(id, body);
-            })
-        );
-    }
+  update(id: ID, body: Partial<Case>) {
+    return this.http.post<Case>(`${this.url}/${id}`, body).pipe(
+      tap(() => {
+        this.caseStore.update(id, body);
+      }),
+    );
+  }
 
-    remove(id: ID) {
-        return this.http.delete<Case>(`${this.url}/${id}`).pipe(
-            tap(() => {
-                this.caseStore.remove(id);
-            })
-        );
-    }
+  remove(id: ID) {
+    return this.http.delete<Case>(`${this.url}/${id}`).pipe(
+      tap(() => {
+        this.caseStore.remove(id);
+      }),
+    );
+  }
 }
