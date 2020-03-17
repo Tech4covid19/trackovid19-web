@@ -8,9 +8,8 @@ describe('StateChangeCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StateChangeCardComponent ]
-    })
-    .compileComponents();
+      declarations: [StateChangeCardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
