@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     LoginComponent,
     ChangeStateComponent,
     MainComponent,
-    PostCodeComponent
+    PostCodeComponent,
+    ChangeStateStep1Component
   ],
   imports: [
     BrowserModule,  

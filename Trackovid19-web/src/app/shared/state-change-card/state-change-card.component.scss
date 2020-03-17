@@ -66,10 +66,10 @@
         cursor: pointer;
     }
     .quiz-radio:hover + img {
-        content: url("../../../assets/img/illustrations/change-state/radio-checked.png");
+        content: url("../../../assets/img/icons/radio-checked.svg");
     }
     .quiz-radio:checked + img {
-        content: url("../../../assets/img/illustrations/change-state/radio-checked.png");
+        content: url("../../../assets/img/icons/radio-checked.svg");
     }
     .state-title {
         font-size: 1em;

@@ -5,6 +5,7 @@ import { LoginComponent } from './screens/login/login.component';
 import { ChangeStateComponent } from './screens/change-state/change-state.component';
 import {MainComponent} from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
+import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 
 
 const routes: Routes = [
@@ -21,8 +22,8 @@ const routes: Routes = [
     ]
   },
   {path: 'change-state', component: ChangeStateComponent},
+  {path: 'change-state-step1', component: ChangeStateStep1Component},
   {path: 'post-code', component: PostCodeComponent}
-
 
 ];
 
