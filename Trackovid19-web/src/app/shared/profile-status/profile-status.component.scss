@@ -16,3 +16,9 @@
   background-color: #5bee73;
   margin-right: 6px;
 }
+
+@media (min-width: 768px) {
+  .profile_status {
+    padding: 5px;
+  }
+}

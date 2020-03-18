@@ -1,8 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px;
+  padding: 20px 12px;
 }
 
 .profile_picture {
@@ -10,6 +9,8 @@
   width: 40px;
 }
 
-.profile_dgs_logo {
-  height: 32px;
+.profile_details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
 }

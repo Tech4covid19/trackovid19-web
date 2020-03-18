@@ -5,6 +5,7 @@ import { StatusBtnComponent } from './status-btn/status-btn.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileStatusComponent } from './profile-status/profile-status.component';
 import { LocationStatusComponent } from './location-status/location-status.component';
+import { LocationInfoComponent } from './location-info/location-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateChangeCardComponent } from './state-change-card/state-change-card.component';
 
@@ -15,6 +16,7 @@ import { StateChangeCardComponent } from './state-change-card/state-change-card.
     ProfileComponent,
     ProfileStatusComponent,
     LocationStatusComponent,
+    LocationInfoComponent,
     StateChangeCardComponent,
   ],
 
@@ -26,6 +28,7 @@ import { StateChangeCardComponent } from './state-change-card/state-change-card.
     ProfileComponent,
     ProfileStatusComponent,
     LocationStatusComponent,
+    LocationInfoComponent,
     StateChangeCardComponent,
   ],
 })
