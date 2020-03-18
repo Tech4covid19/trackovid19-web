@@ -21,7 +21,6 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     LocationStatusComponent, 
     RadioCardComponent, 
     LocationInfoComponent,
-    StateChangeCardComponent,
     StateConfirmBtnComponent, 
     CheckboxCardComponent],
 
@@ -36,7 +35,6 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     ProfileStatusComponent,
     LocationStatusComponent,
     LocationInfoComponent,
-    StateChangeCardComponent,
     RadioCardComponent,
     StateConfirmBtnComponent,
     CheckboxCardComponent
