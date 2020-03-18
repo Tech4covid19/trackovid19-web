@@ -1,36 +1,22 @@
-.card {
+.card-container {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 26px 32px 26px 32px;
   background-color: #ffffff;
   border-radius: 30px;
+  padding: 30px;
   -webkit-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
   box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-  margin-bottom: 28px;
 
-  .card-body {
-    flex-grow: 1;
-    height: 100%;
-    .counter {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 30px;
-    }
-  }
   img {
     max-width: 32px;
     max-height: 26px;
     margin-left: auto;
-    display: flex;
     align-self: end;
   }
+
   span {
     color: #1e2933;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 0.7;
   }
@@ -44,34 +30,32 @@
     font-weight: 400;
     line-height: 0;
     }
-    .status {
-       line-height: 2.4;
-        margin-top: auto;
-        color: #cecece;
-        font-size: 16px;
-        font-weight: 400;
-    }
-    .radio-btn {
-        margin: 1em;
-    }
-    .quiz-radio{
-        /* Hide */
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-    /* Change cursor on image */
-    .quiz-radio + img {
-        cursor: pointer;
-    }
-    .quiz-radio:hover + img {
-        content: url("../../../assets/img/icons/radio-checked.svg");
-    }
-    .quiz-radio:checked + img {
-        content: url("../../../assets/img/icons/radio-checked.svg");
-    }
-    .state-title {
-        font-size: 1em;
-    }
+
+  .state-description {
+    margin-left: 1em;
+  }
+
+  .quiz-radio{
+    /* Hide */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  /* Change cursor on image */
+  .quiz-radio + img {
+      cursor: pointer;
+  }
+  .quiz-radio:hover + img {
+      content: url("../../../assets/img/icons/radio-checked.svg");
+  }
+  .quiz-radio:checked + img {
+      content: url("../../../assets/img/icons/radio-checked.svg");
+  }
+  .state-title {
+    font-size: 1em;
+  }
+
 }
+
+

@@ -8,5 +8,30 @@
     <img class="step-counter" src="assets/img/illustrations/change-state/step-1-counter.svg" />
     <p class="step-description-text">Passo 1 - Estado de Saúde</p>
     <p class="step-question-text">Apresenta algum dos sintomas abaixo?</p>
+
+    <div class="cards">
+        <div class="card">
+            <app-state-change-card 
+                [state]="'Infecção confirmada'" >
+            
+            </app-state-change-card>
+        </div>
+        <div class="card">
+            <app-state-change-card 
+                [state]="'Caso suspeito'" >
+            </app-state-change-card>
+        </div>
+        <div class="card">
+            <app-state-change-card 
+                [state]="'Recuperado'" >
+            </app-state-change-card>
+        </div>
+        <div class="card">
+            <app-state-change-card 
+                [state]="'Presumidamente saudável'" >
+            </app-state-change-card>
+        </div>
+    </div>
 </div>
+
 

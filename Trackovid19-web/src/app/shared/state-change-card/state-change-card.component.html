@@ -1,32 +1,16 @@
-<div class="card">
-    <div
-        class="card-body"
-        fxLayout="row"
-        fxFlex="100"
-    >
-
+<div class="card-container"> 
+    <div class="card-body" fxLayout="row" fxFlex="grow">
         <div class='radio-btn'>
             <label>
                 <input class='quiz-radio' type="radio"/>
                 <img src="assets/img/icons/radio-unchecked.svg" />
             </label>
         </div>
+        
         <div class="state-description">
             <div class="state-title">
-                {{ state }}
-            </div>
-            <div class="state-label">
-                <span class="status">{{ label }}</span>
+                <span>{{ state }}</span>
             </div>
         </div>
     </div>
-  </div>
-
-    <!-- <hr> -->
-    <!--
-    <div fxLayout="row" fxLayoutAlign="space-between end" fxFlex="100">
-        <span class="status">233 indirectos</span>
-    </div>
-    -->
-
 </div>
