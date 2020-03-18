@@ -1,13 +1,15 @@
 :host .status_btn {
-  background-color: #fa6400;
-  border-radius: 10px;
+  display: block;
+  box-sizing: border-box;
   width: 100%;
-  margin: 13px 0;
+  background-color: #fa6400;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.85rem;
+  line-height: 0.875rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 2.5rem;
   border: none;
   outline: none;
-  padding: 18px 0;
-  font-weight: bold;
-  color: #fff;
-  font-size: 13px;
-  line-height: 14px;
+  margin: 1rem 0;
 }
