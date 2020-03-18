@@ -12,23 +12,19 @@ import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
 
 @NgModule({
-
   declarations: [
-    CardComponent, 
-    StatusBtnComponent, 
-    ProfileComponent, 
-    ProfileStatusComponent, 
-    LocationStatusComponent, 
-    RadioCardComponent, 
+    CardComponent,
+    StatusBtnComponent,
+    ProfileComponent,
+    ProfileStatusComponent,
+    LocationStatusComponent,
+    RadioCardComponent,
     LocationInfoComponent,
-    StateChangeCardComponent,
-    StateConfirmBtnComponent, 
-    CheckboxCardComponent],
-
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
+    StateConfirmBtnComponent,
+    CheckboxCardComponent,
   ],
+
+  imports: [CommonModule, FlexLayoutModule],
   exports: [
     CardComponent,
     StatusBtnComponent,
@@ -36,10 +32,9 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     ProfileStatusComponent,
     LocationStatusComponent,
     LocationInfoComponent,
-    StateChangeCardComponent,
     RadioCardComponent,
     StateConfirmBtnComponent,
-    CheckboxCardComponent
+    CheckboxCardComponent,
   ],
 })
 export class SharedModule {}
