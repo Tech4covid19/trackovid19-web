@@ -1,62 +1,69 @@
 .card-container {
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 30px;
-    padding: 30px;
-    -webkit-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-    box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-  
-    img {
-      max-width: 32px;
-      max-height: 26px;
-      margin-left: auto;
-      align-self: end;
-    }
-  
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 16px 24px;
+  -webkit-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
+  box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
+
+  img {
+    max-width: 32px;
+    max-height: 26px;
+    margin-left: auto;
+    align-self: end;
+  }
+
+  span {
+    color: #1e2933;
+    font-size: 13px;
+  }
+  hr {
+    margin: 0px;
+    border: 1px solid #979797;
+  }
+  p {
+    color: #798794;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 0;
+  }
+
+  .state-description {
+    margin-left: 1em;
+  }
+
+  .state-title {
+    font-size: 13px;
+  }
+
+  .quiz-checkbox {
+    /* Hide */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  /* Change cursor on image */
+  .quiz-checkbox + img {
+    cursor: pointer;
+  }
+  .quiz-checkbox:hover + img {
+    content: url('../../../assets/img/icons/checkbox-checked.svg');
+  }
+  .quiz-checkbox:checked + img {
+    content: url('../../../assets/img/icons/checkbox-checked.svg');
+  }
+  .state-title {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container {
     span {
       color: #1e2933;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 0.7;
+      font-size: 18px;
     }
-    hr {
-      margin: 0px;
-      border: 1px solid #979797;
-    }
-    p {
-      color: #798794;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 0;
-      }
-  
-    .state-description {
-      margin-left: 1em;
-    }
-  
-    .quiz-checkbox{
-      /* Hide */
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    /* Change cursor on image */
-    .quiz-checkbox + img {
-        cursor: pointer;
-    }
-    .quiz-checkbox:hover + img {
-        content: url("../../../assets/img/icons/checkbox-checked.svg");
-    }
-    .quiz-checkbox:checked + img {
-        content: url("../../../assets/img/icons/checkbox-checked.svg");
-    }
-    .state-title {
-      font-size: 1em;
-    }
-  
   }
-  
-  
-  
+}
