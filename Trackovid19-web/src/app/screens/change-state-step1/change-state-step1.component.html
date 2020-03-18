@@ -1,0 +1,48 @@
+<app-profile></app-profile>
+<div class="profile_status_container">
+	<app-profile-status fxFlex="49"></app-profile-status>
+	<app-profile-status fxFlexOffset="2" fxFlex="49"></app-profile-status>
+</div>
+<div class="change-state-step1-container">
+    <h2 class="page-title">Alterar o meu estado</h2>
+    <img class="step-counter" src="assets/img/illustrations/change-state/step-1-counter.svg" />
+    <p class="step-description-text">Passo 1 - Estado de Saúde</p>
+    <p class="step-question-text">Apresenta algum dos sintomas abaixo?</p>
+
+    <div class="cards">
+        <div class="card">
+            <app-checkbox-card
+                [state]="'Tosse seca'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Espirros'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Tosse com expectoração'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Dores musculares'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Febre (acima de 37.5ºC)'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Arrepios/calafrios'" >
+            </app-checkbox-card>
+        </div>
+    </div>
+    <!-- Change to correct link -->
+    <app-state-confirm-btn routerLink="/change-state-step2/" [btnText]="'Seguinte'"></app-state-confirm-btn>
+</div>
+
+
