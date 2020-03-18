@@ -10,6 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RadioCardComponent } from './radio-card/radio-card.component';
 import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
+import { AuthGuardService } from './guards/auth.guard';
+import { UserResolver } from './resolvers/user-data.resolver';
 
 @NgModule({
 
@@ -39,5 +41,9 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     StateConfirmBtnComponent,
     CheckboxCardComponent
   ],
+  providers: [
+    AuthGuardService,
+    UserResolver,
+  ]
 })
 export class SharedModule {}
