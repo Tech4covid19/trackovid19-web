@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RadioCardComponent } from './radio-card.component';
 
-describe('StateChangeCardComponent', () => {
+describe('RadioCardComponent', () => {
   let component: RadioCardComponent;
   let fixture: ComponentFixture<RadioCardComponent>;
 

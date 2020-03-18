@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-state-confirm-btn',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./state-confirm-btn.component.scss']
 })
 export class StateConfirmBtnComponent implements OnInit {
-
+  @Input() btnText: string;
   constructor() { }
 
   ngOnInit(): void {

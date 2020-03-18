@@ -1,13 +1,18 @@
-:host .state_confirm_btn {
-    background-color: #FA6400;
-    border-radius: 10px;
-	width: 100%;
-	margin: 13px 0;
-	border: none;
-	outline: none;
-	padding: 18px 0;
-	font-weight: bold;
-	color: #FFF;
-	font-size: 13px;
-	line-height: 14px;
+.confirm_btn_container {
+	display: flex;
+	justify-content: flex-end;
+
+	.state_confirm_btn {
+		background-color: #FA6400;
+		padding: 20px;
+		border-radius: 10px;
+		margin: 13px 0;
+		border: none;
+		outline: none;
+		font-weight: bold;
+		color: #FFF;
+		font-size: 13px;
+		line-height: 14px;
+	}
 }
+
