@@ -13,11 +13,13 @@ import { MainComponent } from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { SharedModule } from './shared/shared.module';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 import { ChangeStateStep2Component } from './screens/change-state-step2/change-state-step2.component';
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
+import { RouterModule } from '@angular/router';
+import { TokenHttpInterceptor } from './shared/http-token/interceptor';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,18 @@ import { ChangeStateStep3Component } from './screens/change-state-step3/change-s
     FlexLayoutModule,
     OnBoardingModule,
     SharedModule,
+    RouterModule,
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
   ],
   providers: [
     // GeolocalizationService,
+    { 
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenHttpInterceptor,
+      multi: true
+      },
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
   ],
   bootstrap: [AppComponent],

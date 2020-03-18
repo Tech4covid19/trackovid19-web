@@ -9,9 +9,9 @@ import { ChangeStateStep2Component } from './screens/change-state-step2/change-s
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   {
-    path: '',
+    path: 'dashboard',
     // auth guard
     component: MainComponent,
     children: [

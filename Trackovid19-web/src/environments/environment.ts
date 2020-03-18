@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://trackcovid.pt/',
+  apiUrl: 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev/api/v1/',
 };
 
 /*

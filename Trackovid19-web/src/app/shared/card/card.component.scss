@@ -1,28 +1,60 @@
 .card {
-  padding: 24px 16px;
-  margin: 8px 0;
-  background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)),
-    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
-  border-radius: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 26px 32px 26px 32px;
+  background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)), linear-gradient(90deg, #FDFBFB 0%, #EBEDEE 100%);
+  border-radius: 30px;
+  margin-bottom: 28px;
 
   .card-body {
+      // flex-grow: 1;
+      // height: 100%;
+      // .counter{
+      //     display: flex;
+      //     flex-direction: row;
+      //     flex-wrap: wrap;
+      //     width: 30px;
+      // }
+  }
+  .counter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    font-weight: 600;
-
-    .counter {
-      font-size: 29px;
-    }
-
-    .label {
-      font-size: 12px;
-    }
-
-    img {
-      width: 34px;
-      height: 28px;
-    }
+    height: -webkit-fill-available;
+  }
+  img {
+      width: 32px;
+      height: 26px;
+      display: flex;
+      align-self: flex-start;
+  }
+  span {
+      color: #1e2933;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: .7;
+  }
+  hr {
+      margin: 0px;
+      border: 1px solid #979797;
+  }
+  p {
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      color: #000000;
+      line-height: 1;
+      
+  }
+  .status{
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 42px;
+      color: #000000;
   }
 }
 
