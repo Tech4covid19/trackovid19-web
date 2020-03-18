@@ -1,0 +1,44 @@
+.page-title{
+    text-align: left;
+}
+
+.change-state-step1-container {
+    text-align: center;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+.step-description-text {
+    color: #798794;
+    font-size: 28px;
+    font-weight: 400;
+
+}
+
+.step-question-text {
+    color:  #000000;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.step-counter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25em;
+}
+
+.cards {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: calc(50% - 50px);
+    margin: 0px 50px 30px 0;
+}

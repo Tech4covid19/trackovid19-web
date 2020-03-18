@@ -7,21 +7,28 @@ import { ProfileStatusComponent } from './profile-status/profile-status.componen
 import { LocationStatusComponent } from './location-status/location-status.component';
 import { LocationInfoComponent } from './location-info/location-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { StateChangeCardComponent } from './state-change-card/state-change-card.component';
+import { RadioCardComponent } from './radio-card/radio-card.component';
+import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
+import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
 
 @NgModule({
+
   declarations: [
-    CardComponent,
-    StatusBtnComponent,
-    ProfileComponent,
-    ProfileStatusComponent,
-    LocationStatusComponent,
+    CardComponent, 
+    StatusBtnComponent, 
+    ProfileComponent, 
+    ProfileStatusComponent, 
+    LocationStatusComponent, 
+    RadioCardComponent, 
     LocationInfoComponent,
     StateChangeCardComponent,
+    StateConfirmBtnComponent, 
+    CheckboxCardComponent],
+
+  imports: [
+    CommonModule,
+    FlexLayoutModule,
   ],
-
-  imports: [CommonModule, FlexLayoutModule],
-
   exports: [
     CardComponent,
     StatusBtnComponent,
@@ -30,6 +37,9 @@ import { StateChangeCardComponent } from './state-change-card/state-change-card.
     LocationStatusComponent,
     LocationInfoComponent,
     StateChangeCardComponent,
+    RadioCardComponent,
+    StateConfirmBtnComponent,
+    CheckboxCardComponent
   ],
 })
 export class SharedModule {}

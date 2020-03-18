@@ -1,0 +1,36 @@
+<app-profile></app-profile>
+<div class="profile_status_container">
+	<app-profile-status fxFlex="49"></app-profile-status>
+	<app-profile-status fxFlexOffset="2" fxFlex="49"></app-profile-status>
+</div>
+<div class="change-state-step3-container">
+    <h2>Alterar o meu estado</h2>
+    <img class="step-counter" src="assets/img/illustrations/change-state/step-3-counter.svg" />
+    <p class="step-description-text">Passo 3 - Isolamento</p>
+    <p class="step-question-text">Qual o seu estado de atividade atual?</p>
+
+    <div class="cards">
+        <div class="card">
+            <app-radio-card
+                [state]="'Mantenho a minha rotina habitual, não estando em isolamento social'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Sou um caso suspeito e estou em isolamento social para evitar propagar o vírus'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Presumo estar saudável e estou em casa voluntariamente, por precaução'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Estou doente e em isolamento social para evitar a propagação do vírus'" >
+            </app-radio-card>
+        </div>
+    </div>
+    <!-- Change to correct link -->
+    <app-state-confirm-btn routerLink="/change-state-step1/" [btnText]="'Submeter'"></app-state-confirm-btn>
+</div>
