@@ -7,6 +7,7 @@ import {MainComponent} from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { AuthGuardService } from './shared/guards/auth.guard';
 import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
+import { UserResolver } from './shared/resolvers/user-data.resolver';
 
 
 const routes: Routes = [
@@ -27,7 +28,13 @@ const routes: Routes = [
         component: HomeComponent,
       }
     ],
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    /*
+    // to trigger user details request and update the store
+    // if user is authenticated
+    resolve: {
+      user: UserResolver
+    },*/
   },
   {
     path: 'change-state',
@@ -42,7 +49,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, {useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

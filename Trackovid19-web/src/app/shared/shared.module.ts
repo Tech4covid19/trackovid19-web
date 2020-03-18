@@ -8,6 +8,8 @@ import { LocationStatusComponent } from './location-status/location-status.compo
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateChangeCardComponent } from './state-change-card/state-change-card.component';
 import { OauthCallbackComponent } from './oauth-component/oauth-callback.component';
+import { AuthGuardService } from './guards/auth.guard';
+import { UserResolver } from './resolvers/user-data.resolver';
 
 
 
@@ -20,7 +22,11 @@ import { OauthCallbackComponent } from './oauth-component/oauth-callback.compone
     FlexLayoutModule,
   ],
 
-  exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent]
+  exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, StateChangeCardComponent],
+  providers: [
+    AuthGuardService,
+    UserResolver,
+  ]
 
 })
 export class SharedModule { }

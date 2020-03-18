@@ -16,7 +16,6 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
-import { AuthGuardService } from './shared/guards/auth.guard';
 
 
 @NgModule({
@@ -40,7 +39,6 @@ import { AuthGuardService } from './shared/guards/auth.guard';
   ],
   providers: [
     // GeolocalizationService,
-    AuthGuardService,
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }},
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
