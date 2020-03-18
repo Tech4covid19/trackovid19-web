@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StateChangeCardComponent } from './state-change-card.component';
+import { RadioCardComponent } from './radio-card.component';
 
 describe('StateChangeCardComponent', () => {
-  let component: StateChangeCardComponent;
-  let fixture: ComponentFixture<StateChangeCardComponent>;
+  let component: RadioCardComponent;
+  let fixture: ComponentFixture<RadioCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [StateChangeCardComponent],
+      declarations: [RadioCardComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StateChangeCardComponent);
+    fixture = TestBed.createComponent(RadioCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

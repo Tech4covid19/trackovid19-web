@@ -26,7 +26,7 @@ import { ChangeStateStep1Component } from './screens/change-state-step1/change-s
     ChangeStateComponent,
     MainComponent,
     PostCodeComponent,
-    ChangeStateStep1Component
+    ChangeStateStep1Component,
   ],
   imports: [
     BrowserModule,

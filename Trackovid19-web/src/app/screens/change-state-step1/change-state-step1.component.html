@@ -11,25 +11,34 @@
 
     <div class="cards">
         <div class="card">
-            <app-state-change-card 
-                [state]="'Infecção confirmada'" >
-            
-            </app-state-change-card>
+            <app-checkbox-card
+                [state]="'Tosse seca'" >
+            </app-checkbox-card>
         </div>
         <div class="card">
-            <app-state-change-card 
-                [state]="'Caso suspeito'" >
-            </app-state-change-card>
+            <app-checkbox-card 
+                [state]="'Espirros'" >
+            </app-checkbox-card>
         </div>
         <div class="card">
-            <app-state-change-card 
-                [state]="'Recuperado'" >
-            </app-state-change-card>
+            <app-checkbox-card 
+                [state]="'Tosse com expectoração'" >
+            </app-checkbox-card>
         </div>
         <div class="card">
-            <app-state-change-card 
-                [state]="'Presumidamente saudável'" >
-            </app-state-change-card>
+            <app-checkbox-card 
+                [state]="'Dores musculares'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Febre (acima de 37.5ºC)'" >
+            </app-checkbox-card>
+        </div>
+        <div class="card">
+            <app-checkbox-card 
+                [state]="'Arrepios/calafrios'" >
+            </app-checkbox-card>
         </div>
     </div>
 </div>
