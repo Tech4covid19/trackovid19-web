@@ -44,6 +44,7 @@
   }
   /* Change cursor on image */
   .quiz-radio + img {
+      content: url("../../../assets/img/icons/radio-unchecked.svg");
       cursor: pointer;
   }
   .quiz-radio:hover + img {

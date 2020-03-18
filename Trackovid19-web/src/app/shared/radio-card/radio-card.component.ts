@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RadioCardComponent implements OnInit {
   @Input() state: string;
   @Input() label: string;
+  @Input() input_name: string;
   
   constructor() { }
 
