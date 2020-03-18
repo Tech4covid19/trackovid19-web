@@ -18,11 +18,10 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     StatusBtnComponent, 
     ProfileComponent, 
     ProfileStatusComponent, 
-    LocationStatusComponent, 
-    RadioCardComponent, 
+    LocationStatusComponent,
+    RadioCardComponent,
     LocationInfoComponent,
-    StateChangeCardComponent,
-    StateConfirmBtnComponent, 
+    StateConfirmBtnComponent,
     CheckboxCardComponent],
 
   imports: [
@@ -36,7 +35,6 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     ProfileStatusComponent,
     LocationStatusComponent,
     LocationInfoComponent,
-    StateChangeCardComponent,
     RadioCardComponent,
     StateConfirmBtnComponent,
     CheckboxCardComponent
