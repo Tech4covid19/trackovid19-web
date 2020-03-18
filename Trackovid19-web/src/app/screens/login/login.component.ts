@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsersService } from 'src/app/state/users.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,20 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit(): void {
   }
 
   onFacebookLogin() {
+    this.usersService.login().subscribe(() => this._nextPage());
+  }
+
+  private _nextPage() {
     this.router.navigate(['/intro-steps'], { relativeTo: this.activatedRoute});
   }
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,11 +12,11 @@ import { ChangeStateComponent } from './screens/change-state/change-state.compon
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
-import { PostCodeComponent } from './screens/post-code/post-code.component';
-import { SharedModule } from './shared/shared.module';
-import { GeolocalizationService } from './shared/services/geolocalization.service';
-import { HttpClientModule } from '@angular/common/http';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+import { PostCodeComponent } from './screens/post-code/post-code.component';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { SharedModule } from './shared/shared.module';
+import { AuthGuardService } from './shared/guards/auth.guard';
 
 
 @NgModule({
@@ -36,11 +37,12 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
-    
   ],
   providers: [
     // GeolocalizationService,
-    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }}
+    AuthGuardService,
+    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl }},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 
