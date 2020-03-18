@@ -5,6 +5,7 @@ import { StatusBtnComponent } from './status-btn/status-btn.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileStatusComponent } from './profile-status/profile-status.component';
 import { LocationStatusComponent } from './location-status/location-status.component';
+import { LocationInfoComponent } from './location-info/location-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RadioCardComponent } from './radio-card/radio-card.component';
 import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
@@ -19,6 +20,8 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     ProfileStatusComponent, 
     LocationStatusComponent, 
     RadioCardComponent, 
+    LocationInfoComponent,
+    StateChangeCardComponent,
     StateConfirmBtnComponent, 
     CheckboxCardComponent],
 
@@ -26,8 +29,17 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     CommonModule,
     FlexLayoutModule,
   ],
-
-  exports:[CardComponent, StatusBtnComponent, ProfileComponent, ProfileStatusComponent, LocationStatusComponent, RadioCardComponent, StateConfirmBtnComponent, CheckboxCardComponent]
-
+  exports: [
+    CardComponent,
+    StatusBtnComponent,
+    ProfileComponent,
+    ProfileStatusComponent,
+    LocationStatusComponent,
+    LocationInfoComponent,
+    StateChangeCardComponent,
+    RadioCardComponent,
+    StateConfirmBtnComponent,
+    CheckboxCardComponent
+  ],
 })
 export class SharedModule {}
