@@ -18,6 +18,7 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 import { ChangeStateStep2Component } from './screens/change-state-step2/change-state-step2.component';
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ChangeStateStep3Component } from './screens/change-state-step3/change-s
     ChangeStateStep1Component,
     ChangeStateStep2Component,
     ChangeStateStep3Component,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

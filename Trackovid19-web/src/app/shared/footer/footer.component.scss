@@ -1,0 +1,19 @@
+.footer-container {
+  height: 140px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 14px;
+  color: #63717e;
+}
+
+.image {
+  height: 14px;
+  width: 14px;
+
+  margin: 0 4px;
+}
