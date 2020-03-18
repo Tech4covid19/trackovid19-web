@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   onFacebookLogin() {
-    this.usersService.login().subscribe(() => this._nextPage());
+    this.usersService.login();
   }
 
   private _nextPage() {

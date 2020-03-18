@@ -6,13 +6,20 @@ import { ChangeStateComponent } from './screens/change-state/change-state.compon
 import {MainComponent} from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { AuthGuardService } from './shared/guards/auth.guard';
+import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'post-code',
+    component: OauthCallbackComponent
+  },
   {
     path: '',
-    // auth guard
     component: MainComponent,
     children: [
       {

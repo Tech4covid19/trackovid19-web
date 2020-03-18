@@ -12,11 +12,7 @@ export class UsersService extends NgEntityService<UsersState> {
   }
 
   login() {
-    return this.getHttp().get(environment.apiUrl + '/login/facebook').pipe(
-      tap((res: any) => {
-          this.authService.authenticate(res.access_token);
-      })
-    );
+    window.location.href = environment.apiUrl + '/login/facebook';
   }
 
   updateUserLocation(geolocation) {
