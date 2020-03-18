@@ -1,0 +1,36 @@
+<app-profile></app-profile>
+<div class="profile_status_container">
+	<app-profile-status fxFlex="49"></app-profile-status>
+	<app-profile-status fxFlexOffset="2" fxFlex="49"></app-profile-status>
+</div>
+<h2>Alterar o meu estado</h2>
+<div class="change-state-step2-container">
+    <img class="step-counter" src="assets/img/illustrations/change-state/step-2-counter.svg" />
+    <p class="step-description-text">Passo 2 - Infeção</p>
+    <p class="step-question-text">Qual o seu estado de infeção atual?</p>
+
+    <div class="cards">
+        <div class="card">
+            <app-radio-card
+                [state]="'Infeção confirmada'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Caso suspeito'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Recuperado'" >
+            </app-radio-card>
+        </div>
+        <div class="card">
+            <app-radio-card 
+                [state]="'Presumidamente saudável'" >
+            </app-radio-card>
+        </div>
+    </div>
+    <!-- Change to correct link -->
+    <app-state-confirm-btn routerLink="/change-state-step3/" [btnText]="'Seguinte'"></app-state-confirm-btn>
+</div>
