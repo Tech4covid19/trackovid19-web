@@ -12,13 +12,13 @@
 
 .modal-content {
   display: none;
-  background-color: #fefefe;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 50px 33px;
   width: 375px;
+  padding: 40px 33px;
   border-radius: 0;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  background-color: #fefefe;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &.open {
     display: block;
@@ -125,7 +125,7 @@ span {
 
 .btns {
   .btn-back {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -142,10 +142,6 @@ span {
     color: #fa6400;
     background-color: white;
     margin-right: 16px;
-
-    @media all and (max-width: 746px) {
-      display: none;
-    }
   }
 
   .btn-go-foward {
@@ -170,7 +166,42 @@ span {
 }
 
 @media all and (min-width: 747px) {
+  :host {
+    align-items: center;
+  }
+
   .modal-content {
     border-radius: 25px;
+    width: 465px;
+    padding: 40px 56px;
+  }
+
+  input {
+    width: 353px;
+    height: 50px;
+  }
+
+  .post-code {
+    .frist-type-number {
+      width: 185px;
+    }
+
+    .second-type-number {
+      width: 108px;
+    }
+  }
+
+  .btns {
+    display: flex;
+
+    .btn-go-foward {
+      width: 183px;
+    }
+
+    .btn-back {
+      display: flex;
+      width: 183px;
+      padding-right: 13px;
+    }
   }
 }
