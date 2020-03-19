@@ -14,6 +14,9 @@ import { AuthGuardService } from './guards/auth.guard';
 import { UserResolver } from './resolvers/user-data.resolver';
 import { StatusPipe } from './pipes/status.pipe';
 import { IsolationStatusComponent } from './isolation-status/isolation-status.component';
+import { IconPlaceholderPipe } from './pipes/icon-placeholder.pipe';
+import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
+import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
 
 @NgModule({
 
@@ -26,7 +29,13 @@ import { IsolationStatusComponent } from './isolation-status/isolation-status.co
     RadioCardComponent,
     LocationInfoComponent,
     StateConfirmBtnComponent, 
-    CheckboxCardComponent, IsolationStatusComponent],
+    CheckboxCardComponent, 
+    IsolationStatusComponent,
+    IconPlaceholderPipe,
+    StatusPipe,
+    StatusConfinementPipe,
+    IconPlaceholderConfinementPipe
+    ],
 
   imports: [
     CommonModule,

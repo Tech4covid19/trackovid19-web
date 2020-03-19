@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { User } from './user.model';
 import { UserStore } from './user.store';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -15,6 +16,24 @@ export class UserService {
       tap(entity => {
         this.userStore.add(entity);
       }),
+    );
+  }
+
+  login() {
+    window.location.href = environment.serverURL + '/login/facebook';
+  }
+  
+  updateUserLocation(geolocation) {
+    return this.http
+      .post(environment.apiUrl + 'user', geolocation)
+      .pipe(tap(userData => this.userStore.updateActive(userData)));
+  }
+  
+  getUser() {
+    return this.http.get(environment.apiUrl + 'user').pipe(
+      tap( userData => {
+        this.userStore.updateActive(userData);
+      })
     );
   }
 }

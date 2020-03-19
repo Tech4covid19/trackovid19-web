@@ -1,23 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'colorCard'
+  name: 'statusConfinement'
 })
-export class StatusPipe implements PipeTransform {
+export class StatusConfinementPipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
     switch (value) {
       case 4:
         return 'blue'
       case 3:
-        return 'green'
+        return 'orange'
       case 1:
-       return 'purple'
+       return 'blue'
       case 2:
         return 'orange'
    
     }
-
   }
 
 }

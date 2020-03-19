@@ -7,6 +7,7 @@ export interface User {
   url: string;
   cases: Case[];
   network: Network;
+  postalCode: string
 }
 
 export function createUser(params: Partial<User>) {

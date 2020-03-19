@@ -1,31 +1,15 @@
 <div class="location-status" fxLayout="row">
-
+    <ng-template  ngFor let-condition [ngForOf]= 'conditions'; let-first = 'first'>
+        <app-card 
+        fxFlex="30"
+        [fxFlex.lt-md]=" first? 100 : 48"
+        [fxFlex.xs]="first? 100 : 46"
+        [counter]="condition.hits"
+        [label]="condition.confinement_state_text"
+        [color]="condition.confinement_state | statusConfinement"
+        [icon]="condition.confinement_state | iconPlaceholderConfinement"
+      ></app-card>
+    </ng-template >
   
-    <app-card
-    fxFlex="30"
-    fxFlex.lt-md="100"
-    fxFlex.xs="100"
-    [counter]="1"
-    [label]="'Em casa, preventivamente'"
-    [color]="'blue'"
-    [icon]="'assets/img/illustrations/dashboard/heart.svg'"
-  ></app-card>
-    <app-card
-      fxFlex="30"
-      fxFlex.sm="47.5"
-      fxFlex.xs="47.5"
-      [counter]="1"
-      [label]="'Rotina habitual'"
-      [color]="'orange'"
-      [icon]="'assets/img/illustrations/dashboard/user-orange.svg'"
-    ></app-card>
-    <app-card
-      fxFlex="30"
-      fxFlex.lt-md="47.5"
-      fxFlex.xs="47.5"
-      [counter]="2"
-      [label]="'Isolados'"
-      [color]="'red'"
-      [icon]="'assets/img/illustrations/dashboard/user-red.svg'"
-    ></app-card>
+   
 </div>

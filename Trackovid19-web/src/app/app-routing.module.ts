@@ -12,7 +12,7 @@ import { PostCodeComponent } from './screens/post-code/post-code.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {
@@ -25,7 +25,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: '',
+    path: 'dashboard',
     component: MainComponent,
     children: [
       {

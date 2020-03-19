@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UsersService } from 'src/app/state/users.service';
+import { UserService } from 'src/app/states/user/state/user.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class GeolocalizationService {
     timeout: 5000,
     maximumAge: 0,
   };
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UserService) {}
 
   geoFindMe() {
     if (!navigator.geolocation) {

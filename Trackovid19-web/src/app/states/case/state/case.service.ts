@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
-import { tap } from 'rxjs/operators';
+import { tap, mergeMap, merge } from 'rxjs/operators';
 import { Case } from './case.model';
 import { CaseStore } from './case.store';
 import { environment } from 'src/environments/environment';
+import { forkJoin } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CaseService {
   constructor(private caseStore: CaseStore, private http: HttpClient) {}
 
-  public url = environment.apiUrl + '/case';
+  public url = environment.apiUrl + 'case';
 
   getOne(id: ID) {
     return this.http.get<Case>(`${this.url}/${id}`).pipe(
@@ -19,13 +20,7 @@ export class CaseService {
       }),
     );
   }
-  getCasesByPostalCode(postalCode: any) {
-    return this.http.get<Case[]>(`${this.url}/condition/${postalCode}`).pipe(
-      tap(entity => {
-        this.caseStore.set(entity);
-      }),
-    );
-  }
+ 
   get() {
     return this.http.get<Case[]>(`${this.url}/all`).pipe(
       tap(entities => {
