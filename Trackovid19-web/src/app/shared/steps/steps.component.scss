@@ -1,0 +1,51 @@
+.steps {
+  display: flex;
+  justify-content: center;
+
+  .step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .step-content {
+      position: relative;
+      height: 30px;
+      width: 30px;
+
+      .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/*
+  ##Device = Desktops / Ipads
+  ##Screen = 750px to higher resolution desktops
+*/
+@media (min-width: 768px) {
+  .steps {
+    margin-top: 30px;
+
+    .step {
+      .step-content {
+        height: 43px;
+        width: 43px;
+        cursor: pointer;
+
+        img {
+          height: 43px;
+          width: 43px;
+        }
+        .number {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

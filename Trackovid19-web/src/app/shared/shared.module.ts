@@ -17,6 +17,7 @@ import { IsolationStatusComponent } from './isolation-status/isolation-status.co
 import { IconPlaceholderPipe } from './pipes/icon-placeholder.pipe';
 import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
 import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
+import { StepsComponent } from './steps/steps.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     StatusPipe,
     StatusConfinementPipe,
     IconPlaceholderConfinementPipe,
+    StepsComponent,
   ],
   imports: [CommonModule, FlexLayoutModule],
   exports: [
@@ -47,6 +49,7 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     StateConfirmBtnComponent,
     CheckboxCardComponent,
     IsolationStatusComponent,
+    StepsComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })
