@@ -14,3 +14,9 @@
   flex-direction: column;
   padding-left: 16px;
 }
+
+// this link it will be hidden just for the MVP
+// after that we will create the settings page and show this link again
+.settings_link {
+  display: none;
+}
