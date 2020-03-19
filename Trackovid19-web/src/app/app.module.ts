@@ -1,3 +1,4 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,17 +8,16 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './screens/home/home.component';
-import { LoginComponent } from './screens/login/login.component';
-import { MainComponent } from './screens/main/main.component';
-import { PostCodeComponent } from './screens/post-code/post-code.component';
-import { SharedModule } from './shared/shared.module';
-import { GeolocalizationService } from './shared/services/geolocalization.service';
-import { HttpClientModule } from '@angular/common/http';
-import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 import { ChangeStateStep2Component } from './screens/change-state-step2/change-state-step2.component';
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
+import { HomeComponent } from './screens/home/home.component';
+import { LoginComponent } from './screens/login/login.component';
+import { MainComponent } from './screens/main/main.component';
+import { OnBoardingModule } from './screens/onboarding/onboarding.module';
+import { PostCodeComponent } from './screens/post-code/post-code.component';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { ChangeStateStep3Component } from './screens/change-state-step3/change-s
   providers: [
     // GeolocalizationService,
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

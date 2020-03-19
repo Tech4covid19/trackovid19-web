@@ -1,17 +1,32 @@
 import { Injectable } from '@angular/core';
-import { UsersStore, UsersState } from './users.store';
 import { NgEntityService } from '@datorama/akita-ng-entity-service';
-import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { UsersState, UsersStore } from './users.store';
+import { AuthService } from '../shared/services/auth.service';
 @Injectable({ providedIn: 'root' })
 export class UsersService extends NgEntityService<UsersState> {
-  constructor(protected store: UsersStore) {
+  constructor(protected store: UsersStore, protected authService: AuthService) {
     super(store);
   }
-  login() {}
+
+  login() {
+    window.location.href = environment.serverURL + '/login/facebook';
+  }
+
   updateUserLocation(geolocation) {
     return this.getHttp()
       .post(environment.apiUrl + 'user', geolocation)
       .pipe(tap(userData => this.store.updateActive(userData)));
+  }
+
+  getUser() {
+    return this.getHttp()
+      .get(environment.apiUrl + 'user')
+      .pipe(
+        tap(userData => {
+          this.store.updateActive(userData);
+        }),
+      );
   }
 }
