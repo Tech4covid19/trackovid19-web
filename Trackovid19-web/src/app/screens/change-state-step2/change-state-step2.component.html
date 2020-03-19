@@ -5,26 +5,17 @@
     <p class="step-description-text">Passo 2 - Infeção</p>
     <p class="step-question-text">Qual o seu estado de infeção atual?</p>
   </div>
-  <p>{{ conditionState.name }}</p>
   <div class="cards">
-    <div class="card">
-      <app-radio-card [state]="'Infeção confirmada'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Caso suspeito'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Recuperado'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Presumidamente saudável'" [input_name]="'estado'"> </app-radio-card>
+    <div class="card" *ngFor="let health_state of conditionState.health_states">
+      <app-radio-card [state]="health_state.name" [input_name]="'estado'"> </app-radio-card>
     </div>
   </div>
-  <div class="cards">
+  <!-- Test content -->
+<!--   <div class="cards">
     <div class="card" *ngFor="let symptom of conditionState.symptoms">
       <app-checkbox-card [state]="symptom.name" [checked]="symptom.selected"> </app-checkbox-card>
     </div>
-  </div>
+  </div> -->
   <!-- Change to correct link -->
   <div class="confirm-container">
     <app-state-confirm-btn
