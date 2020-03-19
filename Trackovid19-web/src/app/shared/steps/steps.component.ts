@@ -19,7 +19,6 @@ export class StepsComponent implements OnInit {
   ngOnInit(): void {}
 
   public goToPage(url: string) {
-    console.log(url);
     window.location.href = url;
   }
 }
