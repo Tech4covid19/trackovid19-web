@@ -11,6 +11,7 @@ import { AuthGuardService } from './shared/guards/auth.guard';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
+import { OnboardingComponent } from './screens/onboarding/onboarding.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'terms-conditions',
     component: TermsConditionsComponent,
+  },
+  {
+    path: 'onboarding',
+    component: OnboardingComponent,
   },
   {
     path: 'dashboard',
