@@ -8,29 +8,19 @@
   </div>
 
   <div class="cards">
-    <div class="card">
-      <app-checkbox-card [state]="'Tosse seca'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Espirros'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Tosse com expectoração'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Dores musculares'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Febre (acima de 37.5ºC)'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Arrepios/calafrios'"> </app-checkbox-card>
+    <div class="card" *ngFor="let symptom of conditionState.symptoms">
+      <app-checkbox-card [state]="symptom.name" (change)="checkSymptom(symptom.id, $event)"> </app-checkbox-card>
     </div>
   </div>
+
   <!-- Change to correct link -->
   <div class="confirm-container">
-    <app-state-confirm-btn
+<!--     <app-state-confirm-btn
       [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step2'] } }]"
+      [btnText]="'Seguinte'"
+    ></app-state-confirm-btn> -->
+    <app-state-confirm-btn
+      (click)='updateSymptoms()'
       [btnText]="'Seguinte'"
     ></app-state-confirm-btn>
   </div>

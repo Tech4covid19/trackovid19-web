@@ -33,11 +33,11 @@ const routes: Routes = [
         outlet: 'dash',
         component: HomeComponent,
       },
-      {
+/*       {
         path: 'change-state-step1',
         outlet: 'dash',
         component: ChangeStateStep1Component,
-      },
+      }, */
       {
         path: 'change-state-step2',
         outlet: 'dash',
@@ -58,6 +58,7 @@ const routes: Routes = [
     },*/
   },
   { path: 'post-code', component: PostCodeComponent },
+  { path: 'change-state-step1', component: ChangeStateStep1Component },
 ];
 
 @NgModule({
