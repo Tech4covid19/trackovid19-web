@@ -8,7 +8,7 @@
       </div>
 
       <div class="action" fxLayout="row">
-        <div>
+        <div class="action-content">
           <div class="login-btn button-elevation cursor-pointer" (click)="onFacebookLogin()">
             <div class="fb" fxLayout="row" fxLayoutAlign="center">
               <img src="assets/img/facebook.svg" />
@@ -18,7 +18,15 @@
             </div>
           </div>
 
-          <p class="text-grey text-center terms-and-conditions">Termos e condições</p>
+          <div class="policy-terms">
+            <a class="text-grey text-center" target="_blank" href="/terms-conditions"
+              >Termos e condições</a
+            >
+
+            <a class="text-grey text-center" target="_blank" href="/privacy-policy"
+              >Política de Privacidade</a
+            >
+          </div>
         </div>
       </div>
     </div>
