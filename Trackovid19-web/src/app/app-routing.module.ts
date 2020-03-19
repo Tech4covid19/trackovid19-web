@@ -25,10 +25,6 @@ const routes: Routes = [
     // canActivate: [AuthGuardService],
   },
   {
-    path: 'post-code2',
-    loadChildren: () => import('./screens/post-code/post-code.module').then(m => m.PostCodeModule),
-  },
-  {
     path: 'dashboard',
     component: MainComponent,
     children: [
