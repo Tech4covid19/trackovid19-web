@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor() { }
+  constructor() {}
 
   public unauthenticate() {
     sessionStorage.clear();
@@ -18,8 +17,8 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    if ( !this.getToken() ) {
-        return false;
+    if (!this.getToken()) {
+      return false;
     }
     return true;
   }
@@ -27,5 +26,4 @@ export class AuthService {
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }
-
 }

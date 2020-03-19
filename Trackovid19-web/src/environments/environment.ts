@@ -7,7 +7,7 @@ const SERVER_URL = 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev';
 export const environment = {
   production: false,
   serverURL: SERVER_URL,
-  apiUrl: SERVER_URL + '/api/v1/'
+  apiUrl: SERVER_URL + '/api/v1/',
 };
 
 /*

@@ -3,17 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-    template: ''
+  template: '',
 })
 export class OauthCallbackComponent {
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private authService: AuthService
-    ) {
-        this.route.queryParams.subscribe(params => {
-            this.authService.authenticate(params.code);
-            this.router.navigate(['post-code-step']);
-        });
-    }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService,
+  ) {
+    this.route.queryParams.subscribe(params => {
+      this.authService.authenticate(params.code);
+      this.router.navigate(['post-code-step']);
+    });
+  }
 }

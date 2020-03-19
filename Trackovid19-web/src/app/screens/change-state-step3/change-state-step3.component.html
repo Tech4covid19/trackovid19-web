@@ -1,8 +1,3 @@
-<app-profile></app-profile>
-<div class="profile_status_container">
-  <app-profile-status fxFlex="49"></app-profile-status>
-  <app-profile-status fxFlexOffset="2" fxFlex="49"></app-profile-status>
-</div>
 <div class="change-state-step3-container">
   <h2 class="page-title">Alterar o meu estado</h2>
   <img class="step-counter" src="assets/img/illustrations/change-state/step-3-counter.svg" />
@@ -11,37 +6,38 @@
     <p class="step-question-text">Qual o seu estado de atividade atual?</p>
   </div>
 
-    <div class="cards">
-        <div class="card">
-            <app-radio-card
-                [state]="'Mantenho a minha rotina habitual, não estando em isolamento social'"
-                [input_name]="'atividade'" >
-            </app-radio-card>
-        </div>
-        <div class="card">
-            <app-radio-card 
-                [state]="'Sou um caso suspeito e estou em isolamento social para evitar propagar o vírus'"
-                [input_name]="'atividade'" >
-            </app-radio-card>
-        </div>
-        <div class="card">
-            <app-radio-card 
-                [state]="'Presumo estar saudável e estou em casa voluntariamente, por precaução'"
-                [input_name]="'atividade'" >
-            </app-radio-card>
-        </div>
-        <div class="card">
-            <app-radio-card 
-                [state]="'Estou doente e em isolamento social para evitar a propagação do vírus'"
-                [input_name]="'atividade'" >
-            </app-radio-card>
-        </div>
+  <div class="cards">
+    <div class="card">
+      <app-radio-card
+        [state]="'Mantenho a minha rotina habitual, não estando em isolamento social'"
+        [input_name]="'atividade'"
+      >
+      </app-radio-card>
+    </div>
+    <div class="card">
+      <app-radio-card
+        [state]="'Sou um caso suspeito e estou em isolamento social para evitar propagar o vírus'"
+        [input_name]="'atividade'"
+      >
+      </app-radio-card>
+    </div>
+    <div class="card">
+      <app-radio-card
+        [state]="'Presumo estar saudável e estou em casa voluntariamente, por precaução'"
+        [input_name]="'atividade'"
+      >
+      </app-radio-card>
+    </div>
+    <div class="card">
+      <app-radio-card
+        [state]="'Estou doente e em isolamento social para evitar a propagação do vírus'"
+        [input_name]="'atividade'"
+      >
+      </app-radio-card>
     </div>
   </div>
-  <!-- Change to correct link -->
-  <div class="confirm-container">
-    <app-state-confirm-btn
-      routerLink="/change-state-step1/"
-      [btnText]="'Submeter'"
-    ></app-state-confirm-btn>
-  </div>
+</div>
+<!-- Change to correct link -->
+<div class="confirm-container">
+  <app-state-confirm-btn routerLink="/" [btnText]="'Submeter'"></app-state-confirm-btn>
+</div>

@@ -19,12 +19,11 @@ import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
 import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
 
 @NgModule({
-
   declarations: [
-    CardComponent, 
-    StatusBtnComponent, 
-    ProfileComponent, 
-    ProfileStatusComponent, 
+    CardComponent,
+    StatusBtnComponent,
+    ProfileComponent,
+    ProfileStatusComponent,
     LocationStatusComponent,
     RadioCardComponent,
     LocationInfoComponent,
@@ -41,6 +40,7 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     CommonModule,
     FlexLayoutModule,
   ],
+  imports: [CommonModule, FlexLayoutModule],
   exports: [
     CardComponent,
     StatusBtnComponent,
@@ -53,9 +53,6 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     CheckboxCardComponent,
     IsolationStatusComponent
   ],
-  providers: [
-    AuthGuardService,
-    UserResolver,
-  ]
+  providers: [AuthGuardService, UserResolver],
 })
 export class SharedModule {}
