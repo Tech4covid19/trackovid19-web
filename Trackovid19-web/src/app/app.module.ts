@@ -22,12 +22,14 @@ import { RouterModule } from '@angular/router';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
 import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
+import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    LogoutComponent,
     MainComponent,
     ChangeStateStep1Component,
     ChangeStateStep2Component,

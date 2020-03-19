@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './screens/home/home.component';
-import { LoginComponent } from './screens/login/login.component';
-import { MainComponent } from './screens/main/main.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 import { ChangeStateStep1Component } from './screens/change-state-step1/change-state-step1.component';
 import { ChangeStateStep2Component } from './screens/change-state-step2/change-state-step2.component';
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
-import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
-import { AuthGuardService } from './shared/guards/auth.guard';
+import { HomeComponent } from './screens/home/home.component';
+import { LoginComponent } from './screens/login/login.component';
+import { MainComponent } from './screens/main/main.component';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
+import { AuthGuardService } from './shared/guards/auth.guard';
+import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
   },
   {
     path: 'post-code',

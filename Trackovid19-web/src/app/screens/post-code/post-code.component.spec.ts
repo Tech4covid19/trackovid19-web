@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/states/user/state/user.service';
 import { PostCodeComponent } from './post-code.component';
 
 describe('PostCodeComponent', () => {
@@ -9,6 +10,13 @@ describe('PostCodeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PostCodeComponent],
+      providers: [
+        FormBuilder,
+        {
+          provide: UserService,
+          useValue: () => {},
+        },
+      ],
     }).compileComponents();
   }));
 
