@@ -7,18 +7,11 @@
   </div>
 
   <div class="cards">
-    <div class="card">
-      <app-radio-card [state]="'Infeção confirmada'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Caso suspeito'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Recuperado'" [input_name]="'estado'"> </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card [state]="'Presumidamente saudável'" [input_name]="'estado'"> </app-radio-card>
-    </div>
+    <ng-container *ngFor="let condition of conditions">
+      <div class="card">
+        <app-radio-card [state]="condition.status" [input_name]="'estado'"> </app-radio-card>
+      </div>
+    </ng-container>
   </div>
   <!-- Change to correct link -->
   <div class="confirm-container">
