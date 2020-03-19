@@ -18,6 +18,8 @@ import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { PostCodeComponent } from './screens/post-code/post-code.component';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { GeolocalizationService } from './shared/services/geolocalization.service';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,13 @@ import { SharedModule } from './shared/shared.module';
     FlexLayoutModule,
     OnBoardingModule,
     SharedModule,
+    RouterModule,
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
   ],
   providers: [
-    // GeolocalizationService,
+    GeolocalizationService,
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

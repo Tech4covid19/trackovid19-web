@@ -1,40 +1,13 @@
-<div class="location-status">
-  <app-card
-    fxFlex="100"
-    [counter]="1"
-    [label]="'Infetados'"
-    [icon]="'assets/img/heart.svg'"
-  ></app-card>
-  <div fxLayoutAlign="space-between center">
+<div class="location-status" fxLayout="row">
+  <ng-template ngFor let-condition [ngForOf]="conditions" ; let-first="first">
     <app-card
-      fxFlex="48"
-      [counter]="1"
-      [label]="'Infetados'"
-      [color]="'orange'"
-      [icon]="'assets/img/heart.svg'"
+      fxFlex="30"
+      [fxFlex.lt-md]="first ? 100 : 48"
+      [fxFlex.xs]="first ? 100 : 46"
+      [counter]="condition.hits"
+      [label]="condition.status_text"
+      [color]="condition.status | colorCard"
+      [icon]="condition.status | iconPlaceholder"
     ></app-card>
-    <app-card
-      fxFlex="48"
-      [counter]="2"
-      [label]="'Infetados'"
-      [color]="'red'"
-      [icon]="'assets/img/heart.svg'"
-    ></app-card>
-  </div>
-  <div fxLayoutAlign="space-between center">
-    <app-card
-      fxFlex="48"
-      [counter]="3"
-      [label]="'Infetados'"
-      [color]="'green'"
-      [icon]="'assets/img/heart.svg'"
-    ></app-card>
-    <app-card
-      fxFlex="48"
-      [counter]="4"
-      [label]="'Infetados'"
-      [color]="'purple'"
-      [icon]="'assets/img/heart.svg'"
-    ></app-card>
-  </div>
+  </ng-template>
 </div>

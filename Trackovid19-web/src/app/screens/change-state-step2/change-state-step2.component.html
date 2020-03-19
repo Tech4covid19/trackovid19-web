@@ -23,7 +23,7 @@
   <!-- Change to correct link -->
   <div class="confirm-container">
     <app-state-confirm-btn
-      routerLink="/change-state-step3/"
+      [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step3'] } }]"
       [btnText]="'Seguinte'"
     ></app-state-confirm-btn>
   </div>

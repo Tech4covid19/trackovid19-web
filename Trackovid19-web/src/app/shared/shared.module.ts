@@ -12,6 +12,11 @@ import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
 import { AuthGuardService } from './guards/auth.guard';
 import { UserResolver } from './resolvers/user-data.resolver';
+import { StatusPipe } from './pipes/status.pipe';
+import { IsolationStatusComponent } from './isolation-status/isolation-status.component';
+import { IconPlaceholderPipe } from './pipes/icon-placeholder.pipe';
+import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
+import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,11 @@ import { UserResolver } from './resolvers/user-data.resolver';
     LocationInfoComponent,
     StateConfirmBtnComponent,
     CheckboxCardComponent,
+    IsolationStatusComponent,
+    IconPlaceholderPipe,
+    StatusPipe,
+    StatusConfinementPipe,
+    IconPlaceholderConfinementPipe,
   ],
   imports: [CommonModule, FlexLayoutModule],
   exports: [
@@ -36,6 +46,7 @@ import { UserResolver } from './resolvers/user-data.resolver';
     RadioCardComponent,
     StateConfirmBtnComponent,
     CheckboxCardComponent,
+    IsolationStatusComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })

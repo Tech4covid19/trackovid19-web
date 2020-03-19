@@ -39,5 +39,5 @@
 </div>
 <!-- Change to correct link -->
 <div class="confirm-container">
-  <app-state-confirm-btn routerLink="/" [btnText]="'Submeter'"></app-state-confirm-btn>
+  <app-state-confirm-btn (click)="sendForm()" [btnText]="'Submeter'"></app-state-confirm-btn>
 </div>
