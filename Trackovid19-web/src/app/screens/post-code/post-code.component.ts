@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/states/user/state/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-code',
@@ -20,7 +21,7 @@ export class PostCodeComponent implements OnInit {
 
   public minYear: number;
 
-  constructor(private userService: UserService, public fb: FormBuilder) {
+  constructor(private userService: UserService, public fb: FormBuilder, private router: Router) {
     this.maxYear = new Date().getFullYear();
     this.minYear = this.maxYear - 120;
   }
@@ -56,6 +57,7 @@ export class PostCodeComponent implements OnInit {
     this.submitted = true;
     if (this.form.valid) {
       this._updateUserData(this.form.value);
+      this.router.navigate(['/onboarding']);
     }
   }
 

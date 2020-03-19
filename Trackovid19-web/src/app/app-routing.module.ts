@@ -12,6 +12,7 @@ import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { AuthGuardService } from './shared/guards/auth.guard';
 import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
+import { OnboardingComponent } from './screens/onboarding/onboarding.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'terms-conditions',
     component: TermsConditionsComponent,
+  },
+  {
+    path: 'onboarding',
+    component: OnboardingComponent,
   },
   {
     path: 'dashboard',
