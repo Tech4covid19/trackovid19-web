@@ -10,6 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RadioCardComponent } from './radio-card/radio-card.component';
 import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
+import { AuthGuardService } from './guards/auth.guard';
+import { UserResolver } from './resolvers/user-data.resolver';
 import { StatusPipe } from './pipes/status.pipe';
 import { IsolationStatusComponent } from './isolation-status/isolation-status.component';
 
@@ -20,8 +22,8 @@ import { IsolationStatusComponent } from './isolation-status/isolation-status.co
     StatusBtnComponent, 
     ProfileComponent, 
     ProfileStatusComponent, 
-    LocationStatusComponent, 
-    RadioCardComponent, 
+    LocationStatusComponent,
+    RadioCardComponent,
     LocationInfoComponent,
     StateConfirmBtnComponent, 
     CheckboxCardComponent, IsolationStatusComponent],
@@ -42,5 +44,9 @@ import { IsolationStatusComponent } from './isolation-status/isolation-status.co
     CheckboxCardComponent,
     IsolationStatusComponent
   ],
+  providers: [
+    AuthGuardService,
+    UserResolver,
+  ]
 })
 export class SharedModule {}
