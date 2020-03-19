@@ -1,31 +1,81 @@
-<section id="myModal" class="modal" [class.open]="opened" [class.closing]="closing">
-  <section class="modal-content" fxLayout="column">
-    <section class="row" fxLayout="row">
-      <img alt="marker" src="assets/img/icons/marker.svg" />
-      <span>Insira o seu código postal</span>
-    </section>
-    <section class="row post-code" fxLayout="row">
+<form
+  class="modal-content"
+  [class.open]="opened"
+  [class.closing]="closing"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  novalidate
+>
+  <section class="row label" fxLayout="row">
+    <img alt="marker" src="assets/img/icons/marker.svg" />
+    <span>Insira o seu ano de nascimento</span>
+  </section>
+  <section class="row field-container post-code" fxLayout="row">
+    <input
+      formControlName="birth-year"
+      type="number"
+      onKeyPress="if(this.value.length==4) return false;"
+      placeholder="- - - -"
+      [class.inputError]="submitted && birthYearControl.errors"
+    />
+    <div *ngIf="submitted && birthYearControl.errors" class="error-notice">
+      <span *ngIf="birthYearControl.errors.required">Campo obrigatório!</span>
+      <span *ngIf="birthYearControl.errors.min || birthYearControl.errors.max"
+        >Campo inválido!</span
+      >
+    </div>
+  </section>
+
+  <section class="row label" fxLayout="row">
+    <img alt="marker" src="assets/img/icons/marker.svg" />
+    <span>Insira o seu código postal</span>
+  </section>
+  <section class="row field-container post-code" fxLayout="row">
+    <div>
       <input
         class="frist-type-number"
+        formControlName="zip-code-1"
         type="number"
-        ngModel
-        maxlength="4"
-        name="frist-four-digits"
         onKeyPress="if(this.value.length==4) return false;"
+        placeholder="- - - -"
+        [class.inputError]="submitted && zipCode1Control.errors"
       />
       <img src="assets/img/icons/post-code-divider.svg" alt="post-code-divider" />
       <input
         class="second-type-number"
+        formControlName="zip-code-2"
         type="number"
-        ngModel
-        maxlength="3"
-        name="second-three-digits"
         onKeyPress="if(this.value.length==3) return false;"
+        placeholder="- - -"
+        [class.inputError]="submitted && zipCode2Control.errors"
       />
-    </section>
-    <section class="row btns" fxLayout="row">
-      <button class="btn-back" (click)="close()">Voltar</button>
-      <button class="btn-go-foward">Avançar</button>
-    </section>
+    </div>
+    <div
+      *ngIf="submitted && (zipCode1Control.errors || zipCode2Control.errors)"
+      class="error-notice"
+    >
+      <span *ngIf="zipCode2Control.errors.required">Campo obrigatório!</span>
+    </div>
   </section>
-</section>
+
+  <section class="row label codigrafia-code" fxLayout="row">
+    <span>Código Covidografia (Opcional)</span>
+  </section>
+  <section class="row field-container post-code" fxLayout="row">
+    <input
+      formControlName="covidografia-code"
+      type="text"
+      maxlength="8"
+      placeholder="- - - - - - - -"
+      [class.inputError]="submitted && covidografiaCodeControl.errors"
+    />
+    <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
+      <span *ngIf="covidografiaCodeControl.errors.required">Campo obrigatório!</span>
+    </div>
+  </section>
+
+  <section class="row btns" fxLayout="row">
+    <button class="btn-back" (click)="close()">Voltar</button>
+    <button class="btn-go-foward" type="submit">Avançar</button>
+  </section>
+</form>

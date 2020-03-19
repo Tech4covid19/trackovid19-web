@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'post-code-step',
     component: PostCodeComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
+  },
+  {
+    path: 'post-code2',
+    loadChildren: () => import('./screens/post-code/post-code.module').then(m => m.PostCodeModule),
   },
   {
     path: '',
@@ -53,7 +57,6 @@ const routes: Routes = [
       user: UserResolver
     },*/
   },
-  { path: 'post-code', component: PostCodeComponent },
 ];
 
 @NgModule({

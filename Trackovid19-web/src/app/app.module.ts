@@ -15,7 +15,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
-import { PostCodeComponent } from './screens/post-code/post-code.component';
+import { PostCodeModule } from './screens/post-code/post-code.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 
@@ -25,7 +25,6 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     LoginComponent,
     MainComponent,
-    PostCodeComponent,
     ChangeStateStep1Component,
     ChangeStateStep2Component,
     ChangeStateStep3Component,
@@ -35,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     FlexLayoutModule,
     OnBoardingModule,
+    PostCodeModule,
     SharedModule,
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
