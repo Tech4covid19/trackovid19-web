@@ -23,6 +23,12 @@ export class UserService {
     window.location.href = environment.serverURL + '/login/facebook';
   }
 
+  updateUserInformation(userInformation) {
+    return this.http
+      .put(environment.apiUrl + 'user', userInformation)
+      .pipe(tap(userData => this.userStore.updateActive(userData)));
+  }
+
   updateUserLocation(geolocation) {
     return this.http
       .post(environment.apiUrl + 'user', geolocation)

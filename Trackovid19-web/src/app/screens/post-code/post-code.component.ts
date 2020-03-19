@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UserService } from 'src/app/states/user/state/user.service';
 
 @Component({
   selector: 'app-post-code',
@@ -19,7 +20,7 @@ export class PostCodeComponent implements OnInit {
 
   public minYear: number;
 
-  constructor(public fb: FormBuilder) {
+  constructor(private userService: UserService, public fb: FormBuilder) {
     this.maxYear = new Date().getFullYear();
     this.minYear = this.maxYear - 120;
   }
@@ -76,6 +77,16 @@ export class PostCodeComponent implements OnInit {
   }
 
   private _updateUserData(data: any) {
-    console.log('_updateUserData', data);
+    const userData = {
+      year: data['birth-year'],
+      postalCode: `${data['zip-code-1']}-${data['zip-code-2']}`,
+      patientToken: data['covidografia-code'],
+    };
+
+    if (!data['covidografia-code']) {
+      delete userData.patientToken;
+    }
+
+    this.userService.updateUserInformation(userData);
   }
 }
