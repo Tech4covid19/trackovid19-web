@@ -1,15 +1,15 @@
-.page-title {
-  text-align: left;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.6125rem;
-}
-
 .change-state-step1-container {
   width: 90%;
   height: auto;
   text-align: center;
   margin: 0 auto;
+}
+
+.page-title {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.6125rem;
 }
 
 .step-description {
@@ -46,6 +46,7 @@
     margin-bottom: 1.75rem;
   }
 }
+
 .confirm-container {
   width: 100%;
   display: flex;
@@ -75,7 +76,10 @@
   }
 
   .confirm-container {
-    width: calc(90% - 2rem);
+    position: fixed;
+    bottom: 0;
+    left: 1.25vw;
+    width: calc(97.5vw - 1rem);
     display: flex;
     justify-content: flex-end;
     margin: 0 auto;
