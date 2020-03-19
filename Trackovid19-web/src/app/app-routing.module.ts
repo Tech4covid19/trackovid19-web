@@ -12,7 +12,7 @@ import { PostCodeComponent } from './screens/post-code/post-code.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent,
   },
   {
@@ -29,23 +29,27 @@ const routes: Routes = [
     loadChildren: () => import('./screens/post-code/post-code.module').then(m => m.PostCodeModule),
   },
   {
-    path: '',
+    path: 'dashboard',
     component: MainComponent,
     children: [
       {
-        path: '',
+        path: 'status',
+        outlet: 'dash',
         component: HomeComponent,
       },
       {
         path: 'change-state-step1',
+        outlet: 'dash',
         component: ChangeStateStep1Component,
       },
       {
         path: 'change-state-step2',
+        outlet: 'dash',
         component: ChangeStateStep2Component,
       },
       {
         path: 'change-state-step3',
+        outlet: 'dash',
         component: ChangeStateStep3Component,
       },
     ],

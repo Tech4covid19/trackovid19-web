@@ -205,3 +205,87 @@ span {
     }
   }
 }
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100%;
+
+  .wrapper {
+    max-width: 100%;
+    position: relative;
+  }
+
+  .header {
+    height: 70%;
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .logo-background {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      top: 30%;
+      z-index: 1;
+      left: calc(12%);
+      width: 75%;
+      height: 69px;
+    }
+  }
+
+  .action {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+      flex-basis: 26.5rem;
+    }
+
+    .login-btn {
+      max-height: 55px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #4267b2;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-bottom: 1rem;
+
+      p {
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-right: 2.625rem;
+      }
+
+      img {
+        max-width: 30px;
+        max-height: 30px;
+      }
+
+      .fb {
+        margin-right: 20px;
+        margin-left: 45px;
+      }
+    }
+
+    .terms-and-conditions {
+      font-size: 1rem;
+    }
+  }
+
+  .h-100 {
+    height: 100%;
+  }
+}
