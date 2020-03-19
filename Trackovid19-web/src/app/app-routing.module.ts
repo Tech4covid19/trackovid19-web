@@ -57,7 +57,6 @@ const routes: Routes = [
       user: UserResolver
     },*/
   },
-  { path: 'post-code', component: PostCodeComponent },
 ];
 
 @NgModule({
