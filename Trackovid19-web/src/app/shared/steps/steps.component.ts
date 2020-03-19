@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Step {
   label: string;
@@ -14,11 +15,11 @@ export interface Step {
 export class StepsComponent implements OnInit {
   @Input() steps: Step[];
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {}
 
   public goToPage(url: string) {
-    window.location.href = url;
+    this.router.navigate(['/dashboard', { outlets: { dash: [url] } }]);
   }
 }

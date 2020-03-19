@@ -9,9 +9,9 @@ import { Step } from 'src/app/shared/steps/steps.component';
 })
 export class ChangeStateStep3Component implements OnInit {
   steps: Step[] = [
-    { label: '1', url: '/dashboard/(dash:change-state-step1)', active: true },
-    { label: '2', url: '/dashboard/(dash:change-state-step2)', active: true },
-    { label: '3', url: '/dashboard/(dash:change-state-step3)', active: true },
+    { label: '1', url: 'change-state-step1', active: true },
+    { label: '2', url: 'change-state-step2', active: true },
+    { label: '3', url: 'change-state-step3', active: true },
   ];
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
