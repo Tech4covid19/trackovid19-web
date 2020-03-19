@@ -1,27 +1,73 @@
 .card-container {
   width: 100%;
   background-color: #ffffff;
-  border-radius: 30px;
-  padding: 16px 24px;
-  -webkit-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
-  box-shadow: -7px 7px 12px -2px rgba(0, 0, 0, 0.35);
+  padding: 1rem 2rem;
+  border-radius: 1.875rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
 
-  img {
-    max-width: 32px;
-    max-height: 26px;
-    margin-left: auto;
-    align-self: end;
+  .checkbox-btn {
+    margin-right: 1rem;
+
+    input {
+      display: none;
+
+      + .check {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 0.25rem;
+        border: 0.125rem solid #d8d8d8;
+        cursor: pointer;
+        transition: 0.3s ease all;
+
+        &::after {
+          content: '';
+          opacity: 0;
+          display: block;
+          width: 0;
+          height: 0.5rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -0.5rem) rotate(-45deg);
+          border-bottom: 0.125rem solid #fff;
+          border-left: 0.125rem solid #fff;
+          border-bottom-left-radius: 0.125rem;
+          transition: 0.2s ease width, 0.2s ease height;
+        }
+      }
+
+      &:checked + .check {
+        display: block;
+        position: relative;
+        background-color: #fa6400;
+        border-color: #fa6400;
+
+        &::after {
+          opacity: 1;
+          width: 1rem;
+        }
+      }
+    }
+  }
+
+  .state-description {
+    display: flex;
+    align-items: center;
   }
 
   span {
     color: #1e2933;
     font-size: 13px;
   }
+
   hr {
     margin: 0px;
     border: 1px solid #979797;
   }
+
   p {
     color: #798794;
     font-size: 16px;
@@ -29,33 +75,8 @@
     line-height: 0;
   }
 
-  .state-description {
-    margin-left: 1em;
-  }
-
   .state-title {
-    font-size: 13px;
-  }
-
-  .quiz-checkbox {
-    /* Hide */
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  /* Change cursor on image */
-  .quiz-checkbox + img {
-    cursor: pointer;
-  }
-  .quiz-checkbox:hover + img {
-    content: url('../../../assets/img/icons/checkbox-checked.svg');
-  }
-  .quiz-checkbox:checked + img {
-    content: url('../../../assets/img/icons/checkbox-checked.svg');
-  }
-  .state-title {
-    font-size: 1em;
+    font-size: 0.85rem;
   }
 }
 

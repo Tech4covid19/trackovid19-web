@@ -1,13 +1,21 @@
-<!-- <div class="header">
-    <img src="assets/img/dgs.png">
-</div> -->
+<div class="dashboard_container">
+  <div class="sidebar_container">
+    <div class="logo_container">
+      <img class="profile_dgs_logo" src="assets/img/tracovid.svg" />
+      <img class="share_icon" src="assets/img/settings.svg" />
+    </div>
+    <app-profile></app-profile>
+    <div class="profile_status_container">
+      <app-profile-status></app-profile-status>
+      <app-profile-status></app-profile-status>
+    </div>
 
-<router-outlet></router-outlet>
-<!-- <div id="bottom-bar" >
-    <img src="assets/img/icons/dash.svg"  routerLink="">
-
-    <img src="assets/img/icons/contacts.svg"  routerLink="/profile">
-
-    <img src="assets/img/icons/contacts.svg" routerLink="home">
-
-</div> -->
+    <div class="account_actions">
+      <app-status-btn routerLink="/change-state-step1"></app-status-btn>
+      <a class="link logout_link" href="">Log out</a>
+    </div>
+  </div>
+  <div class="page-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

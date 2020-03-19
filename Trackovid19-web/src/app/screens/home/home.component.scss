@@ -43,13 +43,26 @@
   }
 }
 
-app-status-btn {
-  padding: 0 12px;
+.account_actions {
+  margin-top: auto;
+
+  a.logout_link {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    text-align: center;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0;
+    border: none;
+    outline: none;
+  }
 }
 
-.logout_link {
-  display: none;
-}
+// app-status-btn {
+//   padding: 0 12px;
+// }
 
 /*
   ##Device = Desktops / Ipads

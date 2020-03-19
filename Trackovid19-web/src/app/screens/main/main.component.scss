@@ -1,3 +1,118 @@
 :host {
   min-height: 100%;
 }
+
+.dashboard_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  .sidebar_container {
+    display: flex;
+    flex-direction: column;
+
+    .logo_container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 21px 0;
+
+      .profile_dgs_logo {
+        height: 32px;
+        flex: 1;
+      }
+    }
+
+    .profile_status_container {
+      display: flex;
+
+      & app-profile-status {
+        max-width: 49%;
+        flex: 1 1 100%;
+      }
+
+      & app-profile-status:last-child {
+        margin-left: 2%;
+      }
+    }
+
+    .account_actions {
+      margin-top: auto;
+
+      a.logout_link {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 0.875rem;
+        line-height: 0.875rem;
+        text-align: center;
+        padding: 1.25rem 2.5rem;
+        border-radius: 0;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+
+  .page-container {
+    padding: 0 12px;
+
+    & .location-status {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+}
+
+/*
+  ##Device = Desktops / Ipads
+  ##Screen = 750px to higher resolution desktops
+*/
+@media (min-width: 768px) {
+  .dashboard_container {
+    display: flex;
+    flex-direction: row;
+
+    .sidebar_container {
+      padding: 20px 46px;
+      background-color: #f9f9f9;
+      width: 360px;
+      min-width: 360px;
+
+      .logo_container {
+        padding: 18px 21px;
+      }
+
+      .profile_status_container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        & app-profile-status {
+          max-width: 100%;
+          flex: 1 1 100%;
+        }
+
+        & app-profile-status:last-child {
+          margin-left: 0;
+        }
+      }
+
+      .account_actions {
+        app-status-btn {
+          margin-top: auto;
+        }
+
+        .logout_link {
+          display: block;
+        }
+      }
+    }
+
+    .page-container {
+      width: 100%;
+      padding: 0 100px;
+      padding: 46px;
+    }
+  }
+}

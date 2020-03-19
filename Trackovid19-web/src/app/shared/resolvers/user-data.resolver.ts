@@ -6,13 +6,10 @@ import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class UserResolver implements Resolve<any> {
-  constructor(
-    private usersService: UsersService,
-    private authServicce: AuthService
-  ) {}
+  constructor(private usersService: UsersService, private authServicce: AuthService) {}
 
   resolve(): Observable<any> {
-    if ( !this.authServicce.isAuthenticated() ) {
+    if (!this.authServicce.isAuthenticated()) {
       return of(null);
     }
     return this.usersService.getUser();

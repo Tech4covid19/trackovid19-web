@@ -7,7 +7,7 @@ const SERVER_URL = 'http://localhost:3000';
 export const environment = {
   production: false,
   serverURL: SERVER_URL,
-  apiUrl: SERVER_URL + '/api/v1/'
+  apiUrl: SERVER_URL + '/api/v1/',
 };
 
 /*

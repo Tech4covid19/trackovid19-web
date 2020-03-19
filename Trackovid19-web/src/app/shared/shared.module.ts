@@ -14,22 +14,18 @@ import { AuthGuardService } from './guards/auth.guard';
 import { UserResolver } from './resolvers/user-data.resolver';
 
 @NgModule({
-
   declarations: [
-    CardComponent, 
-    StatusBtnComponent, 
-    ProfileComponent, 
-    ProfileStatusComponent, 
+    CardComponent,
+    StatusBtnComponent,
+    ProfileComponent,
+    ProfileStatusComponent,
     LocationStatusComponent,
     RadioCardComponent,
     LocationInfoComponent,
     StateConfirmBtnComponent,
-    CheckboxCardComponent],
-
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
+    CheckboxCardComponent,
   ],
+  imports: [CommonModule, FlexLayoutModule],
   exports: [
     CardComponent,
     StatusBtnComponent,
@@ -39,11 +35,8 @@ import { UserResolver } from './resolvers/user-data.resolver';
     LocationInfoComponent,
     RadioCardComponent,
     StateConfirmBtnComponent,
-    CheckboxCardComponent
+    CheckboxCardComponent,
   ],
-  providers: [
-    AuthGuardService,
-    UserResolver,
-  ]
+  providers: [AuthGuardService, UserResolver],
 })
 export class SharedModule {}

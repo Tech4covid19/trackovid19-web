@@ -6,7 +6,6 @@ import { UsersState, UsersStore } from './users.store';
 import { AuthService } from '../shared/services/auth.service';
 @Injectable({ providedIn: 'root' })
 export class UsersService extends NgEntityService<UsersState> {
-
   constructor(protected store: UsersStore, protected authService: AuthService) {
     super(store);
   }
@@ -14,7 +13,7 @@ export class UsersService extends NgEntityService<UsersState> {
   login() {
     window.location.href = environment.serverURL + '/login/facebook';
   }
-  
+
   updateUserLocation(geolocation) {
     return this.getHttp()
       .post(environment.apiUrl + 'user', geolocation)
@@ -22,10 +21,12 @@ export class UsersService extends NgEntityService<UsersState> {
   }
 
   getUser() {
-    return this.getHttp().get(environment.apiUrl + 'user').pipe(
-      tap( userData => {
-        this.store.updateActive(userData);
-      })
-    );
+    return this.getHttp()
+      .get(environment.apiUrl + 'user')
+      .pipe(
+        tap(userData => {
+          this.store.updateActive(userData);
+        }),
+      );
   }
 }
