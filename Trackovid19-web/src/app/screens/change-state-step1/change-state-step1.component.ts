@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ConditionState } from '../../models/condition-state/condition-state.model';
 import { Symptom } from '../../models/symptom/symptom.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chage-state-step1',
@@ -11,7 +12,7 @@ import { Symptom } from '../../models/symptom/symptom.model';
 export class ChangeStateStep1Component implements OnInit {
   public conditionState : ConditionState;
   
-  constructor() {
+  constructor(private _router: Router) {
     this.conditionState = new ConditionState("CONDICAO", [ 
       new Symptom("Tosse Seca", 0), 
       new Symptom("Espirros", 1),
@@ -21,12 +22,13 @@ export class ChangeStateStep1Component implements OnInit {
       new Symptom("Arrepios/Calafrios", 5) ]);
   }
 
+  // Add type to event
   checkSymptom(id: number, event) {
     this.conditionState.symptoms[id].selected = event.target.checked;
   }
 
-  updateSymptoms() {
-
+  onClick() {
+    this._router.navigate(['/change-state-step2'], { state: {data: this.conditionState }});
   }
 
   ngOnInit(): void {}

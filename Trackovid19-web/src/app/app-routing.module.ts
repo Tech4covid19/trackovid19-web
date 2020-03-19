@@ -37,7 +37,7 @@ const routes: Routes = [
         path: 'change-state-step1',
         outlet: 'dash',
         component: ChangeStateStep1Component,
-      }, */
+      }, 
       {
         path: 'change-state-step2',
         outlet: 'dash',
@@ -47,7 +47,7 @@ const routes: Routes = [
         path: 'change-state-step3',
         outlet: 'dash',
         component: ChangeStateStep3Component,
-      },
+      },*/
     ],
     canActivate: [AuthGuardService],
     /*
@@ -58,7 +58,11 @@ const routes: Routes = [
     },*/
   },
   { path: 'post-code', component: PostCodeComponent },
+  // Delete this line if uncomment above!
   { path: 'change-state-step1', component: ChangeStateStep1Component },
+  { path: 'change-state-step2', component: ChangeStateStep2Component },
+  { path: 'change-state-step3', component: ChangeStateStep3Component },
+  /// =======
 ];
 
 @NgModule({

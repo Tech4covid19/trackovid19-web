@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CheckboxCardComponent implements OnInit {
   @Input() state: string;
+  @Input() checked: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
