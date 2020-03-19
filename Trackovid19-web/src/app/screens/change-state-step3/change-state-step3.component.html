@@ -7,34 +7,15 @@
   </div>
 
   <div class="cards">
-    <div class="card">
-      <app-radio-card
-        [state]="'Mantenho a minha rotina habitual, não estando em isolamento social'"
-        [input_name]="'atividade'"
-      >
-      </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card
-        [state]="'Sou um caso suspeito e estou em isolamento social para evitar propagar o vírus'"
-        [input_name]="'atividade'"
-      >
-      </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card
-        [state]="'Presumo estar saudável e estou em casa voluntariamente, por precaução'"
-        [input_name]="'atividade'"
-      >
-      </app-radio-card>
-    </div>
-    <div class="card">
-      <app-radio-card
-        [state]="'Estou doente e em isolamento social para evitar a propagação do vírus'"
-        [input_name]="'atividade'"
-      >
-      </app-radio-card>
-    </div>
+    <ng-container *ngFor="let confinementState of confinementStates">
+      <div class="card">
+        <app-radio-card
+          [state]="confinementState.description"
+          [input_name]="confinementState.state"
+        >
+        </app-radio-card>
+      </div>
+    </ng-container>
   </div>
 </div>
 <!-- Change to correct link -->
