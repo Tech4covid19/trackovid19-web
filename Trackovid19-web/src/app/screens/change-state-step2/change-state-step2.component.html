@@ -7,19 +7,12 @@
   </div>
   <div class="cards">
     <div class="card" *ngFor="let health_state of conditionState.health_states">
-      <app-radio-card [state]="health_state.name" [input_name]="'estado'"> </app-radio-card>
+      <app-radio-card [state]="health_state.name" [input_name]="'estado'" (change)="changeHealthState(health_state.id, $event)"> </app-radio-card>
     </div>
   </div>
-  <!-- Test content -->
-<!--   <div class="cards">
-    <div class="card" *ngFor="let symptom of conditionState.symptoms">
-      <app-checkbox-card [state]="symptom.name" [checked]="symptom.selected"> </app-checkbox-card>
-    </div>
-  </div> -->
-  <!-- Change to correct link -->
   <div class="confirm-container">
     <app-state-confirm-btn
-      [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step3'] } }]"
+      (click)="onClick()"
       [btnText]="'Seguinte'"
     ></app-state-confirm-btn>
   </div>

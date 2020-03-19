@@ -10,10 +10,24 @@ import { ConditionState } from '../../models/condition-state/condition-state.mod
 export class ChangeStateStep2Component implements OnInit {
   public conditionState : ConditionState;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
     this.conditionState = history.state.data;
+  }
+
+  changeHealthState(id: number, event) {
+    this.conditionState.health_states.forEach( (element) => {
+      if(element.id == id) {
+        element.actual_state = true;
+      } else {
+        element.actual_state = false;
+      }
+    })
+  }
+
+  onClick() {
+    this._router.navigate(['/change-state-step3'], { state: {data: this.conditionState }});
   }
 
 }

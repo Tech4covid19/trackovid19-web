@@ -3,6 +3,7 @@ import { ConditionState } from '../../models/condition-state/condition-state.mod
 import { Symptom } from '../../models/symptom/symptom.model';
 import { Router } from '@angular/router';
 import { HealthState } from 'src/app/models/health-state/healt-state.model';
+import { ActivityState } from 'src/app/models/activity-state/activity-state.model';
 
 @Component({
   selector: 'app-chage-state-step1',
@@ -14,7 +15,7 @@ export class ChangeStateStep1Component implements OnInit {
   public conditionState : ConditionState;
   
   constructor(private _router: Router) {
-    this.conditionState = new ConditionState("CONDICAO", 
+    this.conditionState = new ConditionState("Utilizador", 
       [ 
         new Symptom("Tosse Seca", 0), 
         new Symptom("Espirros", 1),
@@ -28,7 +29,14 @@ export class ChangeStateStep1Component implements OnInit {
         new HealthState("Caso Suspeito", 1),
         new HealthState("Recuperado", 2),
         new HealthState("Presumidamente Saudável", 3)
-      ]);
+      ],
+      [
+        new ActivityState("Mantenho a minha rotina habitual, não estando em isolamento social", 0),
+        new ActivityState("Sou um caso suspeito e estou em isolamento social para evitar propagar o vírus", 1),
+        new ActivityState("Presumo estar saudável e estou em casa voluntariamente, por precaução", 2),
+        new ActivityState("Estou doente e em isolamento social para evitar a propagação do vírus", 3),
+      ]
+      );
   }
 
   // Add type to event
