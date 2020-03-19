@@ -1,50 +1,56 @@
 .change-state-step3-container {
-  text-align: center;
   width: 90%;
   height: auto;
+  text-align: center;
   margin: 0 auto;
 }
 
 .page-title {
   text-align: left;
-  font-size: 24px;
-  line-height: 26px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.6125rem;
 }
 
 .step-description {
-  padding: 30px 0;
-}
+  padding: 1.875rem 0 2.5rem 0;
 
-.step-description-text {
-  color: #798794;
-  font-size: 18px;
-  font-weight: 500;
-}
+  .step-description-text {
+    color: #798794;
+    font-size: 18px;
+    font-weight: 500;
+  }
 
-.step-question-text {
-  color: #000000;
-  font-size: 21px;
-  font-weight: bold;
+  .step-question-text {
+    color: #000000;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 }
 
 .step-counter {
+  max-width: 70%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 70%;
 }
 
 .cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 10px;
+  justify-content: space-between;
+
+  .card {
+    flex-basis: calc(50% - 1.5rem);
+    margin-bottom: 1.75rem;
+  }
 }
 
-.card {
-  width: calc(50% - 50px);
-  margin: 0px 50px 30px 0;
+.confirm-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
@@ -53,36 +59,29 @@
   }
 
   .step-description {
-    padding: 16px 0;
-  }
+    padding: 1rem 0;
 
-  .step-description-text {
-    font-size: 14px;
-  }
+    .step-description-text {
+      font-size: 0.875rem;
+    }
 
-  .step-question-text {
-    font-size: 17px;
+    .step-question-text {
+      font-size: 1.125rem;
+    }
   }
 
   .cards {
-    overflow: scroll;
-    padding: 0 10px;
-    height: calc(100vh - 364px);
-  }
-
-  .card {
-    width: 100%;
-    margin: 0px 0px 30px 0;
+    flex-direction: column;
+    padding: 0 1rem;
   }
 
   .confirm-container {
-    position: absolute;
-    left: 0;
-    right: 0;
+    position: fixed;
     bottom: 0;
-    height: 74px;
+    left: 1.25vw;
+    width: calc(97.5vw - 1rem);
     display: flex;
-    flex-direction: column;
-    padding: 12px 16px;
+    justify-content: flex-end;
+    margin: 0 auto;
   }
 }
