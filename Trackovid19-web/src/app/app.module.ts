@@ -19,7 +19,7 @@ import { ChangeStateStep1Component } from './screens/change-state-step1/change-s
 import { ChangeStateStep2Component } from './screens/change-state-step2/change-state-step2.component';
 import { ChangeStateStep3Component } from './screens/change-state-step3/change-state-step3.component';
 import { RouterModule } from '@angular/router';
-import { TokenHttpInterceptor } from './shared/http-token/interceptor';
+import { TokenHttpInterceptor } from './shared/services/http-token/interceptor';
 
 @NgModule({
   declarations: [

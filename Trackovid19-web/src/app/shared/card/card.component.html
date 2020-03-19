@@ -1,15 +1,21 @@
+<div fxShow fxHide.gt-md="true" class="card" [ngClass]="color">
+  <div class="card-body">
+    <div>
+      <div class="counter">{{ counter }}</div>
+      <div class="label">{{ label }}</div>
+    </div>
+    <div>
+      <img [src]="icon" />
+    </div>
+  </div>
+</div>
 
-<div class="card" [ngClass]="color">
-  <div class="card-body" fxLayout="column" fxLayoutAlign="space-between start" fxFlex="100">
-
+<div fxShow fxHide.lt-lg="true" class="card-lg" [ngClass]="color">
+  <div class="card-body" fxLayout="column" fxLayoutAlign="space-between start">
     <div class="counter">
           <img [src]="icon">
-    
               <span class="status">{{ counter }}</span>
               <p>{{ label }}</p>
           </div>
-    
-      
   </div>
-
 </div>

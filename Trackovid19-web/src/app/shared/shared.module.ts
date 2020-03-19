@@ -10,6 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RadioCardComponent } from './radio-card/radio-card.component';
 import { StateConfirmBtnComponent } from './state-confirm-btn/state-confirm-btn.component';
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
+import { StatusPipe } from './pipes/status.pipe';
+import { IsolationStatusComponent } from './isolation-status/isolation-status.component';
 
 @NgModule({
 
@@ -22,7 +24,7 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     RadioCardComponent, 
     LocationInfoComponent,
     StateConfirmBtnComponent, 
-    CheckboxCardComponent],
+    CheckboxCardComponent, IsolationStatusComponent],
 
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
     LocationInfoComponent,
     RadioCardComponent,
     StateConfirmBtnComponent,
-    CheckboxCardComponent
+    CheckboxCardComponent,
+    IsolationStatusComponent
   ],
 })
 export class SharedModule {}

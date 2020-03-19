@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class CaseService {
   constructor(private caseStore: CaseStore, private http: HttpClient) {}
 
-  public url = environment.apiUrl + 'case';
+  public url = environment.apiUrl + '/case';
 
   getOne(id: ID) {
     return this.http.get<Case>(`${this.url}/${id}`).pipe(
@@ -19,7 +19,13 @@ export class CaseService {
       }),
     );
   }
-
+  getCasesByPostalCode(postalCode: any) {
+    return this.http.get<Case[]>(`${this.url}/condition/${postalCode}`).pipe(
+      tap(entity => {
+        this.caseStore.set(entity);
+      }),
+    );
+  }
   get() {
     return this.http.get<Case[]>(`${this.url}/all`).pipe(
       tap(entities => {

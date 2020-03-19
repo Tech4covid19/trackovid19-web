@@ -1,14 +1,63 @@
 .card {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 26px 32px 26px 32px;
+  padding: 24px 16px;
+  margin: 8px 0;
+  background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)),
+    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 16px;
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 600;
+
+    .counter {
+      font-size: 29px;
+    }
+
+    .label {
+      font-size: 12px;
+    }
+
+    img {
+      width: 34px;
+      height: 28px;
+    }
+  }
+}
+
+.orange {
+  background: linear-gradient(0deg, rgba(250, 100, 0, 0.07), rgba(250, 100, 0, 0.07)),
+    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.red {
+  background: linear-gradient(0deg, rgba(250, 0, 0, 0.05), rgba(250, 0, 0, 0.05)),
+    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.green {
+  background: linear-gradient(0deg, rgba(86, 214, 27, 0.07), rgba(86, 214, 27, 0.07)),
+    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.purple {
+  background: linear-gradient(0deg, rgba(107, 104, 252, 0.09), rgba(107, 104, 252, 0.09)),
+    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
+}
+.blue {
   background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)), linear-gradient(90deg, #FDFBFB 0%, #EBEDEE 100%);
+
+}
+.card-lg {
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
   border-radius: 30px;
   margin-bottom: 28px;
 
   .card-body {
+    height: 176px;
       // flex-grow: 1;
       // height: 100%;
       // .counter{
@@ -21,7 +70,7 @@
   .counter {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     height: -webkit-fill-available;
   }
   img {
@@ -56,24 +105,4 @@
       font-size: 42px;
       color: #000000;
   }
-}
-
-.orange {
-  background: linear-gradient(0deg, rgba(250, 100, 0, 0.07), rgba(250, 100, 0, 0.07)),
-    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.red {
-  background: linear-gradient(0deg, rgba(250, 0, 0, 0.05), rgba(250, 0, 0, 0.05)),
-    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.green {
-  background: linear-gradient(0deg, rgba(86, 214, 27, 0.07), rgba(86, 214, 27, 0.07)),
-    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.purple {
-  background: linear-gradient(0deg, rgba(107, 104, 252, 0.09), rgba(107, 104, 252, 0.09)),
-    linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
 }

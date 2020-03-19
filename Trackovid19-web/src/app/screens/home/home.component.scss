@@ -50,7 +50,34 @@ app-status-btn {
 .logout_link {
   display: none;
 }
+.location-info-area {
+  display: flex;
+  align-items: center;
+}
 
+.profile-area {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.marker-icon {
+  padding-left: 16px;
+}
+
+.postal-code {
+  color: #3f3d56;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+.reports-info {
+  font-size: 15px;
+  color: #979797;
+}
+app-card {
+  margin-left: 10px;
+}
 /*
   ##Device = Desktops / Ipads
   ##Screen = 750px to higher resolution desktops
