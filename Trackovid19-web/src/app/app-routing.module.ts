@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'post-code-step',
     component: PostCodeComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'dashboard',
