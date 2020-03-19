@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SymptomService } from 'src/app/states/symptom/state/symptom.service';
+import { Symptom } from 'src/app/states/symptom/state/symptom.model';
 
 @Component({
   selector: 'app-chage-state-step1',
@@ -6,7 +8,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./change-state-step1.component.scss'],
 })
 export class ChangeStateStep1Component implements OnInit {
-  constructor() {}
+  symptoms: Symptom[];
 
-  ngOnInit(): void {}
+  constructor(private symptomService: SymptomService) {}
+
+  ngOnInit(): void {
+    this.symptomService.get().subscribe(symptoms => {
+      this.symptoms = symptoms;
+    });
+  }
 }
