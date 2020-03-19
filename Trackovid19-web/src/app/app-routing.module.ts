@@ -19,14 +19,21 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
       },
+      {
+        path: 'change-state-step1',
+        component: ChangeStateStep1Component,
+      },
+      {
+        path: 'change-state-step2',
+        component: ChangeStateStep2Component,
+      },
+      {
+        path: 'change-state-step3',
+        component: ChangeStateStep3Component,
+      },
     ],
   },
-  {path: 'change-state-step1', component: ChangeStateStep1Component},
-  {path: 'change-state-step2', component: ChangeStateStep2Component},
-  {path: 'change-state-step3', component: ChangeStateStep3Component},
-  {path: 'post-code', component: PostCodeComponent}
-
-
+  { path: 'post-code', component: PostCodeComponent },
 ];
 
 @NgModule({
