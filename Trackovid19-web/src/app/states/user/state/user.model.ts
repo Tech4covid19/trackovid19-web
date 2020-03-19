@@ -3,11 +3,16 @@ import { Case } from '../../case/state/case.model';
 
 export interface User {
   id: number | string;
-  fbId: string;
+  year: string;
+  facebook_id: string;
   url: string;
+  latitude: string;
+  longitude: string;
   cases: Case[];
-  network: Network;
-  postalCode: string
+  info: any;
+  networks: Network[];
+  postalcode: string;
+  county: string;
 }
 
 export function createUser(params: Partial<User>) {

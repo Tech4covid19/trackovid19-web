@@ -27,18 +27,13 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     LocationStatusComponent,
     RadioCardComponent,
     LocationInfoComponent,
-    StateConfirmBtnComponent, 
-    CheckboxCardComponent, 
+    StateConfirmBtnComponent,
+    CheckboxCardComponent,
     IsolationStatusComponent,
     IconPlaceholderPipe,
     StatusPipe,
     StatusConfinementPipe,
-    IconPlaceholderConfinementPipe
-    ],
-
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
+    IconPlaceholderConfinementPipe,
   ],
   imports: [CommonModule, FlexLayoutModule],
   exports: [
@@ -51,7 +46,7 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
     RadioCardComponent,
     StateConfirmBtnComponent,
     CheckboxCardComponent,
-    IsolationStatusComponent
+    IsolationStatusComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })

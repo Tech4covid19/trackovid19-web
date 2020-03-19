@@ -13,7 +13,6 @@ export class LocationStatusComponent implements OnInit {
   ngOnInit(): void {
     this.service.getCasesByPostalCode('4200-192').subscribe(res => {
       this.conditions = res[0];
-      console.log(res)
-    })
+    });
   }
 }

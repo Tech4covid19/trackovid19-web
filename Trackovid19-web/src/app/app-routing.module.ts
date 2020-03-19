@@ -29,19 +29,23 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: '',
+        path: 'status',
+        outlet: 'dash',
         component: HomeComponent,
       },
       {
         path: 'change-state-step1',
+        outlet: 'dash',
         component: ChangeStateStep1Component,
       },
       {
         path: 'change-state-step2',
+        outlet: 'dash',
         component: ChangeStateStep2Component,
       },
       {
         path: 'change-state-step3',
+        outlet: 'dash',
         component: ChangeStateStep3Component,
       },
     ],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/states/user/state/user.service';
+import { GeolocalizationService } from 'src/app/shared/services/geolocalization.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private service: UserService, private localizeService: GeolocalizationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.localizeService.geoFindMe();
+  }
 }
