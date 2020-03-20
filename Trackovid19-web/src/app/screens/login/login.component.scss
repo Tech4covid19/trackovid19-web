@@ -40,41 +40,54 @@
     justify-content: center;
     align-items: center;
 
-    > div {
-      flex-basis: 26.5rem;
-    }
-
-    .login-btn {
-      max-height: 55px;
+    .action-content {
+      height: 100%;
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background-color: #4267b2;
-      padding: 1rem;
-      border-radius: 0.25rem;
-      margin-bottom: 1rem;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 30px;
 
-      p {
-        color: #ffffff;
-        font-size: 1.25rem;
-        font-weight: 400;
-        margin-right: 2.625rem;
+      .login-btn {
+        max-height: 55px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #4267b2;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+
+        img {
+          max-width: 30px;
+          max-height: 30px;
+        }
+
+        .fb {
+          margin-right: 20px;
+        }
+
+        .login-text {
+          font-size: 13px;
+          flex: 1;
+          text-align: center;
+
+          color: #ffffff;
+          font-weight: bold;
+        }
       }
 
-      img {
-        max-width: 30px;
-        max-height: 30px;
-      }
+      .policy-terms {
+        display: flex;
+        flex-direction: column;
 
-      .fb {
-        margin-right: 20px;
-        margin-left: 45px;
-      }
-    }
+        font-size: 12px;
 
-    .terms-and-conditions {
-      font-size: 1rem;
+        a {
+          margin-bottom: 15px;
+          text-decoration: none;
+        }
+      }
     }
   }
 

@@ -20,6 +20,8 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { GeolocalizationService } from './shared/services/geolocalization.servic
     ChangeStateStep1Component,
     ChangeStateStep2Component,
     ChangeStateStep3Component,
+    PrivacyPolicyComponent,
+    TermsConditionsComponent,
   ],
   imports: [
     BrowserModule,
