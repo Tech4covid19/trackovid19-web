@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
 import { ConditionStore } from './condition.store';
-import { Condition } from './condition.model';
+import { Condition } from '../../../models/conditon/condition.model';
 import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { Symptom } from './symptom.model';
 import { SymptomStore } from './symptom.store';
+import { Symptom } from 'src/app/models/symptom/symptom.model';
 
 @Injectable({ providedIn: 'root' })
 export class SymptomService {

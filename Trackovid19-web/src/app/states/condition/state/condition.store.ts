@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Condition } from './condition.model';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
+import { Condition } from 'src/app/models/conditon/condition.model';
 
 export interface ConditionState extends EntityState<Condition> {}
 

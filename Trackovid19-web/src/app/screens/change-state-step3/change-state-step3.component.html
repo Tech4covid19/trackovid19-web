@@ -8,8 +8,9 @@
 
   <div class="cards">
     <div class="cards">
-      <div class="card" *ngFor="let activity_state of conditionState.activity_states">
-        <app-radio-card [state]="activity_state.name" [input_name]="'atividade'" (change)="changeActivityState(activity_state.id, $event)"> </app-radio-card>
+      <div class="card" *ngFor="let confinementState of conditionState.confinementStates">
+        <app-radio-card [state]="confinementState.description" [input_name]="'atividade'">
+        </app-radio-card>
       </div>
     </div>
   </div>
