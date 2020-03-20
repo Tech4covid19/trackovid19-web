@@ -35,7 +35,7 @@ import { LogoutComponent } from 'src/app/screens/logout/logout.component';
     ChangeStateStep2Component,
     ChangeStateStep3Component,
     PrivacyPolicyComponent,
-    TermsConditionsComponent,
+    TermsConditionsComponent
   ],
   imports: [
     BrowserModule,
