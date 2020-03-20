@@ -55,7 +55,6 @@ export class PostCodeComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
-    console.log('aaaa', this.birthYearControl.errors);
     if (this.form.valid) {
       this._updateUserData(this.form.value);
       this.router.navigate(['/onboarding']);

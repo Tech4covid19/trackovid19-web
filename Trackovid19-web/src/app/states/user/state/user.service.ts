@@ -1,15 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { environment } from 'src/environments/environment';
 import { User } from './user.model';
 import { UserStore } from './user.store';
-import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
   public url = 'user';
 
-  constructor(private userStore: UserStore, private http: HttpClient) {}
+  constructor(
+    private userStore: UserStore,
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   getOne(userId: string | number) {
     return this.http.get<User>(`${this.url}/${userId}`).pipe(
@@ -21,6 +26,10 @@ export class UserService {
 
   login() {
     window.location.href = environment.serverURL + '/login/facebook';
+  }
+
+  logout() {
+    this.authService.unauthenticate();
   }
 
   updateUserInformation(userInformation) {
