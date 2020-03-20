@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/states/user/state/user.service';
+import { Component, Input, OnChanges } from '@angular/core';
+import { User } from '../../states/user/state/user.model';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
-  user: any;
-  constructor(private service: UserService) {}
+export class ProfileComponent implements OnChanges {
+  @Input() user: User = null;
 
-  ngOnInit(): void {
-    this.service.getUser().subscribe(res => (this.user = res));
+  constructor() {}
+
+  ngOnChanges(): void {
+    // TODO
   }
 }

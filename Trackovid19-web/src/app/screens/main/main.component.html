@@ -4,20 +4,25 @@
       <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" />
       <img class="share_icon" src="assets/img/settings.svg" />
     </div>
-    <app-profile></app-profile>
+
+    <app-profile [user]="user"></app-profile>
+
     <div class="profile_status_container">
-      <app-profile-status></app-profile-status>
-      <app-profile-status></app-profile-status>
+      <app-profile-status [user]="user" [state]="confinementState"></app-profile-status>
     </div>
+
     <app-status-btn
       [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step1'] } }]"
     ></app-status-btn>
+
     <div class="email-container">
       <img src="assets/img/icons/email.svg" />
       <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
     </div>
+
     <a class="link logout_link" [routerLink]="['/logout']">Log out</a>
   </div>
+
   <div class="main-page-container">
     <router-outlet name="dash"></router-outlet>
   </div>

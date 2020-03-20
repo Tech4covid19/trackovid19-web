@@ -2,21 +2,23 @@
   display: flex;
   align-items: center;
   padding: 20px 12px;
-}
 
-.profile_picture {
-  height: 40px;
-  width: 40px;
-}
+  .profile_picture {
+    height: 40px;
+    width: 40px;
+  }
 
-.profile_details {
-  display: flex;
-  flex-direction: column;
-  padding-left: 16px;
-}
+  .profile_details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
 
-// this link it will be hidden just for the MVP
-// after that we will create the settings page and show this link again
-.settings_link {
-  display: none;
+    // this link it will be hidden just for the MVP
+    // after that we will create the settings page and show this link again
+    .settings_link {
+      display: none;
+      align-self: flex-start;
+      font-size: 0.75rem;
+    }
+  }
 }

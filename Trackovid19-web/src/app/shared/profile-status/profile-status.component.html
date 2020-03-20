@@ -1,6 +1,4 @@
-<div class="profile_status">
-  <div class="profile_status_indicator"></div>
-  <span>
-    Quarentena voluntária
-  </span>
+<div class="profile_status" *ngFor="let stat of statusList" [title]="stat.tooltip">
+  <div class="profile_status_indicator" [style.backgroundColor]="stat.color"></div>
+  <span>{{ stat.text }}</span>
 </div>

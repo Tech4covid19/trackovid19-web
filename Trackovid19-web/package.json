@@ -28,6 +28,7 @@
     "immer": "^6.0.2",
     "nunito-fontface": "^0.7.3",
     "rxjs": "~6.5.4",
+    "subsink": "^1.0.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

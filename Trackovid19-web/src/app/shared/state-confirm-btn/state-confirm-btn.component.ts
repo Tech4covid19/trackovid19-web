@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class StateConfirmBtnComponent implements OnInit {
   @Input() btnText: string;
+  @Input() disabled: boolean;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

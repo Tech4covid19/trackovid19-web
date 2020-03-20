@@ -4,7 +4,7 @@ import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { User } from './user.model';
-import { UserStore } from './user.store';
+import { UserStore, UserState } from './user.store';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {

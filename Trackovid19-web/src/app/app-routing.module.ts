@@ -17,6 +17,11 @@ import { OnboardingComponent } from './screens/onboarding/onboarding.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
     component: LoginComponent,
   },
   {
@@ -76,6 +81,10 @@ const routes: Routes = [
     resolve: {
       user: UserResolver
     },*/
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./screens/not-found/not-found.module').then(m => m.NotFoundModule),
   },
 ];
 

@@ -12,17 +12,12 @@ import { User } from 'src/app/states/user/state/user.model';
   styleUrls: ['./post-code.component.scss'],
 })
 export class PostCodeComponent implements OnInit {
-  public form: FormGroup;
-
-  public submitted = false;
-
-  public opened = true;
-
-  public closing = false;
-
-  public maxYear: number;
-
-  public minYear: number;
+  form: FormGroup;
+  submitted = false;
+  opened = true;
+  closing = false;
+  maxYear: number;
+  minYear: number;
 
   constructor(
     private userService: UserService,
@@ -36,7 +31,11 @@ export class PostCodeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser().subscribe();
+    this.userService.getUser().subscribe(user => {
+      if (user && user.postalcode) {
+        this.router.navigate(['/dashboard']);
+      }
+    });
     this.form = this.fb.group({
       'birth-year': [
         null,
@@ -48,13 +47,13 @@ export class PostCodeComponent implements OnInit {
     });
   }
 
-  public open() {
+  open() {
     setTimeout(() => {
       this.opened = true;
     }, 500);
   }
 
-  public close() {
+  close() {
     // TODO: Emit event
     this.closing = true;
     setTimeout(() => {
@@ -63,7 +62,7 @@ export class PostCodeComponent implements OnInit {
     }, 500);
   }
 
-  public onSubmit() {
+  onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
       console.log(this.form.value);
@@ -72,19 +71,19 @@ export class PostCodeComponent implements OnInit {
     }
   }
 
-  public get birthYearControl(): FormControl {
+  get birthYearControl(): FormControl {
     return this.form.get('birth-year') as FormControl;
   }
 
-  public get zipCode1Control(): FormControl {
+  get zipCode1Control(): FormControl {
     return this.form.get('zip-code-1') as FormControl;
   }
 
-  public get zipCode2Control(): FormControl {
+  get zipCode2Control(): FormControl {
     return this.form.get('zip-code-2') as FormControl;
   }
 
-  public get covidografiaCodeControl(): FormControl {
+  get covidografiaCodeControl(): FormControl {
     return this.form.get('covidografia-code') as FormControl;
   }
 
@@ -102,14 +101,14 @@ export class PostCodeComponent implements OnInit {
       (state.postalcode = userData.postalCode), (state.year = userData.year);
     });
     const id = this.query.getActiveId();
-    let currentUser: User = this.query.getEntity(id);
+    const currentUser: User = this.query.getEntity(id);
     const { year, info, latitude, longitude, patientToken, postalcode } = currentUser;
     const payload = {
-      year: year,
-      info: info,
+      year,
+      info,
+      patientToken,
+      postalcode,
       geo: { lat: latitude, lon: longitude },
-      patientToken: patientToken,
-      postalCode: postalcode,
     };
 
     this.userService.updateUserInformation(payload).subscribe();
