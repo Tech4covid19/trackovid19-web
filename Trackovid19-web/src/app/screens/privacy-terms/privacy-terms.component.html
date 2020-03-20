@@ -1,0 +1,71 @@
+<div class="privacy-terms">
+  <img class="logo" src="assets/img/logo/covidografia.svg" />
+
+  <span class="title">Política de Privacidade, Termos e Condições e Tratamento de Dados</span>
+
+  <div class="cards">
+    <app-link-card
+      *ngFor="let card of linkCards"
+      [label]="card.label"
+      [url]="card.url"
+    ></app-link-card>
+  </div>
+
+  <div class="accept">
+    <div class="checkbox-btn">
+      <label>
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted1" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <span
+      >Li, compreendi e aceito os termos e condições de download e utilização da aplicação
+      Covidografia.</span
+    >
+  </div>
+
+  <div class="accept">
+    <div class="checkbox-btn">
+      <label>
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted2" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <span
+      >Li e compreendi a notificação de privacidade que descreve como serão tratados os dados
+      pessoais no âmbito da aplicação Covidografia.</span
+    >
+  </div>
+
+  <div class="accept">
+    <div class="checkbox-btn">
+      <label>
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <span
+      >Consinto no tratamento pela aplicação Covidografia dos meus dados de saúde e geolocalização
+      que eu disponibilizar exclusivamente para as finalidades previstas na notificação de
+      privacidade.</span
+    >
+  </div>
+
+  <div class="accept">
+    <div class="checkbox-btn">
+      <label>
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted4" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <span
+      >Consinto na utilização dos meus dados pessoais pela aplicação Covidografia e empresas
+      associadas para divulgação de informações úteis relacionadas com a pandemia COVID-19,
+      designadamente através de notificações push up ou email.</span
+    >
+  </div>
+
+  <button class="aceitar" [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4">
+    Aceitar
+  </button>
+</div>
