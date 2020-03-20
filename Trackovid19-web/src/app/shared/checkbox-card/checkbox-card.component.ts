@@ -1,15 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox-card',
   templateUrl: './checkbox-card.component.html',
-  styleUrls: ['./checkbox-card.component.scss']
+  styleUrls: ['./checkbox-card.component.scss'],
 })
-export class CheckboxCardComponent implements OnInit {
+export class CheckboxCardComponent {
+  checked = false;
   @Input() state: string;
-  constructor() { }
+  @Input() symptomId: number;
+  @Input() clickCard: Function;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  public onClick() {
+    this.checked = !this.checked;
+    this.clickCard(this.symptomId, this.checked);
   }
-
 }

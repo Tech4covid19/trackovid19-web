@@ -12,7 +12,8 @@
         <app-radio-card
           [state]="confinementState.description"
           [input_name]="'atividade'"
-          (click)="updateConfinementState(confinementState.id, $event)"
+          [id]="confinementState.id"
+          [clickCard]="updateConfinementStateCallback"
         >
         </app-radio-card>
       </div>
@@ -23,7 +24,7 @@
 <div class="confirm-container">
   <app-state-confirm-btn
     (click)="sendForm()"
-    [disabled]="!case.confinementState"
+    [disabled]="!case?.confinementState"
     [btnText]="'Submeter'"
   ></app-state-confirm-btn>
 </div>

@@ -9,10 +9,15 @@ export class RadioCardComponent implements OnInit {
   @Input() state: string;
   @Input() label: string;
   @Input() input_name: string;
-  
-  constructor() { }
+  @Input() id: number;
+  @Input() clickCard: Function;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  public onClick() {
+    document.getElementById(`${this.id}`).click();
+    this.clickCard(this.id);
   }
-
 }
