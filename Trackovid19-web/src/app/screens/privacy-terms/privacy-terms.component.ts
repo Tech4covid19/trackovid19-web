@@ -20,6 +20,7 @@ export class PrivacyTermsComponent {
   accepted2 = false;
   accepted3 = false;
   accepted4 = false;
+  accepted5 = false;
 
   constructor() {}
 }

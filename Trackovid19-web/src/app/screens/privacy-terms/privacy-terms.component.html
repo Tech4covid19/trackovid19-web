@@ -60,12 +60,27 @@
     </div>
     <span
       >Consinto na utilização dos meus dados pessoais pela aplicação Covidografia e empresas
-      associadas para divulgação de informações úteis relacionadas com a pandemia COVID-19,
+      associadas para a instalação de cookies de análise da execução dos serviços.</span
+    >
+  </div>
+
+  <div class="accept">
+    <div class="checkbox-btn">
+      <label>
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted5" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <span
+      >Consinto na divulgação de informações úteis relacionadas com a pandemia COVID-19,
       designadamente através de notificações push up ou email.</span
     >
   </div>
 
-  <button class="aceitar" [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4">
+  <button
+    class="aceitar"
+    [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4 || !accepted5"
+  >
     Aceitar
   </button>
 </div>
