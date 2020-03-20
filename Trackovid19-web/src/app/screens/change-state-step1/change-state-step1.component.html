@@ -11,7 +11,11 @@
   <div class="cards">
     <ng-container *ngFor="let symptom of symptoms">
       <div class="card">
-        <app-checkbox-card [state]="symptom.symptom" (click)="updateSymptoms(symptom.id, $event)">
+        <app-checkbox-card
+          [state]="symptom.symptom"
+          [symptomId]="symptom.id"
+          [clickCard]="updateSymptomsCallback"
+        >
         </app-checkbox-card>
       </div>
     </ng-container>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { StatusBtnComponent } from './status-btn/status-btn.component';
@@ -37,7 +38,7 @@ import { StepsComponent } from './steps/steps.component';
     IconPlaceholderConfinementPipe,
     StepsComponent,
   ],
-  imports: [CommonModule, FlexLayoutModule],
+  imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
     CardComponent,
     StatusBtnComponent,
