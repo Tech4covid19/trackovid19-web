@@ -5,7 +5,8 @@ export interface Case {
   postalCode: string;
   geo: Geo;
   condition: number;
-  symptoms: number;
+  symptoms: number[];
+  confinementState: number;
   timestamp: string;
 }
 
