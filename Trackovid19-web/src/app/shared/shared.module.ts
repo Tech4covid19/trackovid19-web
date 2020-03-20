@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { StatusBtnComponent } from './status-btn/status-btn.component';
@@ -18,6 +19,7 @@ import { IconPlaceholderPipe } from './pipes/icon-placeholder.pipe';
 import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
 import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
 import { StepsComponent } from './steps/steps.component';
+import { LinkCardComponent } from './link-card/link-card.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,9 @@ import { StepsComponent } from './steps/steps.component';
     StatusConfinementPipe,
     IconPlaceholderConfinementPipe,
     StepsComponent,
+    LinkCardComponent,
   ],
-  imports: [CommonModule, FlexLayoutModule],
+  imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
     CardComponent,
     StatusBtnComponent,
@@ -50,6 +53,7 @@ import { StepsComponent } from './steps/steps.component';
     CheckboxCardComponent,
     IsolationStatusComponent,
     StepsComponent,
+    LinkCardComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })

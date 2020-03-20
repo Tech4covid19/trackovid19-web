@@ -19,6 +19,7 @@ export class ChangeStateStep1Component implements OnInit {
     { label: '3', url: 'change-state-step3', active: false },
   ];
   case: Case;
+  public updateSymptomsCallback: Function;
 
   constructor(
     private symptomService: SymptomService,
@@ -27,8 +28,9 @@ export class ChangeStateStep1Component implements OnInit {
   ) {
     const id = this.query.getActiveId();
     const user = this.query.getEntity(id);
+    this.updateSymptomsCallback = this.updateSymptoms.bind(this);
 
-    this.case = createCase({ postalCode: user.postalcode, geo: { lat: 0, lon: 0 }, symptoms: [] });
+    this.case = createCase({ postalCode: user?.postalcode, geo: { lat: 0, lon: 0 }, symptoms: [] });
   }
 
   ngOnInit(): void {
@@ -37,8 +39,8 @@ export class ChangeStateStep1Component implements OnInit {
     });
   }
 
-  updateSymptoms(symptomId: number, $event): void {
-    if ($event.target.checked) {
+  updateSymptoms(symptomId: number, checked: boolean): void {
+    if (checked) {
       if (!this.case.symptoms.includes(symptomId)) {
         this.case.symptoms.push(symptomId);
       } else {
@@ -49,7 +51,7 @@ export class ChangeStateStep1Component implements OnInit {
   }
 
   onClick() {
-    this.router.navigate(['/dashboard', { outlets: { dash: ['change-state-step2'] } }], {
+    this.router.navigate(['/dashboard', 'change-state-step2'], {
       state: { data: this.case },
     });
   }

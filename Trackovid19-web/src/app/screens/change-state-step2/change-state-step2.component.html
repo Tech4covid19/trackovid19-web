@@ -12,7 +12,8 @@
         <app-radio-card
           [state]="condition.status"
           [input_name]="'estado'"
-          (click)="updateCondition(condition.id, $event)"
+          [id]="condition.id"
+          [clickCard]="updateConditionCallback"
         >
         </app-radio-card>
       </div>
@@ -22,7 +23,7 @@
   <div class="confirm-container">
     <app-state-confirm-btn
       (click)="onClick()"
-      [disabled]="!case.condition"
+      [disabled]="!case?.condition"
       [btnText]="'Seguinte'"
     ></app-state-confirm-btn>
   </div>

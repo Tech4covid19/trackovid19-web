@@ -19,13 +19,16 @@ export class ChangeStateStep3Component implements OnInit {
     { label: '3', url: 'change-state-step3', active: true },
   ];
   case: Case;
+  public updateConfinementStateCallback: Function;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private confinementStateService: ConfinementStateService,
     private caseService: CaseService,
-  ) {}
+  ) {
+    this.updateConfinementStateCallback = this.updateConfinementState.bind(this);
+  }
 
   ngOnInit(): void {
     this.case = history.state.data;
@@ -35,16 +38,14 @@ export class ChangeStateStep3Component implements OnInit {
     });
   }
 
-  updateConfinementState(confinementStateId: number, $event): void {
-    if ($event.target.checked) {
-      this.case.confinementState = confinementStateId;
-    }
+  updateConfinementState(confinementStateId: number): void {
+    this.case.confinementState = confinementStateId;
   }
 
   sendForm(): void {
     this.caseService.add(this.case).subscribe(
       () => {
-        this.router.navigate(['/dashboard', { outlets: { dash: ['status'] } }], {
+        this.router.navigate(['/dashboard', 'status'], {
           relativeTo: this.activatedRoute,
         });
       },

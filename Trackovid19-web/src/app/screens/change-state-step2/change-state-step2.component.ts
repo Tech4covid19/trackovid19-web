@@ -18,25 +18,25 @@ export class ChangeStateStep2Component implements OnInit {
     { label: '3', url: 'change-state-step3', active: false },
   ];
   case: Case;
+  public updateConditionCallback: Function;
 
   constructor(private conditionService: ConditionService, private router: Router) {}
 
   ngOnInit(): void {
     this.case = history.state.data;
+    this.updateConditionCallback = this.updateCondition.bind(this);
 
     this.conditionService.get().subscribe(conditions => {
       this.conditions = conditions;
     });
   }
 
-  updateCondition(conditionId: number, $event): void {
-    if ($event.target.checked) {
-      this.case.condition = conditionId;
-    }
+  updateCondition(conditionId: number): void {
+    this.case.condition = conditionId;
   }
 
   onClick() {
-    this.router.navigate(['/dashboard', { outlets: { dash: ['change-state-step3'] } }], {
+    this.router.navigate(['/dashboard', 'change-state-step3'], {
       state: { data: this.case },
     });
   }
