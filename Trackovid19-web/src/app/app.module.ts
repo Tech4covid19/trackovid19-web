@@ -1,5 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
@@ -23,7 +24,7 @@ import { GeolocalizationService } from './shared/services/geolocalization.servic
 import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { LogoutComponent } from 'src/app/screens/logout/logout.component';
-
+import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { LogoutComponent } from 'src/app/screens/logout/logout.component';
     ChangeStateStep3Component,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
+    PrivacyTermsComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { LogoutComponent } from 'src/app/screens/logout/logout.component';
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
+    FormsModule,
   ],
   providers: [
     GeolocalizationService,

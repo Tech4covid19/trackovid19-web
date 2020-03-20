@@ -13,11 +13,12 @@ import { TermsConditionsComponent } from './screens/terms-conditions/terms-condi
 import { AuthGuardService } from './shared/guards/auth.guard';
 import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
 import { OnboardingComponent } from './screens/onboarding/onboarding.component';
+import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'dashboard/status',
     pathMatch: 'full',
   },
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
+    path: 'privacy-terms',
+    component: PrivacyTermsComponent,
+  },
+  {
     path: 'privacy-policy',
     component: PrivacyPolicyComponent,
   },
@@ -55,22 +60,18 @@ const routes: Routes = [
     children: [
       {
         path: 'status',
-        outlet: 'dash',
         component: HomeComponent,
       },
       {
         path: 'change-state-step1',
-        outlet: 'dash',
         component: ChangeStateStep1Component,
       },
       {
         path: 'change-state-step2',
-        outlet: 'dash',
         component: ChangeStateStep2Component,
       },
       {
         path: 'change-state-step3',
-        outlet: 'dash',
         component: ChangeStateStep3Component,
       },
     ],
@@ -89,7 +90,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

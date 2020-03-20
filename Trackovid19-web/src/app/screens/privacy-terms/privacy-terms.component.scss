@@ -1,0 +1,129 @@
+.privacy-terms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 30px;
+  max-width: 450px;
+
+  .logo {
+    width: 230px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 16px;
+    text-align: center;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px;
+
+    app-link-card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .accept {
+    display: flex;
+    margin: 20px;
+    font-size: 13px;
+    align-items: center;
+
+    .checkbox-btn {
+      margin-right: 1rem;
+
+      input {
+        display: none;
+
+        + .check {
+          display: block;
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 0.25rem;
+          border: 0.125rem solid #d8d8d8;
+          cursor: pointer;
+          transition: 0.3s ease all;
+
+          &::after {
+            content: '';
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -0.5rem) rotate(-45deg);
+            border-bottom: 0.125rem solid #fff;
+            border-left: 0.125rem solid #fff;
+            border-bottom-left-radius: 0.125rem;
+            transition: 0.2s ease width, 0.2s ease height;
+          }
+        }
+
+        &:checked + .check {
+          display: block;
+          position: relative;
+          background-color: #fa6400;
+          border-color: #fa6400;
+
+          &::after {
+            opacity: 1;
+            width: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .aceitar {
+    display: block;
+    box-sizing: border-box;
+    width: 20rem;
+    max-width: 90%;
+    background-color: #fa6400;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85rem;
+    line-height: 0.875rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: 2.5rem;
+    border: none;
+    outline: none;
+    margin: 1rem 0;
+    cursor: pointer;
+  }
+
+  .aceitar:disabled {
+    background-color: #d8d8d8;
+    cursor: default;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-terms {
+    padding: 0 15px;
+
+    .logo {
+      width: 150px;
+      height: 40px;
+    }
+
+    .title {
+      font-size: 17px;
+    }
+  }
+}

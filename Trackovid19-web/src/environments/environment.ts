@@ -2,10 +2,11 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const SERVER_URL = 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev';
+//const SERVER_URL = 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev';
+const SERVER_URL = 'https://op2pwi0nd1.execute-api.eu-west-1.amazonaws.com/prd';
 
 export const environment = {
-  production: false,
+  production: true,
   serverURL: SERVER_URL,
   apiUrl: SERVER_URL + '/api/v1/',
 };

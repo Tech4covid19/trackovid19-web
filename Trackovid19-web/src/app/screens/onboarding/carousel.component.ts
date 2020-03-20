@@ -111,8 +111,7 @@ export class CarouselComponent implements AfterViewInit {
   carouselWrapperStyle = {};
 
   next() {
-    if (this.currentSlide + 1 === this.items.length)
-      this.router.navigate(['dashboard', { outlets: { dash: ['status'] } }]);
+    if (this.currentSlide + 1 === this.items.length) this.router.navigate(['privacy-terms']);
 
     this.currentSlide = (this.currentSlide + 1) % this.items.length;
     const offset = this.currentSlide * this.itemWidth;
