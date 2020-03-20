@@ -20,6 +20,6 @@ export class StepsComponent implements OnInit {
   ngOnInit(): void {}
 
   public goToPage(url: string) {
-    this.router.navigate(['/dashboard', { outlets: { dash: [url] } }]);
+    this.router.navigate(['/dashboard', url]);
   }
 }

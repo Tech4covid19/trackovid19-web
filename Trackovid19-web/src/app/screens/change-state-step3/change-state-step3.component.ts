@@ -45,7 +45,7 @@ export class ChangeStateStep3Component implements OnInit {
   sendForm(): void {
     this.caseService.add(this.case).subscribe(
       () => {
-        this.router.navigate(['/dashboard', { outlets: { dash: ['status'] } }], {
+        this.router.navigate(['/dashboard', 'status'], {
           relativeTo: this.activatedRoute,
         });
       },
