@@ -53,24 +53,25 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [
+      { path: '', redirectTo: 'status', pathMatch: 'full' },
       {
         path: 'status',
-        outlet: 'dash',
+        // outlet: 'dash',
         component: HomeComponent,
       },
       {
         path: 'change-state-step1',
-        outlet: 'dash',
+        // outlet: 'dash',
         component: ChangeStateStep1Component,
       },
       {
         path: 'change-state-step2',
-        outlet: 'dash',
+        // outlet: 'dash',
         component: ChangeStateStep2Component,
       },
       {
         path: 'change-state-step3',
-        outlet: 'dash',
+        // outlet: 'dash',
         component: ChangeStateStep3Component,
       },
     ],
