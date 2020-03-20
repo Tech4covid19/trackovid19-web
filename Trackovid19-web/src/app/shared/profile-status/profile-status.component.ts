@@ -25,7 +25,8 @@ export class ProfileStatusComponent implements OnChanges {
         },
         {
           text: this.state.state,
-          color: this.state.id > 1 ? 'orangered' : '#5bee73',
+          // color: this.state.id > 1 ? 'orangered' : '#5bee73',
+          color: this.user.has_symptoms ? 'orangered' : '#5bee73',
           tooltip: this.state.description,
         },
       ];
