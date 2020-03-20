@@ -11,7 +11,9 @@
       <app-profile-status [user]="user" [state]="confinementState"></app-profile-status>
     </div>
 
-    <app-status-btn [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step1'] } }]"></app-status-btn>
+    <app-status-btn
+      [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step1'] } }]"
+    ></app-status-btn>
 
     <div class="email-container">
       <img src="assets/img/icons/email.svg" />
@@ -21,7 +23,7 @@
     <a class="link logout_link" [routerLink]="['/logout']">Log out</a>
   </div>
 
-  <div class="main-page-container">
+  <div class="main-page-container" *ngIf="user">
     <router-outlet name="dash"></router-outlet>
   </div>
 </div>
