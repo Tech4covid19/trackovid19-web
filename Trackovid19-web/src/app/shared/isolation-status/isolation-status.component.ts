@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/states/dashboard/dashboard.service';
+import { UserQuery } from 'src/app/states/user/state/user.query';
 
 @Component({
   selector: 'app-isolation-status',
@@ -9,10 +10,12 @@ import { DashboardService } from 'src/app/states/dashboard/dashboard.service';
 export class IsolationStatusComponent implements OnInit {
   conditions: any[];
 
-  constructor(private service: DashboardService) {}
+  constructor(private service: DashboardService, private query: UserQuery) {}
 
   ngOnInit(): void {
-    this.service.getCasesByPostalCode('4200-192').subscribe(res => {
+    const id = this.query.getActiveId();
+    const user = this.query.getEntity(id);
+    this.service.getCasesByPostalCode(user.postalcode).subscribe(res => {
       this.conditions = res[1];
     });
   }

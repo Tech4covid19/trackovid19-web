@@ -13,6 +13,7 @@ export interface User {
   networks: Network[];
   postalcode: string;
   county: string;
+  patientToken: string;
 }
 
 export function createUser(params: Partial<User>) {

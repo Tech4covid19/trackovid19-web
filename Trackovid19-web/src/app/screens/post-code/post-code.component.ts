@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/states/user/state/user.service';
 import { Router } from '@angular/router';
+import { UserQuery } from 'src/app/states/user/state/user.query';
+import { UserStore, UserState } from 'src/app/states/user/state/user.store';
+import { User } from 'src/app/states/user/state/user.model';
 
 @Component({
   selector: 'app-post-code',
@@ -21,12 +24,19 @@ export class PostCodeComponent implements OnInit {
 
   public minYear: number;
 
-  constructor(private userService: UserService, public fb: FormBuilder, private router: Router) {
+  constructor(
+    private userService: UserService,
+    public fb: FormBuilder,
+    private router: Router,
+    private query: UserQuery,
+    private store: UserStore,
+  ) {
     this.maxYear = new Date().getFullYear();
     this.minYear = this.maxYear - 120;
   }
 
   ngOnInit() {
+    this.userService.getUser().subscribe();
     this.form = this.fb.group({
       'birth-year': [
         null,
@@ -56,6 +66,7 @@ export class PostCodeComponent implements OnInit {
   public onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
+      console.log(this.form.value);
       this._updateUserData(this.form.value);
       this.router.navigate(['/onboarding']);
     }
@@ -87,7 +98,20 @@ export class PostCodeComponent implements OnInit {
     if (!data['covidografia-code']) {
       delete userData.patientToken;
     }
+    this.store.updateActive((state: User) => {
+      (state.postalcode = userData.postalCode), (state.year = userData.year);
+    });
+    const id = this.query.getActiveId();
+    let currentUser: User = this.query.getEntity(id);
+    const { year, info, latitude, longitude, patientToken, postalcode } = currentUser;
+    const payload = {
+      year: year,
+      info: info,
+      geo: { lat: latitude, lon: longitude },
+      patientToken: patientToken,
+      postalCode: postalcode,
+    };
 
-    this.userService.updateUserInformation(userData);
+    this.userService.updateUserInformation(payload).subscribe();
   }
 }
