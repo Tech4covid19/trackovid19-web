@@ -36,8 +36,6 @@ export class ChangeStateStep3Component implements OnInit {
   }
 
   updateConfinementState(confinementStateId: number, $event): void {
-    this.case.confinementState = undefined;
-
     if ($event.target.checked) {
       this.case.confinementState = confinementStateId;
     }

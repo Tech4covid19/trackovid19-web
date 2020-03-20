@@ -30,8 +30,6 @@ export class ChangeStateStep2Component implements OnInit {
   }
 
   updateCondition(conditionId: number, $event): void {
-    this.case.condition = undefined;
-
     if ($event.target.checked) {
       this.case.condition = conditionId;
     }
