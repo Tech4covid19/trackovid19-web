@@ -9,15 +9,17 @@
   <div class="cards">
     <ng-container *ngFor="let condition of conditions">
       <div class="card">
-        <app-radio-card [state]="condition.status" [input_name]="'estado'"> </app-radio-card>
+        <app-radio-card
+          [state]="condition.status"
+          [input_name]="'estado'"
+          (click)="updateCondition(condition.id, $event)"
+        >
+        </app-radio-card>
       </div>
     </ng-container>
   </div>
   <!-- Change to correct link -->
   <div class="confirm-container">
-    <app-state-confirm-btn
-      [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step3'] } }]"
-      [btnText]="'Seguinte'"
-    ></app-state-confirm-btn>
+    <app-state-confirm-btn (click)="onClick()" [btnText]="'Seguinte'"></app-state-confirm-btn>
   </div>
 </div>

@@ -12,6 +12,7 @@
         <app-radio-card
           [state]="confinementState.description"
           [input_name]="confinementState.state"
+          (click)="updateConfinementState(confinementState.id, $event)"
         >
         </app-radio-card>
       </div>
