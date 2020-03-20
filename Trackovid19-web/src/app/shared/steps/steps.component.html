@@ -1,6 +1,6 @@
 <div class="steps">
   <div class="step" *ngFor="let step of steps; let i = index">
-    <div class="step-content" (click)="goToPage(step.url)">
+    <div class="step-content" (click)="goToStep(step)">
       <img *ngIf="step.active == true" src="assets/img/illustrations/change-state/ellipse.svg" />
       <img
         *ngIf="step.active !== true"
