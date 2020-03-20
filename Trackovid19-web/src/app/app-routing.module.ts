@@ -58,6 +58,8 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [
+      // best pratics for define default child route
+      { path: '', redirectTo: 'status', pathMatch: 'full' },
       {
         path: 'status',
         component: HomeComponent,
