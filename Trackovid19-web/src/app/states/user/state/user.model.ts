@@ -14,6 +14,9 @@ export interface User {
   postalcode: string;
   county: string;
   patientToken: string;
+  confinement_state: number;
+  has_symptoms_text: string;
+  has_symptoms: boolean;
 }
 
 export function createUser(params: Partial<User>) {
