@@ -91,7 +91,7 @@ export class PostCodeComponent implements OnInit {
   private _updateUserData(data: any) {
     const userData = {
       year: data['birth-year'],
-      postalCode: `${data['zip-code-1']}-${data['zip-code-2']}`,
+      postalCode: this.formatZipCode(data),
       patientToken: data['covidografia-code'],
     };
 
@@ -113,5 +113,19 @@ export class PostCodeComponent implements OnInit {
     };
 
     this.userService.updateUserInformation(payload).subscribe();
+  }
+
+  private formatZipCode(data: any): string {
+    let zipCode1 = data['zip-code-1'].toString();
+    while (zipCode1.length < 4) {
+      zipCode1 = '0' + zipCode1;
+    }
+
+    let zipCode2 = data['zip-code-2'].toString();
+    while (zipCode2.length < 3) {
+      zipCode2 = '0' + zipCode2;
+    }
+
+    return `${zipCode1}-${zipCode2}`;
   }
 }
