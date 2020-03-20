@@ -2,12 +2,7 @@
   <div class="card-body" fxLayout="row" fxFlex="grow">
     <div class="checkbox-btn">
       <label>
-        <input
-          class="quiz-checkbox"
-          type="checkbox"
-          (click)="$event.stopPropagation()"
-          [(ngModel)]="checked"
-        />
+        <input class="quiz-checkbox" type="checkbox" disabled="true" [(ngModel)]="checked" />
         <span class="check"></span>
       </label>
     </div>
