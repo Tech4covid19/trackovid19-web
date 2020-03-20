@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/states/user/state/user.service';
 import { environment } from 'src/environments/environment';
 
@@ -6,10 +7,10 @@ import { environment } from 'src/environments/environment';
   template: '',
 })
 export class LogoutComponent implements OnInit {
-  constructor(private usersService: UserService) {}
+  constructor(private usersService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.usersService.login();
-    window.location.href = environment.serverURL;
+    this.usersService.logout();
+    this.router.navigateByUrl('');
   }
 }

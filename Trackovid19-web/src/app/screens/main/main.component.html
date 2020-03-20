@@ -12,7 +12,7 @@
     <app-status-btn
       [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step1'] } }]"
     ></app-status-btn>
-    <a class="link logout_link" href="">Log out</a>
+    <a class="link logout_link" [routerLink]="['/logout']">Log out</a>
   </div>
   <div class="main-page-container">
     <router-outlet name="dash"></router-outlet>
