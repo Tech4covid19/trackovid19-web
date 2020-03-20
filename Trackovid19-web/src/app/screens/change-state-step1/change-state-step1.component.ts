@@ -49,7 +49,7 @@ export class ChangeStateStep1Component implements OnInit {
   }
 
   onClick() {
-    this.router.navigate(['/dashboard', { outlets: { dash: ['change-state-step2'] } }], {
+    this.router.navigate(['/dashboard', 'change-state-step2'], {
       state: { data: this.case },
     });
   }
