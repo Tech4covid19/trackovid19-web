@@ -18,4 +18,12 @@ export class ConfinementStateService {
       }),
     );
   }
+
+  getOne(stateId: string | number) {
+    return this.http.get<ConfinementState>(`${this.url}/${stateId}`).pipe(
+      tap(entity => {
+        this.store.add(entity);
+      }),
+    );
+  }
 }

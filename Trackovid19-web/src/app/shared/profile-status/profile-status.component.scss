@@ -1,24 +1,25 @@
 .profile_status {
-  background-color: #f9f9f9;
-  padding: 18px 0;
-  font-size: 12px;
-  line-height: 14px;
+  //background-color: #f9f9f9;
+  padding: 1.1rem 0;
+  font-size: 0.9rem;
+  line-height: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
+  color: #666;
 }
 
 .profile_status_indicator {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #5bee73;
-  margin-right: 6px;
+  //background-color: #5bee73;
+  margin-right: 0.3rem;
 }
 
 @media (min-width: 768px) {
   .profile_status {
-    padding: 5px;
+    padding: 0.4rem;
   }
 }
