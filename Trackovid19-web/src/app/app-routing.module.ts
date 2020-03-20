@@ -13,6 +13,7 @@ import { TermsConditionsComponent } from './screens/terms-conditions/terms-condi
 import { AuthGuardService } from './shared/guards/auth.guard';
 import { OauthCallbackComponent } from './shared/oauth-component/oauth-callback.component';
 import { OnboardingComponent } from './screens/onboarding/onboarding.component';
+import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'post-code-step',
     component: PostCodeComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'privacy-terms',
+    component: PrivacyTermsComponent,
   },
   {
     path: 'privacy-policy',
