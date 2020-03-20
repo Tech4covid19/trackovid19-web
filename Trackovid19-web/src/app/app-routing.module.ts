@@ -18,7 +18,7 @@ import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.com
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/status',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
   {
