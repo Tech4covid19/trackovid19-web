@@ -33,8 +33,8 @@ export class PostCodeComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe(user => {
       if (user && user.postalcode && user.postalcode !== '0000-000') {
-        // this.router.navigate(['/dashboard/status']);
-        this.router.navigate(['/onboarding']);
+        this.router.navigate(['/dashboard']);
+        // this.router.navigate(['/onboarding']);
       }
     });
     this.form = this.fb.group({
