@@ -4,15 +4,104 @@
 
 :host {
   background-color: rgba(153, 149, 149, 0.53);
+  height: 100%;
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: flex-end;
 }
 
+.post-code {
+  position: relative;
+  height: 100%;
+}
+
+.header {
+  height: 70%;
+
+  .logo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .logo-background {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    left: calc(12%);
+    width: 75%;
+    height: 69px;
+  }
+}
+
+.action {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .action-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    .login-btn {
+      max-height: 55px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #4267b2;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-bottom: 1rem;
+
+      img {
+        max-width: 30px;
+        max-height: 30px;
+      }
+
+      .fb {
+        margin-right: 20px;
+      }
+
+      .login-text {
+        font-size: 13px;
+        flex: 1;
+        text-align: center;
+
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
+
+    .policy-terms {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 12px;
+
+      a {
+        margin-bottom: 15px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .modal-content {
   display: none;
-  width: 375px;
+  width: 100%;
+  box-sizing: border-box;
   padding: 40px 33px;
   border-radius: 0;
   border-top-left-radius: 25px;
@@ -22,6 +111,9 @@
 
   &.open {
     display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -50,7 +142,6 @@ input {
   text-align: center;
   color: #000000;
 
-  width: 309px;
   height: 50px;
   line-height: 26px;
 
@@ -105,16 +196,24 @@ span {
 }
 
 .post-code {
+  .post-code-section {
+    display: flex;
+    justify-content: space-around;
+  }
+
   .frist-type-number {
-    width: 155px;
+    width: 50%;
   }
 
   .second-type-number {
-    width: 98px;
+    width: 40%;
   }
 
-  img {
-    margin: 0px 23px;
+  .image {
+    width: 10%;
+    max-width: 9px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -174,10 +273,17 @@ span {
     border-radius: 25px;
     width: 465px;
     padding: 40px 56px;
+
+    &.open {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      width: 465px;
+      transform: translate(-50%, 50%);
+    }
   }
 
   input {
-    width: 353px;
     height: 50px;
   }
 
