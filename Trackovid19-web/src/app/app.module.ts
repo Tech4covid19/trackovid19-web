@@ -15,11 +15,13 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MainComponent } from './screens/main/main.component';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
-import { PostCodeComponent } from './screens/post-code/post-code.component';
+import { PostCodeModule } from './screens/post-code/post-code.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -27,16 +29,18 @@ import { GeolocalizationService } from './shared/services/geolocalization.servic
     HomeComponent,
     LoginComponent,
     MainComponent,
-    PostCodeComponent,
     ChangeStateStep1Component,
     ChangeStateStep2Component,
     ChangeStateStep3Component,
+    PrivacyPolicyComponent,
+    TermsConditionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     OnBoardingModule,
+    PostCodeModule,
     SharedModule,
     RouterModule,
     HttpClientModule,

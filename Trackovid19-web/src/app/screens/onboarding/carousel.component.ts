@@ -19,6 +19,7 @@ import {
   AnimationPlayer,
   style,
 } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Directive({
   selector: '.carousel-item',
@@ -110,7 +111,9 @@ export class CarouselComponent implements AfterViewInit {
   carouselWrapperStyle = {};
 
   next() {
-    if (this.currentSlide + 1 === this.items.length) return;
+    if (this.currentSlide + 1 === this.items.length)
+      this.router.navigate(['dashboard', { outlets: { dash: ['status'] } }]);
+
     this.currentSlide = (this.currentSlide + 1) % this.items.length;
     const offset = this.currentSlide * this.itemWidth;
     const myAnimation: AnimationFactory = this.buildAnimation(offset);
@@ -135,7 +138,7 @@ export class CarouselComponent implements AfterViewInit {
     this.player.play();
   }
 
-  constructor(private builder: AnimationBuilder) {}
+  constructor(private builder: AnimationBuilder, private router: Router) {}
 
   ngAfterViewInit() {
     // For some reason only here I need to add setTimeout, in my local env it's working without this.

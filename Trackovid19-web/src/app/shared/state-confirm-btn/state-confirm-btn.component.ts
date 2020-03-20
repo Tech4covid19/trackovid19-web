@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-state-confirm-btn',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StateConfirmBtnComponent implements OnInit {
   @Input() btnText: string;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

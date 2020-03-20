@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Step } from 'src/app/shared/steps/steps.component';
 import { Router } from '@angular/router';
 import { ConditionState } from '../../models/condition-state/condition-state.model';
 
@@ -9,6 +10,11 @@ import { ConditionState } from '../../models/condition-state/condition-state.mod
 })
 export class ChangeStateStep2Component implements OnInit {
   public conditionState: ConditionState;
+  steps: Step[] = [
+    { label: '1', url: 'change-state-step1', active: true },
+    { label: '2', url: 'change-state-step2', active: true },
+    { label: '3', url: 'change-state-step3', active: false },
+  ];
 
   constructor(private router: Router) {}
 
