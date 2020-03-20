@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { User } from './user.model';
 import { UserStore, UserState } from './user.store';
-import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {

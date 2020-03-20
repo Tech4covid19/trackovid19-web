@@ -109,7 +109,7 @@ export class PostCodeComponent implements OnInit {
       info: info,
       geo: { lat: latitude, lon: longitude },
       patientToken: patientToken,
-      postalCode: postalcode,
+      postalcode: postalcode,
     };
 
     this.userService.updateUserInformation(payload).subscribe();
