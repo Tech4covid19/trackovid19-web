@@ -17,7 +17,7 @@ import { OnboardingComponent } from './screens/onboarding/onboarding.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
