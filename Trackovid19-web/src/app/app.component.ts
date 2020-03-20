@@ -9,6 +9,6 @@ import { GeolocalizationService } from './shared/services/geolocalization.servic
 export class AppComponent {
   title = 'Trackovid19-web';
   constructor(geolocalizationService: GeolocalizationService) {
-    // geolocalizationService.geoFindMe()
+    //geolocalizationService.geoFindMe()
   }
 }

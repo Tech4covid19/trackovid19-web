@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { User } from './user.model';
-import { UserStore } from './user.store';
+import { UserStore, UserState } from './user.store';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -24,9 +24,13 @@ export class UserService {
   }
 
   updateUserInformation(userInformation) {
-    return this.http
-      .put(environment.apiUrl + 'user', userInformation)
-      .pipe(tap(userData => this.userStore.updateActive(userData)));
+    return this.http.put(environment.apiUrl + 'user', userInformation).pipe(
+      tap(userData =>
+        this.userStore.updateActive((state: UserState) => {
+          state = userData;
+        }),
+      ),
+    );
   }
 
   updateUserLocation(geolocation) {

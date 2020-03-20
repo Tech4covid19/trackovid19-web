@@ -11,6 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private service: UserService, private localizeService: GeolocalizationService) {}
 
   ngOnInit(): void {
-    this.localizeService.geoFindMe();
+    //this.localizeService.geoFindMe();
   }
 }
