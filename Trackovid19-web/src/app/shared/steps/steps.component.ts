@@ -19,7 +19,9 @@ export class StepsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public goToPage(url: string) {
-    this.router.navigate(['/dashboard', url]);
+  public goToStep(step: Step) {
+    if (step.active) {
+      this.router.navigate(['/dashboard', step.url]);
+    }
   }
 }
