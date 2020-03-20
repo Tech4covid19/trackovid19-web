@@ -178,6 +178,7 @@ span {
 
 .label {
   margin-bottom: 10px;
+  display: flex;
 }
 
 .field-container {
@@ -198,7 +199,7 @@ span {
 .post-code {
   .post-code-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .frist-type-number {
@@ -207,13 +208,6 @@ span {
 
   .second-type-number {
     width: 40%;
-  }
-
-  .image {
-    width: 10%;
-    max-width: 9px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -289,11 +283,11 @@ span {
 
   .post-code {
     .frist-type-number {
-      width: 185px;
+      width: 186px;
     }
 
     .second-type-number {
-      width: 108px;
+      width: 129px;
     }
   }
 
