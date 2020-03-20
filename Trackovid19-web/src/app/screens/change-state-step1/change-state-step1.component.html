@@ -9,24 +9,11 @@
   </div>
 
   <div class="cards">
-    <div class="card">
-      <app-checkbox-card [state]="'Tosse seca'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Espirros'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Tosse com expectoração'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Dores musculares'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Febre (acima de 37.5ºC)'"> </app-checkbox-card>
-    </div>
-    <div class="card">
-      <app-checkbox-card [state]="'Arrepios/calafrios'"> </app-checkbox-card>
-    </div>
+    <ng-container *ngFor="let symptom of symptoms">
+      <div class="card">
+        <app-checkbox-card [state]="symptom.symptom"> </app-checkbox-card>
+      </div>
+    </ng-container>
   </div>
   <!-- Change to correct link -->
   <div class="confirm-container">

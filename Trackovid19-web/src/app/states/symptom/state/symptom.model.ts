@@ -1,6 +1,6 @@
 export interface Symptom {
   id: number | string;
-  value: string;
+  symptom: string;
 }
 
 export function createSymptom(params: Partial<Symptom>) {
