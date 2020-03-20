@@ -77,6 +77,14 @@
         }
       }
 
+      .login-btn-enabled {
+        visibility: visible;
+      }
+
+      .login-btn-disabled {
+        visibility: hidden;
+      }
+
       .policy-terms {
         display: flex;
         flex-direction: column;

@@ -7,11 +7,17 @@ import { UserService } from 'src/app/states/user/state/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  termsAgreed: boolean = false;
+
   constructor(private usersService: UserService) {}
 
   ngOnInit(): void {}
 
   onFacebookLogin() {
-    this.usersService.login();
+    if (this.termsAgreed) {
+      this.usersService.login();
+    } else {
+      console.log('accept terms');
+    }
   }
 }
