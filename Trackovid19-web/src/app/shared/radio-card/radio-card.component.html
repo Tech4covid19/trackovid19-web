@@ -1,8 +1,15 @@
-<div class="card-container">
+<div class="card-container" (click)="onClick()">
   <div class="card-body" fxLayout="row" fxFlex="grow">
     <div class="radio-btn">
       <label>
-        <input class="quiz-radio" name="{{ input_name }}" type="radio" />
+        <input
+          [id]="id"
+          class="quiz-radio"
+          name="{{ input_name }}"
+          type="radio"
+          (click)="$event.stopPropagation()"
+          [value]="id"
+        />
         <span class="check"></span>
       </label>
     </div>
