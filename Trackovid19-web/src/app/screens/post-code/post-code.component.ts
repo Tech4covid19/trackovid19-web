@@ -65,7 +65,6 @@ export class PostCodeComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
-    console.log('aaaa', this.birthYearControl.errors);
     if (this.form.valid) {
       console.log(this.form.value);
       this._updateUserData(this.form.value);

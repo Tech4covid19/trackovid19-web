@@ -1,6 +1,6 @@
 export interface Condition {
   id: number | string;
-  value: string;
+  status: string;
 }
 
 export function createCondition(params: Partial<Condition>) {
