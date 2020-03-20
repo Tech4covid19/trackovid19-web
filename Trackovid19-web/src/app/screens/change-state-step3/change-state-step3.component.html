@@ -11,7 +11,8 @@
       <div class="card">
         <app-radio-card
           [state]="confinementState.description"
-          [input_name]="confinementState.state"
+          [input_name]="'atividade'"
+          (click)="updateConfinementState(confinementState.id, $event)"
         >
         </app-radio-card>
       </div>
@@ -20,5 +21,9 @@
 </div>
 <!-- Change to correct link -->
 <div class="confirm-container">
-  <app-state-confirm-btn (click)="sendForm()" [btnText]="'Submeter'"></app-state-confirm-btn>
+  <app-state-confirm-btn
+    (click)="sendForm()"
+    [disabled]="!case.confinementState"
+    [btnText]="'Submeter'"
+  ></app-state-confirm-btn>
 </div>

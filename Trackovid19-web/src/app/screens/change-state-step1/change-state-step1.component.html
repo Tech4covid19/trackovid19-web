@@ -11,15 +11,13 @@
   <div class="cards">
     <ng-container *ngFor="let symptom of symptoms">
       <div class="card">
-        <app-checkbox-card [state]="symptom.symptom"> </app-checkbox-card>
+        <app-checkbox-card [state]="symptom.symptom" (click)="updateSymptoms(symptom.id, $event)">
+        </app-checkbox-card>
       </div>
     </ng-container>
   </div>
   <!-- Change to correct link -->
   <div class="confirm-container">
-    <app-state-confirm-btn
-      [routerLink]="['/dashboard', { outlets: { dash: ['change-state-step2'] } }]"
-      [btnText]="'Seguinte'"
-    ></app-state-confirm-btn>
+    <app-state-confirm-btn (click)="onClick()" [btnText]="'Seguinte'"></app-state-confirm-btn>
   </div>
 </div>

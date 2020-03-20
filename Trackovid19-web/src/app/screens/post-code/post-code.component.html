@@ -71,7 +71,8 @@
         <input
           class="frist-type-number"
           formControlName="zip-code-1"
-          type="number"
+          type="text"
+          pattern="[0-9]*"
           onKeyPress="if(this.value.length==4) return false;"
           placeholder="- - - -"
           [class.inputError]="submitted && zipCode1Control.errors"
@@ -80,7 +81,8 @@
         <input
           class="second-type-number"
           formControlName="zip-code-2"
-          type="number"
+          type="text"
+          pattern="[0-9]*"
           onKeyPress="if(this.value.length==3) return false;"
           placeholder="- - -"
           [class.inputError]="submitted && zipCode2Control.errors"
@@ -90,7 +92,7 @@
         *ngIf="submitted && (zipCode1Control.errors || zipCode2Control.errors)"
         class="error-notice"
       >
-        <span *ngIf="zipCode2Control.errors.required">Campo obrigatório!</span>
+        <span>Campo obrigatório!</span>
       </div>
     </section>
 
