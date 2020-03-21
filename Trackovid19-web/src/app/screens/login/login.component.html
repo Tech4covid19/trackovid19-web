@@ -4,6 +4,10 @@
       <div class="header">
         <div class="logo">
           <img class="logo-background" src="assets/img/illustrations/login/background.svg" />
+          <img
+            class="logo-background-mobile"
+            src="assets/img/illustrations/login/background-mobile.svg"
+          />
         </div>
       </div>
 
@@ -19,11 +23,17 @@
           </div>
 
           <div class="policy-terms">
-            <a class="text-grey text-center" target="_blank" [routerLink]="['/terms-conditions']"
+            <a
+              class="text-terms text-grey text-center"
+              target="_blank"
+              [routerLink]="['/terms-conditions']"
               >Termos e condições</a
             >
 
-            <a class="text-grey text-center" target="_blank" [routerLink]="['/privacy-policy']"
+            <a
+              class="text-terms text-grey text-center"
+              target="_blank"
+              [routerLink]="['/privacy-policy']"
               >Política de Privacidade</a
             >
           </div>
