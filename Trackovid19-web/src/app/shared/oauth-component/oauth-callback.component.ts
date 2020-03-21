@@ -22,7 +22,7 @@ export class OauthCallbackComponent {
   verifyCode(): void {
     this.userService.getUser().subscribe(user => {
       if (user && user.postalcode && user.postalcode !== '0000-000') {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/status']);
       } else {
         this.router.navigate(['post-code-step']);
       }
