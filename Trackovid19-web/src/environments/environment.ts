@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 //const SERVER_URL = 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev';
-const SERVER_URL = 'https://op2pwi0nd1.execute-api.eu-west-1.amazonaws.com/prd';
+const SERVER_URL = 'https://api.covidografia.pt';
 
 export const environment = {
   production: true,
