@@ -4,6 +4,7 @@ import { ConfinementStateService } from '../../states/confinement-state/state/co
 import { User } from '../../states/user/state/user.model';
 import { ConfinementState } from '../../states/confinement-state/state/confinement-state.model';
 import { SubSink } from 'subsink';
+import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
 
 @Component({
   selector: 'app-main',
@@ -19,10 +20,12 @@ export class MainComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UserService,
     private conditionService: ConfinementStateService,
+    private profileService: ProfileServiceService,
   ) {}
 
   ngOnInit(): void {
-    this.loadUser();
+    //this.loadUser();
+    this.profileService.getProfileObs().subscribe(() => this.loadUser());
   }
 
   ngOnDestroy(): void {
