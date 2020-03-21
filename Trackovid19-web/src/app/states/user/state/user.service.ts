@@ -33,13 +33,9 @@ export class UserService {
   }
 
   updateUserInformation(userInformation) {
-    return this.http.put(environment.apiUrl + 'user', userInformation).pipe(
-      tap(userData =>
-        this.userStore.updateActive((state: UserState) => {
-          state = userData;
-        }),
-      ),
-    );
+    return this.http
+      .put(environment.apiUrl + 'user', userInformation)
+      .pipe(tap((userData: User) => this.getUser().subscribe()));
   }
 
   updateUserLocation(geolocation) {

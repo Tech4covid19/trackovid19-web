@@ -54,6 +54,7 @@ const routes: Routes = [
     path: 'onboarding',
     component: OnboardingComponent,
   },
+
   {
     path: 'dashboard',
     component: MainComponent,

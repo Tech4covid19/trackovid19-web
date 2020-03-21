@@ -6,10 +6,15 @@ import { Case } from './case.model';
 import { CaseStore } from './case.store';
 import { environment } from 'src/environments/environment';
 import { forkJoin } from 'rxjs';
+import { UserQuery } from '../../user/state/user.query';
 
 @Injectable({ providedIn: 'root' })
 export class CaseService {
-  constructor(private caseStore: CaseStore, private http: HttpClient) {}
+  constructor(
+    private caseStore: CaseStore,
+    private http: HttpClient,
+    private userQuery: UserQuery,
+  ) {}
 
   public url = environment.apiUrl + 'case';
 
@@ -20,7 +25,7 @@ export class CaseService {
       }),
     );
   }
- 
+
   get() {
     return this.http.get<Case[]>(`${this.url}/all`).pipe(
       tap(entities => {
@@ -32,7 +37,8 @@ export class CaseService {
   add(body: Case) {
     return this.http.post<Case>(`${this.url}`, body).pipe(
       tap(() => {
-        this.caseStore.add(body);
+        const id = this.userQuery.getActiveId();
+        this.caseStore.upsert(id, body);
       }),
     );
   }
