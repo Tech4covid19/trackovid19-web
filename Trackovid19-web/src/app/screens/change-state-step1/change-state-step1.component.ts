@@ -43,9 +43,11 @@ export class ChangeStateStep1Component implements OnInit {
     if (checked) {
       if (!this.case.symptoms.includes(symptomId)) {
         this.case.symptoms.push(symptomId);
-      } else {
-        const symptomIndex = this.case.symptoms.indexOf(symptomId);
-        this.case.symptoms.splice(symptomIndex, 1);
+      }
+    } else {
+      const index = this.case.symptoms.indexOf(symptomId);
+      if (index > -1) {
+        this.case.symptoms.splice(index, 1);
       }
     }
   }

@@ -258,8 +258,7 @@ app-card {
 
   .main-page-container {
     width: 100%;
-    padding: 0 100px;
-    padding: 46px;
+    padding: 46px 46px 26px;
   }
 
   app-status-btn {
@@ -268,5 +267,14 @@ app-card {
 
   .logout_link {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .dashboard_container {
+    .sidebar_container {
+      width: 230px;
+      min-width: 230px;
+    }
   }
 }
