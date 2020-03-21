@@ -17,17 +17,35 @@
 }
 
 .header {
-  height: 70%;
+  height: 80%;
 
   .logo {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    .logo-background,
+    .logo-background-mobile {
+      height: 100%;
+      width: 100%;
+    }
+
+    .logo-background-mobile {
+      display: block;
+    }
 
     .logo-background {
-      display: block;
-      width: 100%;
+      display: none;
+    }
+  }
+
+  @media (min-width: 580px) {
+    .logo {
       height: 100%;
+
+      .logo-background-mobile {
+        display: none;
+      }
+
+      .logo-background {
+        display: block;
+      }
     }
   }
 
@@ -42,7 +60,7 @@
 }
 
 .action {
-  height: 30%;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,8 +69,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0 30px;
 
     .login-btn {
       max-height: 55px;
@@ -61,13 +77,13 @@
       justify-content: center;
       align-items: center;
       background-color: #4267b2;
-      padding: 1rem;
+      padding: 1rem 2.75rem;
       border-radius: 0.25rem;
       margin-bottom: 1rem;
 
       img {
-        max-width: 30px;
-        max-height: 30px;
+        max-width: 20px;
+        max-height: 20px;
       }
 
       .fb {
@@ -91,7 +107,6 @@
       font-size: 12px;
 
       a {
-        margin-bottom: 15px;
         text-decoration: none;
       }
     }
