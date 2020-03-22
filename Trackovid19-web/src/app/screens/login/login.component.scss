@@ -10,7 +10,7 @@
   }
 
   .header {
-    height: 80%;
+    height: 60%;
 
     .logo {
       .logo-background,
@@ -53,7 +53,7 @@
   }
 
   .action {
-    height: 20%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,6 +62,61 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+
+      .accept {
+        display: flex;
+        margin: 10px 20px;
+        font-size: 11px;
+        align-items: center;
+
+        .checkbox-btn {
+          margin-right: 1rem;
+
+          input {
+            display: none;
+
+            + .check {
+              display: block;
+              width: 1.5rem;
+              height: 1.5rem;
+              border-radius: 0.25rem;
+              border: 0.125rem solid #d8d8d8;
+              cursor: pointer;
+              transition: 0.3s ease all;
+
+              &::after {
+                content: '';
+                opacity: 0;
+                display: block;
+                width: 0;
+                height: 0.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -0.5rem) rotate(-45deg);
+                border-bottom: 0.125rem solid #fff;
+                border-left: 0.125rem solid #fff;
+                border-bottom-left-radius: 0.125rem;
+                transition: 0.2s ease width, 0.2s ease height;
+              }
+            }
+
+            &:checked + .check {
+              display: block;
+              position: relative;
+              background-color: #fa6400;
+              border-color: #fa6400;
+
+              &::after {
+                opacity: 1;
+                width: 1rem;
+              }
+            }
+          }
+        }
+      }
 
       .login-btn {
         max-height: 55px;
@@ -91,6 +146,11 @@
           color: #ffffff;
           font-weight: bold;
         }
+      }
+
+      .login-btn.disabled {
+        background-color: #d8d8d8;
+        cursor: default;
       }
 
       .policy-terms {
