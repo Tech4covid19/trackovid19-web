@@ -13,8 +13,6 @@ export class LinkCardComponent {
   constructor(public router: Router) {}
 
   public goToPage(url: string) {
-    this.router.navigate([]).then(result => {
-      window.open(url, '_blank');
-    });
+    this.router.navigate([url]);
   }
 }
