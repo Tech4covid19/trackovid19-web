@@ -22,3 +22,25 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  .profile {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .profile {
+    padding: 0;
+
+    .profile_picture {
+      position: absolute;
+      top: 14px;
+      left: 24px;
+    }
+
+    .profile_details {
+      display: none;
+    }
+  }
+}
