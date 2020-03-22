@@ -40,11 +40,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
 
   .card {
-    flex-basis: calc(50% - 1rem);
-    margin-bottom: 1rem;
+    flex-basis: calc(33% - 1rem);
+    margin: 1rem 0.5rem;
   }
 }
 
@@ -52,6 +51,14 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+@media (min-width: 768px) and (max-width: 1150px) {
+  .cards {
+    .card {
+      flex-basis: calc(50% - 1rem);
+    }
+  }
 }
 
 @media (max-width: 768px) {
