@@ -73,6 +73,12 @@ export class CarouselItemElement {}
         }
       }
 
+      @media (min-width: 768px) {
+        .next-button-container {
+          margin-top: 1.5em;
+        }
+      }
+
       .next-button {
         -webkit-box-pack: center;
         justify-content: center;
