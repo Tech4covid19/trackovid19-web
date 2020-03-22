@@ -11,7 +11,7 @@
     ></app-link-card>
   </div>
 
-  <div class="accept">
+  <div class="accept" (click)="onClickTerms1($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted1" />
@@ -24,7 +24,7 @@
     >
   </div>
 
-  <div class="accept">
+  <div class="accept" (click)="onClickTerms2($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted2" />
@@ -37,7 +37,7 @@
     >
   </div>
 
-  <div class="accept">
+  <div class="accept" (click)="onClickTerms3($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3" />
@@ -51,7 +51,7 @@
     >
   </div>
 
-  <div class="accept">
+  <div class="accept" (click)="onClickTerms4($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted4" />
@@ -64,7 +64,7 @@
     >
   </div>
 
-  <div class="accept">
+  <div class="accept last" (click)="onClickTerms5($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted5" />
@@ -77,11 +77,13 @@
     >
   </div>
 
-  <button
-    class="aceitar"
-    [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4 || !accepted5"
-    [routerLink]="['/dashboard', 'status']"
-  >
-    Aceitar
-  </button>
+  <div class="accept-container">
+    <button
+      class="aceitar"
+      [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4 || !accepted5"
+      [routerLink]="['/dashboard', 'status']"
+    >
+      Aceitar
+    </button>
+  </div>
 </div>
