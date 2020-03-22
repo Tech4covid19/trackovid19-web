@@ -25,11 +25,15 @@
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
-      <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
+      <a class="link logout_link_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+        >Log out</a
+      >
     </div>
   </div>
 
   <div class="main-page-container" *ngIf="user">
     <router-outlet></router-outlet>
   </div>
+
+  <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
 </div>

@@ -2,14 +2,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 32px 24px;
+  justify-content: space-between;
+  padding: 8px 0;
 }
 
-app-card {
-  margin-left: 10px;
-}
-
-:ng-deep app-card .card,
+app-card .card,
 app-card .card-lg {
   display: flex;
   flex-direction: row;
