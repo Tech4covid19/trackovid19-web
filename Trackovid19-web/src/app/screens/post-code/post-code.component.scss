@@ -3,7 +3,7 @@
 }
 
 :host {
-  background-color: rgba(153, 149, 149, 0.53);
+  background: rgba(0, 0, 0, 0.7);
   height: 100%;
   display: flex;
   flex: 1;
@@ -28,6 +28,7 @@
 
     .logo-background-mobile {
       display: block;
+      opacity: 0.2;
     }
 
     .logo-background {
@@ -45,6 +46,7 @@
 
       .logo-background {
         display: block;
+        opacity: 0.2;
       }
     }
   }
@@ -69,6 +71,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    opacity: 0.5;
 
     .login-btn {
       max-height: 55px;
@@ -194,6 +197,14 @@ span {
 .label {
   margin-bottom: 10px;
   display: flex;
+  font-size: 18px;
+}
+
+.label.codigrafia-code {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: #8a939f;
 }
 
 .field-container {
@@ -219,16 +230,12 @@ span {
 
   .frist-type-number {
     width: 50%;
+    background-image: none !important;
   }
 
   .second-type-number {
     width: 40%;
   }
-}
-
-.codigrafia-code {
-  font-size: 15px;
-  color: #8a939f;
 }
 
 .btns {
