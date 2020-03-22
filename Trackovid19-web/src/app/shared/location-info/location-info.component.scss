@@ -1,12 +1,19 @@
 .location-info-area {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .profile-area {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   line-height: 20px;
+}
+
+.postal-code-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .marker-icon {
@@ -22,4 +29,14 @@
 .reports-info {
   font-size: 15px;
   color: #979797;
+}
+
+@media (min-width: 1024px) {
+  .profile-area {
+    font-size: 24px;
+  }
+
+  .location-info-area {
+    justify-content: start;
+  }
 }

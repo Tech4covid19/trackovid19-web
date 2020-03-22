@@ -5,7 +5,7 @@
 }
 
 .main-page-container {
-  padding: 0 12px;
+  padding: 0 16px;
 
   & .location-status {
     display: block;
@@ -43,22 +43,6 @@
   }
 }
 
-.account_actions {
-  margin-top: auto;
-
-  a.logout_link {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 0.875rem;
-    line-height: 0.875rem;
-    text-align: center;
-    padding: 1.25rem 2.5rem;
-    border-radius: 0;
-    border: none;
-    outline: none;
-  }
-}
 .location-info-area {
   display: flex;
   align-items: center;
@@ -143,5 +127,15 @@ app-card {
       width: 230px;
       min-width: 230px;
     }
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-area {
+    font-size: 24px;
+  }
+
+  .location-info-area {
+    justify-content: start;
   }
 }
