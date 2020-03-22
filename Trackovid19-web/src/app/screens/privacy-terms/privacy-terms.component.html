@@ -51,23 +51,10 @@
     >
   </div>
 
-  <div class="accept" (click)="onClickTerms4($event)">
+  <div class="accept last" (click)="onClickTerms4($event)">
     <div class="checkbox-btn">
       <label>
         <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted4" />
-        <span class="check"></span>
-      </label>
-    </div>
-    <span
-      >Consinto na utilização dos meus dados pessoais pela aplicação Covidografia e empresas
-      associadas para a instalação de cookies de análise da execução dos serviços.</span
-    >
-  </div>
-
-  <div class="accept last" (click)="onClickTerms5($event)">
-    <div class="checkbox-btn">
-      <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted5" />
         <span class="check"></span>
       </label>
     </div>
@@ -80,7 +67,7 @@
   <div class="accept-container">
     <button
       class="aceitar"
-      [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4 || !accepted5"
+      [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4"
       [routerLink]="['/dashboard', 'status']"
     >
       Aceitar

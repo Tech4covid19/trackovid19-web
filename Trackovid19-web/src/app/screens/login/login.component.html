@@ -13,9 +13,14 @@
 
       <div class="action" fxLayout="row">
         <div class="action-content">
-          <div class="login-btn button-elevation cursor-pointer" (click)="onFacebookLogin()">
+          <div
+            class="login-btn button-elevation cursor-pointer"
+            [ngClass]="{ disabled: !acceptedTerms }"
+            (click)="onFacebookLogin()"
+          >
             <div class="fb" fxLayout="row" fxLayoutAlign="center">
-              <img src="assets/img/facebook.svg" />
+              <img *ngIf="acceptedTerms" src="assets/img/facebook.svg" />
+              <img *ngIf="!acceptedTerms" src="assets/img/facebook-disabled.svg" />
             </div>
             <div class="login-text">
               <p>Entrar com o Facebook</p>
@@ -35,6 +40,19 @@
               target="_blank"
               [routerLink]="['/privacy-policy']"
               >Política de Privacidade</a
+            >
+          </div>
+
+          <div class="accept">
+            <div class="checkbox-btn">
+              <label>
+                <input class="quiz-checkbox" type="checkbox" [(ngModel)]="acceptedTerms" />
+                <span class="check"></span>
+              </label>
+            </div>
+            <span
+              >Li, compreendi e aceito os termos e condições de download e utilização da aplicação
+              Covidografia.</span
             >
           </div>
         </div>
