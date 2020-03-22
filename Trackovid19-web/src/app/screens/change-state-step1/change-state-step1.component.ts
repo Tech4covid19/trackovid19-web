@@ -45,13 +45,14 @@ export class ChangeStateStep1Component implements OnInit {
   // TODO: change app-checkbox-card to output check value instead
   updateSymptoms(symptomId: number, checked: boolean): void {
     if (checked) {
-      if (symptomId === 1) { // ID 1 - No Symptoms
+      if (symptomId === 1) {
+        // ID 1 - No Symptoms
         this.uncheckAll();
         this.checkOne(1);
       } else {
         this.uncheckOne(1); // ID 1 - No Symptoms
       }
-      
+
       if (!this.case.symptoms.includes(symptomId)) {
         this.case.symptoms.push(symptomId);
       }
@@ -71,7 +72,7 @@ export class ChangeStateStep1Component implements OnInit {
 
   private uncheckAll() {
     this.case.symptoms = [];
-    this.checkBoxes.forEach(checkBox => checkBox.checked = false);
+    this.checkBoxes.forEach(checkBox => (checkBox.checked = false));
   }
 
   private checkOne(symptomId: number) {

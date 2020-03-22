@@ -3,7 +3,5 @@ export interface Dashboard {
 }
 
 export function createDashboard(params: Partial<Dashboard>) {
-  return {
-
-  } as Dashboard;
+  return {} as Dashboard;
 }
