@@ -72,6 +72,10 @@
         text-decoration: none;
       }
     }
+
+    .hideMobileOnly {
+      display: none;
+    }
   }
 }
 
@@ -119,6 +123,10 @@
             display: block;
           }
         }
+      }
+
+      .hideMobileOnly {
+        display: flex;
       }
     }
   }
