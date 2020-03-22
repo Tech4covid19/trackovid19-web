@@ -72,6 +72,10 @@
         text-decoration: none;
       }
     }
+
+    .hideMobileOnly {
+      display: none;
+    }
   }
 
   .page-container {
@@ -128,6 +132,10 @@
             display: block;
           }
         }
+      }
+
+      .hideMobileOnly {
+        display: flex;
       }
     }
 
