@@ -71,4 +71,11 @@ export class MainComponent implements OnInit, OnDestroy {
   public toggleShare() {
     this.showShare = !this.showShare;
   }
+
+  public sendDeleteAccountEmail() {
+    const email = 'info@covidografia.pt';
+    const subject = 'Test';
+    const emailBody = 'Hi Sample, ' + this.user.facebook_id;
+    window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + emailBody;
+  }
 }
