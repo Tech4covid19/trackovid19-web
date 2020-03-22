@@ -17,7 +17,15 @@ export class LocationInfoComponent implements OnInit {
   constructor(private query: DashboardQuery, private userQuery: UserQuery) {}
 
   ngOnInit(): void {
-    this.count$ = this.query.selectCount();
+    this.count$ = this.query
+      .selectAll()
+      .pipe(
+        map(
+          (ds) => ds
+            .map((d) => +d.hits)
+            .reduce((total, hits) => total + hits, 0)
+        )
+      );
     this.postalCode$ = this.userQuery.selectActive(entity => entity.postalcode);
     this.county$ = this.userQuery.selectActive(entity => entity.county);
   }
