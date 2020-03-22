@@ -19,8 +19,8 @@
       </label>
     </div>
     <span
-      >Li, compreendi e aceito os termos e condições de download e utilização da aplicação
-      Covidografia.</span
+      >Li e compreendi a notificação de privacidade que descreve como serão tratados os dados
+      pessoais no âmbito da aplicação Covidografia.</span
     >
   </div>
 
@@ -32,29 +32,16 @@
       </label>
     </div>
     <span
-      >Li e compreendi a notificação de privacidade que descreve como serão tratados os dados
-      pessoais no âmbito da aplicação Covidografia.</span
-    >
-  </div>
-
-  <div class="accept" (click)="onClickTerms3($event)">
-    <div class="checkbox-btn">
-      <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3" />
-        <span class="check"></span>
-      </label>
-    </div>
-    <span
       >Consinto no tratamento pela aplicação Covidografia dos meus dados de saúde e geolocalização
       que eu disponibilizar exclusivamente para as finalidades previstas na notificação de
       privacidade.</span
     >
   </div>
 
-  <div class="accept last" (click)="onClickTerms4($event)">
+  <div class="accept last" (click)="onClickTerms3($event)">
     <div class="checkbox-btn">
       <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted4" />
+        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3" />
         <span class="check"></span>
       </label>
     </div>
@@ -67,7 +54,7 @@
   <div class="accept-container">
     <button
       class="aceitar"
-      [disabled]="!accepted1 || !accepted2 || !accepted3 || !accepted4"
+      [disabled]="!accepted1 || !accepted2 || !accepted3"
       [routerLink]="['/dashboard', 'status']"
     >
       Aceitar
