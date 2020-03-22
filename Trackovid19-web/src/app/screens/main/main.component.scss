@@ -54,6 +54,11 @@
       }
     }
 
+    .bottom {
+      display: flex;
+      flex-direction: column;
+    }
+
     .email-container {
       display: flex;
       align-items: center;
@@ -114,12 +119,14 @@
       }
 
       .account_actions {
-        app-status-btn {
+        .bottom {
+          display: flex;
+          flex-direction: column;
           margin-top: auto;
-        }
 
-        .logout_link {
-          display: block;
+          .logout_link {
+            display: block;
+          }
         }
       }
     }
@@ -261,12 +268,14 @@ app-card {
     padding: 46px 46px 26px;
   }
 
-  app-status-btn {
+  .bottom {
+    display: flex;
+    flex-direction: column;
     margin-top: auto;
-  }
 
-  .logout_link {
-    display: block;
+    .logout_link {
+      display: block;
+    }
   }
 }
 
