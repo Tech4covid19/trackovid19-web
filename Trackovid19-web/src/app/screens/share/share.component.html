@@ -1,0 +1,35 @@
+<div *ngIf="showShare" [class.open]="showShare" [class.closing]="closing" class="modal-wrapper">
+  <div [class.extra-margin]="closable" class="modal w-100" fxLayout="column">
+    <div *ngIf="closable" class="modal-header" fxLayout="row" (click)="close()">
+      <div class="close-button ml-auto">
+        <img alt="close" src="assets/img/icons/cross.svg" />
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="share-container">
+        <div class="title">
+          <span>Obrigado pela tua atualização do estado!</span>
+        </div>
+        <div class="sub-title">
+          <span>Mas a luta contra o Covid-19 ainda precisa de ti!</span>
+        </div>
+        <div class="share-video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Iw9koAS7h_Y"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
+        <div class="footer-text">
+          <span>Ajuda-nos partilhando esse video com os teus amigos e conhecidos.</span>
+        </div>
+        <div class="footer-share">
+          <!-- ADD THIS -->
+          <div class="fb-icon-share icon-share"></div>
+          <div class="tw-icon-share icon-share"></div>
+          <div class="linkdin-icon-share icon-share"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

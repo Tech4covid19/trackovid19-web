@@ -2,7 +2,12 @@
   <div class="sidebar_container">
     <div class="logo_container">
       <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" />
-      <img *ngIf="!isChangingStep()" class="share_icon" src="assets/img/settings.svg" />
+      <img
+        *ngIf="!isChangingStep()"
+        class="share_icon"
+        src="assets/img/settings.svg"
+        (click)="showShare = !showShare"
+      />
     </div>
 
     <app-profile
@@ -33,3 +38,5 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+
+<app-share [showShare]="showShare"> </app-share>

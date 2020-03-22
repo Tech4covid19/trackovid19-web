@@ -16,6 +16,7 @@ export class MainComponent implements OnInit, OnDestroy {
   router: Router;
   user: User = null;
   confinementState: ConfinementState = null;
+  showShare: boolean = false;
 
   private subs = new SubSink();
 
