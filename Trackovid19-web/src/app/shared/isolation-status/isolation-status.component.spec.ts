@@ -8,9 +8,8 @@ describe('IsolationStatusComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsolationStatusComponent ]
-    })
-    .compileComponents();
+      declarations: [IsolationStatusComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

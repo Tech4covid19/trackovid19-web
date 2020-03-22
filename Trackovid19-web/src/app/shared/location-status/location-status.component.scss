@@ -1,20 +1,18 @@
 .location-status {
-  display: flex;
-  flex-direction: column;
-}
-.location-status {
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 32px 24px;
 }
+
 app-card {
   margin-left: 10px;
 }
-:ng-deep app-card .card, app-card .card-lg { 
-display: flex;
-flex-direction: row;
-padding: 10px;
-height: 226px;
-flex-grow: 1;
+
+:ng-deep app-card .card,
+app-card .card-lg {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  height: 226px;
+  flex-grow: 1;
 }
