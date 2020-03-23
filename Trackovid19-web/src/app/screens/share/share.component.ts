@@ -36,4 +36,16 @@ export class ShareComponent implements OnInit, OnDestroy {
       this.closing = false;
     }, 500);
   }
+
+  shareFacebook() {
+    var facebookWindow = window.open(
+      'https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      'facebook-popup',
+      'height=350,width=600',
+    );
+    if (facebookWindow.focus) {
+      facebookWindow.focus();
+    }
+    return false;
+  }
 }
