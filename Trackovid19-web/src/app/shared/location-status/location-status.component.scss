@@ -14,3 +14,9 @@ app-card .card-lg {
   height: 226px;
   flex-grow: 1;
 }
+
+@media (min-width: 768px) {
+  .location-status {
+    padding: 22px 0;
+  }
+}

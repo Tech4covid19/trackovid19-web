@@ -43,24 +43,28 @@
       flex-direction: column;
       padding: 0 12px;
     }
+  }
 
-    .email-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 0 12px;
+  .email-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 12px;
 
-      .email {
-        padding-left: 8px;
-        font-size: 13px;
-        color: #798794;
-        text-decoration: none;
-      }
+    .email {
+      padding-left: 8px;
+      font-size: 13px;
+      color: #798794;
+      text-decoration: none;
     }
+  }
 
-    .hideMobileOnly {
-      display: none;
-    }
+  .hideMobileOnly {
+    display: none;
+  }
+
+  .display_desktop {
+    display: none;
   }
 }
 
@@ -95,10 +99,6 @@
         & app-profile-status {
           flex-direction: column;
         }
-      }
-
-      .hideMobileOnly {
-        display: flex;
       }
     }
   }
@@ -168,10 +168,6 @@ app-card {
   margin-bottom: 20px;
 }
 
-.logout_link_desktop {
-  display: none;
-}
-
 /*
   ##Device = Desktops / Ipads
   ##Screen = 750px to higher resolution desktops
@@ -192,11 +188,19 @@ app-card {
         flex-direction: column;
         margin-top: auto;
         padding: 0;
-
-        .logout_link_desktop {
-          display: block;
-        }
       }
+    }
+
+    .hideMobileOnly {
+      display: flex;
+    }
+
+    .display_desktop {
+      display: flex;
+    }
+
+    .display_mobile {
+      display: none;
     }
   }
 
@@ -217,10 +221,6 @@ app-card {
   .main-page-container {
     width: 100%;
     padding: 46px 46px 26px;
-  }
-
-  .logout_link {
-    display: none;
   }
 }
 
