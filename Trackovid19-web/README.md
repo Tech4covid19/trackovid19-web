@@ -2,12 +2,12 @@
 
 ## Development Setup
 
-* Clone the project;
-* Change the enviroment.ts  - uncomment development server url and comment the api.covidografia.pt one;
-* Use the test credentials at (https://tech4covid19.slack.com/archives/C0102TF3XAA/p1584527595028000);
-* Deactivate browser CORS protection (https://alfilatov.com/posts/run-chrome-without-cors);
-* Run `npm install` to install all dependencies;
-* Run `npm run start`;
+- Clone the project;
+- Change the enviroment.ts - uncomment development server url and comment the api.covidografia.pt one;
+- Use the test credentials at (https://tech4covid19.slack.com/archives/C0102TF3XAA/p1584527595028000);
+- Deactivate browser CORS protection (https://alfilatov.com/posts/run-chrome-without-cors);
+- Run `npm install` to install all dependencies;
+- Run `npm run start`;
 
 ## Angular
 
