@@ -5,6 +5,11 @@ export interface User {
   postalcode: string;
   name: string;
   email: string;
+  county: string;
+  confinement_state: string;
+  patientToken: string;
+  has_symptoms_text: string;
+  has_symptoms: boolean;
   phone: string;
   show_onboarding: boolean;
   personal_hash: string;
