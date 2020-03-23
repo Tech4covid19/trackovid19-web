@@ -33,7 +33,7 @@
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
-      <div class="policy-terms">
+      <div class="policy-terms display_desktop">
         <a
           class="text-terms text-grey text-center"
           target="_blank"
@@ -68,6 +68,20 @@
   >
     <img src="assets/img/icons/email.svg" />
     <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
+  </div>
+
+  <div class="policy-terms display_mobile">
+    <a class="text-terms text-grey text-center" target="_blank" [routerLink]="['/terms-conditions']"
+      >Termos e Condições</a
+    >
+
+    <a class="text-terms text-grey text-center" target="_blank" [routerLink]="['/privacy-policy']"
+      >Política de Privacidade</a
+    >
+
+    <div class="text-terms text-grey text-center" (click)="sendDeleteAccountEmail()">
+      <span>Eliminar Conta</span>
+    </div>
   </div>
 
   <a class="link logout_link display_mobile" *ngIf="!isChangingStep()" [routerLink]="['/logout']"

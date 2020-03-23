@@ -42,21 +42,6 @@
       display: flex;
       flex-direction: column;
       padding: 0 12px;
-
-      .policy-terms {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15px;
-        font-size: 12px;
-
-        a {
-          text-decoration: none;
-        }
-
-        div {
-          cursor: pointer;
-        }
-      }
     }
   }
 
@@ -71,6 +56,21 @@
       font-size: 13px;
       color: #798794;
       text-decoration: none;
+    }
+  }
+
+  .policy-terms {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-size: 12px;
+
+    a {
+      text-decoration: none;
+    }
+
+    div {
+      cursor: pointer;
     }
   }
 
