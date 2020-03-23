@@ -60,5 +60,14 @@ export class ShareComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  shareLinkedIn() {}
+  shareLinkedIn() {
+    var linkedinWindow = window.open(
+      'https://www.linkedin.com/sharing/share-offsite/?url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      'height=350,width=600',
+    );
+    if (linkedinWindow.focus) {
+      linkedinWindow.focus();
+    }
+    return false;
+  }
 }
