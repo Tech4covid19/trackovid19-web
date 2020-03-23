@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardStore } from 'src/app/states/dashboard/dashboard.store';
 import { DashboardQuery } from 'src/app/states/dashboard/dashboard.query';
+import { DashboardService } from 'src/app/states/dashboard/dashboard.service';
 import { Observable } from 'rxjs';
 import { UserQuery } from 'src/app/states/user/state/user.query';
 import { map } from 'rxjs/operators';
@@ -11,15 +12,23 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./location-info.component.scss'],
 })
 export class LocationInfoComponent implements OnInit {
-  count$: Observable<number>;
+  count: number;
   postalCode$: Observable<any>;
   county$: Observable<any>;
-  constructor(private query: DashboardQuery, private userQuery: UserQuery) {}
+  constructor(
+    private query: DashboardQuery,
+    private userQuery: UserQuery,
+    private service: DashboardService,
+  ) {}
 
   ngOnInit(): void {
-    this.count$ = this.query
-      .selectAll()
-      .pipe(map(ds => ds.map(d => +d.hits).reduce((total, hits) => total + hits, 0)));
+    this.count = 0;
+
+    const id = this.userQuery.getActiveId();
+    const user = this.userQuery.getEntity(id);
+    this.service.getCasesByPostalCode(user.postalcode).subscribe(res => {
+      this.count = res[1].reduce((total, d) => total + parseInt(d.hits, 10), 0);
+    });
     this.postalCode$ = this.userQuery.selectActive(entity => {
       return entity.postalcode.slice(0, -4); // Get just the first 4 digits
     });
