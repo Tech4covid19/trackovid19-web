@@ -52,12 +52,7 @@ export class ChangeStateStep3Component implements OnInit {
     this.caseService.add(this.case).subscribe(
       () => {
         this.profileService.setProfileObs(this.case);
-        this.router.navigate(['/dashboard', 'status'], {
-          queryParams: {
-            share: true,
-          },
-          relativeTo: this.activatedRoute,
-        });
+        this.router.navigate(['/dashboard', 'status']);
       },
       err => {
         console.log(err);

@@ -6,42 +6,20 @@ import { Router } from '@angular/router';
   templateUrl: './share-status.component.html',
   styleUrls: ['./share-status.component.scss'],
 })
-export class ShareStatusComponent implements OnInit {
-  @Input('showShare') showShare = false;
-  @Input() closable = true;
-  closed = new EventEmitter();
+export class ShareStatusComponent {
+  @Input() showShare: boolean;
+  @Input() toggleShare: Function;
 
-  public closing = false;
-  router: Router;
+  closable = true;
 
-  constructor(private _router: Router) {
-    this.router = _router;
-  }
-
-  ngOnInit(): void {
-    //this.loadUser();
-  }
-
-  ngOnDestroy(): void {}
-
-  public open() {
-    setTimeout(() => {
-      this.showShare = true;
-    }, 500);
-  }
+  constructor() {}
 
   public close() {
-    // TODO: Emit event
-    this.closing = true;
-    setTimeout(() => {
-      this.showShare = false;
-      this.closing = false;
-      this.closed.emit();
-    }, 500);
+    this.toggleShare();
   }
 
   shareFacebook() {
-    var facebookWindow = window.open(
+    const facebookWindow = window.open(
       'https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/embed/Iw9koAS7h_Y',
       'facebook-popup',
       'height=350,width=600',
@@ -53,7 +31,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareTwitter() {
-    var twitterWindow = window.open(
+    const twitterWindow = window.open(
       'https://twitter.com/intent/tweet?via=covidografia&url=https://www.youtube.com/embed/Iw9koAS7h_Y',
       'height=350,width=600',
     );
@@ -64,7 +42,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareLinkedIn() {
-    var linkedinWindow = window.open(
+    const linkedinWindow = window.open(
       'https://www.linkedin.com/sharing/share-offsite/?url=https://www.youtube.com/embed/Iw9koAS7h_Y',
       'height=350,width=600',
     );
