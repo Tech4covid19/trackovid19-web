@@ -6,27 +6,36 @@
         *ngIf="!isChangingStep()"
         class="share_icon"
         src="assets/img/share.svg"
-        (click)="toggleShare()">
+        (click)="toggleShare()"
+      />
     </div>
 
     <app-profile
       [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
-      [user]="user" ></app-profile>
+      [user]="user"
+    ></app-profile>
 
     <div *ngIf="!isChangingStep()" class="profile_status_container">
       <app-profile-status [user]="user" [state]="confinementState"></app-profile-status>
     </div>
 
     <div class="bottom">
-      <app-status-btn *ngIf="!isChangingStep()"
-        [routerLink]="['/dashboard', 'change-state-step1']"></app-status-btn>
+      <app-status-btn
+        *ngIf="!isChangingStep()"
+        [routerLink]="['/dashboard', 'change-state-step1']"
+      ></app-status-btn>
 
-      <div [ngClass]="{ hideMobileOnly: isChangingStep() === true }" class="email-container">
+      <div
+        [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
+        class="email-container display_desktop"
+      >
         <img src="assets/img/icons/email.svg" />
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
-      <a class="link logout_link_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
+      <a class="link display_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+        >Log out</a
+      >
     </div>
   </div>
 
@@ -34,7 +43,17 @@
     <router-outlet></router-outlet>
   </div>
 
-  <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
+  <div
+    [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
+    class="email-container display_mobile"
+  >
+    <img src="assets/img/icons/email.svg" />
+    <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
+  </div>
+
+  <a class="link logout_link display_mobile" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+    >Log out</a
+  >
 </div>
 
 <app-share-status [showShare]="showShare" (closed)="toggleShare()"> </app-share-status>
