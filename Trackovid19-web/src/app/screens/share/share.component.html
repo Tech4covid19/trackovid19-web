@@ -2,9 +2,34 @@
   <div [class.extra-margin]="closable" class="modal w-100" fxLayout="column">
     <div *ngIf="closable" class="modal-header" fxLayout="row" (click)="close()">
       <div class="close-button ml-auto">
-        <img alt="close" src="assets/img/icons/cross.svg" />
+        <svg
+          version="1.1"
+          fill="currentColor"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="612px"
+          height="612px"
+          viewBox="0 0 612 612"
+          style="enable-background:new 0 0 612 612;"
+          xml:space="preserve"
+        >
+          <g>
+            <g id="cross">
+              <g>
+                <polygon
+                  points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397
+                  306,341.411 576.521,611.397 612,575.997 341.459,306.011 			"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
       </div>
     </div>
+
     <div class="modal-body">
       <div class="share-container">
         <div class="title">
@@ -23,11 +48,18 @@
         <div class="footer-text">
           <span>Ajuda-nos partilhando esse video com os teus amigos e conhecidos.</span>
         </div>
+
         <div class="footer-share">
           <!-- ADD THIS -->
-          <div class="fb-icon-share icon-share"></div>
-          <div class="tw-icon-share icon-share"></div>
-          <div class="linkdin-icon-share icon-share"></div>
+          <div id="facebook" class="icon-share">
+            <img src="assets/img/icons/fb-share-icon.svg" />
+          </div>
+          <div id="twitter" class="icon-share">
+            <img src="assets/img/icons/twitter-share-icon.svg" />
+          </div>
+          <div id="linkedin" class="icon-share">
+            <img src="assets/img/icons/linkedin-share-icon.svg" />
+          </div>
         </div>
       </div>
     </div>
