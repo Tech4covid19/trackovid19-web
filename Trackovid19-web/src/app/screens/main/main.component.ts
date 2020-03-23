@@ -73,9 +73,13 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   public sendDeleteAccountEmail() {
-    const email = 'info@covidografia.pt';
-    const subject = 'Test';
-    const emailBody = 'Hi Sample, ' + this.user.facebook_id;
+    const email = 'remover@covidografia.pt';
+    const subject = 'Pedido de Remoção de Conta e Dados Pessoais';
+    const emailBody =
+      'Desejo que a minha conta e os meus dados pessoais na aplicação covidografia sejam removidos com efeito imediato. Os meus identificadores são: %0D%0A' +
+      'E-mail: {{e-mail}} %0D%0A' +
+      'Id-notificação: {{idType}}-{{notificationUserId}} %0D%0A' +
+      'Id-dados: {{idType}}-{{notificationUserId}}';
     window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + emailBody;
   }
 }
