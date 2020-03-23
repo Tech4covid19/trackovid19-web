@@ -13,22 +13,19 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnDestroy {
-  router: Router;
   user: User = null;
   confinementState: ConfinementState = null;
-  showShare: boolean = false;
+  showShare = false;
 
   private subs = new SubSink();
 
   constructor(
-    private _router: Router,
+    private router: Router,
     private userService: UserService,
     private conditionService: ConfinementStateService,
     private profileService: ProfileServiceService,
     private route: ActivatedRoute,
   ) {
-    this.router = _router;
-
     const shareVal = this.route.snapshot.queryParamMap.get('share');
     if (shareVal && shareVal === 'true') {
       this.showShare = true;

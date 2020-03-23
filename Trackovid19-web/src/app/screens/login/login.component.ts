@@ -9,14 +9,18 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
+  gdpr = false;
   acceptedTerms = false;
 
   constructor(
     private usersService: UserService,
     private auth: AuthService,
     private router: Router,
-  ) {}
+  ) {
+    const gdpr = localStorage.getItem('gdpr');
+    this.gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+    this.acceptedTerms = this.gdpr === true;
+  }
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {

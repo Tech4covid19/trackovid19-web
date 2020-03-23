@@ -43,7 +43,7 @@
             >
           </div>
 
-          <div class="accept">
+          <div class="accept" *ngIf="!gdpr">
             <div class="checkbox-btn">
               <label>
                 <input class="quiz-checkbox" type="checkbox" [(ngModel)]="acceptedTerms" />
