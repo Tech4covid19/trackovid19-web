@@ -1,0 +1,67 @@
+<div *ngIf="showShare" [class.open]="showShare" [class.closing]="closing" class="modal-wrapper">
+  <div [class.extra-margin]="closable" class="modal w-100" fxLayout="column">
+    <div *ngIf="closable" class="modal-header" fxLayout="row" (click)="close()">
+      <div class="close-button ml-auto">
+        <svg
+          version="1.1"
+          fill="currentColor"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="612px"
+          height="612px"
+          viewBox="0 0 612 612"
+          style="enable-background:new 0 0 612 612;"
+          xml:space="preserve"
+        >
+          <g>
+            <g id="cross">
+              <g>
+                <polygon
+                  points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397
+                  306,341.411 576.521,611.397 612,575.997 341.459,306.011 			"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="share-container">
+        <div class="title">
+          <span>Obrigado pela tua atualização do estado!</span>
+        </div>
+        <div class="sub-title">
+          <span>Mas a luta contra o Covid-19 ainda precisa de ti!</span>
+        </div>
+
+        <div class="share-video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Iw9koAS7h_Y"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
+        <div class="footer-text">
+          <span>Ajuda-nos partilhando esse video com os teus amigos e conhecidos.</span>
+        </div>
+
+        <div class="footer-share">
+          <div id="facebook" class="icon-share" (click)="shareFacebook()">
+            <img src="assets/img/icons/fb-share-icon.svg" />
+          </div>
+          <div id="twitter" class="icon-share" (click)="shareTwitter()">
+            <img src="assets/img/icons/twitter-share-icon.svg" />
+          </div>
+          <div id="linkedin" class="icon-share" (click)="shareLinkedIn()">
+            <img src="assets/img/icons/linkedin-share-icon.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

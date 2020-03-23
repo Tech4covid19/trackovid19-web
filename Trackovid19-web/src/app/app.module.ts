@@ -25,7 +25,8 @@ import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
-import { ShareComponent } from './screens/share/share.component';
+// import { ShareComponent } from './screens/share/share.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { ShareComponent } from './screens/share/share.component';
     PrivacyPolicyComponent,
     TermsConditionsComponent,
     PrivacyTermsComponent,
-    ShareComponent,
+    // ShareComponent,
   ],
   imports: [
     BrowserModule,

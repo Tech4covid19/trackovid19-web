@@ -5,7 +5,7 @@
       <img
         *ngIf="!isChangingStep()"
         class="share_icon"
-        src="assets/img/settings.svg"
+        src="assets/img/share.svg"
         (click)="toggleShare()"
       />
     </div>
@@ -43,4 +43,4 @@
   <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
 </div>
 
-<app-share [showShare]="showShare" (closed)="toggleShare()"> </app-share>
+<app-share-status [showShare]="showShare" (closed)="toggleShare()"> </app-share-status>

@@ -20,6 +20,7 @@ import { StatusConfinementPipe } from './pipes/status-confinement.pipe';
 import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confinement.pipe';
 import { StepsComponent } from './steps/steps.component';
 import { LinkCardComponent } from './link-card/link-card.component';
+import { ShareStatusComponent } from './share-status/share-status.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LinkCardComponent } from './link-card/link-card.component';
     IconPlaceholderConfinementPipe,
     StepsComponent,
     LinkCardComponent,
+    ShareStatusComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
@@ -54,6 +56,7 @@ import { LinkCardComponent } from './link-card/link-card.component';
     IsolationStatusComponent,
     StepsComponent,
     LinkCardComponent,
+    ShareStatusComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })
