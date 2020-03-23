@@ -1,7 +1,14 @@
-import {Component, ComponentFactory, OnInit, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
-import {UserService} from '../../states/user/state/user.service';
-import {User} from '../../states/user/state/user.model';
-import {Router} from '@angular/router';
+import {
+  Component,
+  ComponentFactory,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { UserService } from '../../states/user/state/user.service';
+import { User } from '../../states/user/state/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-privacy-terms',
@@ -9,9 +16,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./privacy-terms.component.scss'],
 })
 export class PrivacyTermsComponent implements OnInit {
-
-  @ViewChild('conditions', {static: true}) conditions: TemplateRef<any>;
-  @ViewChild('policy', {static: true}) policy: TemplateRef<any>;
+  @ViewChild('conditions', { static: true }) conditions: TemplateRef<any>;
+  @ViewChild('policy', { static: true }) policy: TemplateRef<any>;
 
   linkCards = [
     {
@@ -32,20 +38,21 @@ export class PrivacyTermsComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   accept() {
     const optIn: Partial<User> = {
       optin_download_use: true,
       optin_health_geo: true,
       optin_privacy: true,
-      optin_push: true
+      optin_push: true,
     };
     this.userService.updateUserInformation(optIn).subscribe(
-        success => this.router.navigate(['/dashboard']),
-        err => alert(`Ooops!\n${err.message || err}`)
+      success => {
+        localStorage.setItem('gdpr', JSON.stringify(true));
+        this.router.navigate(['/dashboard']);
+      },
+      err => alert(`Ooops!\n${err.message || err}`),
     );
   }
 
