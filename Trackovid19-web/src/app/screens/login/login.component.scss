@@ -10,17 +10,35 @@
   }
 
   .header {
-    height: 70%;
+    height: 60%;
 
     .logo {
-      width: 100%;
-      height: 100%;
-      position: relative;
+      .logo-background,
+      .logo-background-mobile {
+        height: 100%;
+        width: 100%;
+      }
+
+      .logo-background-mobile {
+        display: block;
+      }
 
       .logo-background {
-        display: block;
-        width: 100%;
+        display: none;
+      }
+    }
+
+    @media (min-width: 580px) {
+      .logo {
         height: 100%;
+
+        .logo-background-mobile {
+          display: none;
+        }
+
+        .logo-background {
+          display: block;
+        }
       }
     }
 
@@ -44,8 +62,62 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 0 30px;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .accept {
+        display: flex;
+        margin: 10px 20px;
+        font-size: 11px;
+        align-items: center;
+
+        .checkbox-btn {
+          margin-right: 1rem;
+
+          input {
+            display: none;
+
+            + .check {
+              display: block;
+              width: 1.5rem;
+              height: 1.5rem;
+              border-radius: 0.25rem;
+              border: 0.125rem solid #d8d8d8;
+              cursor: pointer;
+              transition: 0.3s ease all;
+
+              &::after {
+                content: '';
+                opacity: 0;
+                display: block;
+                width: 0;
+                height: 0.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -0.5rem) rotate(-45deg);
+                border-bottom: 0.125rem solid #fff;
+                border-left: 0.125rem solid #fff;
+                border-bottom-left-radius: 0.125rem;
+                transition: 0.2s ease width, 0.2s ease height;
+              }
+            }
+
+            &:checked + .check {
+              display: block;
+              position: relative;
+              background-color: #fa6400;
+              border-color: #fa6400;
+
+              &::after {
+                opacity: 1;
+                width: 1rem;
+              }
+            }
+          }
+        }
+      }
 
       .login-btn {
         max-height: 55px;
@@ -54,13 +126,14 @@
         justify-content: center;
         align-items: center;
         background-color: #4267b2;
-        padding: 1rem;
+        padding: 1rem 2.75rem;
         border-radius: 0.25rem;
         margin-bottom: 1rem;
+        max-width: 270px;
 
         img {
-          max-width: 30px;
-          max-height: 30px;
+          max-width: 20px;
+          max-height: 20px;
         }
 
         .fb {
@@ -77,6 +150,11 @@
         }
       }
 
+      .login-btn.disabled {
+        background-color: #d8d8d8;
+        cursor: default;
+      }
+
       .policy-terms {
         display: flex;
         flex-direction: column;
@@ -84,14 +162,9 @@
         font-size: 12px;
 
         a {
-          margin-bottom: 15px;
           text-decoration: none;
         }
       }
     }
-  }
-
-  .h-100 {
-    height: 100%;
   }
 }

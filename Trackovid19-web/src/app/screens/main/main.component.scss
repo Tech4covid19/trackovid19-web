@@ -1,5 +1,6 @@
 :host {
   min-height: 100%;
+  height: 100vh;
 }
 
 .dashboard_container {
@@ -15,11 +16,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 21px 0;
+      padding: 18px 21px;
 
       .profile_dgs_logo {
         height: 32px;
         flex: 1;
+      }
+
+      .share_icon {
+        cursor: pointer;
       }
     }
 
@@ -27,37 +32,23 @@
       display: flex;
 
       & app-profile-status {
-        max-width: 49%;
+        display: flex;
+        width: 100%;
         flex: 1 1 100%;
-      }
-
-      & app-profile-status:last-child {
-        margin-left: 2%;
       }
     }
 
-    .account_actions {
-      margin-top: auto;
-
-      a.logout_link {
-        display: block;
-        box-sizing: border-box;
-        width: 100%;
-        font-size: 0.875rem;
-        line-height: 0.875rem;
-        text-align: center;
-        padding: 1.25rem 2.5rem;
-        border-radius: 0;
-        border: none;
-        outline: none;
-      }
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      padding: 0 12px;
     }
 
     .email-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 0 16px;
+      padding: 10px 0 12px;
 
       .email {
         padding-left: 8px;
@@ -66,14 +57,9 @@
         text-decoration: none;
       }
     }
-  }
 
-  .page-container {
-    padding: 0 12px;
-
-    & .location-status {
-      display: block;
-      margin-top: 20px;
+    .hideMobileOnly {
+      display: none;
     }
   }
 }
@@ -95,6 +81,10 @@
 
       .logo_container {
         padding: 18px 21px;
+
+        .profile_dgs_logo {
+          height: 40px;
+        }
       }
 
       .profile_status_container {
@@ -103,30 +93,13 @@
         align-items: flex-start;
 
         & app-profile-status {
-          max-width: 100%;
-          flex: 1 1 100%;
-        }
-
-        & app-profile-status:last-child {
-          margin-left: 0;
+          flex-direction: column;
         }
       }
 
-      .account_actions {
-        app-status-btn {
-          margin-top: auto;
-        }
-
-        .logout_link {
-          display: block;
-        }
+      .hideMobileOnly {
+        display: flex;
       }
-    }
-
-    .page-container {
-      width: 100%;
-      padding: 0 100px;
-      padding: 46px;
     }
   }
 }
@@ -137,7 +110,7 @@
 }
 
 .main-page-container {
-  padding: 0 12px;
+  padding: 0 16px;
 
   & .location-status {
     display: block;
@@ -162,35 +135,6 @@
   }
 }
 
-.profile_status_container {
-  display: flex;
-
-  & app-profile-status {
-    max-width: 49%;
-    flex: 1 1 100%;
-  }
-
-  & app-profile-status:last-child {
-    margin-left: 2%;
-  }
-}
-
-.account_actions {
-  margin-top: auto;
-
-  a.logout_link {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 0.875rem;
-    line-height: 0.875rem;
-    text-align: center;
-    padding: 1.25rem 2.5rem;
-    border-radius: 0;
-    border: none;
-    outline: none;
-  }
-}
 .location-info-area {
   display: flex;
   align-items: center;
@@ -219,6 +163,15 @@
 app-card {
   margin-left: 10px;
 }
+
+.logout_link {
+  margin-bottom: 20px;
+}
+
+.logout_link_desktop {
+  display: none;
+}
+
 /*
   ##Device = Desktops / Ipads
   ##Screen = 750px to higher resolution desktops
@@ -227,6 +180,24 @@ app-card {
   .dashboard_container {
     display: flex;
     flex-direction: row;
+
+    .sidebar_container {
+      padding: 20px 46px;
+      background-color: #f9f9f9;
+      width: 360px;
+      min-width: 360px;
+
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+        padding: 0;
+
+        .logout_link_desktop {
+          display: block;
+        }
+      }
+    }
   }
 
   .profile_status_container {
@@ -235,20 +206,8 @@ app-card {
     align-items: flex-start;
 
     & app-profile-status {
-      max-width: 100%;
-      flex: 1 1 100%;
+      flex-direction: column;
     }
-
-    & app-profile-status:last-child {
-      margin-left: 0;
-    }
-  }
-
-  .sidebar_container {
-    padding: 20px 46px;
-    background-color: #f9f9f9;
-    width: 360px;
-    min-width: 360px;
   }
 
   .logo_container {
@@ -257,15 +216,19 @@ app-card {
 
   .main-page-container {
     width: 100%;
-    padding: 0 100px;
-    padding: 46px;
-  }
-
-  app-status-btn {
-    margin-top: auto;
+    padding: 46px 46px 26px;
   }
 
   .logout_link {
-    display: block;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .dashboard_container {
+    .sidebar_container {
+      width: 230px;
+      min-width: 230px;
+    }
   }
 }

@@ -93,23 +93,28 @@
     display: block;
     box-sizing: border-box;
     width: 20rem;
-    max-width: 90%;
     background-color: #fa6400;
     color: #fff;
     font-weight: bold;
     font-size: 0.85rem;
     line-height: 0.875rem;
-    padding: 1.25rem 2.5rem;
+    padding: 1.125rem 2.5rem;
     border-radius: 2.5rem;
     border: none;
     outline: none;
-    margin: 1rem 0;
+    margin: 0.75rem 0;
     cursor: pointer;
   }
 
   .aceitar:disabled {
     background-color: #d8d8d8;
     cursor: default;
+  }
+
+  .accept-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -124,6 +129,22 @@
 
     .title {
       font-size: 17px;
+    }
+
+    .accept + .last {
+      margin-bottom: 110px;
+    }
+
+    .accept-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+        0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2.62953px 6.38599px rgba(0, 0, 0, 0.27),
+        0px 21px 51px rgba(0, 0, 0, 0.54);
     }
   }
 }

@@ -7,10 +7,7 @@ export interface DashboardState extends EntityState<Dashboard> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'dashboard' })
 export class DashboardStore extends EntityStore<DashboardState> {
-
   constructor() {
     super();
   }
-
 }
-

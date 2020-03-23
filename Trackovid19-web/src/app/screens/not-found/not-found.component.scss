@@ -1,3 +1,33 @@
 h3 {
   color: #666;
 }
+
+.logo {
+  .logo-background,
+  .logo-background-mobile {
+    height: 100%;
+    width: 100%;
+  }
+
+  .logo-background-mobile {
+    display: block;
+  }
+
+  .logo-background {
+    display: none;
+  }
+}
+
+@media (min-width: 580px) {
+  .logo {
+    height: 100%;
+
+    .logo-background-mobile {
+      display: none;
+    }
+
+    .logo-background {
+      display: block;
+    }
+  }
+}

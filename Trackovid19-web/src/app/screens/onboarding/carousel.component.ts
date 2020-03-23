@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   Component,
   ContentChildren,
   Directive,
@@ -73,6 +73,12 @@ export class CarouselItemElement {}
         }
       }
 
+      @media (min-width: 768px) {
+        .next-button-container {
+          margin-top: 1.5em;
+        }
+      }
+
       .next-button {
         -webkit-box-pack: center;
         justify-content: center;
@@ -97,7 +103,7 @@ export class CarouselItemElement {}
     `,
   ],
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselComponent implements AfterViewChecked {
   @ContentChildren(CarouselItemDirective) items: QueryList<CarouselItemDirective>;
   @ViewChildren(CarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<
     ElementRef
@@ -139,7 +145,7 @@ export class CarouselComponent implements AfterViewInit {
 
   constructor(private builder: AnimationBuilder, private router: Router) {}
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     // For some reason only here I need to add setTimeout, in my local env it's working without this.
     setTimeout(() => {
       this.itemWidth = this.itemsElements.first.nativeElement.getBoundingClientRect().width;

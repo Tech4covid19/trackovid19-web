@@ -25,6 +25,7 @@ import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
+
 @NgModule({
   declarations: [
     AppComponent,

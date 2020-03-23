@@ -19,8 +19,21 @@ export class PrivacyTermsComponent {
   accepted1 = false;
   accepted2 = false;
   accepted3 = false;
-  accepted4 = false;
-  accepted5 = false;
 
   constructor() {}
+
+  public onClickTerms1(event) {
+    this.accepted1 = !this.accepted1;
+    event.preventDefault();
+  }
+
+  public onClickTerms2(event) {
+    this.accepted2 = !this.accepted2;
+    event.preventDefault();
+  }
+
+  public onClickTerms3(event) {
+    this.accepted3 = !this.accepted3;
+    event.preventDefault();
+  }
 }

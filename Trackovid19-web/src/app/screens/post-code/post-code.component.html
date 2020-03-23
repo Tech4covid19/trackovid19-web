@@ -5,12 +5,16 @@
         <div class="header">
           <div class="logo">
             <img class="logo-background" src="assets/img/illustrations/login/background.svg" />
+            <img
+              class="logo-background-mobile"
+              src="assets/img/illustrations/login/background-mobile.svg"
+            />
           </div>
         </div>
 
         <div class="action" fxLayout="row">
           <div class="action-content">
-            <div class="login-btn button-elevation cursor-pointer">
+            <div class="login-btn">
               <div class="fb" fxLayout="row" fxLayoutAlign="center">
                 <img src="assets/img/facebook.svg" />
               </div>
@@ -20,13 +24,9 @@
             </div>
 
             <div class="policy-terms">
-              <a class="text-grey text-center" target="_blank" href="/terms-conditions"
-                >Termos e condições</a
-              >
+              <a class="text-terms text-grey text-center">Termos e condições</a>
 
-              <a class="text-grey text-center" target="_blank" href="/privacy-policy"
-                >Política de Privacidade</a
-              >
+              <a class="text-terms text-grey text-center">Política de Privacidade</a>
             </div>
           </div>
         </div>
@@ -43,13 +43,14 @@
     novalidate
   >
     <section class="row label" fxLayout="row">
-      <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
+      <img class="image" alt="marker" src="assets/img/icons/contact.svg" />
       <span>Insira o seu ano de nascimento</span>
     </section>
     <section class="row field-container post-code" fxLayout="row">
       <input
         formControlName="birth-year"
         type="number"
+        pattern="[0-9]{4}"
         onKeyPress="if(this.value.length==4) return false;"
         placeholder="- - - -"
         [class.inputError]="submitted && birthYearControl.errors"
@@ -72,7 +73,7 @@
           class="frist-type-number"
           formControlName="zip-code-1"
           type="text"
-          pattern="[0-9]*"
+          pattern="[0-9]{4}"
           onKeyPress="if(this.value.length==4) return false;"
           placeholder="- - - -"
           [class.inputError]="submitted && zipCode1Control.errors"
@@ -82,7 +83,7 @@
           class="second-type-number"
           formControlName="zip-code-2"
           type="text"
-          pattern="[0-9]*"
+          pattern="[0-9]{3}"
           onKeyPress="if(this.value.length==3) return false;"
           placeholder="- - -"
           [class.inputError]="submitted && zipCode2Control.errors"
@@ -97,18 +98,21 @@
     </section>
 
     <section class="row label codigrafia-code" fxLayout="row">
-      <span>Código Covidografia (Opcional)</span>
+      <span>Tem um Código Covidografia?</span>
+      <span>Use-o aqui</span>
     </section>
     <section class="row field-container post-code" fxLayout="row">
       <input
         formControlName="covidografia-code"
         type="text"
-        maxlength="8"
+        pattern="[0-9A-Z]{10}"
+        maxlength="10"
         placeholder="- - - - - - - -"
+        onKeyUp="this.value = this.value.toUpperCase();"
         [class.inputError]="submitted && covidografiaCodeControl.errors"
       />
       <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
-        <span *ngIf="covidografiaCodeControl.errors.required">Campo obrigatório!</span>
+        <span>Código inválido. Verifique o seu código!</span>
       </div>
     </section>
 

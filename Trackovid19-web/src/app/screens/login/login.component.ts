@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  acceptedTerms = false;
+
   constructor(
     private usersService: UserService,
     private auth: AuthService,
@@ -22,6 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   onFacebookLogin() {
-    this.usersService.login();
+    if (this.acceptedTerms) {
+      this.usersService.login();
+    }
   }
 }

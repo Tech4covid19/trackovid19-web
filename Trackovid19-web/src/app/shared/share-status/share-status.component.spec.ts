@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckboxCardComponent } from './checkbox-card.component';
+import { ShareStatusComponent } from './share-status.component';
 
-describe('CheckboxCardComponent', () => {
-  let component: CheckboxCardComponent;
-  let fixture: ComponentFixture<CheckboxCardComponent>;
+describe('ShareStatusComponent', () => {
+  let component: ShareStatusComponent;
+  let fixture: ComponentFixture<ShareStatusComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CheckboxCardComponent],
+      declarations: [ShareStatusComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CheckboxCardComponent);
+    fixture = TestBed.createComponent(ShareStatusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

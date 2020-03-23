@@ -8,9 +8,8 @@ describe('ChangeStateStep2Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangeStateStep2Component ]
-    })
-    .compileComponents();
+      declarations: [ChangeStateStep2Component],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
