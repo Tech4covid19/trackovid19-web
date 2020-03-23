@@ -1,6 +1,6 @@
 <div class="change-state-step2-container">
   <h2 class="page-title">Alterar o meu estado</h2>
-  <app-steps [steps]="steps"></app-steps>
+  <app-steps [steps]="steps" [getState]="getStateCallback"></app-steps>
   <div class="step-description">
     <p class="step-description-text">Passo 2 - Infeção</p>
     <p class="step-question-text">Qual o seu estado de infeção atual?</p>
@@ -10,6 +10,7 @@
     <ng-container *ngFor="let condition of conditions">
       <div class="card">
         <app-radio-card
+          [checked]="case.condition === condition.id"
           [state]="condition.status"
           [input_name]="'estado'"
           [id]="condition.id"

@@ -24,6 +24,7 @@ export class ChangeStateStep3Component implements OnInit {
   case: Case;
 
   public updateConfinementStateCallback: Function;
+  public getStateCallback: Function;
 
   constructor(
     private router: Router,
@@ -34,6 +35,7 @@ export class ChangeStateStep3Component implements OnInit {
     private profileService: ProfileServiceService,
   ) {
     this.updateConfinementStateCallback = this.updateConfinementState.bind(this);
+    this.getStateCallback = this.getState.bind(this);
   }
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class ChangeStateStep3Component implements OnInit {
     this.confinementStateService.get().subscribe(confinementStates => {
       this.confinementStates = confinementStates;
     });
+  }
+
+  getState() {
+    return this.case;
   }
 
   updateConfinementState(confinementStateId: number): void {

@@ -33,7 +33,15 @@ export class ChangeStateStep1Component implements OnInit {
     const user = this.query.getEntity(id);
     this.updateSymptomsCallback = this.updateSymptoms.bind(this);
 
-    this.case = createCase({ postalCode: user?.postalcode, geo: { lat: 0, lon: 0 }, symptoms: [] });
+    if (history.state.data) {
+      this.case = history.state.data;
+    } else {
+      this.case = createCase({
+        postalCode: user?.postalcode,
+        geo: { lat: 0, lon: 0 },
+        symptoms: [],
+      });
+    }
   }
 
   ngOnInit(): void {
@@ -82,7 +90,9 @@ export class ChangeStateStep1Component implements OnInit {
 
   private uncheckOne(symptomId: number) {
     const symptomIndex = this.case.symptoms.indexOf(symptomId);
-    this.case.symptoms.splice(symptomIndex, 1);
+    if (symptomIndex > -1) {
+      this.case.symptoms.splice(symptomIndex, 1);
+    }
     this.setCheckValue(symptomId, false);
   }
 
