@@ -25,12 +25,15 @@
         [routerLink]="['/dashboard', 'change-state-step1']"
       ></app-status-btn>
 
-      <div [ngClass]="{ hideMobileOnly: isChangingStep() === true }" class="email-container">
+      <div
+        [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
+        class="email-container display_desktop"
+      >
         <img src="assets/img/icons/email.svg" />
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
-      <a class="link logout_link_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+      <a class="link display_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
         >Log out</a
       >
     </div>
@@ -40,7 +43,17 @@
     <router-outlet></router-outlet>
   </div>
 
-  <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
+  <div
+    [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
+    class="email-container display_mobile"
+  >
+    <img src="assets/img/icons/email.svg" />
+    <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
+  </div>
+
+  <a class="link logout_link display_mobile" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+    >Log out</a
+  >
 </div>
 
 <app-share-status [showShare]="showShare" (closed)="toggleShare()"> </app-share-status>

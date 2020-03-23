@@ -19,14 +19,10 @@ export class LocationInfoComponent implements OnInit {
   ngOnInit(): void {
     this.count$ = this.query
       .selectAll()
-      .pipe(
-        map(
-          (ds) => ds
-            .map((d) => +d.hits)
-            .reduce((total, hits) => total + hits, 0)
-        )
-      );
-    this.postalCode$ = this.userQuery.selectActive(entity => entity.postalcode);
+      .pipe(map(ds => ds.map(d => +d.hits).reduce((total, hits) => total + hits, 0)));
+    this.postalCode$ = this.userQuery.selectActive(entity => {
+      return entity.postalcode.slice(0, -4); // Get just the first 4 digits
+    });
     this.county$ = this.userQuery.selectActive(entity => entity.county);
   }
 }
