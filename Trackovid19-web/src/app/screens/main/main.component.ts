@@ -59,4 +59,8 @@ export class MainComponent implements OnInit, OnDestroy {
   public isChangingStep() {
     return this.router.url.indexOf('change-state-step') !== -1;
   }
+
+  public toggleShare() {
+    this.showShare = !this.showShare;
+  }
 }
