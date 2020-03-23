@@ -22,7 +22,6 @@ export class OauthCallbackComponent {
 
   verifyCode(): void {
     this.userService.getUser().subscribe(user => {
-      console.log(user, this.verifyTerms(user));
       localStorage.setItem('gdpr', JSON.stringify(this.verifyTerms(user)));
       if (user && user.postalcode && user.postalcode !== '0000-000') {
         const url = this.verifyTerms(user) ? '/dashboard' : '/privacy-terms';
