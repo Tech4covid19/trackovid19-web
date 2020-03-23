@@ -8,6 +8,7 @@ export interface User {
   phone: string;
   show_onboarding: boolean;
   personal_hash: string;
+  confinement_state: number;
   health_hash: string;
   id: string;
   year: string;
