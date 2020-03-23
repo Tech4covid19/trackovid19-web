@@ -1,18 +1,25 @@
 import { Component, OnDestroy, OnInit, Input, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { VideoState } from 'src/app/states/video/video-state.model';
 
 @Component({
   selector: 'app-share-status',
   templateUrl: './share-status.component.html',
   styleUrls: ['./share-status.component.scss'],
 })
-export class ShareStatusComponent {
+export class ShareStatusComponent implements OnInit {
   @Input() showShare: boolean;
   @Input() toggleShare: Function;
+  @Input() video: VideoState;
 
   closable = true;
+  iframe: SafeResourceUrl;
 
-  constructor() {}
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit(): void {
+    this.iframe = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.video);
+  }
 
   public close() {
     this.toggleShare();
@@ -20,7 +27,7 @@ export class ShareStatusComponent {
 
   shareFacebook() {
     const facebookWindow = window.open(
-      'https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      `https://www.facebook.com/sharer/sharer.php?u=${this.video.share.facebook}`,
       'facebook-popup',
       'height=350,width=600',
     );
@@ -32,7 +39,7 @@ export class ShareStatusComponent {
 
   shareTwitter() {
     const twitterWindow = window.open(
-      'https://twitter.com/intent/tweet?via=covidografia&url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      `https://twitter.com/intent/tweet?via=covidografia&url=${this.video.share.twitter}`,
       'height=350,width=600',
     );
     if (twitterWindow.focus) {
@@ -43,7 +50,7 @@ export class ShareStatusComponent {
 
   shareLinkedIn() {
     const linkedinWindow = window.open(
-      'https://www.linkedin.com/sharing/share-offsite/?url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      `https://www.linkedin.com/sharing/share-offsite/?url=${this.video.share.linkedin}`,
       'height=350,width=600',
     );
     if (linkedinWindow.focus) {
