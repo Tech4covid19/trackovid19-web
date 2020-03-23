@@ -5,7 +5,7 @@ import { User } from '../../states/user/state/user.model';
 import { ConfinementState } from '../../states/confinement-state/state/confinement-state.model';
 import { SubSink } from 'subsink';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -19,6 +19,8 @@ export class MainComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
+  public toggleShareCallback: Function;
+
   constructor(
     private router: Router,
     private userService: UserService,
@@ -26,10 +28,17 @@ export class MainComponent implements OnInit, OnDestroy {
     private profileService: ProfileServiceService,
     private route: ActivatedRoute,
   ) {
-    const shareVal = this.route.snapshot.queryParamMap.get('share');
-    if (shareVal && shareVal === 'true') {
-      this.showShare = true;
-    }
+    this.toggleShareCallback = this.toggleShare.bind(this);
+
+    router.events.forEach(event => {
+      if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
+        const shareVal = localStorage.getItem('share');
+        if (!shareVal) {
+          this.showShare = true;
+          localStorage.setItem('share', 'true');
+        }
+      }
+    });
 
     let gdpr = localStorage.getItem('gdpr');
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
