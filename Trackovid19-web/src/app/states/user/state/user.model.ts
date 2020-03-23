@@ -17,6 +17,11 @@ export interface User {
   confinement_state: number;
   has_symptoms_text: string;
   has_symptoms: boolean;
+  showOnboarding: boolean;
+  optin_download_use: boolean;
+  optin_privacy: boolean;
+  optin_health_geo: boolean;
+  optin_push: boolean;
 }
 
 export function createUser(params: Partial<User>) {

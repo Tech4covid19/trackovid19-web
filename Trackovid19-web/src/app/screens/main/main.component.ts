@@ -32,13 +32,16 @@ export class MainComponent implements OnInit, OnDestroy {
     const shareVal = this.route.snapshot.queryParamMap.get('share');
     if (shareVal && shareVal === 'true') {
       this.showShare = true;
-    } else {
-      this.router.navigate(['/dashboard', 'status']);
+    }
+
+    let gdpr = localStorage.getItem('gdpr');
+    gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+    if (!gdpr) {
+      this.router.navigate(['privacy-terms']);
     }
   }
 
   ngOnInit(): void {
-    //this.loadUser();
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
   }
 
