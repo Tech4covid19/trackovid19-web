@@ -32,8 +32,6 @@ export class MainComponent implements OnInit, OnDestroy {
     const shareVal = this.route.snapshot.queryParamMap.get('share');
     if (shareVal && shareVal === 'true') {
       this.showShare = true;
-    } else {
-      this.router.navigate(['/dashboard', 'status']);
     }
   }
 
