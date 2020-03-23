@@ -33,10 +33,15 @@ export class MainComponent implements OnInit, OnDestroy {
     if (shareVal && shareVal === 'true') {
       this.showShare = true;
     }
+
+    let gdpr = localStorage.getItem('gdpr');
+    gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+    if (!gdpr) {
+      this.router.navigate(['privacy-terms']);
+    }
   }
 
   ngOnInit(): void {
-    //this.loadUser();
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
   }
 

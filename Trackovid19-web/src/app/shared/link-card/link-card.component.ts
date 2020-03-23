@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-link-card',
@@ -9,10 +8,16 @@ import { Router } from '@angular/router';
 export class LinkCardComponent {
   @Input() label: string;
   @Input() url: string;
+  @Input() navigateToLink = true;
+  @Output() result = new EventEmitter<string>();
 
-  constructor(public router: Router) {}
+  constructor() {}
 
   public goToPage(url: string) {
-    window.open(`#/${url}`, '_blank');
+    if (this.navigateToLink) {
+      window.open(`#/${url}`, '_blank');
+    } else {
+      this.result.emit(this.url);
+    }
   }
 }

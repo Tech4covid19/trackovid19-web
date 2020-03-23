@@ -117,7 +117,15 @@ export class CarouselComponent implements AfterViewChecked {
   carouselWrapperStyle = {};
 
   next() {
-    if (this.currentSlide + 1 === this.items.length) this.router.navigate(['privacy-terms']);
+    if (this.currentSlide + 1 === this.items.length) {
+      let gdpr = localStorage.getItem('gdpr');
+      gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+      if (gdpr) {
+        this.router.navigate(['dashboard']);
+      } else {
+        this.router.navigate(['privacy-terms']);
+      }
+    }
 
     this.currentSlide = (this.currentSlide + 1) % this.items.length;
     const offset = this.currentSlide * this.itemWidth;

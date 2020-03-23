@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
   acceptedTerms = false;
 
   constructor(

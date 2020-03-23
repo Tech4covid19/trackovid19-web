@@ -1,63 +1,75 @@
 <div class="privacy-terms">
-  <img class="logo" src="assets/img/logo/covidografia.svg" />
+    <img class="logo" src="assets/img/logo/covidografia.svg"/>
 
-  <span class="title">Política de Privacidade, Termos e Condições e Tratamento de Dados</span>
+    <span class="title">Política de Privacidade, Termos e Condições e Tratamento de Dados</span>
 
-  <div class="cards">
-    <app-link-card
-      *ngFor="let card of linkCards"
-      [label]="card.label"
-      [url]="card.url"
-    ></app-link-card>
-  </div>
-
-  <div class="accept" (click)="onClickTerms1($event)">
-    <div class="checkbox-btn">
-      <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted1" />
-        <span class="check"></span>
-      </label>
+    <div class="cards">
+        <app-link-card
+                *ngFor="let card of linkCards"
+                [label]="card.label"
+                [url]="card.url" [navigateToLink]="false" (result)="onResult($event)"></app-link-card>
     </div>
-    <span
-      >Li e compreendi a notificação de privacidade que descreve como serão tratados os dados
-      pessoais no âmbito da aplicação Covidografia.</span
-    >
-  </div>
 
-  <div class="accept" (click)="onClickTerms2($event)">
-    <div class="checkbox-btn">
-      <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted2" />
-        <span class="check"></span>
-      </label>
+    <div class="accept" (click)="onClickTerms1($event)">
+        <div class="checkbox-btn">
+            <label>
+                <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted1"/>
+                <span class="check"></span>
+            </label>
+        </div>
+        <span>Li e compreendi a notificação de privacidade que descreve como serão tratados os dados
+      pessoais no âmbito da aplicação Covidografia.</span>
     </div>
-    <span
-      >Consinto no tratamento pela aplicação Covidografia dos meus dados de saúde e geolocalização
+
+    <div class="accept" (click)="onClickTerms2($event)">
+        <div class="checkbox-btn">
+            <label>
+                <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted2"/>
+                <span class="check"></span>
+            </label>
+        </div>
+        <span>Consinto no tratamento pela aplicação Covidografia dos meus dados de saúde e geolocalização
       que eu disponibilizar exclusivamente para as finalidades previstas na notificação de
-      privacidade.</span
-    >
-  </div>
-
-  <div class="accept last" (click)="onClickTerms3($event)">
-    <div class="checkbox-btn">
-      <label>
-        <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3" />
-        <span class="check"></span>
-      </label>
+      privacidade.</span>
     </div>
-    <span
-      >Consinto na divulgação de informações úteis relacionadas com a pandemia COVID-19,
-      designadamente através de notificações push up ou email.</span
-    >
-  </div>
 
-  <div class="accept-container">
-    <button
-      class="aceitar"
-      [disabled]="!accepted1 || !accepted2 || !accepted3"
-      [routerLink]="['/dashboard', 'change-state-step1']"
-    >
-      Aceitar
-    </button>
-  </div>
+    <div class="accept last" (click)="onClickTerms3($event)">
+        <div class="checkbox-btn">
+            <label>
+                <input class="quiz-checkbox" type="checkbox" [(ngModel)]="accepted3"/>
+                <span class="check"></span>
+            </label>
+        </div>
+        <span>Consinto na divulgação de informações úteis relacionadas com a pandemia COVID-19,
+      designadamente através de notificações push up ou email.</span>
+    </div>
+
+    <div class="accept-container">
+        <button class="aceitar" (click)="accept()"
+                [disabled]="!accepted1 || !accepted2 || !accepted3">Aceitar
+        </button><!-- [routerLink]="['/dashboard', 'change-state-step1']" -->
+    </div>
 </div>
+
+<ng-container *ngIf="showModal">
+    <div class="terms-modal-overlay">
+        <div class="terms-modal">
+            <div class="terms-header">
+                <i class="fa fa-times" (click)="showModal = false"></i>
+            </div>
+            <div class="terms-content">
+                <div class="scroll">
+                    <ng-container *ngIf="template" [ngTemplateOutlet]="template"></ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #conditions>
+    <app-terms-conditions></app-terms-conditions>
+</ng-template>
+
+<ng-template #policy>
+    <app-privacy-policy></app-privacy-policy>
+</ng-template>

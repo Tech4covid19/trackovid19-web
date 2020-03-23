@@ -59,6 +59,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [
+      { path: '', redirectTo: 'status', pathMatch: 'full' },
       {
         path: 'status',
         component: HomeComponent,
