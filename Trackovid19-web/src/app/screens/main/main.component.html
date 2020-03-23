@@ -2,7 +2,12 @@
   <div class="sidebar_container">
     <div class="logo_container">
       <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" />
-      <img *ngIf="!isChangingStep()" class="share_icon" src="assets/img/settings.svg" />
+      <img
+        *ngIf="!isChangingStep()"
+        class="share_icon"
+        src="assets/img/share.svg"
+        (click)="toggleShare()"
+      />
     </div>
 
     <app-profile
@@ -37,3 +42,5 @@
 
   <a class="link logout_link" *ngIf="!isChangingStep()" [routerLink]="['/logout']">Log out</a>
 </div>
+
+<app-share-status [showShare]="showShare" (closed)="toggleShare()"> </app-share-status>

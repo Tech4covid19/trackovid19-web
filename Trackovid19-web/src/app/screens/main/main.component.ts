@@ -5,7 +5,7 @@ import { User } from '../../states/user/state/user.model';
 import { ConfinementState } from '../../states/confinement-state/state/confinement-state.model';
 import { SubSink } from 'subsink';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -16,6 +16,7 @@ export class MainComponent implements OnInit, OnDestroy {
   router: Router;
   user: User = null;
   confinementState: ConfinementState = null;
+  showShare: boolean = false;
 
   private subs = new SubSink();
 
@@ -24,8 +25,16 @@ export class MainComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private conditionService: ConfinementStateService,
     private profileService: ProfileServiceService,
+    private route: ActivatedRoute,
   ) {
     this.router = _router;
+
+    const shareVal = this.route.snapshot.queryParamMap.get('share');
+    if (shareVal && shareVal === 'true') {
+      this.showShare = true;
+    } else {
+      this.router.navigate(['/dashboard', 'status']);
+    }
   }
 
   ngOnInit(): void {
@@ -57,5 +66,9 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public isChangingStep() {
     return this.router.url.indexOf('change-state-step') !== -1;
+  }
+
+  public toggleShare() {
+    this.showShare = !this.showShare;
   }
 }

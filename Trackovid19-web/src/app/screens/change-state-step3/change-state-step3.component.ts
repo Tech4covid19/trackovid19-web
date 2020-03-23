@@ -53,6 +53,9 @@ export class ChangeStateStep3Component implements OnInit {
       () => {
         this.profileService.setProfileObs(this.case);
         this.router.navigate(['/dashboard', 'status'], {
+          queryParams: {
+            share: true,
+          },
           relativeTo: this.activatedRoute,
         });
       },
