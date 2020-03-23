@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class ShareComponent implements OnInit, OnDestroy {
   @Input('showShare') showShare = false;
   @Input() closable = true;
+  closed = new EventEmitter();
+
   public closing = false;
   router: Router;
 
@@ -34,6 +36,7 @@ export class ShareComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.showShare = false;
       this.closing = false;
+      this.closed.emit();
     }, 500);
   }
 
