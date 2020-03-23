@@ -4,6 +4,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 8px 0;
+
+  app-card {
+    margin-bottom: 1rem;
+  }
 }
 
 :ng-deep app-card .card,
@@ -27,7 +31,7 @@ app-card .card-lg {
 
     app-card {
       flex-basis: calc(32% - 1rem);
-      margin: 0 0.5rem 1rem;
+      margin: 0 1rem 1rem 0;
     }
   }
 }

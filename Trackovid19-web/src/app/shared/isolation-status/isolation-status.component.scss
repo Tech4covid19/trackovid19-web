@@ -4,6 +4,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 8px 0;
+
+  app-card {
+    margin-bottom: 1rem;
+  }
 }
 
 app-card .card,
@@ -18,5 +22,16 @@ app-card .card-lg {
 @media (min-width: 768px) {
   .location-status {
     padding: 22px 0;
+  }
+}
+
+@media (min-width: 959px) {
+  .location-status {
+    justify-content: flex-start;
+
+    app-card {
+      flex-basis: calc(32% - 1rem);
+      margin: 0 1rem 1rem 0;
+    }
   }
 }
