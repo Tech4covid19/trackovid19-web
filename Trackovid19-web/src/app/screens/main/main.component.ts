@@ -6,6 +6,8 @@ import { ConfinementState } from '../../states/confinement-state/state/confineme
 import { SubSink } from 'subsink';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { VideoStateService } from '../../states/video/video-state.service';
+import { VideoState } from 'src/app/states/video/video-state.model';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +16,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class MainComponent implements OnInit, OnDestroy {
   user: User = null;
+  video: VideoState = null;
   confinementState: ConfinementState = null;
   showShare = false;
 
@@ -27,6 +30,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private conditionService: ConfinementStateService,
     private profileService: ProfileServiceService,
     private route: ActivatedRoute,
+    private shareStateService: VideoStateService,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
 
@@ -49,6 +53,9 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
+    this.shareStateService.get().subscribe(videos => {
+      this.video = videos[Math.floor(Math.random() * Math.floor(videos.length))];
+    });
   }
 
   ngOnDestroy(): void {

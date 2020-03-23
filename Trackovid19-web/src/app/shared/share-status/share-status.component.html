@@ -20,15 +20,15 @@
     <div class="modal-body">
       <div class="share-container">
         <div class="title">
-          <span>Obrigado pela tua atualização do estado!</span>
+          <span>{{ video.title }}</span>
         </div>
         <div class="sub-title">
-          <span>Mas a luta contra o Covid-19 ainda precisa de ti!</span>
+          <span>{{ video.description }}</span>
         </div>
 
         <div class="share-video-container">
           <iframe
-            src="https://www.youtube.com/embed/Iw9koAS7h_Y"
+            [src]="iframe"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
@@ -38,13 +38,23 @@
         </div>
 
         <div class="footer-share">
-          <div id="facebook" class="icon-share" (click)="shareFacebook()">
+          <div
+            *ngIf="video.share.facebook"
+            id="facebook"
+            class="icon-share"
+            (click)="shareFacebook()"
+          >
             <img src="assets/img/icons/fb-share-icon.svg" />
           </div>
-          <div id="twitter" class="icon-share" (click)="shareTwitter()">
+          <div *ngIf="video.share.twitter" id="twitter" class="icon-share" (click)="shareTwitter()">
             <img src="assets/img/icons/twitter-share-icon.svg" />
           </div>
-          <div id="linkedin" class="icon-share" (click)="shareLinkedIn()">
+          <div
+            *ngIf="video.share.linkedin"
+            id="linkedin"
+            class="icon-share"
+            (click)="shareLinkedIn()"
+          >
             <img src="assets/img/icons/linkedin-share-icon.svg" />
           </div>
         </div>

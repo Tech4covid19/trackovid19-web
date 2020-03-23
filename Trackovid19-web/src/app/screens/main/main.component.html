@@ -89,4 +89,10 @@
   >
 </div>
 
-<app-share-status [showShare]="showShare" [toggleShare]="toggleShareCallback"> </app-share-status>
+<app-share-status
+  *ngIf="video"
+  [showShare]="showShare"
+  [toggleShare]="toggleShareCallback"
+  [video]="video"
+>
+</app-share-status>
