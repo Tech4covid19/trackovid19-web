@@ -64,20 +64,21 @@ $modal-radius: 1em;
 
   .title span {
     color: #798794;
-    font-size: 16px;
+    font-size: 1rem;
   }
+
   .sub-title span {
     color: #fa6400;
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: bold;
     padding-top: 15px;
   }
+
   .footer-text {
     color: #1e2933;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 1.25rem 0;
   }
 
   .footer-share {
@@ -132,7 +133,7 @@ $modal-radius: 1em;
       width: 100%;
       height: auto;
       min-height: 400px;
-      margin-top: 10px;
+      margin-top: 0.625rem;
     }
   }
 }
