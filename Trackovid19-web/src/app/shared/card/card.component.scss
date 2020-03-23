@@ -1,5 +1,5 @@
 .card {
-  padding: 24px 16px;
+  padding: 18px 16px;
   margin: 8px 0;
   background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
@@ -13,10 +13,12 @@
 
     .counter {
       font-size: 29px;
+      line-height: 110%;
     }
 
     .label {
       font-size: 12px;
+      line-height: 120%;
     }
 
     img {
@@ -52,7 +54,7 @@
 .card-lg {
   display: flex;
   flex-direction: column;
-  padding: 24px 32px;
+  padding: 32px 24px;
   border-radius: 30px;
   margin-bottom: 28px;
 
@@ -73,9 +75,9 @@
   }
   span {
     color: #1e2933;
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 0.7;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 110%;
   }
   hr {
     margin: 0px;
@@ -87,7 +89,7 @@
     font-weight: 600;
     font-size: 13px;
     color: #000000;
-    line-height: 1;
+    line-height: 120%;
   }
   .status {
     font-family: Archivo;
