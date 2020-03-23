@@ -7,7 +7,9 @@
         <div class="frame-container">
           <div class="content-container">
             <img class="img-slider" [src]="frame.slider" />
-            <div style="height: 10px; display: flex; justify-content: center; align-items: center; padding: 20px 0;">
+            <div
+              style="height: 10px; display: flex; justify-content: center; align-items: center; padding: 20px 0;"
+            >
               <div class="dot" [ngClass]="{ active: 1 == frame.id }"></div>
               <div class="dot" [ngClass]="{ active: 2 == frame.id }"></div>
               <div class="dot" [ngClass]="{ active: 3 == frame.id }"></div>

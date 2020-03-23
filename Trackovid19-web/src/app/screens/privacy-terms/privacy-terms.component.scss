@@ -126,7 +126,7 @@
   top: 0;
   left: 0;
   z-index: 10000;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +134,7 @@
   .terms-modal {
     background-color: #fff;
     border-radius: 25px;
-    box-shadow: 0 0 6px rgba(0,0,0,.4);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
     width: 90%;
     max-width: 1024px;
     //max-height: 600px;
