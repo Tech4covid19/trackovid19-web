@@ -34,7 +34,6 @@
       & app-profile-status {
         display: flex;
         width: 100%;
-        flex: 1 1 100%;
       }
     }
 
@@ -235,7 +234,7 @@ app-card {
 
   .main-page-container {
     width: 100%;
-    padding: 46px 46px 26px;
+    padding: 46px 0 26px 46px;
   }
 }
 
@@ -245,5 +244,10 @@ app-card {
       width: 230px;
       min-width: 230px;
     }
+  }
+
+  .main-page-container {
+    width: 100%;
+    padding: 46px 46px 26px;
   }
 }
