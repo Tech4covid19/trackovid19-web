@@ -1,7 +1,6 @@
 <div class="location-status" fxLayout="row">
   <ng-template ngFor let-condition [ngForOf]="conditions" ; let-first="first">
     <app-card
-      fxFlex="32"
       [fxFlex.lt-md]="first ? 100 : 48"
       [fxFlex.xs]="first ? 100 : 48"
       [counter]="condition.hits"

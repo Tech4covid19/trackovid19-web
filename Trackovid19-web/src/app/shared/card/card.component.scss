@@ -1,6 +1,5 @@
 .card {
   padding: 18px 16px;
-  margin: 8px 0;
   background: linear-gradient(0deg, rgba(48, 195, 215, 0.09), rgba(48, 195, 215, 0.09)),
     linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%);
   border-radius: 16px;
@@ -56,7 +55,6 @@
   flex-direction: column;
   padding: 32px 24px;
   border-radius: 30px;
-  margin-bottom: 28px;
 
   .card-body {
     height: 112px;
