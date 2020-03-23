@@ -20,3 +20,14 @@ app-card .card-lg {
     padding: 22px 0;
   }
 }
+
+@media (min-width: 959px) {
+  .location-status {
+    justify-content: flex-start;
+
+    app-card {
+      flex-basis: calc(32% - 1rem);
+      margin: 0 0.5rem 1rem;
+    }
+  }
+}
