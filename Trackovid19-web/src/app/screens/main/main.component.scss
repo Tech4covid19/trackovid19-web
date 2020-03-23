@@ -59,6 +59,21 @@
     }
   }
 
+  .policy-terms {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-size: 12px;
+
+    a {
+      text-decoration: none;
+    }
+
+    div {
+      cursor: pointer;
+    }
+  }
+
   .hideMobileOnly {
     display: none;
   }
