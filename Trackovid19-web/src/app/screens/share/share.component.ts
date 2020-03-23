@@ -48,4 +48,17 @@ export class ShareComponent implements OnInit, OnDestroy {
     }
     return false;
   }
+
+  shareTwitter() {
+    var twitterWindow = window.open(
+      'https://twitter.com/intent/tweet?via=covidografia&url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+      'height=350,width=600',
+    );
+    if (twitterWindow.focus) {
+      twitterWindow.focus();
+    }
+    return false;
+  }
+
+  shareLinkedIn() {}
 }
