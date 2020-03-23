@@ -72,7 +72,7 @@
         <input
           class="frist-type-number"
           formControlName="zip-code-1"
-          type="text"
+          type="number"
           pattern="[0-9]{4}"
           onKeyPress="if(this.value.length==4) return false;"
           placeholder="- - - -"
@@ -82,8 +82,8 @@
         <input
           class="second-type-number"
           formControlName="zip-code-2"
-          type="text"
-          pattern="[0-9]{3}"
+          type="number"
+          pattern="[0-9]{0,3}"
           onKeyPress="if(this.value.length==3) return false;"
           placeholder="- - -"
           [class.inputError]="submitted && zipCode2Control.errors"
@@ -108,6 +108,7 @@
         pattern="[0-9A-Z]{10}"
         maxlength="10"
         placeholder="- - - - - - - -"
+        (keypress)="keyPress($event)"
         onKeyUp="this.value = this.value.toUpperCase();"
         [class.inputError]="submitted && covidografiaCodeControl.errors"
       />

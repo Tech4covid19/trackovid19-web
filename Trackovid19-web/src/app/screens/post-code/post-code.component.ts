@@ -82,10 +82,27 @@ export class PostCodeComponent implements OnInit {
     return this.form.get('covidografia-code') as FormControl;
   }
 
+  private addLeadingZeros(number, size) {
+    let s = String(number);
+    while (s.length < size) {
+      s = '0' + s;
+    }
+    return s;
+  }
+
+  public keyPress(event) {
+    const pattern = /[a-zA-Z0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   private _updateUserData(data: any) {
     const userData = {
       year: data['birth-year'],
-      postalCode: `${data['zip-code-1']}-${data['zip-code-2']}`,
+      postalCode: `${data['zip-code-1']}-${this.addLeadingZeros(data['zip-code-2'], 3)}`,
       patientToken: data['covidografia-code'],
     };
 
