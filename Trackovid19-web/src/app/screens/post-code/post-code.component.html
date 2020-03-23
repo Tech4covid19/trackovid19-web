@@ -50,6 +50,7 @@
       <input
         formControlName="birth-year"
         type="number"
+        pattern="[0-9]{4}"
         onKeyPress="if(this.value.length==4) return false;"
         placeholder="- - - -"
         [class.inputError]="submitted && birthYearControl.errors"
