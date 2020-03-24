@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, Input, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { VideoState } from 'src/app/states/video/video-state.model';
 
 @Component({
   selector: 'app-share-status',
@@ -7,42 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./share-status.component.scss'],
 })
 export class ShareStatusComponent implements OnInit {
-  @Input('showShare') showShare = false;
-  @Input() closable = true;
-  closed = new EventEmitter();
+  @Input() showShare: boolean;
+  @Input() toggleShare: Function;
+  @Input() video: VideoState;
 
-  public closing = false;
-  router: Router;
+  closable = true;
+  iframe: SafeResourceUrl;
 
-  constructor(private _router: Router) {
-    this.router = _router;
-  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    //this.loadUser();
-  }
-
-  ngOnDestroy(): void {}
-
-  public open() {
-    setTimeout(() => {
-      this.showShare = true;
-    }, 500);
+    this.iframe = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.video);
   }
 
   public close() {
-    // TODO: Emit event
-    this.closing = true;
-    setTimeout(() => {
-      this.showShare = false;
-      this.closing = false;
-      this.closed.emit();
-    }, 500);
+    this.toggleShare();
   }
 
   shareFacebook() {
-    var facebookWindow = window.open(
-      'https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/embed/Iw9koAS7h_Y',
+    const facebookWindow = window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${this.video.share.facebook}`,
       'facebook-popup',
       'height=350,width=600',
     );
@@ -53,8 +38,8 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareTwitter() {
-    var twitterWindow = window.open(
-      'https://twitter.com/intent/tweet?via=covidografia&url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+    const twitterWindow = window.open(
+      `https://twitter.com/intent/tweet?via=covidografia&url=${this.video.share.twitter}`,
       'height=350,width=600',
     );
     if (twitterWindow.focus) {
@@ -64,8 +49,8 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareLinkedIn() {
-    var linkedinWindow = window.open(
-      'https://www.linkedin.com/sharing/share-offsite/?url=https://www.youtube.com/embed/Iw9koAS7h_Y',
+    const linkedinWindow = window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${this.video.share.linkedin}`,
       'height=350,width=600',
     );
     if (linkedinWindow.focus) {

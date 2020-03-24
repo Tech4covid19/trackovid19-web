@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-radio-card',
   templateUrl: './radio-card.component.html',
   styleUrls: ['./radio-card.component.scss'],
 })
-export class RadioCardComponent implements OnInit {
+export class RadioCardComponent implements AfterViewInit {
+  @Input() checked: boolean;
   @Input() state: string;
   @Input() label: string;
   @Input() input_name: string;
@@ -14,7 +15,11 @@ export class RadioCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    if (this.checked) {
+      document.getElementById(`${this.id}`).click();
+    }
+  }
 
   public onClick() {
     document.getElementById(`${this.id}`).click();

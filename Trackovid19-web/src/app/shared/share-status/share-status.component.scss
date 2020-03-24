@@ -40,18 +40,14 @@ $modal-radius: 1em;
       .close-button {
         position: absolute;
         bottom: 100%;
-        left: calc(100% + 1.25rem);
+        left: 100%;
         cursor: pointer;
-        background: #fff;
         border-radius: 50%;
 
         svg {
-          max-width: 0.875rem;
-          max-height: 0.875rem;
+          width: 24px;
+          height: 24px;
           color: #363636;
-          padding-top: 10px;
-          padding-left: 10px;
-          padding-right: 10px;
         }
       }
     }
@@ -69,42 +65,44 @@ $modal-radius: 1em;
       border-radius: 1rem 1rem 0 0;
 
       .modal-header .close-button {
-        bottom: calc(100% + 1.25rem);
-        left: calc(100% - 2rem);
+        bottom: calc(100% + 16px);
+        left: calc(100% - 40px);
         width: 1.5rem;
         height: 1.5rem;
-
-        svg {
-          max-width: 0.875rem;
-          max-height: 0.875rem;
-          padding: 0.3rem;
-        }
       }
     }
   }
 }
 
 .share-container {
-  padding: 5% 20%;
+  padding: 32px;
   text-align: center;
 
-  .title span {
-    color: #798794;
-    font-size: 1rem;
+  .title {
+    margin-bottom: 8px;
+
+    span {
+      color: #798794;
+      font-size: 16px;
+      line-height: 120%;
+    }
   }
 
   .sub-title span {
     color: #fa6400;
-    font-size: 1.25rem;
     font-weight: bold;
-    padding-top: 15px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
   }
 
   .footer-text {
     color: #1e2933;
-    font-size: 1rem;
     font-weight: bold;
-    padding: 1.25rem 0;
+    font-size: 15px;
+    line-height: 120%;
+    text-align: center;
+    padding: 0 0 20px;
   }
 
   .footer-share {
@@ -153,29 +151,21 @@ $modal-radius: 1em;
     height: 400px;
     max-width: 100%;
     max-height: 50%;
-    margin: auto;
+    margin: 20px auto;
 
     iframe {
       width: 100%;
       height: auto;
       min-height: 400px;
-      margin-top: 0.625rem;
     }
   }
 
-  @media (max-width: 960px) {
-    padding: 1.5rem 3rem;
-  }
-
   @media (max-width: 640px) {
-    padding: 2.5rem 2rem;
-
     .sub-title span {
       color: rgba(47, 47, 47, 0.9);
     }
 
     .share-video-container {
-      width: 100%;
       max-height: 35vh;
 
       iframe {
@@ -186,12 +176,6 @@ $modal-radius: 1em;
   }
 
   @media (max-width: 440px) {
-    padding: 1rem 1.25rem;
-
-    .sub-title span {
-      color: rgba(47, 47, 47, 0.9);
-    }
-
     .share-video-container iframe {
       min-height: 20vh;
     }

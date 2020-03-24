@@ -1,6 +1,6 @@
 <div class="change-state-step3-container">
   <h2 class="page-title">Alterar o meu estado</h2>
-  <app-steps [steps]="steps"></app-steps>
+  <app-steps [steps]="steps" [getState]="getStateCallback"></app-steps>
   <div class="step-description">
     <p class="step-description-text">Passo 3 - Isolamento</p>
     <p class="step-question-text">Qual o seu estado de atividade atual?</p>
@@ -19,12 +19,12 @@
       </div>
     </ng-container>
   </div>
-</div>
-<!-- Change to correct link -->
-<div class="confirm-container">
-  <app-state-confirm-btn
-    (click)="sendForm()"
-    [disabled]="!case?.confinementState"
-    [btnText]="'Submeter'"
-  ></app-state-confirm-btn>
+
+  <div class="confirm-container">
+    <app-state-confirm-btn
+      (click)="sendForm()"
+      [disabled]="!case?.confinementState"
+      [btnText]="'Submeter'"
+    ></app-state-confirm-btn>
+  </div>
 </div>

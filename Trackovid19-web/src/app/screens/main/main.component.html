@@ -33,7 +33,7 @@
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
-      <div class="policy-terms display_desktop">
+      <div class="policy-terms display_desktop" *ngIf="!isChangingStep()">
         <a
           class="text-terms text-grey text-center"
           target="_blank"
@@ -70,7 +70,7 @@
     <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
   </div>
 
-  <div class="policy-terms display_mobile">
+  <div class="policy-terms display_mobile" *ngIf="!isChangingStep()">
     <a class="text-terms text-grey text-center" target="_blank" [routerLink]="['/terms-conditions']"
       >Termos e Condições</a
     >
@@ -89,4 +89,10 @@
   >
 </div>
 
-<app-share-status [showShare]="showShare" (closed)="toggleShare()"> </app-share-status>
+<app-share-status
+  *ngIf="video"
+  [showShare]="showShare"
+  [toggleShare]="toggleShareCallback"
+  [video]="video"
+>
+</app-share-status>

@@ -5,7 +5,9 @@ import { User } from '../../states/user/state/user.model';
 import { ConfinementState } from '../../states/confinement-state/state/confinement-state.model';
 import { SubSink } from 'subsink';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { VideoStateService } from '../../states/video/video-state.service';
+import { VideoState } from 'src/app/states/video/video-state.model';
 
 @Component({
   selector: 'app-main',
@@ -14,10 +16,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MainComponent implements OnInit, OnDestroy {
   user: User = null;
+  video: VideoState = null;
   confinementState: ConfinementState = null;
   showShare = false;
 
   private subs = new SubSink();
+
+  public toggleShareCallback: Function;
 
   constructor(
     private router: Router,
@@ -25,11 +30,19 @@ export class MainComponent implements OnInit, OnDestroy {
     private conditionService: ConfinementStateService,
     private profileService: ProfileServiceService,
     private route: ActivatedRoute,
+    private shareStateService: VideoStateService,
   ) {
-    const shareVal = this.route.snapshot.queryParamMap.get('share');
-    if (shareVal && shareVal === 'true') {
-      this.showShare = true;
-    }
+    this.toggleShareCallback = this.toggleShare.bind(this);
+
+    router.events.forEach(event => {
+      if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
+        const shareVal = localStorage.getItem('share');
+        if (!shareVal) {
+          this.showShare = true;
+          localStorage.setItem('share', 'true');
+        }
+      }
+    });
 
     let gdpr = localStorage.getItem('gdpr');
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
@@ -40,6 +53,9 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
+    this.shareStateService.get().subscribe(videos => {
+      this.video = videos[Math.floor(Math.random() * Math.floor(videos.length))];
+    });
   }
 
   ngOnDestroy(): void {
