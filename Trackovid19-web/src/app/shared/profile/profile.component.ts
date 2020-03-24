@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { User } from '../../states/user/state/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,9 +10,13 @@ import { User } from '../../states/user/state/user.model';
 export class ProfileComponent implements OnChanges {
   @Input() user: User = null;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnChanges(): void {
     // TODO
+  }
+
+  updatePostCode() {
+    this.router.navigate(['post-code-step']);
   }
 }
