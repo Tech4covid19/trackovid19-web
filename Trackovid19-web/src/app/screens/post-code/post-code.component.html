@@ -52,6 +52,8 @@
           type="number"
           pattern="[0-9]{4}"
           onKeyPress="if(this.value.length==4) return false;"
+          (keypress)="keyPressNumber($event)"
+          inputmode="numeric"
           placeholder="- - - -"
           [class.inputError]="submitted && birthYearControl.errors"
         />
@@ -75,6 +77,8 @@
             type="number"
             pattern="[0-9]{4}"
             onKeyPress="if(this.value.length==4) return false;"
+            (keypress)="keyPressNumber($event)"
+            inputmode="numeric"
             placeholder="- - - -"
             [class.inputError]="submitted && zipCode1Control.errors"
           />
@@ -85,6 +89,8 @@
             type="number"
             pattern="[0-9]{0,3}"
             onKeyPress="if(this.value.length==3) return false;"
+            (keypress)="keyPressNumber($event)"
+            inputmode="numeric"
             placeholder="- - -"
             [class.inputError]="submitted && zipCode2Control.errors"
           />
@@ -109,7 +115,6 @@
           maxlength="10"
           placeholder="- - - - - - - -"
           (keypress)="keyPress($event)"
-          onKeyUp="this.value = this.value.toUpperCase();"
           [class.inputError]="submitted && covidografiaCodeControl.errors"
         />
         <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">

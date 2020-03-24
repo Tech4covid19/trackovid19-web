@@ -171,6 +171,8 @@ input {
   box-sizing: border-box;
   border-radius: 6px;
 
+  text-transform: uppercase;
+
   &::-webkit-input-placeholder {
     color: #cfcfcf;
   }
