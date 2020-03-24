@@ -6,7 +6,7 @@
     "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "start": "ng serve",
     "build_production": "ng build --prod",
-    "build_staging": "ng build --staging",
+    "build_staging": "ng build --stage",
     "build_dev": "ng build",
     "build": "ng build",
     "test": "ng test",
