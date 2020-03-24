@@ -99,6 +99,15 @@ export class PostCodeComponent implements OnInit {
     }
   }
 
+  public keyPressNumber(event) {
+    const pattern = /[0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   private _updateUserData(data: any) {
     const userData = {
       year: data['birth-year'],
