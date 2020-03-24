@@ -33,6 +33,7 @@ $modal-radius: 1em;
     background: white;
     margin: auto;
     max-width: 800px;
+    max-height: 80%;
 
     .modal-header {
       position: relative;
@@ -147,16 +148,12 @@ $modal-radius: 1em;
   }
 
   .share-video-container {
-    width: 440px;
-    height: 400px;
     max-width: 100%;
-    max-height: 50%;
     margin: 20px auto;
 
     iframe {
       width: 100%;
-      height: auto;
-      min-height: 400px;
+      height: 45vh;
     }
   }
 
