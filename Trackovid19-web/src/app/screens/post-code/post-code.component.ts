@@ -12,6 +12,7 @@ import { User } from 'src/app/states/user/state/user.model';
   styleUrls: ['./post-code.component.scss'],
 })
 export class PostCodeComponent implements OnInit {
+  user: User = null;
   form: FormGroup;
   submitted = false;
   opened = true;
@@ -31,6 +32,14 @@ export class PostCodeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(user => {
+      this.user = { ...user };
+      this.form.controls['birth-year'].setValue(this.user?.year);
+      this.form.controls['zip-code-1'].setValue(this.user?.postalcode1);
+      this.form.controls['zip-code-2'].setValue(this.user?.postalcode2);
+      this.form.controls['covidografia-code'].setValue(this.user?.patientToken);
+    });
+
     this.form = this.fb.group({
       'birth-year': [
         null,
@@ -62,7 +71,11 @@ export class PostCodeComponent implements OnInit {
     if (this.form.valid) {
       console.log(this.form.value);
       this._updateUserData(this.form.value);
-      this.router.navigate(['/onboarding']);
+      if (this.user?.show_onboarding) {
+        this.router.navigate(['/onboarding']);
+      } else {
+        this.router.navigate(['/dashboard', 'status']);
+      }
     }
   }
 
