@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://op2pwi0nd1.execute-api.eu-west-1.amazonaws.com/prd';
+const SERVER_URL = 'https://api.covidografia.pt';
 
 export const environment = {
   production: true,
