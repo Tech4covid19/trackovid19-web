@@ -8,8 +8,6 @@
       *ngFor="let card of linkCards"
       [label]="card.label"
       [url]="card.url"
-      [navigateToLink]="false"
-      (result)="onResult($event)"
     ></app-link-card>
   </div>
 
@@ -59,26 +57,3 @@
     ><!-- [routerLink]="['/dashboard', 'change-state-step1']" -->
   </div>
 </div>
-
-<ng-container *ngIf="showModal">
-  <div class="terms-modal-overlay">
-    <div class="terms-modal">
-      <div class="terms-header">
-        <i class="fa fa-times" (click)="showModal = false"></i>
-      </div>
-      <div class="terms-content">
-        <div class="scroll">
-          <ng-container *ngIf="template" [ngTemplateOutlet]="template"></ng-container>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-container>
-
-<ng-template #conditions>
-  <app-terms-conditions></app-terms-conditions>
-</ng-template>
-
-<ng-template #policy>
-  <app-privacy-policy></app-privacy-policy>
-</ng-template>
