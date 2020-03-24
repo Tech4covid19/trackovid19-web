@@ -12,6 +12,7 @@
     <ng-container *ngFor="let symptom of symptoms">
       <div class="card">
         <app-checkbox-card
+          [checked]="case.symptoms.indexOf(symptom.id) > -1"
           [state]="symptom.symptom"
           [symptomId]="symptom.id"
           [clickCard]="updateSymptomsCallback"

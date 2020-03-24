@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./checkbox-card.component.scss'],
 })
 export class CheckboxCardComponent {
-  checked = false;
+  @Input() checked = false;
   @Input() state: string;
   @Input() symptomId: number;
   @Input() clickCard: Function;
