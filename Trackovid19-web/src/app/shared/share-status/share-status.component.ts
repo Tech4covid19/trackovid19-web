@@ -33,18 +33,21 @@ export class ShareStatusComponent implements OnInit {
 
   shareFacebook() {
     // @ts-ignore
-    FB.ui(
-      {
-        display: 'popup',
-        method: 'share',
-        href: this.video.share.facebook,
-        quote: this.shareText,
-        hashtag: `#${this.hashtag}`,
-      },
-      response => {
-        console.log(response);
-      },
-    );
+    if (typeof FB !== 'undefined' && FB != null) {
+      // @ts-ignore
+      FB.ui(
+        {
+          display: 'popup',
+          method: 'share',
+          href: this.video.share.facebook,
+          quote: this.shareText,
+          hashtag: `#${this.hashtag}`,
+        },
+        response => {
+          console.log(response);
+        },
+      );
+    }
   }
 
   shareTwitter() {
