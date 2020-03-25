@@ -5,7 +5,7 @@
 const SERVER_URL = 'https://staging.api.covidografia.pt';
 
 export const environment = {
-  production: true,
+  production: false,
   serverURL: SERVER_URL,
   apiUrl: SERVER_URL + '/api/v1/',
 };

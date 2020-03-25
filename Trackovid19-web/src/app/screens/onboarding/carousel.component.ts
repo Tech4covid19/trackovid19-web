@@ -20,6 +20,7 @@ import {
   style,
 } from '@angular/animations';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/states/user/state/user.service';
 
 @Directive({
   selector: '.carousel-item',
@@ -120,8 +121,12 @@ export class CarouselComponent implements AfterViewChecked {
     if (this.currentSlide + 1 === this.items.length) {
       let gdpr = localStorage.getItem('gdpr');
       gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+      this.userService.updateUserInformation({ showOnboarding: false }).subscribe(
+        success => {},
+        err => alert(`Ooops!\n${err.message || err}`),
+      );
       if (gdpr) {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard', 'change-state-step1']);
       } else {
         this.router.navigate(['privacy-terms']);
       }
@@ -151,7 +156,11 @@ export class CarouselComponent implements AfterViewChecked {
     this.player.play();
   }
 
-  constructor(private builder: AnimationBuilder, private router: Router) {}
+  constructor(
+    private builder: AnimationBuilder,
+    private router: Router,
+    private userService: UserService,
+  ) {}
 
   ngAfterViewChecked() {
     // For some reason only here I need to add setTimeout, in my local env it's working without this.

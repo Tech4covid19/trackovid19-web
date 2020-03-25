@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardStore } from 'src/app/states/dashboard/dashboard.store';
 import { DashboardQuery } from 'src/app/states/dashboard/dashboard.query';
 import { DashboardService } from 'src/app/states/dashboard/dashboard.service';
 import { Observable } from 'rxjs';
 import { UserQuery } from 'src/app/states/user/state/user.query';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-info',
@@ -19,6 +18,7 @@ export class LocationInfoComponent implements OnInit {
     private query: DashboardQuery,
     private userQuery: UserQuery,
     private service: DashboardService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +33,9 @@ export class LocationInfoComponent implements OnInit {
       return entity.postalcode.slice(0, -4); // Get just the first 4 digits
     });
     this.county$ = this.userQuery.selectActive(entity => entity.county);
+  }
+
+  updatePostCode() {
+    this.router.navigate(['post-code-step']);
   }
 }
