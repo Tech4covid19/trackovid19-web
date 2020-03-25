@@ -126,7 +126,7 @@ export class CarouselComponent implements AfterViewChecked {
         err => alert(`Ooops!\n${err.message || err}`),
       );
       if (gdpr) {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard', 'change-state-step1']);
       } else {
         this.router.navigate(['privacy-terms']);
       }

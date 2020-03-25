@@ -11,6 +11,7 @@
   .sidebar_container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .logo_container {
       display: flex;
@@ -42,6 +43,10 @@
       flex-direction: column;
       padding: 0 12px;
     }
+  }
+
+  .main-page-container {
+    width: auto;
   }
 
   .email-container {
@@ -94,11 +99,11 @@
     .sidebar_container {
       padding: 20px 46px;
       background-color: #f9f9f9;
-      width: 360px;
-      min-width: 360px;
 
       .logo_container {
         padding: 18px 21px;
+        width: 100%;
+        align-self: center;
 
         .profile_dgs_logo {
           height: 40px;
@@ -194,8 +199,9 @@ app-card {
     .sidebar_container {
       padding: 20px 46px;
       background-color: #f9f9f9;
-      width: 360px;
-      min-width: 360px;
+      max-width: 350px;
+      width: 35%;
+      box-sizing: border-box;
 
       .bottom {
         display: flex;
@@ -232,22 +238,19 @@ app-card {
     padding: 18px 21px;
   }
 
-  .main-page-container {
-    width: 100%;
-    padding: 46px 0 26px 46px;
+  .dashboard_container {
+    .main-page-container {
+      width: 100%;
+      padding: 46px 46px 26px 46px;
+    }
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .dashboard_container {
-    .sidebar_container {
-      width: 230px;
-      min-width: 230px;
+    .main-page-container {
+      width: 100%;
+      padding: 46px 46px 26px;
     }
-  }
-
-  .main-page-container {
-    width: 100%;
-    padding: 46px 46px 26px;
   }
 }
