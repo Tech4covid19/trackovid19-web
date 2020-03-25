@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from 'src/app/states/user/state/user.service';
 import { ConfinementStateService } from '../../states/confinement-state/state/confinement-state.service';
 import { User } from '../../states/user/state/user.model';
@@ -31,6 +31,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private profileService: ProfileServiceService,
     private route: ActivatedRoute,
     private shareStateService: VideoStateService,
+    private renderer: Renderer2,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
 
@@ -39,6 +40,7 @@ export class MainComponent implements OnInit, OnDestroy {
         const shareVal = localStorage.getItem('share');
         if (!shareVal || shareVal !== 'true') {
           this.showShare = true;
+          this.renderer.setStyle(document.body, 'overflow-y', 'hidden');
           localStorage.setItem('share', 'true');
         }
       }
@@ -86,6 +88,11 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public toggleShare() {
     this.showShare = !this.showShare;
+    if (this.showShare) {
+      this.renderer.setStyle(document.body, 'overflow-y', 'hidden');
+    } else {
+      this.renderer.setStyle(document.body, 'overflow-y', 'auto');
+    }
   }
 
   public sendDeleteAccountEmail() {
