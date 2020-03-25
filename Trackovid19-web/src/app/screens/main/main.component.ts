@@ -35,8 +35,20 @@ export class MainComponent implements OnInit, OnDestroy {
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
 
-    router.events.forEach(event => {
-      if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
+    let gdpr = localStorage.getItem('gdpr');
+    gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
+    if (!gdpr) {
+      this.router.navigate(['privacy-terms']);
+    }
+  }
+
+  ngOnInit(): void {
+    this.router.events.forEach(event => {
+      if (
+        event instanceof NavigationEnd &&
+        (event.url.indexOf('/dashboard/status') !== -1 ||
+          event.urlAfterRedirects.indexOf('/dashboard/status') !== -1)
+      ) {
         const shareVal = localStorage.getItem('share');
         if (!shareVal || shareVal !== 'true') {
           this.showShare = true;
@@ -46,14 +58,6 @@ export class MainComponent implements OnInit, OnDestroy {
       }
     });
 
-    let gdpr = localStorage.getItem('gdpr');
-    gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
-    if (!gdpr) {
-      this.router.navigate(['privacy-terms']);
-    }
-  }
-
-  ngOnInit(): void {
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
     this.shareStateService.get().subscribe(videos => {
       this.video = videos[Math.floor(Math.random() * Math.floor(videos.length))];
