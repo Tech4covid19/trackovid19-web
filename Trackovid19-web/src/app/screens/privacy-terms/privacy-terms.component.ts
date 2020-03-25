@@ -43,7 +43,7 @@ export class PrivacyTermsComponent implements OnInit {
     this.userService.updateUserInformation(optIn).subscribe(
       success => {
         localStorage.setItem('gdpr', JSON.stringify(true));
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard', 'change-state-step1']);
       },
       err => alert(`Ooops!\n${err.message || err}`),
     );
