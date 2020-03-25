@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoState } from 'src/app/states/video/video-state.model';
 
@@ -15,6 +15,12 @@ export class ShareStatusComponent implements OnInit {
   closable = true;
   iframe: SafeResourceUrl;
 
+  shareText =
+    'Precisamos da tua ajuda! \n' +
+    'Tudo o que pedimos é que nos digas se estás bem, em covidografia.pt.';
+
+  hashtag = 'ajudarquemnosajuda';
+
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
@@ -26,20 +32,26 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareFacebook() {
-    const facebookWindow = window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${this.video.share.facebook}`,
-      'facebook-popup',
-      'height=350,width=600',
+    // @ts-ignore
+    FB.ui(
+      {
+        display: 'popup',
+        method: 'share',
+        href: this.video.share.facebook,
+        quote: this.shareText,
+        hashtag: `#${this.hashtag}`,
+      },
+      response => {
+        console.log(response);
+      },
     );
-    if (facebookWindow.focus) {
-      facebookWindow.focus();
-    }
-    return false;
   }
 
   shareTwitter() {
     const twitterWindow = window.open(
-      `https://twitter.com/intent/tweet?via=covidografia&url=${this.video.share.twitter}`,
+      `https://twitter.com/intent/tweet?via=covidografia&` +
+        `url=${this.video.share.twitter}&` +
+        `text=${this.shareText}&hashtags=${this.hashtag}`,
       'height=350,width=600',
     );
     if (twitterWindow.focus) {
