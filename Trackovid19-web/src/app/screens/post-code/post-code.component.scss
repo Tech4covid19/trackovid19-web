@@ -245,26 +245,6 @@ span {
 }
 
 .btns {
-  .btn-back {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 186px;
-    height: 50px;
-    border: 1px solid #fa6400;
-    border-radius: 25px;
-    font-family: Archivo;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 14px;
-    text-align: center;
-    color: #fa6400;
-    background-color: white;
-    margin-right: 16px;
-  }
-
   .btn-go-foward {
     display: flex;
     flex-direction: column;
@@ -330,15 +310,5 @@ span {
 
   .btns {
     display: flex;
-
-    .btn-go-foward {
-      width: 183px;
-    }
-
-    .btn-back {
-      display: flex;
-      width: 183px;
-      padding-right: 13px;
-    }
   }
 }
