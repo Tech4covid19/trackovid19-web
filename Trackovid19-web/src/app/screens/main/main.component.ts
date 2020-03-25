@@ -37,7 +37,7 @@ export class MainComponent implements OnInit, OnDestroy {
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
         const shareVal = localStorage.getItem('share');
-        if (!shareVal) {
+        if (!shareVal || shareVal !== 'true') {
           this.showShare = true;
           localStorage.setItem('share', 'true');
         }
