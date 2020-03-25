@@ -6,7 +6,11 @@
       <span class="postal-code">{{ county$ | async }} {{ postalCode$ | async }}</span>
     </div>
   </div>
-  <span class="reports-info">
+  <span class="reports-info" *ngIf="count > 0">
     baseado na informação de {{ count }} utilizador<span *ngIf="count != 1">es</span>
+  </span>
+
+  <span class="reports-info" *ngIf="count === 0">
+    ainda não há informação na sua área
   </span>
 </div>
