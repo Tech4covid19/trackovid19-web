@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,14 @@ export class AppComponent {
   title = 'Trackovid19-web';
   constructor(geolocalizationService: GeolocalizationService) {
     //geolocalizationService.geoFindMe()
+
+    // Init Facebook SDK
+    // @ts-ignore
+    FB.init({
+      appId: environment.facebookAPI,
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v6.0',
+    });
   }
 }

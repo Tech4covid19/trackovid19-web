@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   serverURL: SERVER_URL,
   apiUrl: SERVER_URL + '/api/v1/',
+  facebookAPI: '139971950784932',
 };
 
 /*
