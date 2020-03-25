@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { UserService } from 'src/app/states/user/state/user.service';
 import { Router } from '@angular/router';
 import { UserQuery } from 'src/app/states/user/state/user.query';
-import { UserStore, UserState } from 'src/app/states/user/state/user.store';
+import { UserStore } from 'src/app/states/user/state/user.store';
 import { User } from 'src/app/states/user/state/user.model';
 
 @Component({
@@ -54,15 +54,6 @@ export class PostCodeComponent implements OnInit {
   open() {
     setTimeout(() => {
       this.opened = true;
-    }, 500);
-  }
-
-  close() {
-    // TODO: Emit event
-    this.closing = true;
-    setTimeout(() => {
-      this.opened = false;
-      this.closing = false;
     }, 500);
   }
 
