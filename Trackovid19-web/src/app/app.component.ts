@@ -14,11 +14,14 @@ export class AppComponent {
 
     // Init Facebook SDK
     // @ts-ignore
-    FB.init({
-      appId: environment.facebookAPI,
-      autoLogAppEvents: true,
-      xfbml: true,
-      version: 'v6.0',
-    });
+    window.fbAsyncInit = () => {
+      // @ts-ignore
+      FB.init({
+        appId: environment.facebookAPI,
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v6.0',
+      });
+    };
   }
 }
