@@ -178,3 +178,32 @@ $modal-radius: 1em;
     }
   }
 }
+
+/* Iphone 5 and less */
+@media (max-device-width: 320px) {
+  .modal-wrapper {
+    .modal {
+      min-height: 400px;
+
+      .modal-body {
+        .share-container {
+          padding-top: 16px;
+
+          .title {
+            margin-bottom: 0;
+            font-size: 14px;
+          }
+
+          .sub-title {
+            line-height: 16px;
+          }
+
+          .footer-text {
+            font-size: 13px;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+  }
+}
