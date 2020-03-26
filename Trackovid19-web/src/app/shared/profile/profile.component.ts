@@ -1,6 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { User } from '../../states/user/state/user.model';
 import { Router } from '@angular/router';
+import { SwPush } from '@angular/service-worker';
+import { NotificationService } from '../services/notification-service.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +13,15 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnChanges {
   @Input() user: User = null;
 
-  constructor(private router: Router) {}
+  sub: PushSubscription;
+
+  readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
+
+  constructor(
+    private router: Router,
+    private swPush: SwPush,
+    private notificationService: NotificationService,
+  ) {}
 
   ngOnChanges(): void {
     // TODO
@@ -18,5 +29,29 @@ export class ProfileComponent implements OnChanges {
 
   updatePostCode() {
     this.router.navigate(['post-code-step']);
+  }
+
+  subscribeToNotifications() {
+    this.swPush
+      .requestSubscription({
+        serverPublicKey: this.VAPID_PUBLIC_KEY,
+      })
+      .then(sub => {
+        this.sub = sub;
+
+        console.log('Notification Subscription: ', sub);
+
+        this.notificationService.addPushSubscriber(sub).subscribe(
+          () => console.log('Sent push subscription object to server.'),
+          err => console.log('Could not send subscription object to server, reason: ', err),
+        );
+      })
+      .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+
+  sendNewsletter() {
+    console.log('Sending Newsletter to all Subscribers ...');
+
+    this.notificationService.send().subscribe();
   }
 }

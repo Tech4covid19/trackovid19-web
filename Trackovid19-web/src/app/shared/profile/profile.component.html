@@ -1,4 +1,8 @@
 <div class="profile" (click)="updatePostCode()">
+  <button class="button button-primary" (click)="subscribeToNotifications()" [disabled]="sub">
+    Subscribe
+  </button>
+
   <ng-container *ngIf="user; else loading">
     <img class="profile_picture" src="assets/img/avatar.svg" />
 
