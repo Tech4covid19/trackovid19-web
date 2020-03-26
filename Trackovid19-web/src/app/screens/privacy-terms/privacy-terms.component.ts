@@ -2,6 +2,9 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from '../../states/user/state/user.service';
 import { User } from '../../states/user/state/user.model';
 import { Router } from '@angular/router';
+import { SwPush } from '@angular/service-worker';
+import { NotificationService } from '../../shared/services/notification-service.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-privacy-terms',
@@ -11,6 +14,10 @@ import { Router } from '@angular/router';
 export class PrivacyTermsComponent implements OnInit {
   @ViewChild('conditions', { static: true }) conditions: TemplateRef<any>;
   @ViewChild('policy', { static: true }) policy: TemplateRef<any>;
+
+  sub: PushSubscription;
+
+  readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
 
   linkCards = [
     {
@@ -29,7 +36,12 @@ export class PrivacyTermsComponent implements OnInit {
 
   template: any = null;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private swPush: SwPush,
+    private notificationService: NotificationService,
+  ) {}
 
   ngOnInit(): void {}
 
@@ -62,5 +74,29 @@ export class PrivacyTermsComponent implements OnInit {
   onClickTerms3(event) {
     this.accepted3 = !this.accepted3;
     event.preventDefault();
+  }
+
+  subscribeToNotifications() {
+    this.swPush
+      .requestSubscription({
+        serverPublicKey: this.VAPID_PUBLIC_KEY,
+      })
+      .then(sub => {
+        this.sub = sub;
+
+        console.log('Notification Subscription: ', sub);
+
+        this.notificationService.addPushSubscriber(sub).subscribe(
+          () => console.log('Sent push subscription object to server.'),
+          err => console.log('Could not send subscription object to server, reason: ', err),
+        );
+      })
+      .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+
+  sendNewsletter() {
+    console.log('Sending Newsletter to all Subscribers ...');
+
+    this.notificationService.send().subscribe();
   }
 }
