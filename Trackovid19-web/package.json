@@ -6,7 +6,7 @@
     "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "start": "ng serve",
     "build_production": "ng build --prod",
-		"build_staging": "ng build --configuration staging",
+		"build_staging": "ng build --prod --configuration staging",
 		"start:prod": "ng build --prod && cd dist/Trackovid19-web && http-server -c-1 -P http://localhost:9000 .",
     "build_dev": "ng build",
     "build": "ng build",
