@@ -152,7 +152,7 @@ $modal-radius: 1em;
     margin: 20px auto;
 
     iframe {
-      width: 100%;
+      width: 45vh;
       height: 45vh;
     }
   }
@@ -175,6 +175,35 @@ $modal-radius: 1em;
   @media (max-width: 440px) {
     .share-video-container iframe {
       min-height: 20vh;
+    }
+  }
+}
+
+/* Iphone 5 and less */
+@media (max-device-width: 320px) {
+  .modal-wrapper {
+    .modal {
+      min-height: 400px;
+
+      .modal-body {
+        .share-container {
+          padding-top: 16px;
+
+          .title {
+            margin-bottom: 0;
+            font-size: 14px;
+          }
+
+          .sub-title {
+            line-height: 16px;
+          }
+
+          .footer-text {
+            font-size: 13px;
+            line-height: 14px;
+          }
+        }
+      }
     }
   }
 }

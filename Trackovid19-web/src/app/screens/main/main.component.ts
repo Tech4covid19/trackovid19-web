@@ -40,7 +40,8 @@ export class MainComponent implements OnInit, OnDestroy {
         const shareVal = localStorage.getItem('share');
         if (!shareVal || shareVal !== 'true') {
           this.showShare = true;
-          this.renderer.setStyle(document.body, 'overflow-y', 'hidden');
+          this.renderer.setStyle(document.body, 'overflow', 'hidden');
+          this.renderer.setStyle(document.body, 'position', 'fixed');
           localStorage.setItem('share', 'true');
         }
       }
@@ -89,9 +90,11 @@ export class MainComponent implements OnInit, OnDestroy {
   public toggleShare() {
     this.showShare = !this.showShare;
     if (this.showShare) {
-      this.renderer.setStyle(document.body, 'overflow-y', 'hidden');
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.renderer.setStyle(document.body, 'position', 'fixed');
     } else {
-      this.renderer.setStyle(document.body, 'overflow-y', 'auto');
+      this.renderer.setStyle(document.body, 'overflow', 'initial');
+      this.renderer.setStyle(document.body, 'position', 'initial');
     }
   }
 
