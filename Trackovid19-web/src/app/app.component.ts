@@ -19,14 +19,10 @@ export class AppComponent {
 
     // Init Facebook SDK
     const s = this.renderer2.createElement('script');
-    s.text = `window.fbAsyncInit = () => {
-      FB.init({
-        appId: ${environment.facebookAPI},
-        autoLogAppEvents: true,
-        xfbml: true,
-        version: 'v6.0',
-      });
-    };`;
+    s.src = `https://connect.facebook.net/pt_PT/sdk.js#version=v6.0&appId=${environment.facebookAPI}&xfbml=true&autoLogAppEvents=true`;
+    this.renderer2.setProperty(s, 'async', 'true');
+    this.renderer2.setProperty(s, 'defer', 'true');
+
     this.renderer2.appendChild(this._document.body, s);
   }
 }
