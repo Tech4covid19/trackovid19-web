@@ -5,7 +5,7 @@ import { User } from '../../states/user/state/user.model';
 import { ConfinementState } from '../../states/confinement-state/state/confinement-state.model';
 import { SubSink } from 'subsink';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { VideoStateService } from '../../states/video/video-state.service';
 import { VideoState } from 'src/app/states/video/video-state.model';
 
@@ -29,11 +29,22 @@ export class MainComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private conditionService: ConfinementStateService,
     private profileService: ProfileServiceService,
-    private route: ActivatedRoute,
     private shareStateService: VideoStateService,
     private renderer: Renderer2,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
+
+    router.events.forEach(event => {
+      if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
+        const shareVal = localStorage.getItem('share');
+        if (shareVal && shareVal === 'true') {
+          this.showShare = true;
+          this.renderer.setStyle(document.body, 'overflow', 'hidden');
+          this.renderer.setStyle(document.body, 'position', 'fixed');
+          localStorage.setItem('share', 'false');
+        }
+      }
+    });
 
     let gdpr = localStorage.getItem('gdpr');
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
@@ -43,22 +54,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.router.events.forEach(event => {
-      if (
-        event instanceof NavigationEnd &&
-        (event.url.indexOf('/dashboard/status') !== -1 ||
-          event.urlAfterRedirects.indexOf('/dashboard/status') !== -1)
-      ) {
-        const shareVal = localStorage.getItem('share');
-        if (!shareVal || shareVal !== 'true') {
-          this.showShare = true;
-          this.renderer.setStyle(document.body, 'overflow', 'hidden');
-          this.renderer.setStyle(document.body, 'position', 'fixed');
-          localStorage.setItem('share', 'true');
-        }
-      }
-    });
-
     this.profileService.getProfileObs().subscribe(() => this.loadUser());
     this.shareStateService.get().subscribe(videos => {
       this.video = videos[Math.floor(Math.random() * Math.floor(videos.length))];
