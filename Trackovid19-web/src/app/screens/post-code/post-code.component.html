@@ -104,10 +104,10 @@
       </section>
 
       <section class="row label codigrafia-code" fxLayout="row">
-        <span>Tem um Código Covidografia?</span>
-        <span>Use-o aqui</span>
+        <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
+        <span>Se tem um código indicado pelas autoridades preencha aqui.</span>
       </section>
-      <section class="row field-container post-code" fxLayout="row">
+      <section class="row field-container post-code covidografia" fxLayout="row">
         <input
           formControlName="covidografia-code"
           type="text"
@@ -120,6 +120,9 @@
         <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
           <span>Código inválido. Verifique o seu código!</span>
         </div>
+      </section>
+      <section class="codigrafia-code-label">
+        <span>* Se não tem um código pode avançar sem preencher</span>
       </section>
 
       <section class="row btns" fxLayout="row">
