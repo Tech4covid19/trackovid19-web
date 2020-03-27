@@ -60,8 +60,8 @@ export class PostCodeComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      console.log(this.form.value);
       this._updateUserData(this.form.value);
+
       if (this.user?.show_onboarding) {
         this.router.navigate(['/onboarding']);
       } else {
