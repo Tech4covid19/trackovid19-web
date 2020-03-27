@@ -6,10 +6,10 @@ export interface VideoState {
   share: {
     facebook: string;
     whatsapp: string;
-    facebookMessenger: string;
+    messenger: string;
     linkedin: string;
     twitter: string;
-    copyLinkText: string;
+    copyText: string;
   };
 }
 
