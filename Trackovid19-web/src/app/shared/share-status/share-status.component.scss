@@ -127,13 +127,9 @@ $modal-radius: 1em;
         margin-right: 1.875rem;
       }
 
-      @media (max-width: 640px) {
-        &:not(:last-of-type) {
-          margin-right: 0.875rem;
-        }
-      }
-
-      @media (max-width: 640px) {
+      @media (max-width: 768px) {
+        width: 2.2rem;
+        height: 2.2rem;
         &:not(:last-of-type) {
           margin-right: 0.575rem;
         }
