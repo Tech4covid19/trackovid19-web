@@ -49,21 +49,16 @@
           </div>
 
           <!-- Whatsapp -->
-          <div
-            *ngIf="video.share.whatsapp"
-            id="whatsapp"
-            class="icon-share"
-            (click)="shareFacebook()"
-          >
+          <div *ngIf="video.share" id="whatsapp" class="icon-share" (click)="shareWhatsapp()">
             <img src="assets/img/icons/whatsapp-share-icon.svg" />
           </div>
 
           <!-- Facebook messenger -->
           <div
-            *ngIf="video.share.facebookMessenger"
+            *ngIf="video.share"
             id="facebook-messenger"
             class="icon-share"
-            (click)="shareFacebook()"
+            (click)="shareFacebookMessenger()"
           >
             <img src="assets/img/icons/facebook-messenger-share-icon.svg" />
           </div>
@@ -85,10 +80,10 @@
 
           <!-- Copy link+text/copy -->
           <div
-            *ngIf="video.share.copyLinkText"
+            *ngIf="video.share"
             id="copy-link-text"
             class="icon-share"
-            (click)="shareFacebook()"
+            (click)="shareCopyLinkText()"
           >
             <img src="assets/img/icons/copy-link-text-share-icon.svg" />
           </div>
