@@ -6,7 +6,6 @@ import { Step } from 'src/app/shared/steps/steps.component';
 import { Case } from 'src/app/states/case/state/case.model';
 import { CaseService } from 'src/app/states/case/state/case.service';
 import { UserService } from 'src/app/states/user/state/user.service';
-import { UserQuery } from 'src/app/states/user/state/user.query';
 import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
 
 @Component({
@@ -58,6 +57,7 @@ export class ChangeStateStep3Component implements OnInit {
     this.caseService.add(this.case).subscribe(
       () => {
         this.profileService.setProfileObs(this.case);
+        localStorage.setItem('share', 'true');
         this.router.navigate(['/dashboard', 'status']);
       },
       err => {
