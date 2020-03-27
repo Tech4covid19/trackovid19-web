@@ -5,8 +5,11 @@ export interface VideoState {
   video: string;
   share: {
     facebook: string;
-    twitter: string;
+    whatsapp: string;
+    facebookMessenger: string;
     linkedin: string;
+    twitter: string;
+    copyLinkText: string;
   };
 }
 

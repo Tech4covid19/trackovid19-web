@@ -3,10 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 const SERVER_URL = 'https://dev.api.covidografia.pt';
+const SERVER_URL_DEV = 'https://2ceesuwr5l.execute-api.eu-west-1.amazonaws.com/dev/login/facebook';
 
 export const environment = {
   production: false,
-  serverURL: SERVER_URL,
+  serverURL: SERVER_URL_DEV,
   apiUrl: SERVER_URL + '/api/v1/',
   facebookAPI: '142877133789647',
 };
