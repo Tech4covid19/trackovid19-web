@@ -38,6 +38,7 @@
         </div>
 
         <div class="footer-share">
+          <!-- Facebook -->
           <div
             *ngIf="video.share.facebook"
             id="facebook"
@@ -46,9 +47,28 @@
           >
             <img src="assets/img/icons/fb-share-icon.svg" />
           </div>
-          <div *ngIf="video.share.twitter" id="twitter" class="icon-share" (click)="shareTwitter()">
-            <img src="assets/img/icons/twitter-share-icon.svg" />
+
+          <!-- Whatsapp -->
+          <div
+            *ngIf="video.share.whatsapp"
+            id="whatsapp"
+            class="icon-share"
+            (click)="shareWhatsapp()"
+          >
+            <img src="assets/img/icons/whatsapp-share-icon.svg" />
           </div>
+
+          <!-- Facebook messenger -->
+          <div
+            *ngIf="video.share.messenger"
+            id="facebook-messenger"
+            class="icon-share"
+            (click)="shareFacebookMessenger()"
+          >
+            <img src="assets/img/icons/facebook-messenger-share-icon.svg" />
+          </div>
+
+          <!-- Linkedin -->
           <div
             *ngIf="video.share.linkedin"
             id="linkedin"
@@ -56,6 +76,21 @@
             (click)="shareLinkedIn()"
           >
             <img src="assets/img/icons/linkedin-share-icon.svg" />
+          </div>
+
+          <!-- Twitter -->
+          <div *ngIf="video.share.twitter" id="twitter" class="icon-share" (click)="shareTwitter()">
+            <img src="assets/img/icons/twitter-share-icon.svg" />
+          </div>
+
+          <!-- Copy link+text/copy -->
+          <div
+            *ngIf="video.share.copyText"
+            id="copy-link-text"
+            class="icon-share"
+            (click)="shareCopyLinkText()"
+          >
+            <img src="assets/img/icons/copy-link-text-share-icon.svg" />
           </div>
         </div>
       </div>
