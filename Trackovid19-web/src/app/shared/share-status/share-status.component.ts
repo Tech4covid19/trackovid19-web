@@ -90,7 +90,6 @@ export class ShareStatusComponent implements OnInit {
   shareTwitter() {
     const twitterWindow = window.open(
       `https://twitter.com/intent/tweet?via=covidografia&` +
-        `url=${this.video.share.twitter}&` +
         `text=${this.shareText}&hashtags=${this.hashtag}`,
       'height=350,width=600',
     );
