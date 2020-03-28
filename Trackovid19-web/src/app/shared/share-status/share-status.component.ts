@@ -17,7 +17,7 @@ export class ShareStatusComponent implements OnInit {
 
   shareText =
     'Precisamos da tua ajuda! \n' +
-    'Tudo o que pedimos é que nos digas se estás bem, em covidografia.pt.';
+    'Tudo o que pedimos é que nos digas se estás bem, em https://covidografia.pt.';
 
   hashtag = 'ajudarquemnosajuda';
 
@@ -53,7 +53,7 @@ export class ShareStatusComponent implements OnInit {
   shareWhatsapp() {
     const whatsappWindow = window.open(
       // docs => https://faq.whatsapp.com/en/general/26000030
-      `https://wa.me/15551234567?text=${this.shareText}`,
+      `https://wa.me/?text=${this.shareText}`,
     );
     if (whatsappWindow.focus) {
       whatsappWindow.focus();
