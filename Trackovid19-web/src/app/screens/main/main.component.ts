@@ -8,6 +8,9 @@ import { ProfileServiceService } from 'src/app/shared/services/profile-service.s
 import { Router, NavigationEnd } from '@angular/router';
 import { VideoStateService } from '../../states/video/video-state.service';
 import { VideoState } from 'src/app/states/video/video-state.model';
+import { SwPush } from '@angular/service-worker';
+import { NotificationService } from '../../shared/services/notification-service.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -19,10 +22,16 @@ export class MainComponent implements OnInit, OnDestroy {
   video: VideoState = null;
   confinementState: ConfinementState = null;
   showShare = false;
+  showNotificationModal = false;
+  sub: PushSubscription;
+
+  readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
 
   private subs = new SubSink();
 
   public toggleShareCallback: Function;
+  public toggleNotificationModalCallback: Function;
+  public subscribeToNotificationsCallback: Function;
 
   constructor(
     private router: Router,
@@ -31,8 +40,12 @@ export class MainComponent implements OnInit, OnDestroy {
     private profileService: ProfileServiceService,
     private shareStateService: VideoStateService,
     private renderer: Renderer2,
+    private swPush: SwPush,
+    private notificationService: NotificationService,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
+    this.toggleNotificationModalCallback = this.toggleNotification.bind(this);
+    this.subscribeToNotificationsCallback = this.subscribeToNotifications.bind(this);
 
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
@@ -95,8 +108,49 @@ export class MainComponent implements OnInit, OnDestroy {
     return this.router.url.indexOf('change-state-step') !== -1;
   }
 
+  public subscribeToNotifications() {
+    this.swPush
+      .requestSubscription({
+        serverPublicKey: this.VAPID_PUBLIC_KEY,
+      })
+      .then(sub => {
+        this.sub = sub;
+
+        this.notificationService.addPushSubscriber(sub).subscribe(
+          () => console.log('Sent push subscription object to server.'),
+          err => console.log('Could not send subscription object to server, reason: ', err),
+          () => this.toggleNotification(),
+        );
+      })
+      .catch(err => {
+        this.toggleNotification();
+        console.error('Could not subscribe to notifications', err);
+      });
+  }
+
+  public showNotifications() {
+    if ('serviceWorker' in navigator) {
+      if (Notification.permission === 'granted') {
+        this.subscribeToNotifications();
+      } else {
+        this.showNotificationModal = true;
+      }
+    }
+  }
+
+  public showShareModal() {
+    this.showShare = true;
+  }
+
   public toggleShare() {
     this.showShare = !this.showShare;
+    setTimeout(() => {
+      this.showNotifications();
+    }, 1000);
+  }
+
+  public toggleNotification() {
+    this.showNotificationModal = false;
   }
 
   public sendDeleteAccountEmail() {

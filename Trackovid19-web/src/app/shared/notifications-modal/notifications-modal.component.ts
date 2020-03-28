@@ -9,6 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class NotificationsModalComponent implements OnInit {
   @Input() showModal: boolean;
   @Input() toggleModal: Function;
+  @Input() acceptNotifications: Function;
 
   closable = true;
 
@@ -22,5 +23,9 @@ export class NotificationsModalComponent implements OnInit {
 
   public close() {
     this.toggleModal();
+  }
+
+  public accept() {
+    this.acceptNotifications();
   }
 }
