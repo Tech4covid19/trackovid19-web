@@ -17,7 +17,7 @@ export class ShareStatusComponent implements OnInit {
 
   shareText =
     'Precisamos da tua ajuda! \n' +
-    'Tudo o que pedimos é que nos digas se estás bem, em covidografia.pt.';
+    'Tudo o que pedimos é que nos digas se estás bem, em https://covidografia.pt.';
 
   hashtag = 'ajudarquemnosajuda';
 
@@ -50,6 +50,43 @@ export class ShareStatusComponent implements OnInit {
     }
   }
 
+  shareWhatsapp() {
+    const whatsappWindow = window.open(
+      // docs => https://faq.whatsapp.com/en/general/26000030
+      `https://wa.me/?text=${this.shareText}`,
+    );
+    if (whatsappWindow.focus) {
+      whatsappWindow.focus();
+    }
+    return false;
+  }
+
+  shareFacebookMessenger() {
+    if (typeof FB !== 'undefined' && FB != null) {
+      // @ts-ignore
+      FB.ui(
+        {
+          method: 'send',
+          link: `${this.shareText}`,
+        },
+        response => {
+          console.log(response);
+        },
+      );
+    }
+  }
+
+  shareLinkedIn() {
+    const linkedinWindow = window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${this.video.share.linkedin}`,
+      'height=350,width=600',
+    );
+    if (linkedinWindow.focus) {
+      linkedinWindow.focus();
+    }
+    return false;
+  }
+
   shareTwitter() {
     const twitterWindow = window.open(
       `https://twitter.com/intent/tweet?via=covidografia&` +
@@ -63,14 +100,12 @@ export class ShareStatusComponent implements OnInit {
     return false;
   }
 
-  shareLinkedIn() {
-    const linkedinWindow = window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${this.video.share.linkedin}`,
-      'height=350,width=600',
-    );
-    if (linkedinWindow.focus) {
-      linkedinWindow.focus();
-    }
-    return false;
+  shareCopyLinkText() {
+    const el = document.createElement('textarea');
+    el.value = `${this.shareText}`;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 }

@@ -208,9 +208,24 @@ span {
 
 .label.codigrafia-code {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   font-size: 15px;
+  line-height: 110%;
   color: #8a939f;
+  margin-top: 70px;
+}
+
+.codigrafia-code {
+  span {
+    margin-left: 14px;
+  }
+}
+
+.codigrafia-code-label {
+  font-size: 13px;
+  color: #8a939f;
+  margin-bottom: 30px;
 }
 
 .field-container {
@@ -242,6 +257,10 @@ span {
   .second-type-number {
     width: 40%;
   }
+
+  .covidografia {
+    margin-bottom: 14px;
+  }
 }
 
 .btns {
@@ -263,6 +282,7 @@ span {
     line-height: 14px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
   }
 }
 
