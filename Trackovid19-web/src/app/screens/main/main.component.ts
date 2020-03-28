@@ -64,13 +64,11 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  private loadUser() {
-    this.subs.add(
-      this.userService.getUser().subscribe(user => {
-        this.user = { ...user };
-        this.loadState();
-      }),
-    );
+  private hasUserOutdatedStatus(lastUpdate) {
+    const oneDayBehindTime = new Date().getTime() - 1 * 24 * 60 * 60 * 1000; // 1day 24hour  60min  60sec  1000msec
+    const lastUpdateTime = new Date(lastUpdate).getTime(); // we need the timestamp to match the difference
+
+    return oneDayBehindTime > lastUpdateTime;
   }
 
   private loadState() {
@@ -78,6 +76,19 @@ export class MainComponent implements OnInit, OnDestroy {
       this.conditionService.get().subscribe((states: any[]) => {
         this.confinementState =
           states.find(state => state.id === +this.user.confinement_state) || null;
+      }),
+    );
+  }
+
+  private loadUser() {
+    this.subs.add(
+      this.userService.getUser().subscribe(user => {
+        this.user = { ...user };
+        this.loadState();
+
+        if (this.hasUserOutdatedStatus(user.updated_at)) {
+          this.router.navigate(['/dashboard', 'change-state-step1']);
+        }
       }),
     );
   }
