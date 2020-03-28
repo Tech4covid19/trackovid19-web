@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-basic-modal',
@@ -7,25 +7,33 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BasicModalComponent implements OnInit {
   @Input() closable = true;
-  public opened = true;
+  @Input() opened = true;
+  @Input() closeCallback: Function;
+  @Input() greyBackground = false;
+  @Input() minHeight = false;
   public closing = false;
 
-  constructor() {}
+  constructor(private renderer: Renderer2) {
+    if (this.opened) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.renderer.setStyle(document.body, 'position', 'fixed');
+    }
+  }
 
   ngOnInit(): void {}
 
   public open() {
-    setTimeout(() => {
-      this.opened = true;
-    }, 500);
+    this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    this.renderer.setStyle(document.body, 'position', 'fixed');
+    this.opened = true;
   }
 
   public close() {
-    // TODO: Emit event
     this.closing = true;
-    setTimeout(() => {
-      this.opened = false;
-      this.closing = false;
-    }, 500);
+    this.renderer.setStyle(document.body, 'overflow', 'initial');
+    this.renderer.setStyle(document.body, 'position', 'initial');
+    this.opened = false;
+    this.closing = false;
+    this.closeCallback();
   }
 }
