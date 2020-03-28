@@ -18,6 +18,7 @@ import { MainComponent } from './screens/main/main.component';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { PostCodeModule } from './screens/post-code/post-code.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
@@ -57,6 +58,7 @@ import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.com
     GeolocalizationService,
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
