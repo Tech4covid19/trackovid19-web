@@ -34,6 +34,7 @@ $modal-radius: 1em;
     margin: auto;
     max-width: 800px;
     max-height: 80%;
+    overflow-y: scroll;
 
     .modal-header {
       position: relative;
