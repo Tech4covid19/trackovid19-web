@@ -26,6 +26,7 @@ import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.com
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     GeolocalizationService,

@@ -1,0 +1,20 @@
+<app-basic-modal
+  *ngIf="showModal"
+  [closable]="true"
+  [opened]="showModal"
+  [closeCallback]="closeCallback"
+  [greyBackground]="true"
+>
+  <div class="container">
+    <span>Obrigado pela sua atualização de estado.</span>
+    <span class="yellow"
+      >É importante que o faça diariamente, para que os dados da sua zona estejam atualizados.</span
+    >
+    <span>Ative as notificações para o relembrarmos de atualizar o seu estado diariamente.</span>
+
+    <button class="accept-button" (click)="accept()">
+      <div class="image"><img src="assets/img/icons/bell.svg" /></div>
+      <span class="text">Lembrar-me para atualizar estado</span>
+    </button>
+  </div>
+</app-basic-modal>

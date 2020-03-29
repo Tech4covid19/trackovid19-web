@@ -21,7 +21,11 @@ export class ShareStatusComponent implements OnInit {
 
   hashtag = 'ajudarquemnosajuda';
 
-  constructor(private sanitizer: DomSanitizer) {}
+  public closeCallback: Function;
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.closeCallback = this.close.bind(this);
+  }
 
   ngOnInit(): void {
     this.iframe = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.video);

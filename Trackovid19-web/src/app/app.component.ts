@@ -1,7 +1,9 @@
 import { Component, Renderer2, Inject } from '@angular/core';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { NotificationService } from './shared/services/notification-service.service';
 import { environment } from '../environments/environment';
 import { DOCUMENT } from '@angular/common';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +12,13 @@ import { DOCUMENT } from '@angular/common';
 })
 export class AppComponent {
   title = 'Trackovid19-web';
+
   constructor(
     geolocalizationService: GeolocalizationService,
     private renderer2: Renderer2,
     @Inject(DOCUMENT) private _document,
+    private swUpdate: SwUpdate,
+    private notificationService: NotificationService,
   ) {
     //geolocalizationService.geoFindMe()
 
@@ -24,5 +29,16 @@ export class AppComponent {
     this.renderer2.setProperty(s, 'defer', 'true');
 
     this.renderer2.appendChild(this._document.body, s);
+  }
+
+  ngOnInit() {
+    //TODO: Check if we want to go with this or not
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version available. Load New Version?')) {
+          window.location.reload();
+        }
+      });
+    }
   }
 }
