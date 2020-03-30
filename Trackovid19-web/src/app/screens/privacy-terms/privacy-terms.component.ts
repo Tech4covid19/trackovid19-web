@@ -1,11 +1,4 @@
-import {
-  Component,
-  ComponentFactory,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from '../../states/user/state/user.service';
 import { User } from '../../states/user/state/user.model';
 import { Router } from '@angular/router';
@@ -50,15 +43,10 @@ export class PrivacyTermsComponent implements OnInit {
     this.userService.updateUserInformation(optIn).subscribe(
       success => {
         localStorage.setItem('gdpr', JSON.stringify(true));
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard', 'change-state-step1']);
       },
       err => alert(`Ooops!\n${err.message || err}`),
     );
-  }
-
-  onResult(url: string) {
-    this.showModal = true;
-    this.template = url === '/terms-conditions' ? this.conditions : this.policy;
   }
 
   onClickTerms1(event) {

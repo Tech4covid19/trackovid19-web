@@ -18,6 +18,7 @@ import { MainComponent } from './screens/main/main.component';
 import { OnBoardingModule } from './screens/onboarding/onboarding.module';
 import { PostCodeModule } from './screens/post-code/post-code.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
@@ -25,6 +26,7 @@ import { PrivacyPolicyComponent } from './screens/privacy-policy/privacy-policy.
 import { TermsConditionsComponent } from './screens/terms-conditions/terms-conditions.component';
 import { LogoutComponent } from 'src/app/screens/logout/logout.component';
 import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -52,11 +54,13 @@ import { PrivacyTermsComponent } from './screens/privacy-terms/privacy-terms.com
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     GeolocalizationService,
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: environment.apiUrl } },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

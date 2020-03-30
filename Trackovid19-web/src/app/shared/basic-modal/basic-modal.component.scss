@@ -10,12 +10,18 @@ $modal-radius: 1em;
     top: 0;
     left: 0;
     max-width: 100%;
+
     opacity: 0;
     transition: opacity 0.5s ease;
 
     &.open {
       display: flex;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+
       &:not(.closing) {
         opacity: 1;
       }
@@ -25,22 +31,72 @@ $modal-radius: 1em;
   .modal {
     border-radius: $modal-radius;
     background: white;
-    margin: auto 2rem;
+    margin: auto;
+    max-width: 800px;
+    max-height: 80%;
+
+    .modal-header {
+      position: relative;
+
+      .close-button {
+        position: absolute;
+        bottom: 100%;
+        left: 100%;
+        width: 24px;
+        height: 24px;
+        background: #363636;
+        cursor: pointer;
+        border-radius: 50%;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: white;
+        }
+      }
+    }
+
+    @media (max-width: 960px) {
+      max-width: calc(100% - 12.5rem);
+    }
+
+    @media (max-width: 640px) {
+      max-width: unset;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      border-radius: 1rem 1rem 0 0;
+
+      .modal-header .close-button {
+        bottom: calc(100% + 16px);
+        left: calc(100% - 40px);
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .modal.grey {
+    background: #444053;
 
     .modal-header {
       .close-button {
-        cursor: pointer;
-        background: rgb(30, 41, 51);
-        border-top-right-radius: $modal-radius;
+        background: white;
 
-        img {
-          max-width: 17pt;
-          max-height: 17pt;
-          padding-top: 10px;
-          padding-left: 10px;
-          padding-right: 10px;
+        svg {
+          fill: #444053;
         }
       }
+    }
+  }
+}
+
+/* Iphone 5 and less */
+@media (max-device-width: 320px) {
+  .modal-wrapper {
+    .modal.minHeight {
+      min-height: 400px;
     }
   }
 }

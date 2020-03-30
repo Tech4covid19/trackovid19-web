@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { UserService } from 'src/app/states/user/state/user.service';
 import { Router } from '@angular/router';
 import { UserQuery } from 'src/app/states/user/state/user.query';
-import { UserStore, UserState } from 'src/app/states/user/state/user.store';
+import { UserStore } from 'src/app/states/user/state/user.store';
 import { User } from 'src/app/states/user/state/user.model';
 
 @Component({
@@ -12,6 +12,7 @@ import { User } from 'src/app/states/user/state/user.model';
   styleUrls: ['./post-code.component.scss'],
 })
 export class PostCodeComponent implements OnInit {
+  user: User = null;
   form: FormGroup;
   submitted = false;
   opened = true;
@@ -31,6 +32,14 @@ export class PostCodeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(user => {
+      this.user = { ...user };
+      this.form.controls['birth-year'].setValue(this.user?.year);
+      this.form.controls['zip-code-1'].setValue(this.user?.postalcode1);
+      this.form.controls['zip-code-2'].setValue(this.user?.postalcode2);
+      this.form.controls['covidografia-code'].setValue(this.user?.patientToken);
+    });
+
     this.form = this.fb.group({
       'birth-year': [
         null,
@@ -48,21 +57,16 @@ export class PostCodeComponent implements OnInit {
     }, 500);
   }
 
-  close() {
-    // TODO: Emit event
-    this.closing = true;
-    setTimeout(() => {
-      this.opened = false;
-      this.closing = false;
-    }, 500);
-  }
-
   onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      console.log(this.form.value);
       this._updateUserData(this.form.value);
-      this.router.navigate(['/onboarding']);
+
+      if (this.user?.show_onboarding) {
+        this.router.navigate(['/onboarding']);
+      } else {
+        this.router.navigate(['/dashboard', 'status']);
+      }
     }
   }
 
@@ -92,6 +96,15 @@ export class PostCodeComponent implements OnInit {
 
   public keyPress(event) {
     const pattern = /[a-zA-Z0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
+  public keyPressNumber(event) {
+    const pattern = /[0-9]/;
     const inputChar = String.fromCharCode(event.charCode);
     if (!pattern.test(inputChar)) {
       // invalid character, prevent input
