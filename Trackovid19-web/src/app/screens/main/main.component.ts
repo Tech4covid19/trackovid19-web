@@ -97,10 +97,10 @@ export class MainComponent implements OnInit, OnDestroy {
         this.user = { ...user };
         this.loadState();
 
-        // uncomment this and change to the correct property when #120 is done
-        //if (this.hasUserOutdatedStatus(user.updated_at)) {
-        //this.router.navigate(['/dashboard', 'change-state-step1']);
-        //}
+        const latestUpdateTime = user.latest_status.timestamp;
+        if (this.hasUserOutdatedStatus(latestUpdateTime)) {
+          this.router.navigate(['/dashboard', 'change-state-step1']);
+        }
       }),
     );
   }
