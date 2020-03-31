@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
-import { DashboardStore, DashboardState } from './dashboard.store';
-import { NgEntityService } from '@datorama/akita-ng-entity-service';
+import { DashboardStore } from './dashboard.store';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { forkJoin } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class DashboardService {
   public url = environment.apiUrl + 'case';
-  constructor(protected store: DashboardStore, private http: HttpClient) {}
-  getCasesByPostalCode(postalCode: any) {
-    const condition = this.http.get<any[]>(`${this.url}/condition/${postalCode}`);
+  constructor(protected store: DashboardStore, private http: HttpClient) {
+    this.store.add({
+      id: 0,
+      conditions: [],
+      confinements: [],
+    });
+    this.store.setActive(0);
+    this.store.setLoading(false);
+  }
 
-    const confinement = this.http.get<any[]>(`${this.url}/confinement/${postalCode}`);
-
-    return forkJoin(condition, confinement).pipe(
+  getCasesByPostalCodeConfinements(postalCode: any) {
+    return this.http.get<any[]>(`${this.url}/confinement/${postalCode}`).pipe(
       tap(result => {
-        let cases = result[0].concat(result[1]);
-        cases = cases.map((i, index) => {
-          let object = i;
-          object.id = index;
-          return object;
-        });
-        this.store.set(cases);
+        this.store.update(0, { confinements: result });
+      }),
+    );
+  }
+
+  getCasesByPostalCodeConditions(postalCode: any) {
+    return this.http.get<any[]>(`${this.url}/condition/${postalCode}`).pipe(
+      tap(result => {
+        this.store.updateActive({ conditions: result });
       }),
     );
   }

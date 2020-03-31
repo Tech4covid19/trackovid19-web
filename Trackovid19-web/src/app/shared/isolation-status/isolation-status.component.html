@@ -1,12 +1,12 @@
 <div class="location-status" fxLayout="row">
-  <ng-template ngFor let-condition [ngForOf]="conditions" ; let-first="first">
+  <ng-template ngFor let-confinement [ngForOf]="confinements$ | async" ; let-first="first">
     <app-card
       [fxFlex.lt-md]="first ? 100 : 48"
       [fxFlex.xs]="first ? 100 : 48"
-      [counter]="condition.hits"
-      [label]="condition.confinement_state_text"
-      [color]="condition.confinement_state | statusConfinement"
-      [icon]="condition.confinement_state | iconPlaceholderConfinement"
+      [counter]="confinement.hits"
+      [label]="confinement.confinement_state_text"
+      [color]="confinement.confinement_state | statusConfinement"
+      [icon]="confinement.confinement_state | iconPlaceholderConfinement"
     ></app-card>
   </ng-template>
 </div>
