@@ -1,0 +1,117 @@
+.confirm-container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  font-size: 16px;
+  line-height: 130%;
+  padding: 20px;
+  text-align: center;
+
+  span {
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .image {
+    height: 40px;
+    width: 40px;
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.05);
+    margin: auto;
+
+    img {
+      fill: red;
+    }
+
+    &.green {
+      background-color: rgba(90, 205, 0, 0.05);
+
+      img {
+        fill: #5acd00;
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    margin: 15px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+
+    &.green {
+      color: #5acd00;
+    }
+  }
+
+  .text {
+    margin: auto;
+  }
+
+  button {
+    box-sizing: border-box;
+    width: 150px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 0.875rem;
+    padding: 1.125rem;
+    border-radius: 2.5rem;
+    margin: 10px 5px 0;
+    outline: none;
+
+    cursor: pointer;
+
+    &.close-button {
+      border-color: #fa6400;
+      background-color: white;
+      color: #fa6400;
+    }
+
+    &.delete-button {
+      border-color: red;
+      background-color: red;
+      color: white;
+    }
+
+    &.ok-button {
+      border-color: #fa6400;
+      background-color: #fa6400;
+      color: white;
+    }
+  }
+
+  .email {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@media (max-width: 640px) {
+  .confirm-container {
+    max-height: 35vh;
+  }
+}
+
+/* Iphone 5 and less */
+@media (max-device-width: 320px) {
+  .modal-wrapper {
+    .modal {
+      min-height: 400px;
+
+      .modal-body {
+        .confirm-container {
+          padding-top: 16px;
+
+          .title {
+            margin-bottom: 0;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
