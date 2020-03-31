@@ -17,19 +17,16 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //this.localizeService.geoFindMe();
-    this.verifyCode();
-
     const id = this.userQuery.getActiveId();
-    const user = this.userQuery.getEntity(id);
+    const user: User = this.userQuery.getEntity(id);
+
+    this.verifyCode(user);
+
     this.dashboardService.getCasesByPostalCodeConditions(user.postalcode).subscribe(res => {});
     this.dashboardService.getCasesByPostalCodeConfinements(user.postalcode).subscribe(res => {});
   }
 
-  verifyCode(): void {
-    const id = this.userQuery.getActiveId();
-    const user: User = this.userQuery.getEntity(id);
-
+  verifyCode(user: User): void {
     if (user?.postalcode && user.postalcode === '0000-000') {
       this.router.navigate(['post-code-step']);
     }
