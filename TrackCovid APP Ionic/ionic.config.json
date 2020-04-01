@@ -1,8 +1,0 @@
-{
-  "name": "TrackCovid",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular"
-}
