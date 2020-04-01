@@ -1,7 +1,6 @@
 export interface Dashboard {
   id: number | string;
-  conditions: any[];
-  confinements: any[];
+  hits: string;
 }
 
 export function createDashboard(params: Partial<Dashboard>) {

@@ -1,26 +1,31 @@
-import { Component, Renderer2, Inject } from '@angular/core';
-import { GeolocalizationService } from './shared/services/geolocalization.service';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
+
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+// import {GeolocalizationService} from './shared/services/geolocalization.service';
+import { SwUpdate } from '@angular/service-worker';
 import { NotificationService } from './shared/services/notification-service.service';
 import { environment } from '../environments/environment';
 import { DOCUMENT } from '@angular/common';
-import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-  title = 'Trackovid19-web';
-
+export class AppComponent implements OnInit {
   constructor(
-    geolocalizationService: GeolocalizationService,
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    // geolocalizationService: GeolocalizationService,
     private renderer2: Renderer2,
     @Inject(DOCUMENT) private _document,
     private swUpdate: SwUpdate,
     private notificationService: NotificationService,
   ) {
-    //geolocalizationService.geoFindMe()
+    // geolocalizationService.geoFindMe()
 
     // Init Facebook SDK
     const s = this.renderer2.createElement('script');
@@ -29,10 +34,18 @@ export class AppComponent {
     this.renderer2.setProperty(s, 'defer', 'true');
 
     this.renderer2.appendChild(this._document.body, s);
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
   }
 
   ngOnInit() {
-    //TODO: Check if we want to go with this or not
+    // TODO: Check if we want to go with this or not
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
         if (confirm('New version available. Load New Version?')) {

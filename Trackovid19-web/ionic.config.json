@@ -1,0 +1,7 @@
+{
+  "name": "covidografia-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

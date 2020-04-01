@@ -17,7 +17,6 @@ export class PostCodeComponent implements OnInit {
   submitted = false;
   opened = true;
   closing = false;
-  showBackground = false;
   maxYear: number;
   minYear: number;
 
@@ -35,7 +34,6 @@ export class PostCodeComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe(user => {
       this.user = { ...user };
-      this.showBackground = !user || user.show_onboarding;
       this.form.controls['birth-year'].setValue(this.user?.year);
       this.form.controls['zip-code-1'].setValue(this.user?.postalcode1);
       this.form.controls['zip-code-2'].setValue(this.user?.postalcode2);

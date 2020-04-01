@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardQuery } from 'src/app/states/dashboard/dashboard.query';
-import { Observable } from 'rxjs';
+import { DashboardService } from 'src/app/states/dashboard/dashboard.service';
+import { UserQuery } from 'src/app/states/user/state/user.query';
 
 @Component({
   selector: 'app-isolation-status',
@@ -9,11 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class IsolationStatusComponent implements OnInit {
   conditions: any[];
-  confinements$: Observable<any[]>;
 
-  constructor(private dashboardQuery: DashboardQuery) {
-    this.confinements$ = this.dashboardQuery.selectFirst(state => state.confinements);
+  constructor(private service: DashboardService, private query: UserQuery) {}
+
+  ngOnInit(): void {
+    const id = this.query.getActiveId();
+    const user = this.query.getEntity(id);
+    this.service.getCasesByPostalCode(user.postalcode).subscribe(res => {
+      this.conditions = res[1];
+    });
   }
-
-  ngOnInit(): void {}
 }
