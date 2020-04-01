@@ -1,12 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConfinementStateService } from 'src/app/states/confinement-state/state/confinement-state.service';
-import { ConfinementState } from 'src/app/states/confinement-state/state/confinement-state.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
 import { Step } from 'src/app/shared/steps/steps.component';
 import { Case } from 'src/app/states/case/state/case.model';
 import { CaseService } from 'src/app/states/case/state/case.service';
+import { ConfinementState } from 'src/app/states/confinement-state/state/confinement-state.model';
+import { ConfinementStateService } from 'src/app/states/confinement-state/state/confinement-state.service';
 import { UserService } from 'src/app/states/user/state/user.service';
-import { ProfileServiceService } from 'src/app/shared/services/profile-service.service';
 
 @Component({
   selector: 'app-change-state-step3',
@@ -38,10 +38,14 @@ export class ChangeStateStep3Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.case = history.state.data;
-    this.confinementStateService.get().subscribe(confinementStates => {
-      this.confinementStates = confinementStates;
-    });
+    if (history.state.data) {
+      this.case = history.state.data;
+      this.confinementStateService.get().subscribe(confinementStates => {
+        this.confinementStates = confinementStates;
+      });
+    } else {
+      this.router.navigate(['/dashboard', this.steps[0].url]);
+    }
   }
 
   getState() {

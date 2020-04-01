@@ -1,5 +1,5 @@
 <div class="location-status" fxLayout="row">
-  <ng-template ngFor let-condition [ngForOf]="conditions" ; let-first="first">
+  <ng-template ngFor let-condition [ngForOf]="conditions$ | async" ; let-first="first">
     <app-card
       [fxFlex.lt-md]="first ? 100 : 48"
       [fxFlex.xs]="first ? 100 : 48"
