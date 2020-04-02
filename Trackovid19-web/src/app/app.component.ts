@@ -1,6 +1,5 @@
 import { Component, Renderer2, Inject } from '@angular/core';
 import { GeolocalizationService } from './shared/services/geolocalization.service';
-import { NotificationService } from './shared/services/notification-service.service';
 import { environment } from '../environments/environment';
 import { DOCUMENT } from '@angular/common';
 import { SwUpdate } from '@angular/service-worker';
@@ -18,7 +17,6 @@ export class AppComponent {
     private renderer2: Renderer2,
     @Inject(DOCUMENT) private _document,
     private swUpdate: SwUpdate,
-    private notificationService: NotificationService,
   ) {
     //geolocalizationService.geoFindMe()
 
