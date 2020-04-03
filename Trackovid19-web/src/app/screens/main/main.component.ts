@@ -11,6 +11,7 @@ import { VideoState } from 'src/app/states/video/video-state.model';
 import { SwPush } from '@angular/service-worker';
 import { NotificationService } from '../../shared/services/notification-service.service';
 import { environment } from '../../../environments/environment';
+import { LocalStorageHelper } from 'src/app/helpers/local-storage';
 
 @Component({
   selector: 'app-main',
@@ -42,6 +43,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private swPush: SwPush,
     private notificationService: NotificationService,
+    private localStorageHelper: LocalStorageHelper,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
     this.toggleNotificationModalCallback = this.toggleNotification.bind(this);
@@ -49,15 +51,15 @@ export class MainComponent implements OnInit, OnDestroy {
 
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
-        const shareVal = localStorage.getItem('share');
+        const shareVal = this.localStorageHelper.getShareStatus();
         if (shareVal && shareVal === 'true') {
           this.showShare = true;
-          localStorage.setItem('share', 'false');
+          this.localStorageHelper.setShareStatus('false');
         }
       }
     });
 
-    let gdpr = localStorage.getItem('gdpr');
+    let gdpr = this.localStorageHelper.getGPRD();
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
     if (!gdpr) {
       this.router.navigate(['privacy-terms']);
