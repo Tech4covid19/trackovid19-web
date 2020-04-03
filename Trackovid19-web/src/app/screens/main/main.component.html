@@ -50,7 +50,7 @@
           >
         </div>
 
-        <div class="text-terms text-grey text-center" (click)="sendDeleteAccountEmail()">
+        <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
           <span>Eliminar Conta</span>
         </div>
       </div>
@@ -86,7 +86,7 @@
       >
     </div>
 
-    <div class="text-terms text-grey text-center" (click)="sendDeleteAccountEmail()">
+    <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
       <span>Eliminar Conta</span>
     </div>
   </div>
@@ -110,3 +110,10 @@
   [acceptNotifications]="subscribeToNotificationsCallback"
 >
 </app-notifications-modal>
+
+<app-confirm-delete-user-modal
+  [showModal]="showConfirmDeleteUserModal"
+  [toggleModal]="toggleConfirmDeleteUserModalCallback"
+  [user]="user"
+>
+</app-confirm-delete-user-modal>
