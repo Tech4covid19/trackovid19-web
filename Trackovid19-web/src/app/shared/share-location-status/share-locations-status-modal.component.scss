@@ -1,0 +1,147 @@
+.share-container {
+  padding: 32px;
+  text-align: center;
+
+  .title {
+    margin-bottom: 8px;
+
+    span {
+      color: #798794;
+      font-size: 16px;
+      line-height: 120%;
+    }
+  }
+
+  .sub-title span {
+    color: #1e2933;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .footer-text {
+    color: #1e2933;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 120%;
+    text-align: center;
+    padding: 0 0 20px;
+  }
+
+  .footer-share {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+
+    .icon-share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(66, 103, 178, 0.12),
+        0px 10px 20px rgba(66, 103, 178, 0.18);
+      cursor: pointer;
+
+      &:not(:last-of-type) {
+        margin-right: 1.875rem;
+      }
+
+      @media (max-width: 768px) {
+        width: 2.2rem;
+        height: 2.2rem;
+        &:not(:last-of-type) {
+          margin-right: 0.575rem;
+        }
+      }
+
+      img {
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      &#facebook {
+        background-color: #4267b2;
+      }
+
+      &#whatsapp {
+        background-color: #4ac959;
+      }
+
+      &#facebook-messenger {
+        background-color: #0078ff;
+      }
+
+      &#linkedin {
+        background-color: #1178b3;
+      }
+
+      &#twitter {
+        background-color: #2aa3ef;
+      }
+
+      &#copy-link-text {
+        background-color: #92959a;
+      }
+    }
+  }
+
+  .share-image-container {
+    margin: 20px auto;
+
+    img {
+      max-width: 100%;
+      height: 45vh;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sub-title span {
+      color: rgba(47, 47, 47, 0.9);
+    }
+
+    .share-image-container {
+      max-height: 45vh;
+
+      img {
+        min-height: unset;
+        height: 45vh;
+      }
+    }
+  }
+
+  @media (max-width: 440px) {
+    .share-image-container img {
+      min-height: 35vh;
+    }
+  }
+}
+
+/* Iphone 5 and less */
+@media (max-device-width: 320px) {
+  .share-container {
+    padding-top: 16px;
+
+    .title {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .sub-title {
+      line-height: 16px;
+    }
+
+    .footer-text {
+      font-size: 13px;
+      line-height: 14px;
+    }
+
+    .share-image-container img {
+      max-height: 20vh;
+    }
+  }
+}
