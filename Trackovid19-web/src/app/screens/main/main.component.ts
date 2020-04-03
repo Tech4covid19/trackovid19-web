@@ -108,33 +108,35 @@ export class MainComponent implements OnInit, OnDestroy {
     return this.router.url.indexOf('change-state-step') !== -1;
   }
 
-  public subscribeToNotifications() {
-    this.swPush
-      .requestSubscription({
-        serverPublicKey: this.VAPID_PUBLIC_KEY,
-      })
-      .then(sub => {
-        this.sub = sub;
+  public async subscribeToNotifications() {
+    const permission = await Notification.requestPermission();
 
-        this.notificationService.addPushSubscriber(sub).subscribe(
-          () => console.log('Sent push subscription object to server.'),
-          err => console.log('Could not send subscription object to server, reason: ', err),
-          () => this.toggleNotification(),
-        );
-      })
-      .catch(err => {
-        this.toggleNotification();
-        console.error('Could not subscribe to notifications', err);
-      });
+    if (permission === 'granted') {
+      this.swPush
+        .requestSubscription({
+          serverPublicKey: this.VAPID_PUBLIC_KEY,
+        })
+        .then(sub => {
+          this.sub = sub;
+
+          this.notificationService.addPushSubscriber(sub).subscribe(
+            () => console.log('Sent push subscription object to server.'),
+            err => console.log('Could not send subscription object to server, reason: ', err),
+            () => this.toggleNotification(),
+          );
+        })
+        .catch(err => {
+          this.toggleNotification();
+          console.error('Could not subscribe to notifications', err);
+        });
+    } else {
+      this.toggleNotification();
+    }
   }
 
   public showNotifications() {
-    if ('serviceWorker' in navigator) {
-      if (Notification.permission === 'granted') {
-        this.subscribeToNotifications();
-      } else {
-        this.showNotificationModal = true;
-      }
+    if ('serviceWorker' in navigator && Notification.permission === 'default') {
+      this.showNotificationModal = true;
     }
   }
 
