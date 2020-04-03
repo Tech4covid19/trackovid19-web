@@ -6,7 +6,7 @@
         *ngIf="!isChangingStep()"
         class="share_icon"
         src="assets/img/share.svg"
-        (click)="toggleShare()"
+        (click)="showShareModal()"
       />
     </div>
 
@@ -103,3 +103,10 @@
   [video]="video"
 >
 </app-share-status>
+
+<app-notifications-modal
+  [showModal]="showNotificationModal"
+  [toggleModal]="toggleNotificationModalCallback"
+  [acceptNotifications]="subscribeToNotificationsCallback"
+>
+</app-notifications-modal>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ConditionService } from 'src/app/states/condition/state/condition.service';
-import { Condition } from 'src/app/states/condition/state/condition.model';
+import { Router } from '@angular/router';
 import { Step } from 'src/app/shared/steps/steps.component';
 import { Case } from 'src/app/states/case/state/case.model';
-import { Router } from '@angular/router';
+import { Condition } from 'src/app/states/condition/state/condition.model';
+import { ConditionService } from 'src/app/states/condition/state/condition.service';
 
 @Component({
   selector: 'app-change-state-step2',
@@ -24,13 +24,17 @@ export class ChangeStateStep2Component implements OnInit {
   constructor(private conditionService: ConditionService, private router: Router) {}
 
   ngOnInit(): void {
-    this.case = history.state.data;
-    this.updateConditionCallback = this.updateCondition.bind(this);
-    this.getStateCallback = this.getState.bind(this);
+    if (history.state.data) {
+      this.case = history.state.data;
+      this.updateConditionCallback = this.updateCondition.bind(this);
+      this.getStateCallback = this.getState.bind(this);
 
-    this.conditionService.get().subscribe(conditions => {
-      this.conditions = conditions;
-    });
+      this.conditionService.get().subscribe(conditions => {
+        this.conditions = conditions;
+      });
+    } else {
+      this.router.navigate(['/dashboard', this.steps[0].url]);
+    }
   }
 
   updateCondition(conditionId: number): void {

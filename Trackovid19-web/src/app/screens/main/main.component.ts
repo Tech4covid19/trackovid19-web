@@ -8,6 +8,9 @@ import { ProfileServiceService } from 'src/app/shared/services/profile-service.s
 import { Router, NavigationEnd } from '@angular/router';
 import { VideoStateService } from '../../states/video/video-state.service';
 import { VideoState } from 'src/app/states/video/video-state.model';
+import { SwPush } from '@angular/service-worker';
+import { NotificationService } from '../../shared/services/notification-service.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -19,10 +22,16 @@ export class MainComponent implements OnInit, OnDestroy {
   video: VideoState = null;
   confinementState: ConfinementState = null;
   showShare = false;
+  showNotificationModal = false;
+  sub: PushSubscription;
+
+  readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
 
   private subs = new SubSink();
 
   public toggleShareCallback: Function;
+  public toggleNotificationModalCallback: Function;
+  public subscribeToNotificationsCallback: Function;
 
   constructor(
     private router: Router,
@@ -31,16 +40,18 @@ export class MainComponent implements OnInit, OnDestroy {
     private profileService: ProfileServiceService,
     private shareStateService: VideoStateService,
     private renderer: Renderer2,
+    private swPush: SwPush,
+    private notificationService: NotificationService,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
+    this.toggleNotificationModalCallback = this.toggleNotification.bind(this);
+    this.subscribeToNotificationsCallback = this.subscribeToNotifications.bind(this);
 
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
         const shareVal = localStorage.getItem('share');
         if (shareVal && shareVal === 'true') {
           this.showShare = true;
-          this.renderer.setStyle(document.body, 'overflow', 'hidden');
-          this.renderer.setStyle(document.body, 'position', 'fixed');
           localStorage.setItem('share', 'false');
         }
       }
@@ -64,13 +75,11 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  private loadUser() {
-    this.subs.add(
-      this.userService.getUser().subscribe(user => {
-        this.user = { ...user };
-        this.loadState();
-      }),
-    );
+  private hasUserOutdatedStatus(lastUpdate) {
+    const oneDayBehindTime = new Date().getTime() - 1 * 24 * 60 * 60 * 1000; // 1day 24hour  60min  60sec  1000msec
+    const lastUpdateTime = new Date(lastUpdate).getTime(); // we need the timestamp to match the difference
+
+    return oneDayBehindTime > lastUpdateTime;
   }
 
   private loadState() {
@@ -82,19 +91,68 @@ export class MainComponent implements OnInit, OnDestroy {
     );
   }
 
+  private loadUser() {
+    this.subs.add(
+      this.userService.getUser().subscribe(user => {
+        this.user = { ...user };
+        this.loadState();
+
+        if (this.hasUserOutdatedStatus(user.latest_status.timestamp)) {
+          this.router.navigate(['/dashboard', 'change-state-step1']);
+        }
+      }),
+    );
+  }
+
   public isChangingStep() {
     return this.router.url.indexOf('change-state-step') !== -1;
   }
 
+  public async subscribeToNotifications() {
+    const permission = await Notification.requestPermission();
+
+    if (permission === 'granted') {
+      this.swPush
+        .requestSubscription({
+          serverPublicKey: this.VAPID_PUBLIC_KEY,
+        })
+        .then(sub => {
+          this.sub = sub;
+
+          this.notificationService.addPushSubscriber(sub).subscribe(
+            () => console.log('Sent push subscription object to server.'),
+            err => console.log('Could not send subscription object to server, reason: ', err),
+            () => this.toggleNotification(),
+          );
+        })
+        .catch(err => {
+          this.toggleNotification();
+          console.error('Could not subscribe to notifications', err);
+        });
+    } else {
+      this.toggleNotification();
+    }
+  }
+
+  public showNotifications() {
+    if ('serviceWorker' in navigator && Notification.permission === 'default') {
+      this.showNotificationModal = true;
+    }
+  }
+
+  public showShareModal() {
+    this.showShare = true;
+  }
+
   public toggleShare() {
     this.showShare = !this.showShare;
-    if (this.showShare) {
-      this.renderer.setStyle(document.body, 'overflow', 'hidden');
-      this.renderer.setStyle(document.body, 'position', 'fixed');
-    } else {
-      this.renderer.setStyle(document.body, 'overflow', 'initial');
-      this.renderer.setStyle(document.body, 'position', 'initial');
-    }
+    setTimeout(() => {
+      this.showNotifications();
+    }, 1000);
+  }
+
+  public toggleNotification() {
+    this.showNotificationModal = false;
   }
 
   public sendDeleteAccountEmail() {

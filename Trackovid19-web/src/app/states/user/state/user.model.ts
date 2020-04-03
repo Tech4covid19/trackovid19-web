@@ -18,6 +18,9 @@ export interface User {
   year: string;
   postalcode1: string;
   postalcode2: string;
+  latest_status: {
+    timestamp: string;
+  };
   latitude: string;
   longitude: string;
   info: {

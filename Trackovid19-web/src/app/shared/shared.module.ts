@@ -21,6 +21,8 @@ import { IconPlaceholderConfinementPipe } from './pipes/icon-placeholder-confine
 import { StepsComponent } from './steps/steps.component';
 import { LinkCardComponent } from './link-card/link-card.component';
 import { ShareStatusComponent } from './share-status/share-status.component';
+import { BasicModalComponent } from './basic-modal/basic-modal.component';
+import { NotificationsModalComponent } from './notifications-modal/notifications-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ShareStatusComponent } from './share-status/share-status.component';
     StepsComponent,
     LinkCardComponent,
     ShareStatusComponent,
+    BasicModalComponent,
+    NotificationsModalComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
@@ -57,6 +61,8 @@ import { ShareStatusComponent } from './share-status/share-status.component';
     StepsComponent,
     LinkCardComponent,
     ShareStatusComponent,
+    BasicModalComponent,
+    NotificationsModalComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })
