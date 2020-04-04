@@ -60,4 +60,15 @@ export class UserService {
   deleteUser(userInformation) {
     return this.http.delete(environment.apiUrl + 'user', userInformation);
   }
+
+  hasUserOutdatedStatus(user) {
+    if (!user || !user.latest_status) {
+      return false;
+    }
+
+    const oneDayBehindTime = new Date().getTime() - 1 * 24 * 60 * 60 * 1000; // 1day 24hour  60min  60sec  1000msec
+    const lastUpdateTime = new Date(user.latest_status.timestamp).getTime(); // we need the timestamp to match the difference
+
+    return oneDayBehindTime > lastUpdateTime;
+  }
 }
