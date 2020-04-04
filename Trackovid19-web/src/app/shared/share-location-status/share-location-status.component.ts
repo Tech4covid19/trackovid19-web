@@ -10,8 +10,7 @@ import { ShareHelper } from 'src/app/helpers/share-helper';
 export class ShareLocationStatusModalComponent implements OnInit {
   @Input() showModal: boolean;
   @Input() toggleModal: Function;
-  @Input() acceptShareLocationsStatus: Function;
-  imageUrl = 'https://www.dhs.gov/sites/default/files/images/20_0305_opa_coronavirus-micro.jpg';
+  @Input() imageUrl: string;
 
   closable = true;
 
@@ -25,10 +24,6 @@ export class ShareLocationStatusModalComponent implements OnInit {
 
   public close() {
     this.toggleModal();
-  }
-
-  public accept() {
-    this.acceptShareLocationsStatus();
   }
 
   shareFacebook() {
