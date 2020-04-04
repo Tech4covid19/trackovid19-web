@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="action" fxLayout="row">
+      <div class="action">
         <div class="action-content">
           <div
             *ngIf="!loginMethod || loginMethod === 'facebook'"
@@ -19,13 +19,22 @@
             [ngClass]="{ disabled: !acceptedTerms }"
             (click)="onFacebookLogin()"
           >
-            <div class="fb" fxLayout="row" fxLayoutAlign="center">
-              <img *ngIf="acceptedTerms" src="assets/img/facebook.svg" />
-              <img *ngIf="!acceptedTerms" src="assets/img/facebook-disabled.svg" />
-            </div>
-            <div class="login-text">
-              <p>Entrar com o Facebook</p>
-            </div>
+            <img *ngIf="acceptedTerms" src="assets/img/facebook.svg" />
+            <img *ngIf="!acceptedTerms" src="assets/img/facebook-disabled.svg" />
+
+            <p class="login-text">Login com Facebook</p>
+          </div>
+
+          <div
+            *ngIf="!loginMethod || loginMethod === 'google'"
+            class="login-btn button-elevation cursor-pointer google"
+            [ngClass]="{ disabled: !acceptedTerms }"
+            (click)="onGoogleLogin()"
+          >
+            <img *ngIf="acceptedTerms" src="assets/img/google.svg" />
+            <img *ngIf="!acceptedTerms" src="assets/img/google-disabled.svg" />
+
+            <p class="login-text">Login com Google</p>
           </div>
 
           <div class="policy-terms">
