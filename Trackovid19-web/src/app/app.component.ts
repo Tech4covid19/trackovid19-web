@@ -12,7 +12,6 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent {
   title = 'Trackovid19-web';
 
-
   constructor(
     geolocalizationService: GeolocalizationService,
     private renderer2: Renderer2,

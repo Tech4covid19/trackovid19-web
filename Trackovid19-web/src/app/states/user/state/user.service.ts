@@ -24,8 +24,12 @@ export class UserService {
     );
   }
 
-  login() {
+  loginFacebook() {
     window.location.href = environment.serverURL + '/login/facebook';
+  }
+
+  loginGoogle() {
+    window.location.href = environment.serverURL + '/login/google';
   }
 
   logout() {

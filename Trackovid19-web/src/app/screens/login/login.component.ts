@@ -34,7 +34,13 @@ export class LoginComponent implements OnInit {
 
   onFacebookLogin() {
     if (this.acceptedTerms) {
-      this.usersService.login();
+      this.usersService.loginFacebook();
+    }
+  }
+
+  onGoogleLogin() {
+    if (this.acceptedTerms) {
+      this.usersService.loginGoogle();
     }
   }
 }

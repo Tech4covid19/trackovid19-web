@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export enum LoginMethod {
   FACEBOOK = 'facebook',
+  GOOGLE = 'google',
 }
 
 @Injectable({ providedIn: 'root' })
