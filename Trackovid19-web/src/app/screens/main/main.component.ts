@@ -59,7 +59,7 @@ export class MainComponent implements OnInit, OnDestroy {
       }
     });
 
-    let gdpr = this.localStorageHelper.getGPRD();
+    let gdpr = this.localStorageHelper.getGDPR();
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
     if (!gdpr) {
       this.router.navigate(['privacy-terms']);

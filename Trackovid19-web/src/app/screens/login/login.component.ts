@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private localStorageHelper: LocalStorageHelper,
   ) {
-    const gdpr = this.localStorageHelper.getGPRD();
+    const gdpr = this.localStorageHelper.getGDPR();
     this.gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
     this.acceptedTerms = this.gdpr === true;
     this.loginMethod = this.localStorageHelper.getLoginMethod();

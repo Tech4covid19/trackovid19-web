@@ -120,7 +120,7 @@ export class CarouselComponent implements AfterViewChecked {
 
   next() {
     if (this.currentSlide + 1 === this.items.length) {
-      let gdpr = this.localStorageHelper.getGPRD();
+      let gdpr = this.localStorageHelper.getGDPR();
       gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
       this.userService.updateUserInformation({ showOnboarding: false }).subscribe(
         success => {},

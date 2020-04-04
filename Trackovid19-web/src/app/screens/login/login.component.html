@@ -14,7 +14,7 @@
       <div class="action" fxLayout="row">
         <div class="action-content">
           <div
-            *ngIf="!loginMethod || (loginMethod && loginMethod === 'facebook')"
+            *ngIf="!loginMethod || loginMethod === 'facebook'"
             class="login-btn button-elevation cursor-pointer"
             [ngClass]="{ disabled: !acceptedTerms }"
             (click)="onFacebookLogin()"

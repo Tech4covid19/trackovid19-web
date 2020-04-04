@@ -30,7 +30,7 @@ export class LocalStorageHelper {
     localStorage.setItem('gdpr', gdpr);
   }
 
-  getGPRD(): string {
+  getGDPR(): string {
     return localStorage.getItem('gdpr');
   }
 }
