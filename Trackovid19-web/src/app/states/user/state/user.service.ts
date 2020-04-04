@@ -52,4 +52,8 @@ export class UserService {
       }),
     );
   }
+
+  deleteUser(userInformation) {
+    return this.http.delete(environment.apiUrl + 'user', userInformation);
+  }
 }
