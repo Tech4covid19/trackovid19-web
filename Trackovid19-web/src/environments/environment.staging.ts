@@ -11,6 +11,7 @@ export const environment = {
   facebookAPI: '139971950784932',
   serverPublicKey:
     'BA5Tr13lfJCBPb9ZaXlTKUetDORnHROGI_S7cumwdDR9f-ZxYI-4Y2OvIC4WgZxcanE9znpKufP6wLA5kdIG2Ak',
+  showCovidografiaCode: false,
 };
 
 /*

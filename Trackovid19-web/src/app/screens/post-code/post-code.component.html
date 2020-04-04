@@ -103,27 +103,29 @@
         </div>
       </section>
 
-      <section class="row label codigrafia-code" fxLayout="row">
-        <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
-        <span>Se tem um código indicado pelas autoridades preencha aqui.</span>
-      </section>
-      <section class="row field-container post-code covidografia" fxLayout="row">
-        <input
-          formControlName="covidografia-code"
-          type="text"
-          pattern="[0-9A-Z]{10}"
-          maxlength="10"
-          placeholder="- - - - - - - -"
-          (keypress)="keyPress($event)"
-          [class.inputError]="submitted && covidografiaCodeControl.errors"
-        />
-        <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
-          <span>Código inválido. Verifique o seu código!</span>
-        </div>
-      </section>
-      <section class="codigrafia-code-label">
-        <span>* Se não tem um código pode avançar sem preencher</span>
-      </section>
+      <div *ngIf="showCovidografiaCode">
+        <section class="row label codigrafia-code" fxLayout="row">
+          <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
+          <span>Se tem um código indicado pelas autoridades preencha aqui.</span>
+        </section>
+        <section class="row field-container post-code covidografia" fxLayout="row">
+          <input
+            formControlName="covidografia-code"
+            type="text"
+            pattern="[0-9A-Z]{10}"
+            maxlength="10"
+            placeholder="- - - - - - - -"
+            (keypress)="keyPress($event)"
+            [class.inputError]="submitted && covidografiaCodeControl.errors"
+          />
+          <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
+            <span>Código inválido. Verifique o seu código!</span>
+          </div>
+        </section>
+        <section class="codigrafia-code-label">
+          <span>* Se não tem um código pode avançar sem preencher</span>
+        </section>
+      </div>
 
       <section class="row btns" fxLayout="row">
         <button class="btn-go-foward" type="submit">Avançar</button>

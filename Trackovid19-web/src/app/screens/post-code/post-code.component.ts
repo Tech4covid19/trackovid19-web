@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserQuery } from 'src/app/states/user/state/user.query';
 import { UserStore } from 'src/app/states/user/state/user.store';
 import { User } from 'src/app/states/user/state/user.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post-code',
@@ -20,6 +21,7 @@ export class PostCodeComponent implements OnInit {
   showBackground = false;
   maxYear: number;
   minYear: number;
+  showCovidografiaCode: boolean;
 
   constructor(
     private userService: UserService,
@@ -30,6 +32,7 @@ export class PostCodeComponent implements OnInit {
   ) {
     this.maxYear = new Date().getFullYear();
     this.minYear = this.maxYear - 120;
+    this.showCovidografiaCode = environment.showCovidografiaCode;
   }
 
   ngOnInit() {
