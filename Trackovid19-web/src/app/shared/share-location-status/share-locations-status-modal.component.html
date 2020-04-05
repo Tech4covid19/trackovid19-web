@@ -1,0 +1,56 @@
+<app-basic-modal
+  *ngIf="showModal"
+  [purpleBackground]="true"
+  [closable]="true"
+  [opened]="showModal"
+  [closeCallback]="closeCallback"
+>
+  <div class="share-container">
+    <div class="sub-title">
+      <span>Partilhar estado da tua área</span>
+    </div>
+    <div class="title">
+      <span>Convida amigos para teres uma visão ainda melhor da tua zona</span>
+    </div>
+
+    <div class="share-image-container">
+      <img [src]="imageUrl" alt="share image" />
+    </div>
+    <div class="footer-text">
+      <span>Ajuda-nos a ajudar!</span>
+    </div>
+
+    <div class="footer-share">
+      <!-- Facebook -->
+      <div id="facebook" class="icon-share" (click)="shareFacebook()">
+        <img src="assets/img/icons/fb-share-icon.svg" alt="facebook" />
+      </div>
+
+      <!-- Whatsapp -->
+      <div id="whatsapp" class="icon-share" (click)="shareWhatsapp()">
+        <img src="assets/img/icons/whatsapp-share-icon.svg" alt="whatsapp" />
+      </div>
+
+      <!-- Facebook messenger -->
+      <!-- TODO: This needs to be reviewed -->
+      <div id="facebook-messenger" class="icon-share" (click)="shareFacebookMessenger()">
+        <img src="assets/img/icons/facebook-messenger-share-icon.svg" alt="facebook-messenger" />
+      </div>
+
+      <!-- Linkedin -->
+      <div id="linkedin" class="icon-share" (click)="shareLinkedIn()">
+        <img src="assets/img/icons/linkedin-share-icon.svg" alt="linkedin" />
+      </div>
+
+      <!-- Twitter -->
+      <div id="twitter" class="icon-share" (click)="shareTwitter()">
+        <img src="assets/img/icons/twitter-share-icon.svg" alt="twitter" />
+      </div>
+
+      <!-- Copy link+text/copy -->
+      <div id="copy-link-text" class="icon-share" (click)="shareCopyLinkText()">
+        <img src="assets/img/icons/copy-link-text-share-icon.svg" alt="copy-link-text" />
+      </div>
+    </div>
+  </div>
+</app-basic-modal>

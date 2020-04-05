@@ -2,7 +2,7 @@
   <div class="location-info-area">
     <h1 class="profile-area">Estado na minha área</h1>
     <div class="postal-code-container" (click)="updatePostCode()">
-      <img class="marker-icon" src="assets/img/icons/marker.svg" routerLink="" />
+      <img class="marker-icon" src="assets/img/icons/marker.svg" routerLink="" alt="marker" />
       <span class="postal-code">{{ county$ | async }} {{ postalCode$ | async }}</span>
     </div>
   </div>
