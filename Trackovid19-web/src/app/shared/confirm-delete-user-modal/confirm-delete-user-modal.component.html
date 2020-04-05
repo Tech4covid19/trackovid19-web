@@ -7,7 +7,7 @@
 >
   <div class="confirm-container">
     <div class="confirm-action-container" *ngIf="!showResultContainer">
-      <div class="image red"><img src="assets/img/icons/delete_red.svg" /></div>
+      <div class="image red"><img src="assets/img/icons/delete_red.svg" alt="delete red" /></div>
       <span class="title">Tem a certeza que pretende eliminar a sua conta?</span>
       <span>Esta ação irá apagar todos os seus dados Covidografia e é irreversível.</span>
 
@@ -21,7 +21,9 @@
     </div>
     <div class="confirm-result-container" *ngIf="showResultContainer">
       <div class="delete-success-container" *ngIf="userDeletedWithSuccess">
-        <div class="image green"><img src="assets/img/icons/delete_green.svg" /></div>
+        <div class="image green">
+          <img src="assets/img/icons/delete_green.svg" alt="delete green" />
+        </div>
         <span class="title green">A sua conta foi eliminada.</span>
         <span>Para voltar a ver o estado da sua área, crie nova conta.</span>
 
@@ -30,7 +32,7 @@
         </button>
       </div>
       <div class="delete-failure-container" *ngIf="!userDeletedWithSuccess">
-        <div class="image red"><img src="assets/img/icons/delete_red.svg" /></div>
+        <div class="image red"><img src="assets/img/icons/delete_red.svg" alt="delete red" /></div>
         <span class="title">Não foi possível eliminar a sua conta.</span>
         <span
           >Tente eliminar novamente. Se o problema persistir, entre em contacto connosco através de
