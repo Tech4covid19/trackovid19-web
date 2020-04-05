@@ -6,8 +6,8 @@
     "background_color": "#ffffff",
     "lang": "pt",
     "display": "standalone",
-    "scope": "./",
-    "start_url": "./?source=a2hs",
+    "scope": "/",
+    "start_url": "/#/dashboard/status?source=a2hs",
     "categories": ["health"],
     "icons": [
         {
