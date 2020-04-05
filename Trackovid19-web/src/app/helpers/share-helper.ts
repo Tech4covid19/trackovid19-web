@@ -12,9 +12,7 @@ export class ShareHelper {
           quote: quote || null,
           hashtag: (hashtag && `#${hashtag}`) || null,
         },
-        response => {
-          console.log(response);
-        },
+        response => {},
       );
     }
   }
@@ -37,9 +35,7 @@ export class ShareHelper {
           method: 'send',
           link: `${text}`,
         },
-        response => {
-          console.log(response);
-        },
+        response => {},
       );
     }
   }

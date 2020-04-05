@@ -37,6 +37,7 @@ export interface User {
   updated_at: string;
   cases: Case[];
   networks: Network[];
+  share_status_url: string;
 }
 
 export function createUser(params: Partial<User>) {

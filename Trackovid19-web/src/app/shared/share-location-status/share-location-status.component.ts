@@ -3,11 +3,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ShareHelper } from 'src/app/helpers/share-helper';
 
 @Component({
-  selector: 'app-share-locations-status-modal',
-  templateUrl: './share-locations-status-modal.component.html',
-  styleUrls: ['./share-locations-status-modal.component.scss'],
+  selector: 'app-share-locations-status',
+  templateUrl: './share-locations-status.html',
+  styleUrls: ['./share-locations-status.scss'],
 })
-export class ShareLocationStatusModalComponent implements OnInit {
+export class ShareLocationStatusComponent implements OnInit {
   @Input() showModal: boolean;
   @Input() toggleModal: Function;
   @Input() imageUrl: string;

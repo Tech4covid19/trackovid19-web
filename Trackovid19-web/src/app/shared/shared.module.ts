@@ -25,7 +25,7 @@ import { BasicModalComponent } from './basic-modal/basic-modal.component';
 import { NotificationsModalComponent } from './notifications-modal/notifications-modal.component';
 import { ConfirmDeleteUserModalComponent } from './confirm-delete-user-modal/confirm-delete-user.component';
 import { CancelStatusUpdateButtonComponent } from './cancel-status-update-button/cancel-status-update-button.component';
-import { ShareLocationStatusModalComponent } from './share-location-status/share-location-status.component';
+import { ShareLocationStatusComponent } from './share-location-status/share-location-status.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { ShareLocationStatusModalComponent } from './share-location-status/share
     NotificationsModalComponent,
     ConfirmDeleteUserModalComponent,
     CancelStatusUpdateButtonComponent,
-    ShareLocationStatusModalComponent,
+    ShareLocationStatusComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
@@ -71,7 +71,7 @@ import { ShareLocationStatusModalComponent } from './share-location-status/share
     NotificationsModalComponent,
     ConfirmDeleteUserModalComponent,
     CancelStatusUpdateButtonComponent,
-    ShareLocationStatusModalComponent,
+    ShareLocationStatusComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })
