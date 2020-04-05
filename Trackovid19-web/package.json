@@ -32,7 +32,6 @@
     "@schuchard/prettier": "3.1.0",
     "@types/facebook-js-sdk": "3.3.0",
     "immer": "6.0.2",
-    "nunito-fontface": "0.7.3",
     "rxjs": "6.5.4",
     "subsink": "1.0.1",
     "tslib": "1.11.1",
