@@ -24,10 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
-            "styles": [
-              "src/assets/scss/styles.scss",
-              "node_modules/nunito-fontface/css/nunito/sass/nunito-fontface.scss"
-            ],
+            "styles": ["src/assets/scss/styles.scss"],
             "scripts": []
           },
           "configurations": {
