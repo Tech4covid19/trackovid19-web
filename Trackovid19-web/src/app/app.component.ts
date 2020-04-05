@@ -33,9 +33,7 @@ export class AppComponent {
     //TODO: Check if we want to go with this or not
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
-        if (confirm('New version available. Load New Version?')) {
-          window.location.reload();
-        }
+        window.location.reload();
       });
     }
   }
