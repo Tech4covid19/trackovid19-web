@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { User } from '../../states/user/state/user.model';
 import { UserService } from 'src/app/states/user/state/user.service';
+import { SwPush } from '@angular/service-worker';
 
 @Component({
   selector: 'app-confirm-delete-user-modal',
@@ -19,7 +20,7 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
 
   public closeCallback: Function;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private swPush: SwPush) {
     this.closeCallback = this.close.bind(this);
   }
 
@@ -40,6 +41,14 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
         this.userDeletedWithSuccess = response && response.status === 'ok';
         this.showResultContainer = true;
       });
+      this.swPush
+        .unsubscribe()
+        .then(success => {
+          console.log('Unsubscription successful', success);
+        })
+        .catch(err => {
+          console.log('Unsubscription failed', err);
+        });
     } else {
       this.close();
     }
