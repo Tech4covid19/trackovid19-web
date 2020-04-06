@@ -11,6 +11,7 @@ import { VideoState } from 'src/app/states/video/video-state.model';
 import { SwPush } from '@angular/service-worker';
 import { NotificationService } from '../../shared/services/notification-service.service';
 import { environment } from '../../../environments/environment';
+import { LocalStorageHelper } from 'src/app/helpers/local-storage';
 
 @Component({
   selector: 'app-main',
@@ -23,6 +24,7 @@ export class MainComponent implements OnInit, OnDestroy {
   confinementState: ConfinementState = null;
   showShare = false;
   showNotificationModal = false;
+  showConfirmDeleteUserModal = false;
   sub: PushSubscription;
 
   readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
@@ -31,6 +33,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public toggleShareCallback: Function;
   public toggleNotificationModalCallback: Function;
+  public toggleConfirmDeleteUserModalCallback: Function;
   public subscribeToNotificationsCallback: Function;
 
   constructor(
@@ -42,22 +45,24 @@ export class MainComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private swPush: SwPush,
     private notificationService: NotificationService,
+    private localStorageHelper: LocalStorageHelper,
   ) {
     this.toggleShareCallback = this.toggleShare.bind(this);
     this.toggleNotificationModalCallback = this.toggleNotification.bind(this);
+    this.toggleConfirmDeleteUserModalCallback = this.toggleConfirmDeleteUser.bind(this);
     this.subscribeToNotificationsCallback = this.subscribeToNotifications.bind(this);
 
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
-        const shareVal = localStorage.getItem('share');
+        const shareVal = this.localStorageHelper.getShareStatus();
         if (shareVal && shareVal === 'true') {
           this.showShare = true;
-          localStorage.setItem('share', 'false');
+          this.localStorageHelper.setShareStatus('false');
         }
       }
     });
 
-    let gdpr = localStorage.getItem('gdpr');
+    let gdpr = this.localStorageHelper.getGDPR();
     gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
     if (!gdpr) {
       this.router.navigate(['privacy-terms']);
@@ -75,13 +80,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  private hasUserOutdatedStatus(lastUpdate) {
-    const oneDayBehindTime = new Date().getTime() - 1 * 24 * 60 * 60 * 1000; // 1day 24hour  60min  60sec  1000msec
-    const lastUpdateTime = new Date(lastUpdate).getTime(); // we need the timestamp to match the difference
-
-    return oneDayBehindTime > lastUpdateTime;
-  }
-
   private loadState() {
     this.subs.add(
       this.conditionService.get().subscribe((states: any[]) => {
@@ -97,7 +95,7 @@ export class MainComponent implements OnInit, OnDestroy {
         this.user = { ...user };
         this.loadState();
 
-        if (this.hasUserOutdatedStatus(user.latest_status.timestamp)) {
+        if (this.userService.hasUserOutdatedStatus(user)) {
           this.router.navigate(['/dashboard', 'change-state-step1']);
         }
       }),
@@ -155,14 +153,11 @@ export class MainComponent implements OnInit, OnDestroy {
     this.showNotificationModal = false;
   }
 
-  public sendDeleteAccountEmail() {
-    const email = 'remover@covidografia.pt';
-    const subject = 'Pedido de Remoção de Conta e Dados Pessoais';
-    const emailBody =
-      'Desejo que a minha conta e os meus dados pessoais na aplicação covidografia sejam removidos com efeito imediato. Os meus identificadores são: %0D%0A' +
-      `E-mail: ${this.user.email} %0D%0A` +
-      `Id-notificação: personal-${this.user.personal_hash} %0D%0A` +
-      `Id-dados: health-${this.user.health_hash}`;
-    window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + emailBody;
+  public showConfirmDeleteUser() {
+    this.showConfirmDeleteUserModal = true;
+  }
+
+  public toggleConfirmDeleteUser() {
+    this.showConfirmDeleteUserModal = !this.showConfirmDeleteUserModal;
   }
 }

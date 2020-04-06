@@ -3,28 +3,51 @@
     <div class="h-100 wrapper" fxLayout="column">
       <div class="header">
         <div class="logo">
-          <img class="logo-background" src="assets/img/illustrations/login/background.svg" />
+          <img
+            class="logo-background"
+            src="assets/img/illustrations/login/background.svg"
+            alt="background"
+          />
           <img
             class="logo-background-mobile"
             src="assets/img/illustrations/login/background-mobile.svg"
+            alt="background"
           />
         </div>
       </div>
 
-      <div class="action" fxLayout="row">
+      <div class="action">
         <div class="action-content">
           <div
+            *ngIf="!loginMethod || loginMethod === 'facebook'"
             class="login-btn button-elevation cursor-pointer"
             [ngClass]="{ disabled: !acceptedTerms }"
             (click)="onFacebookLogin()"
           >
-            <div class="fb" fxLayout="row" fxLayoutAlign="center">
-              <img *ngIf="acceptedTerms" src="assets/img/facebook.svg" />
-              <img *ngIf="!acceptedTerms" src="assets/img/facebook-disabled.svg" />
-            </div>
-            <div class="login-text">
-              <p>Entrar com o Facebook</p>
-            </div>
+            <img *ngIf="acceptedTerms" src="assets/img/facebook.svg" alt="facebook" />
+            <img
+              *ngIf="!acceptedTerms"
+              src="assets/img/facebook-disabled.svg"
+              alt="facebook-disabled"
+            />
+
+            <p class="login-text">Login com Facebook</p>
+          </div>
+
+          <div
+            *ngIf="!loginMethod || loginMethod === 'google'"
+            class="login-btn button-elevation cursor-pointer google"
+            [ngClass]="{ disabled: !acceptedTerms }"
+            (click)="onGoogleLogin()"
+          >
+            <img *ngIf="acceptedTerms" src="assets/img/google.svg" alt="google" />
+            <img
+              *ngIf="!acceptedTerms"
+              src="assets/img/google-disabled.svg"
+              alt="google-disabled"
+            />
+
+            <p class="login-text">Login com Google</p>
           </div>
 
           <div class="policy-terms">

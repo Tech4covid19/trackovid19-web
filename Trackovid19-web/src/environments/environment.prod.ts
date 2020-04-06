@@ -7,4 +7,5 @@ export const environment = {
   facebookAPI: '142877133789647',
   serverPublicKey:
     'BBEe8XE4MAZu390e-VzBCzjK_QyY4Zra0R6kY-wARxKxWbHOM-KgxSURL6FOzftYG9ht1UvMvONBzpKRxWaIJhU',
+  showCovidografiaCode: false,
 };

@@ -23,6 +23,8 @@ import { LinkCardComponent } from './link-card/link-card.component';
 import { ShareStatusComponent } from './share-status/share-status.component';
 import { BasicModalComponent } from './basic-modal/basic-modal.component';
 import { NotificationsModalComponent } from './notifications-modal/notifications-modal.component';
+import { ConfirmDeleteUserModalComponent } from './confirm-delete-user-modal/confirm-delete-user.component';
+import { CancelStatusUpdateButtonComponent } from './cancel-status-update-button/cancel-status-update-button.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { NotificationsModalComponent } from './notifications-modal/notifications
     ShareStatusComponent,
     BasicModalComponent,
     NotificationsModalComponent,
+    ConfirmDeleteUserModalComponent,
+    CancelStatusUpdateButtonComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, FormsModule],
   exports: [
@@ -63,6 +67,8 @@ import { NotificationsModalComponent } from './notifications-modal/notifications
     ShareStatusComponent,
     BasicModalComponent,
     NotificationsModalComponent,
+    ConfirmDeleteUserModalComponent,
+    CancelStatusUpdateButtonComponent,
   ],
   providers: [AuthGuardService, UserResolver],
 })

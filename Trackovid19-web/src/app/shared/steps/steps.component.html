@@ -1,20 +1,27 @@
 <div class="steps">
   <div class="step" *ngFor="let step of steps; let i = index">
     <div class="step-content" (click)="goToStep(step)">
-      <img *ngIf="step.active == true" src="assets/img/illustrations/change-state/ellipse.svg" />
+      <img
+        *ngIf="step.active == true"
+        src="assets/img/illustrations/change-state/ellipse.svg"
+        alt="ellipse"
+      />
       <img
         *ngIf="step.active !== true"
         src="assets/img/illustrations/change-state/ellipse-disabled.svg"
+        alt="ellipse-disabled"
       />
       <span class="number">{{ step.label }}</span>
     </div>
     <img
       *ngIf="steps[i + 1] && steps[i + 1].active == true"
       src="assets/img/illustrations/change-state/line.svg"
+      alt="line"
     />
     <img
       *ngIf="steps[i + 1] && steps[i + 1].active !== true"
       src="assets/img/illustrations/change-state/line-disabled.svg"
+      alt="line-disabled"
     />
   </div>
 </div>

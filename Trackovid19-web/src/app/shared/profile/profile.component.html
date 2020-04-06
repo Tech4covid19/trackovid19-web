@@ -1,6 +1,6 @@
 <div class="profile">
   <ng-container *ngIf="user; else loading">
-    <img class="profile_picture" src="assets/img/avatar.svg" />
+    <img class="profile_picture" src="assets/img/avatar.svg" alt="avatar" />
 
     <div class="profile_details">
       <span>{{ user.info?.name }}</span>
@@ -9,7 +9,9 @@
   </ng-container>
 
   <ng-template #loading>
-    <i class="fa fa-circle-o-notch fa-spin"></i>
+    <div class="loading">
+      <div class="lds-heart"><div></div></div>
+    </div>
   </ng-template>
   <!-- <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" />
   <img src="assets/img/share.svg" /> -->

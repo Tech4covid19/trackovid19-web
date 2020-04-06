@@ -12,7 +12,6 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent {
   title = 'Trackovid19-web';
 
-
   constructor(
     geolocalizationService: GeolocalizationService,
     private renderer2: Renderer2,
@@ -34,9 +33,7 @@ export class AppComponent {
     //TODO: Check if we want to go with this or not
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
-        if (confirm('New version available. Load New Version?')) {
-          window.location.reload();
-        }
+        window.location.reload();
       });
     }
   }

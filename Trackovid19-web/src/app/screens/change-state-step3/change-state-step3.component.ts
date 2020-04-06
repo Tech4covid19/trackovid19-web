@@ -7,6 +7,7 @@ import { CaseService } from 'src/app/states/case/state/case.service';
 import { ConfinementState } from 'src/app/states/confinement-state/state/confinement-state.model';
 import { ConfinementStateService } from 'src/app/states/confinement-state/state/confinement-state.service';
 import { UserService } from 'src/app/states/user/state/user.service';
+import { LocalStorageHelper } from 'src/app/helpers/local-storage';
 
 @Component({
   selector: 'app-change-state-step3',
@@ -32,6 +33,7 @@ export class ChangeStateStep3Component implements OnInit {
     private caseService: CaseService,
     private userService: UserService,
     private profileService: ProfileServiceService,
+    private localStorageHelper: LocalStorageHelper,
   ) {
     this.updateConfinementStateCallback = this.updateConfinementState.bind(this);
     this.getStateCallback = this.getState.bind(this);
@@ -61,7 +63,7 @@ export class ChangeStateStep3Component implements OnInit {
     this.caseService.add(this.case).subscribe(
       () => {
         this.profileService.setProfileObs(this.case);
-        localStorage.setItem('share', 'true');
+        this.localStorageHelper.setShareStatus('true');
         this.router.navigate(['/dashboard', 'status']);
       },
       err => {

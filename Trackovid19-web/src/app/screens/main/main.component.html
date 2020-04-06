@@ -1,12 +1,13 @@
 <div class="dashboard_container">
   <div class="sidebar_container">
     <div class="logo_container">
-      <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" />
+      <img class="profile_dgs_logo" src="assets/img/logo/covidografia.svg" alt="covidografia" />
       <img
         *ngIf="!isChangingStep()"
         class="share_icon"
         src="assets/img/share.svg"
         (click)="showShareModal()"
+        alt="share"
       />
     </div>
 
@@ -29,7 +30,7 @@
         [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
         class="email-container display_desktop"
       >
-        <img src="assets/img/icons/email.svg" />
+        <img src="assets/img/icons/email.svg" alt="email" />
         <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
       </div>
 
@@ -50,7 +51,7 @@
           >
         </div>
 
-        <div class="text-terms text-grey text-center" (click)="sendDeleteAccountEmail()">
+        <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
           <span>Eliminar Conta</span>
         </div>
       </div>
@@ -68,7 +69,7 @@
     [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
     class="email-container display_mobile"
   >
-    <img src="assets/img/icons/email.svg" />
+    <img src="assets/img/icons/email.svg" alt="email" />
     <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
   </div>
 
@@ -86,7 +87,7 @@
       >
     </div>
 
-    <div class="text-terms text-grey text-center" (click)="sendDeleteAccountEmail()">
+    <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
       <span>Eliminar Conta</span>
     </div>
   </div>
@@ -110,3 +111,10 @@
   [acceptNotifications]="subscribeToNotificationsCallback"
 >
 </app-notifications-modal>
+
+<app-confirm-delete-user-modal
+  [showModal]="showConfirmDeleteUserModal"
+  [toggleModal]="toggleConfirmDeleteUserModalCallback"
+  [user]="user"
+>
+</app-confirm-delete-user-modal>

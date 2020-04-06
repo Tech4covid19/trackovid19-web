@@ -21,6 +21,7 @@ import {
 } from '@angular/animations';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/states/user/state/user.service';
+import { LocalStorageHelper } from 'src/app/helpers/local-storage';
 
 @Directive({
   selector: '.carousel-item',
@@ -119,7 +120,7 @@ export class CarouselComponent implements AfterViewChecked {
 
   next() {
     if (this.currentSlide + 1 === this.items.length) {
-      let gdpr = localStorage.getItem('gdpr');
+      let gdpr = this.localStorageHelper.getGDPR();
       gdpr = gdpr !== null ? JSON.parse(gdpr) : false;
       this.userService.updateUserInformation({ showOnboarding: false }).subscribe(
         success => {},
@@ -160,6 +161,7 @@ export class CarouselComponent implements AfterViewChecked {
     private builder: AnimationBuilder,
     private router: Router,
     private userService: UserService,
+    private localStorageHelper: LocalStorageHelper,
   ) {}
 
   ngAfterViewChecked() {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../../states/user/state/user.service';
 import { User } from '../../states/user/state/user.model';
+import { LocalStorageHelper, LoginMethod } from '../../helpers/local-storage';
 
 @Component({
   template: '',
@@ -13,8 +14,10 @@ export class OauthCallbackComponent {
     private router: Router,
     private authService: AuthService,
     private userService: UserService,
+    private localStorageHelper: LocalStorageHelper,
   ) {
     this.route.queryParams.subscribe(params => {
+      this.localStorageHelper.setLoginMethod(LoginMethod.FACEBOOK); // NEEDS TO BE REVIEWED
       this.authService.authenticate(params.code);
       this.verifyCode();
     });
@@ -22,7 +25,8 @@ export class OauthCallbackComponent {
 
   verifyCode(): void {
     this.userService.getUser().subscribe(user => {
-      localStorage.setItem('gdpr', JSON.stringify(this.verifyTerms(user)));
+      const termsVerified = this.verifyTerms(user);
+      this.localStorageHelper.setGDPR(termsVerified ? 'true' : 'false');
       if (user && user.postalcode && user.postalcode !== '0000-000') {
         const url = this.verifyTerms(user) ? '/dashboard' : '/privacy-terms';
         this.router.navigate([url]);

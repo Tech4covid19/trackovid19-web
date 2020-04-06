@@ -4,10 +4,15 @@
       <div class="h-100 wrapper" fxLayout="column">
         <div class="header">
           <div class="logo">
-            <img class="logo-background" src="assets/img/illustrations/login/background.svg" />
+            <img
+              class="logo-background"
+              src="assets/img/illustrations/login/background.svg"
+              alt="background"
+            />
             <img
               class="logo-background-mobile"
               src="assets/img/illustrations/login/background-mobile.svg"
+              alt="background-mobile"
             />
           </div>
         </div>
@@ -16,7 +21,7 @@
           <div class="action-content">
             <div class="login-btn">
               <div class="fb" fxLayout="row" fxLayoutAlign="center">
-                <img src="assets/img/facebook.svg" />
+                <img src="assets/img/facebook.svg" alt="facebook" />
               </div>
               <div class="login-text">
                 <p>Entrar com o Facebook</p>
@@ -41,9 +46,10 @@
       [formGroup]="form"
       (ngSubmit)="onSubmit()"
       novalidate
+      autocomplete="off"
     >
       <section class="row label" fxLayout="row">
-        <img class="image" alt="marker" src="assets/img/icons/contact.svg" />
+        <img class="image" alt="marker" src="assets/img/icons/contact.svg" alt="contact" />
         <span>Insira o seu ano de nascimento</span>
       </section>
       <section class="row field-container post-code" fxLayout="row">
@@ -103,27 +109,29 @@
         </div>
       </section>
 
-      <section class="row label codigrafia-code" fxLayout="row">
-        <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
-        <span>Se tem um código indicado pelas autoridades preencha aqui.</span>
-      </section>
-      <section class="row field-container post-code covidografia" fxLayout="row">
-        <input
-          formControlName="covidografia-code"
-          type="text"
-          pattern="[0-9A-Z]{10}"
-          maxlength="10"
-          placeholder="- - - - - - - -"
-          (keypress)="keyPress($event)"
-          [class.inputError]="submitted && covidografiaCodeControl.errors"
-        />
-        <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
-          <span>Código inválido. Verifique o seu código!</span>
-        </div>
-      </section>
-      <section class="codigrafia-code-label">
-        <span>* Se não tem um código pode avançar sem preencher</span>
-      </section>
+      <div *ngIf="showCovidografiaCode">
+        <section class="row label codigrafia-code" fxLayout="row">
+          <img class="image" alt="marker" src="assets/img/icons/marker.svg" />
+          <span>Se tem um código indicado pelas autoridades preencha aqui.</span>
+        </section>
+        <section class="row field-container post-code covidografia" fxLayout="row">
+          <input
+            formControlName="covidografia-code"
+            type="text"
+            pattern="[0-9A-Z]{10}"
+            maxlength="10"
+            placeholder="- - - - - - - -"
+            (keypress)="keyPress($event)"
+            [class.inputError]="submitted && covidografiaCodeControl.errors"
+          />
+          <div *ngIf="submitted && covidografiaCodeControl.errors" class="error-notice">
+            <span>Código inválido. Verifique o seu código!</span>
+          </div>
+        </section>
+        <section class="codigrafia-code-label">
+          <span>* Se não tem um código pode avançar sem preencher</span>
+        </section>
+      </div>
 
       <section class="row btns" fxLayout="row">
         <button class="btn-go-foward" type="submit">Avançar</button>
