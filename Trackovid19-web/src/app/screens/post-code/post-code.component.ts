@@ -66,12 +66,6 @@ export class PostCodeComponent implements OnInit {
     this.submitted = true;
     if (this.form.valid) {
       this._updateUserData(this.form.value);
-
-      if (this.user?.show_onboarding) {
-        this.router.navigate(['/onboarding']);
-      } else {
-        this.router.navigate(['/dashboard', 'status']);
-      }
     }
   }
 
@@ -141,6 +135,18 @@ export class PostCodeComponent implements OnInit {
       geo: { lat: latitude, lon: longitude },
     };
 
-    this.userService.updateUserInformation(payload).subscribe();
+    this.userService.updateUserInformation(payload).subscribe(
+      response => {
+        if (this.user?.show_onboarding) {
+          this.router.navigate(['/onboarding']);
+        } else {
+          this.router.navigate(['/dashboard', 'status']);
+        }
+      },
+      error => {
+        this.form.get('zip-code-1').setErrors({ incorrect: true });
+        this.form.get('zip-code-2').setErrors({ incorrect: true });
+      },
+    );
   }
 }
