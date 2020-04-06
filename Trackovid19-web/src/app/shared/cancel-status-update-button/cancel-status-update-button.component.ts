@@ -14,7 +14,7 @@ export class CancelStatusUpdateButtonComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUser().subscribe(user => {
-      this.showButton = !this.userService.hasUserOutdatedStatus(user);
+      this.showButton = user && user.latest_status && !this.userService.hasUserOutdatedStatus(user);
     });
   }
 
