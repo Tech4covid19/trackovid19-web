@@ -172,7 +172,11 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   public toggleLocationStatusModal() {
-    this.userService.getShareStatusUrl(this.user.postalcode1);
+    if (!this.showShareLocationStatus) {
+      this.userService.getShareStatusUrl(this.user.postalcode).subscribe(response => {
+        this.user.share_status_url = response.url;
+      });
+    }
     this.showShareLocationStatus = !this.showShareLocationStatus;
   }
 }
