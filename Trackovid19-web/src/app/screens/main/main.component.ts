@@ -80,13 +80,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  private hasUserOutdatedStatus(lastUpdate) {
-    const oneDayBehindTime = new Date().getTime() - 1 * 24 * 60 * 60 * 1000; // 1day 24hour  60min  60sec  1000msec
-    const lastUpdateTime = new Date(lastUpdate).getTime(); // we need the timestamp to match the difference
-
-    return oneDayBehindTime > lastUpdateTime;
-  }
-
   private loadState() {
     this.subs.add(
       this.conditionService.get().subscribe((states: any[]) => {
