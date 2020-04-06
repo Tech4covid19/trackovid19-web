@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoState } from 'src/app/states/video/video-state.model';
+import { ShareHelper } from 'src/app/helpers/share-helper';
 
 @Component({
   selector: 'app-share-status',
@@ -23,7 +24,7 @@ export class ShareStatusComponent implements OnInit {
 
   public closeCallback: Function;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private shareHelper: ShareHelper) {
     this.closeCallback = this.close.bind(this);
   }
 
@@ -36,79 +37,26 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareFacebook() {
-    // @ts-ignore
-    if (typeof FB !== 'undefined' && FB != null) {
-      // @ts-ignore
-      FB.ui(
-        {
-          display: 'popup',
-          method: 'share',
-          href: this.video.share.facebook,
-          quote: this.shareText,
-          hashtag: `#${this.hashtag}`,
-        },
-        response => {
-          console.log(response);
-        },
-      );
-    }
+    this.shareHelper.facebook(this.video.share.facebook, this.shareText, this.hashtag);
   }
 
   shareWhatsapp() {
-    const whatsappWindow = window.open(
-      // docs => https://faq.whatsapp.com/en/general/26000030
-      `https://wa.me/?text=${this.shareText}`,
-    );
-    if (whatsappWindow.focus) {
-      whatsappWindow.focus();
-    }
-    return false;
+    this.shareHelper.whatsapp(this.shareText);
   }
 
   shareFacebookMessenger() {
-    if (typeof FB !== 'undefined' && FB != null) {
-      // @ts-ignore
-      FB.ui(
-        {
-          method: 'send',
-          link: `${this.shareText}`,
-        },
-        response => {
-          console.log(response);
-        },
-      );
-    }
+    this.shareHelper.facebookMessenger(this.shareText);
   }
 
   shareLinkedIn() {
-    const linkedinWindow = window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${this.video.share.linkedin}`,
-      'height=350,width=600',
-    );
-    if (linkedinWindow.focus) {
-      linkedinWindow.focus();
-    }
-    return false;
+    this.shareHelper.linkedIn(this.video.share.linkedin);
   }
 
   shareTwitter() {
-    const twitterWindow = window.open(
-      `https://twitter.com/intent/tweet?via=covidografia&` +
-        `text=${this.shareText}&hashtags=${this.hashtag}`,
-      'height=350,width=600',
-    );
-    if (twitterWindow.focus) {
-      twitterWindow.focus();
-    }
-    return false;
+    this.shareHelper.twitter(this.shareText, this.hashtag);
   }
 
   shareCopyLinkText() {
-    const el = document.createElement('textarea');
-    el.value = `${this.shareText}`;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    this.shareHelper.copyText(this.shareText);
   }
 }

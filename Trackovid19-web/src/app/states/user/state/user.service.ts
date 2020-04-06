@@ -6,9 +6,15 @@ import { environment } from 'src/environments/environment';
 import { User } from './user.model';
 import { UserStore, UserState } from './user.store';
 
+type ShareStatusResponse = {
+  status: string;
+  url: string;
+};
+
 @Injectable({ providedIn: 'root' })
 export class UserService {
   public url = 'user';
+  public shareStatusUrl = 'share/status';
 
   constructor(
     private userStore: UserStore,
@@ -70,5 +76,13 @@ export class UserService {
     const lastUpdateTime = new Date(user.latest_status.timestamp).getTime(); // we need the timestamp to match the difference
 
     return oneDayBehindTime > lastUpdateTime;
+  }
+
+  getShareStatusUrl(postalCode: string) {
+    return this.http.get(environment.apiUrl + `share/status/${postalCode}`).pipe(
+      tap((response: ShareStatusResponse) => {
+        this.userStore.updateActive({ share_status_url: response.url });
+      }),
+    );
   }
 }

@@ -33,7 +33,7 @@ $modal-radius: 1em;
     background: white;
     margin: auto;
     max-width: 800px;
-    max-height: 80%;
+    max-height: 95%;
 
     .modal-header {
       position: relative;
@@ -86,6 +86,20 @@ $modal-radius: 1em;
 
         svg {
           fill: #444053;
+        }
+      }
+    }
+  }
+
+  .modal.purple {
+    background: radial-gradient(50% 50% at 50% 50%, #e6dee9 0%, #edeef8 100%);
+
+    .modal-header {
+      .close-button {
+        background: white;
+
+        svg {
+          fill: #798794;
         }
       }
     }
