@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 
 import { User } from '../../states/user/state/user.model';
 import { UserService } from 'src/app/states/user/state/user.service';
@@ -20,7 +20,11 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
 
   public closeCallback: Function;
 
-  constructor(private userService: UserService, private swPush: SwPush) {
+  constructor(
+    private userService: UserService,
+    private swPush: SwPush,
+    private renderer: Renderer2,
+  ) {
     this.closeCallback = this.close.bind(this);
   }
 
@@ -32,6 +36,8 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
 
   public close() {
     this.showResultContainer = false;
+    this.renderer.setStyle(document.body, 'overflow', 'initial');
+    this.renderer.setStyle(document.body, 'position', 'initial');
     this.toggleModal();
   }
 
