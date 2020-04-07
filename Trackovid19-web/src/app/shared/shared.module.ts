@@ -27,6 +27,7 @@ import { ConfirmDeleteUserModalComponent } from './confirm-delete-user-modal/con
 import { CancelStatusUpdateButtonComponent } from './cancel-status-update-button/cancel-status-update-button.component';
 import { ShareLocationStatusComponent } from './share-location-status/share-location-status.component';
 
+
 @NgModule({
   declarations: [
     CardComponent,
