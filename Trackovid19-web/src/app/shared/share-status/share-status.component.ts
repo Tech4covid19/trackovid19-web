@@ -20,7 +20,7 @@ export class ShareStatusComponent implements OnInit {
     'Precisamos da tua ajuda! \n' +
     'Tudo o que pedimos é que nos digas se estás bem, em https://covidografia.pt.';
 
-  hashtag = 'ajudarquemnosajuda';
+  hashtags = ['AjudarQuemNosAjuda', 'covidografia', 'Tech4Covid19'];
 
   public closeCallback: Function;
 
@@ -37,7 +37,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareFacebook() {
-    this.shareHelper.facebook(this.video.share.facebook, this.shareText, this.hashtag);
+    this.shareHelper.facebook(this.video.share.facebook, this.shareText, this.hashtags[0]);
   }
 
   shareWhatsapp() {
@@ -53,7 +53,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareTwitter() {
-    this.shareHelper.twitter(this.shareText, this.hashtag);
+    this.shareHelper.twitter(this.shareText, this.hashtags);
   }
 
   shareCopyLinkText() {

@@ -51,9 +51,10 @@ export class ShareHelper {
     return false;
   }
 
-  twitter(text: string, hashtag?: string) {
+  twitter(text: string, hashtags?: string[]) {
     const twitterWindow = window.open(
-      `https://twitter.com/intent/tweet?via=covidografia&` + `text=${text}&hashtags=${hashtag}`,
+      `https://twitter.com/intent/tweet?via=covidografia&` +
+        `text=${text}&hashtags=${hashtags.join(',')}`,
       'height=350,width=600',
     );
     if (twitterWindow.focus) {
