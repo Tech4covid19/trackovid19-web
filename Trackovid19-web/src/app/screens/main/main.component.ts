@@ -59,7 +59,7 @@ export class MainComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
         const shareVal = this.localStorageHelper.getShareStatus();
         if (shareVal && shareVal === 'true') {
-          this.showShareLocationStatus = true;
+          this.toggleLocationStatusModal();
           this.localStorageHelper.setShareStatus('false');
         }
       }
@@ -168,8 +168,10 @@ export class MainComponent implements OnInit, OnDestroy {
     if (!this.showShareLocationStatus) {
       this.userService.getShareStatusUrl(this.user.postalcode).subscribe(response => {
         this.user.share_status_url = response.url;
+        this.showShareLocationStatus = !this.showShareLocationStatus;
       });
+    } else {
+      this.showShareLocationStatus = !this.showShareLocationStatus;
     }
-    this.showShareLocationStatus = !this.showShareLocationStatus;
   }
 }
