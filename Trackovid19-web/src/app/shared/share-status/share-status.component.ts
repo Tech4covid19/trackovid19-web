@@ -37,7 +37,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareFacebook() {
-    this.shareHelper.facebook(this.video.share.facebook, this.shareText, this.hashtags);
+    this.shareHelper.facebook(this.video.share.facebook, this.shareText, this.hashtags[0]);
   }
 
   shareWhatsapp() {
