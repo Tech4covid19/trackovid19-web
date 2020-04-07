@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 import { User } from '../../states/user/state/user.model';
 import { UserService } from 'src/app/states/user/state/user.service';
 import { SwPush } from '@angular/service-worker';
+import { LocalStorageHelper } from 'src/app/helpers/local-storage';
 
 @Component({
   selector: 'app-confirm-delete-user-modal',
@@ -24,6 +25,7 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
     private userService: UserService,
     private swPush: SwPush,
     private renderer: Renderer2,
+    private localStorageHelper: LocalStorageHelper,
   ) {
     this.closeCallback = this.close.bind(this);
   }
@@ -55,6 +57,7 @@ export class ConfirmDeleteUserModalComponent implements OnInit {
         .catch(err => {
           console.log('Unsubscription failed', err);
         });
+      this.localStorageHelper.clear();
     } else {
       this.close();
     }
