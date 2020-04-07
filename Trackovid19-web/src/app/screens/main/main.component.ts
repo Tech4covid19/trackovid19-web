@@ -59,7 +59,7 @@ export class MainComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
         const shareVal = this.localStorageHelper.getShareStatus();
         if (shareVal && shareVal === 'true') {
-          this.showShare = true;
+          this.showShareLocationStatus = true;
           this.localStorageHelper.setShareStatus('false');
         }
       }
