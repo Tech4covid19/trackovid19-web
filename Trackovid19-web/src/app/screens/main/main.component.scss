@@ -93,7 +93,7 @@
   border-radius: 2.5rem;
   outline: none;
   cursor: pointer;
-  padding: 1.125rem 2.5rem;
+  padding: 1.125rem;
   margin: 0 12px;
   border: 1px solid #fa6400;
   font-size: 13px;
@@ -105,6 +105,8 @@
 
 .share-status.display_desktop {
   margin: 0;
+  width: 100%;
+  justify-content: center;
 }
 
 /*
