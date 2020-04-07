@@ -26,7 +26,11 @@
           *ngIf="!isChangingStep()"
           [routerLink]="['/dashboard', 'change-state-step1']"
         ></app-status-btn>
-        <button class="share-status display_desktop" (click)="toggleLocationStatusModalCallback()">
+        <button
+          *ngIf="!isChangingStep()"
+          class="share-status display_desktop"
+          (click)="toggleLocationStatusModalCallback()"
+        >
           Partilhar estado da minha zona
         </button>
       </div>
