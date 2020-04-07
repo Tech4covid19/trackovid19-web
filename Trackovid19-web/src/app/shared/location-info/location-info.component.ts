@@ -16,7 +16,7 @@ export class LocationInfoComponent implements OnInit {
 
   constructor(private query: DashboardQuery, private userQuery: UserQuery, private router: Router) {
     this.count$ = this.query.selectFirst(state =>
-      state.conditions.reduce((total, d) => total + parseInt(d.hits, 10), 0),
+      state.confinements.reduce((total, d) => total + parseInt(d.hits, 10), 0),
     );
   }
 
