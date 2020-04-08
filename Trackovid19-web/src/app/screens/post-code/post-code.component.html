@@ -101,11 +101,17 @@
             [class.inputError]="submitted && zipCode2Control.errors"
           />
         </div>
+
         <div
           *ngIf="submitted && (zipCode1Control.errors || zipCode2Control.errors)"
           class="error-notice"
         >
-          <span>Campo obrigatório!</span>
+          <span *ngIf="zipCode1Control.errors.required || zipCode2Control.errors.required"
+            >Campo obrigatório!</span
+          >
+          <span *ngIf="zipCode1Control.errors.incorrect || zipCode2Control.errors.incorrect"
+            >Campo inválido!</span
+          >
         </div>
       </section>
 

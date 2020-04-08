@@ -21,43 +21,54 @@
     </div>
 
     <div class="bottom">
-      <app-status-btn
-        *ngIf="!isChangingStep()"
-        [routerLink]="['/dashboard', 'change-state-step1']"
-      ></app-status-btn>
-
-      <div
-        [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
-        class="email-container display_desktop"
-      >
-        <img src="assets/img/icons/email.svg" alt="email" />
-        <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
+      <div>
+        <app-status-btn
+          *ngIf="!isChangingStep()"
+          [routerLink]="['/dashboard', 'change-state-step1']"
+        ></app-status-btn>
+        <button
+          *ngIf="!isChangingStep()"
+          class="share-status display_desktop"
+          (click)="toggleLocationStatusModalCallback()"
+        >
+          Partilhar estado da minha zona
+        </button>
       </div>
 
-      <div class="policy-terms display_desktop" *ngIf="!isChangingStep()">
-        <div class="text-center">
-          <a
-            class="text-terms text-grey text-center"
-            target="_blank"
-            [routerLink]="['/terms-conditions']"
-            >Termos e Condições</a
-          >
-          <span class="text-grey text-center"> | </span>
-          <a
-            class="text-terms text-grey text-center"
-            target="_blank"
-            [routerLink]="['/privacy-policy']"
-            >Política de Privacidade</a
-          >
+      <div class="links">
+        <div
+          [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
+          class="email-container display_desktop"
+        >
+          <img src="assets/img/icons/email.svg" />
+          <a class="email" href="mailto:info@covidografia.pt">info@covidografia.pt</a>
         </div>
 
-        <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
-          <span>Eliminar Conta</span>
+        <div class="policy-terms display_desktop" *ngIf="!isChangingStep()">
+          <div class="text-center">
+            <a
+              class="text-terms text-grey text-center"
+              target="_blank"
+              [routerLink]="['/terms-conditions']"
+              >Termos e Condições</a
+            >
+            <span class="text-grey text-center"> | </span>
+            <a
+              class="text-terms text-grey text-center"
+              target="_blank"
+              [routerLink]="['/privacy-policy']"
+              >Política de Privacidade</a
+            >
+          </div>
+
+          <div class="text-terms text-grey text-center" (click)="showConfirmDeleteUser()">
+            <span>Eliminar Conta</span>
+          </div>
         </div>
+        <a class="link display_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
+          >Log out</a
+        >
       </div>
-      <a class="link display_desktop" *ngIf="!isChangingStep()" [routerLink]="['/logout']"
-        >Log out</a
-      >
     </div>
   </div>
 
@@ -65,6 +76,9 @@
     <router-outlet></router-outlet>
   </div>
 
+  <button class="share-status display_mobile" (click)="toggleLocationStatusModalCallback()">
+    Partilhar estado da minha zona
+  </button>
   <div
     [ngClass]="{ hideMobileOnly: isChangingStep() === true }"
     class="email-container display_mobile"
@@ -118,3 +132,10 @@
   [user]="user"
 >
 </app-confirm-delete-user-modal>
+<app-share-locations-status
+  [showModal]="showShareLocationStatus"
+  [toggleModal]="toggleLocationStatusModalCallback"
+  [imageUrl]="user?.share_status_url"
+  [postCode]="user?.postalcode1"
+>
+</app-share-locations-status>

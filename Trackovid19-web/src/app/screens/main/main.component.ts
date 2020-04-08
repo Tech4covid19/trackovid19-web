@@ -26,6 +26,7 @@ export class MainComponent implements OnInit, OnDestroy {
   showNotificationModal = false;
   showConfirmDeleteUserModal = false;
   sub: PushSubscription;
+  showShareLocationStatus = false;
 
   readonly VAPID_PUBLIC_KEY = environment.serverPublicKey;
 
@@ -35,6 +36,7 @@ export class MainComponent implements OnInit, OnDestroy {
   public toggleNotificationModalCallback: Function;
   public toggleConfirmDeleteUserModalCallback: Function;
   public subscribeToNotificationsCallback: Function;
+  public toggleLocationStatusModalCallback: Function;
 
   constructor(
     private router: Router,
@@ -51,12 +53,13 @@ export class MainComponent implements OnInit, OnDestroy {
     this.toggleNotificationModalCallback = this.toggleNotification.bind(this);
     this.toggleConfirmDeleteUserModalCallback = this.toggleConfirmDeleteUser.bind(this);
     this.subscribeToNotificationsCallback = this.subscribeToNotifications.bind(this);
+    this.toggleLocationStatusModalCallback = this.toggleLocationStatusModal.bind(this);
 
     router.events.forEach(event => {
       if (event instanceof NavigationEnd && event.url.indexOf('/dashboard/status') !== -1) {
         const shareVal = this.localStorageHelper.getShareStatus();
         if (shareVal && shareVal === 'true') {
-          this.showShare = true;
+          this.toggleLocationStatusModal();
           this.localStorageHelper.setShareStatus('false');
         }
       }
@@ -159,5 +162,16 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public toggleConfirmDeleteUser() {
     this.showConfirmDeleteUserModal = !this.showConfirmDeleteUserModal;
+  }
+
+  public toggleLocationStatusModal() {
+    if (!this.showShareLocationStatus) {
+      this.userService.getShareStatusUrl(this.user.postalcode).subscribe(response => {
+        this.user.share_status_url = response.url;
+        this.showShareLocationStatus = !this.showShareLocationStatus;
+      });
+    } else {
+      this.showShareLocationStatus = !this.showShareLocationStatus;
+    }
   }
 }

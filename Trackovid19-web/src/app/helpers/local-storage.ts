@@ -34,4 +34,8 @@ export class LocalStorageHelper {
   getGDPR(): string {
     return localStorage.getItem('gdpr');
   }
+
+  clear() {
+    localStorage.clear();
+  }
 }

@@ -17,7 +17,11 @@ export class OauthCallbackComponent {
     private localStorageHelper: LocalStorageHelper,
   ) {
     this.route.queryParams.subscribe(params => {
-      this.localStorageHelper.setLoginMethod(LoginMethod.FACEBOOK); // NEEDS TO BE REVIEWED
+      if (params.provider === '1') {
+        this.localStorageHelper.setLoginMethod(LoginMethod.FACEBOOK);
+      } else {
+        this.localStorageHelper.setLoginMethod(LoginMethod.GOOGLE);
+      }
       this.authService.authenticate(params.code);
       this.verifyCode();
     });

@@ -10,6 +10,7 @@ export class BasicModalComponent implements OnInit {
   @Input() opened = true;
   @Input() closeCallback: Function;
   @Input() greyBackground = false;
+  @Input() purpleBackground = false;
   @Input() minHeight = false;
   public closing = false;
 
