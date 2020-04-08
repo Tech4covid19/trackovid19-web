@@ -36,11 +36,11 @@ export class ShareLocationStatusComponent implements OnInit {
   }
 
   shareWhatsapp() {
-    this.shareHelper.whatsapp(`${this.shareText} ${this.getImageUrl()}`);
+    this.shareHelper.whatsapp(`${this.shareText} ${this.getImageUrl().replace('&', '%26')}`);
   }
 
   shareFacebookMessenger() {
-    this.shareHelper.facebookMessenger(`${this.shareText} ${this.getImageUrl()}`);
+    this.shareHelper.facebookMessenger(this.getImageUrl());
   }
 
   shareLinkedIn() {
