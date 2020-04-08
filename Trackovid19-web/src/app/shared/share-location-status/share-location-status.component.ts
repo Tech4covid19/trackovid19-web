@@ -21,8 +21,7 @@ export class ShareLocationStatusComponent implements OnInit {
     this.closeCallback = this.close.bind(this);
   }
 
-  shareText =
-    'Este é o estado da minha zona, como está a tua? Vê o estado da tua zona em covidografia.pt';
+  shareText = 'Como está a tua zona? Podes ver como está a minha carregando na imagem!';
 
   hashtags = ['AjudarQuemNosAjuda', 'covidografia', 'Tech4Covid19'];
 
