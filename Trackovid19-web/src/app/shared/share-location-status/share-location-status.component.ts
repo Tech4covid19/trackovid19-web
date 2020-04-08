@@ -48,7 +48,7 @@ export class ShareLocationStatusComponent implements OnInit {
   }
 
   shareTwitter() {
-    this.shareHelper.twitter(this.getImageUrl(), this.hashtags);
+    this.shareHelper.twitter(this.getImageUrl().replace('&', '%26'), this.hashtags);
   }
 
   shareCopyLinkText() {
@@ -58,6 +58,6 @@ export class ShareLocationStatusComponent implements OnInit {
   getImageUrl() {
     const imageUrlSplit = this.imageUrl.split('.');
     const imageId = imageUrlSplit[imageUrlSplit.length - 2].split('/').pop();
-    return `https://covidografia.pt/o-meu-codigo-postal/?postalCode=${this.postCode}%26imageId=${imageId}`;
+    return `https://covidografia.pt/o-meu-codigo-postal/?postalCode=${this.postCode}&imageId=${imageId}`;
   }
 }
