@@ -58,6 +58,6 @@ export class ShareLocationStatusComponent implements OnInit {
   getImageUrl() {
     const imageUrlSplit = this.imageUrl.split('.');
     const imageId = imageUrlSplit[imageUrlSplit.length - 2].split('/').pop();
-    return `https://covidografia.pt/o-meu-codigo-postal/?postalCode=${this.postCode}&imageId=${imageId}`;
+    return `https://covidografia.pt/o-meu-codigo-postal/?postalCode=${this.postCode}%26imageId=${imageId}`;
   }
 }
