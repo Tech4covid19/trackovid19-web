@@ -40,7 +40,7 @@ export class ShareLocationStatusComponent implements OnInit {
   }
 
   shareFacebookMessenger() {
-    this.shareHelper.facebookMessenger(`${this.shareText} ${this.getImageUrl()}`);
+    this.shareHelper.facebookMessenger(this.getImageUrl());
   }
 
   shareLinkedIn() {

@@ -45,7 +45,7 @@ export class ShareStatusComponent implements OnInit {
   }
 
   shareFacebookMessenger() {
-    this.shareHelper.facebookMessenger(this.shareText);
+    this.shareHelper.facebookMessenger('https://covidografia.pt');
   }
 
   shareLinkedIn() {
