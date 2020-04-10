@@ -76,7 +76,11 @@
     <router-outlet></router-outlet>
   </div>
 
-  <button class="share-status display_mobile" (click)="toggleLocationStatusModalCallback()">
+  <button
+    *ngIf="!isChangingStep()"
+    class="share-status display_mobile"
+    (click)="toggleLocationStatusModalCallback()"
+  >
     Partilhar estado da minha zona
   </button>
   <div
