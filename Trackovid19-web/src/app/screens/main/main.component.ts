@@ -147,9 +147,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public toggleShare() {
     this.showShare = !this.showShare;
-    setTimeout(() => {
-      this.showNotifications();
-    }, 1000);
   }
 
   public toggleNotification() {
@@ -172,6 +169,9 @@ export class MainComponent implements OnInit, OnDestroy {
       });
     } else {
       this.showShareLocationStatus = !this.showShareLocationStatus;
+      setTimeout(() => {
+        this.showNotifications();
+      }, 1000);
     }
   }
 }
